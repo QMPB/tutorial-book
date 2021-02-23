@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Acknowledgements and Contents | Quantitative methods in plant breeding: the digital tutorials.</title>
+  <meta name="description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Acknowledgements and Contents | Quantitative methods in plant breeding: the digital tutorials." />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="github-repo" content="rstudio/bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Acknowledgements and Contents | Quantitative methods in plant breeding: the digital tutorials." />
+  
+  <meta name="twitter:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="twitter:image" content="images/cover.jpg" />
+
+<meta name="author" content="NIAB 2021" />
+
+
+<meta name="date" content="2021-02-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="R-and-stats.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The QMPB digital tutorials</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="Acknow.html"><a href="Acknow.html"><i class="fa fa-check"></i><b>2</b> Acknowledgements and Contents</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="Acknow.html"><a href="Acknow.html#acknowledgements"><i class="fa fa-check"></i><b>2.1</b> Acknowledgements</a></li>
+<li class="chapter" data-level="2.2" data-path="Acknow.html"><a href="Acknow.html#digital-tutorial-chapters"><i class="fa fa-check"></i><b>2.2</b> Digital Tutorial Chapters:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="R-and-stats.html"><a href="R-and-stats.html"><i class="fa fa-check"></i><b>3</b> R and Rstudio: a general introduction with statistics.</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="R-and-stats.html"><a href="R-and-stats.html#introduction-section-on-r"><i class="fa fa-check"></i><b>3.1</b> Introduction section on R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="R-and-stats.html"><a href="R-and-stats.html#getting-the-data-ready"><i class="fa fa-check"></i><b>3.1.1</b> Getting the data ready</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="R-and-stats.html"><a href="R-and-stats.html#the-rstudio-layout-workspace-and-enviroment."><i class="fa fa-check"></i><b>3.2</b> The Rstudio layout, workspace and enviroment.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="R-and-stats.html"><a href="R-and-stats.html#working-directory"><i class="fa fa-check"></i><b>3.2.1</b> Working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="R-and-stats.html"><a href="R-and-stats.html#basic-r-syntx"><i class="fa fa-check"></i><b>3.3</b> Basic R Syntx</a></li>
+<li class="chapter" data-level="3.4" data-path="R-and-stats.html"><a href="R-and-stats.html#reading-in-data"><i class="fa fa-check"></i><b>3.4</b> Reading in data</a></li>
+<li class="chapter" data-level="3.5" data-path="R-and-stats.html"><a href="R-and-stats.html#understanding-data-types-and-r-objects"><i class="fa fa-check"></i><b>3.5</b> Understanding data types and R objects</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="R-and-stats.html"><a href="R-and-stats.html#summary"><i class="fa fa-check"></i><b>3.5.1</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="R-and-stats.html"><a href="R-and-stats.html#summarising-and-displaying-data"><i class="fa fa-check"></i><b>3.6</b> Summarising and displaying data</a></li>
+<li class="chapter" data-level="3.7" data-path="R-and-stats.html"><a href="R-and-stats.html#calculations-and-data-manipulation"><i class="fa fa-check"></i><b>3.7</b> Calculations and data manipulation</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="R-and-stats.html"><a href="R-and-stats.html#sorting-data"><i class="fa fa-check"></i><b>3.7.1</b> Sorting data</a></li>
+<li class="chapter" data-level="3.7.2" data-path="R-and-stats.html"><a href="R-and-stats.html#relationships-between-variates."><i class="fa fa-check"></i><b>3.7.2</b> Relationships between variates.</a></li>
+<li class="chapter" data-level="3.7.3" data-path="R-and-stats.html"><a href="R-and-stats.html#exporting-your-script-and-workspace"><i class="fa fa-check"></i><b>3.7.3</b> Exporting your script and workspace</a></li>
+<li class="chapter" data-level="3.7.4" data-path="R-and-stats.html"><a href="R-and-stats.html#saving-a-data-table"><i class="fa fa-check"></i><b>3.7.4</b> Saving a data table</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="R-and-stats.html"><a href="R-and-stats.html#basic-statistical-analysis"><i class="fa fa-check"></i><b>3.8</b> Basic statistical analysis</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="R-and-stats.html"><a href="R-and-stats.html#the-t-test"><i class="fa fa-check"></i><b>3.8.1</b> The t-test</a></li>
+<li class="chapter" data-level="3.8.2" data-path="R-and-stats.html"><a href="R-and-stats.html#linear-regression"><i class="fa fa-check"></i><b>3.8.2</b> Linear Regression</a></li>
+<li class="chapter" data-level="3.8.3" data-path="R-and-stats.html"><a href="R-and-stats.html#multiple-regression"><i class="fa fa-check"></i><b>3.8.3</b> Multiple regression</a></li>
+<li class="chapter" data-level="3.8.4" data-path="R-and-stats.html"><a href="R-and-stats.html#the-analysis-of-variance"><i class="fa fa-check"></i><b>3.8.4</b> The analysis of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="R-and-stats.html"><a href="R-and-stats.html#categorical-data---the-chi-squared-test"><i class="fa fa-check"></i><b>3.9</b> Categorical data - <em>the chi-squared test</em></a></li>
+<li class="chapter" data-level="3.10" data-path="R-and-stats.html"><a href="R-and-stats.html#more-useful-information"><i class="fa fa-check"></i><b>3.10</b> More useful information</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="R-and-stats.html"><a href="R-and-stats.html#plotting-graphs"><i class="fa fa-check"></i><b>3.10.1</b> Plotting Graphs</a></li>
+<li class="chapter" data-level="3.10.2" data-path="R-and-stats.html"><a href="R-and-stats.html#probability-distributions"><i class="fa fa-check"></i><b>3.10.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="3.10.3" data-path="R-and-stats.html"><a href="R-and-stats.html#random-number-generation"><i class="fa fa-check"></i><b>3.10.3</b> Random number generation</a></li>
+<li class="chapter" data-level="3.10.4" data-path="R-and-stats.html"><a href="R-and-stats.html#loops-second-example"><i class="fa fa-check"></i><b>3.10.4</b> Loops: <em>second example</em></a></li>
+<li class="chapter" data-level="3.10.5" data-path="R-and-stats.html"><a href="R-and-stats.html#miscellany"><i class="fa fa-check"></i><b>3.10.5</b> Miscellany</a></li>
+<li class="chapter" data-level="3.10.6" data-path="R-and-stats.html"><a href="R-and-stats.html#my-number-one-piece-of-advice"><i class="fa fa-check"></i><b>3.10.6</b> My number one piece of advice</a></li>
+<li class="chapter" data-level="3.10.7" data-path="R-and-stats.html"><a href="R-and-stats.html#learn-more"><i class="fa fa-check"></i><b>3.10.7</b> Learn more</a></li>
+<li class="chapter" data-level="3.10.8" data-path="R-and-stats.html"><a href="R-and-stats.html#packages"><i class="fa fa-check"></i><b>3.10.8</b> Packages</a></li>
+<li class="chapter" data-level="3.10.9" data-path="R-and-stats.html"><a href="R-and-stats.html#the-tidyverse"><i class="fa fa-check"></i><b>3.10.9</b> The Tidyverse</a></li>
+<li class="chapter" data-level="3.10.10" data-path="R-and-stats.html"><a href="R-and-stats.html#other-resources"><i class="fa fa-check"></i><b>3.10.10</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="R-and-stats.html"><a href="R-and-stats.html#list-of-commands-mainly-described-in-this-guide."><i class="fa fa-check"></i><b>3.11</b> List of commands, mainly described in this guide.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Trial-design.html"><a href="Trial-design.html"><i class="fa fa-check"></i><b>4</b> Trial Design.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="Trial-design.html"><a href="Trial-design.html#randomised-complete-block-designs"><i class="fa fa-check"></i><b>4.1</b> Randomised complete block designs</a></li>
+<li class="chapter" data-level="4.2" data-path="Trial-design.html"><a href="Trial-design.html#trial-design-in-r"><i class="fa fa-check"></i><b>4.2</b> Trial design in R</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="Trial-design.html"><a href="Trial-design.html#partially-replicated-designs"><i class="fa fa-check"></i><b>4.2.1</b> Partially replicated designs</a></li>
+<li class="chapter" data-level="4.2.2" data-path="Trial-design.html"><a href="Trial-design.html#two-dimensional-designs"><i class="fa fa-check"></i><b>4.2.2</b> Two-dimensional designs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="Trial-design.html"><a href="Trial-design.html#farm-scale-experiments"><i class="fa fa-check"></i><b>4.3</b> Farm scale experiments</a></li>
+<li class="chapter" data-level="4.4" data-path="Trial-design.html"><a href="Trial-design.html#alpha-designs."><i class="fa fa-check"></i><b>4.4</b> Alpha designs.</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="Trial-design.html"><a href="Trial-design.html#creation-of-augmented-and-p-rep-designs-from-2-replicate-alpha-designs"><i class="fa fa-check"></i><b>4.4.1</b> Creation of augmented and p-rep designs from 2-replicate alpha designs</a></li>
+<li class="chapter" data-level="4.4.2" data-path="Trial-design.html"><a href="Trial-design.html#final-message"><i class="fa fa-check"></i><b>4.4.2</b> Final message</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Trial-analysis.html"><a href="Trial-analysis.html"><i class="fa fa-check"></i><b>5</b> Trial analysis (sugar beet example).</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#the-layout-of-the-sugar-beet-trial"><i class="fa fa-check"></i><b>5.1</b> The layout of the sugar beet trial</a></li>
+<li class="chapter" data-level="5.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#fixed-effects-random-effects-and-reml"><i class="fa fa-check"></i><b>5.2</b> Fixed effects, random effects and REML</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#preparing-the-data"><i class="fa fa-check"></i><b>5.2.1</b> Preparing the data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#randomised-complete-block-design"><i class="fa fa-check"></i><b>5.2.2</b> Randomised complete block design</a></li>
+<li class="chapter" data-level="5.2.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#randomised-compelete-block-design---with-mixed-models"><i class="fa fa-check"></i><b>5.2.3</b> Randomised compelete block design - with mixed models</a></li>
+<li class="chapter" data-level="5.2.4" data-path="Trial-analysis.html"><a href="Trial-analysis.html#plotting-residuals-against-field-structure."><i class="fa fa-check"></i><b>5.2.4</b> Plotting residuals against field structure.</a></li>
+<li class="chapter" data-level="5.2.5" data-path="Trial-analysis.html"><a href="Trial-analysis.html#alpha-design-include-block-structure"><i class="fa fa-check"></i><b>5.2.5</b> Alpha design (include block structure)</a></li>
+<li class="chapter" data-level="5.2.6" data-path="Trial-analysis.html"><a href="Trial-analysis.html#rows-and-column-analysis"><i class="fa fa-check"></i><b>5.2.6</b> Rows and column analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#spatial-analysis"><i class="fa fa-check"></i><b>5.3</b> Spatial analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html"><i class="fa fa-check"></i><b>6</b> Cross sites analysis in R.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#blues-blups-and-one-stage-analysis"><i class="fa fa-check"></i><b>6.1</b> BLUEs, BLUPs and one stage analysis</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#one-stage-analysis-with-weights"><i class="fa fa-check"></i><b>6.1.1</b> One stage analysis with weights</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#weighted-two-stage-analysis"><i class="fa fa-check"></i><b>6.2</b> Weighted two-stage analysis</a></li>
+<li class="chapter" data-level="6.3" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#ammi"><i class="fa fa-check"></i><b>6.3</b> AMMI</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="Population-genetics.html"><a href="Population-genetics.html"><i class="fa fa-check"></i><b>7</b> Population genetics.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="Population-genetics.html"><a href="Population-genetics.html#hardy-weinberg-equilibrium-and-population-structure"><i class="fa fa-check"></i><b>7.1</b> Hardy-Weinberg equilibrium and population structure</a></li>
+<li class="chapter" data-level="7.2" data-path="Population-genetics.html"><a href="Population-genetics.html#other-ways-of-analysing-population-structure"><i class="fa fa-check"></i><b>7.2</b> Other ways of analysing population structure</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="Population-genetics.html"><a href="Population-genetics.html#distance-trees"><i class="fa fa-check"></i><b>7.2.1</b> Distance Trees</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="Population-genetics.html"><a href="Population-genetics.html#structure"><i class="fa fa-check"></i><b>7.3</b> Structure</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="Population-genetics.html"><a href="Population-genetics.html#what-structure-does"><i class="fa fa-check"></i><b>7.3.1</b> What STRUCTURE does</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Population-genetics.html"><a href="Population-genetics.html#limitations-of-structure"><i class="fa fa-check"></i><b>7.3.2</b> Limitations of STRUCTURE</a></li>
+<li class="chapter" data-level="7.3.3" data-path="Population-genetics.html"><a href="Population-genetics.html#using-structure"><i class="fa fa-check"></i><b>7.3.3</b> Using Structure</a></li>
+<li class="chapter" data-level="7.3.4" data-path="Population-genetics.html"><a href="Population-genetics.html#the-exercise"><i class="fa fa-check"></i><b>7.3.4</b> The exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="Population-genetics.html"><a href="Population-genetics.html#linkage-disequilibrium-analysis"><i class="fa fa-check"></i><b>7.4</b> Linkage disequilibrium analysis</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="Population-genetics.html"><a href="Population-genetics.html#linkage-disequilibrium-in-the-teosinte-and-barley-data-sets"><i class="fa fa-check"></i><b>7.4.1</b> Linkage disequilibrium in the teosinte and barley data sets</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="Population-genetics.html"><a href="Population-genetics.html#recombination-and-linkage-disequilibrium-applications"><i class="fa fa-check"></i><b>7.5</b> Recombination and linkage disequilibrium: applications</a></li>
+<li class="chapter" data-level="7.6" data-path="Population-genetics.html"><a href="Population-genetics.html#pedigree-analysis"><i class="fa fa-check"></i><b>7.6</b> Pedigree analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Imputation.html"><a href="Imputation.html"><i class="fa fa-check"></i><b>8</b> Imputation.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="Imputation.html"><a href="Imputation.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="Imputation.html"><a href="Imputation.html#the-exercise-1"><i class="fa fa-check"></i><b>8.2</b> The exercise</a></li>
+<li class="chapter" data-level="8.3" data-path="Imputation.html"><a href="Imputation.html#data-preparation-for-all-methods"><i class="fa fa-check"></i><b>8.3</b> Data preparation (for all methods)</a></li>
+<li class="chapter" data-level="8.4" data-path="Imputation.html"><a href="Imputation.html#svd-imputation"><i class="fa fa-check"></i><b>8.4</b> SVD imputation</a></li>
+<li class="chapter" data-level="8.5" data-path="Imputation.html"><a href="Imputation.html#mean-imputation"><i class="fa fa-check"></i><b>8.5</b> Mean imputation</a></li>
+<li class="chapter" data-level="8.6" data-path="Imputation.html"><a href="Imputation.html#random-forest-imputation"><i class="fa fa-check"></i><b>8.6</b> Random Forest Imputation</a></li>
+<li class="chapter" data-level="8.7" data-path="Imputation.html"><a href="Imputation.html#summary-1"><i class="fa fa-check"></i><b>8.7</b> Summary</a></li>
+<li class="chapter" data-level="8.8" data-path="Imputation.html"><a href="Imputation.html#conclusions-and-comments"><i class="fa fa-check"></i><b>8.8</b> Conclusions and comments</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="Association-mapping.html"><a href="Association-mapping.html"><i class="fa fa-check"></i><b>9</b> Association Mapping.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="Association-mapping.html"><a href="Association-mapping.html#introduction-1"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="Association-mapping.html"><a href="Association-mapping.html#preparing-the-data-set"><i class="fa fa-check"></i><b>9.2</b> Preparing the data set</a></li>
+<li class="chapter" data-level="9.3" data-path="Association-mapping.html"><a href="Association-mapping.html#running-gwaspoly"><i class="fa fa-check"></i><b>9.3</b> Running GWASpoly</a></li>
+<li class="chapter" data-level="9.4" data-path="Association-mapping.html"><a href="Association-mapping.html#the-exercise-2"><i class="fa fa-check"></i><b>9.4</b> The exercise</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="Association-mapping.html"><a href="Association-mapping.html#calculation-and-comparison-of-kinship"><i class="fa fa-check"></i><b>9.4.1</b> Calculation and comparison of kinship</a></li>
+<li class="chapter" data-level="9.4.2" data-path="Association-mapping.html"><a href="Association-mapping.html#gwas"><i class="fa fa-check"></i><b>9.4.2</b> GWAS</a></li>
+<li class="chapter" data-level="9.4.3" data-path="Association-mapping.html"><a href="Association-mapping.html#analysis-with-covariates"><i class="fa fa-check"></i><b>9.4.3</b> Analysis with covariates</a></li>
+<li class="chapter" data-level="9.4.4" data-path="Association-mapping.html"><a href="Association-mapping.html#accounting-for-population-structure"><i class="fa fa-check"></i><b>9.4.4</b> Accounting for population structure</a></li>
+<li class="chapter" data-level="9.4.5" data-path="Association-mapping.html"><a href="Association-mapping.html#further-analysis"><i class="fa fa-check"></i><b>9.4.5</b> Further analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative methods in plant breeding: the digital tutorials.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Acknow" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Acknowledgements and Contents</h1>
+<div id="acknowledgements" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Acknowledgements</h2>
+<p>This is the 13th time NIAB has run its Quantitative Methods in Plant Breeding course. The course was devised and created at NIAB by Professor Ian Mackay (now of Implant Consultancy Ltd. and SRUC, <a href="mailto:i.j.mackay@gmail.com" class="email">i.j.mackay@gmail.com</a>) from discussions with Mike Kearsey, Noel Ellis, Wayne Powell and Andy Greenland about the need for training for plant breeders and what and how NIAB could contribute. Ian also wrote this course manual.</p>
+<p>This is the 7th time in which I have taught on the NIAB QMPB course. Like so many participants over the years, Ian has stimulated my thinking on all aspects of plant breeding and I have learnt a great deal from him. I hope I can continue to add to the wealth of knowledge and practical learning that he has developed in the course.</p>
+<p>Over the years, the course has also benefitted from the input of several guest lecturers, as well as assistance in lecturing and demonstrating from colleagues in the John Bingham Laboratory at NIAB. In particular, we would like to recognise the enthusiastic contributions of our former NIAB colleague, Greg Mellers, who sadly passed away in late 2019.</p>
+<p><img src="images/Greg.png" /></p>
+<p>All the course administration has been handled by NIAB’s Mary MacPhee. I would also like to thank Tally Wright, Nick Fradgley, Camila Zanella, Joachim Nwezeobi and Yeorgia Argirou for their roles in preparing and teaching the course and Joseph Amosu for managing the IT support.</p>
+<p>We would like to thank the authors of the <code>bookdown</code> package <span class="citation">(<a href="references.html#ref-R-bookdown" role="doc-biblioref">Xie 2020</a>)</span> which has been used to form this online book, which was built with R Markdown and <code>knitr</code> <span class="citation">(<a href="references.html#ref-xie2015" role="doc-biblioref">Xie 2015</a>)</span>.</p>
+<p>Please feel free to contact me with any questions: <a href="mailto:keith.gardner@niab.com" class="email">keith.gardner@niab.com</a>. For more details about Genetics and Breeding at NIAB please see: <a href="https://www.niab.com/research/agricultural-crop-research-0" class="uri">https://www.niab.com/research/agricultural-crop-research-0</a></p>
+<p><em>Keith Gardner</em></p>
+<p>NIAB</p>
+</div>
+<div id="digital-tutorial-chapters" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Digital Tutorial Chapters:</h2>
+<ul>
+<li><p>Chapter <a href="index.html#Introduction">1</a>: Introduction</p></li>
+<li><p>Chapter <a href="Acknow.html#Acknow">2</a>: Acknowledgements and Contents</p></li>
+<li><p>Chapter <a href="R-and-stats.html#R-and-stats">3</a>: R and Rstudio: a general introduction with statistics.</p></li>
+<li><p>Chapter <a href="Trial-design.html#Trial-design">4</a>: Trial design</p></li>
+<li><p>Chapter <a href="Trial-analysis.html#Trial-analysis">5</a>: Trial analysis</p></li>
+<li><p>Chapter <a href="Cross-site-analysis.html#Cross-site-analysis">6</a>: Cross site analysis</p></li>
+<li><p>Chapter <a href="Population-genetics.html#Population-genetics">7</a>: Population genetics</p></li>
+<li><p>Chapter <a href="Imputation.html#Imputation">8</a>: Imputation</p></li>
+<li><p>Chapter <a href="Association-mapping.html#Association-mapping">9</a>: Association Mapping.</p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="R-and-stats.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-Acknow.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

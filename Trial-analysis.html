@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Trial analysis (sugar beet example). | Quantitative methods in plant breeding: the digital tutorials.</title>
+  <meta name="description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Trial analysis (sugar beet example). | Quantitative methods in plant breeding: the digital tutorials." />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="github-repo" content="rstudio/bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Trial analysis (sugar beet example). | Quantitative methods in plant breeding: the digital tutorials." />
+  
+  <meta name="twitter:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="twitter:image" content="images/cover.jpg" />
+
+<meta name="author" content="NIAB 2021" />
+
+
+<meta name="date" content="2021-02-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Trial-design.html"/>
+<link rel="next" href="Cross-site-analysis.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The QMPB digital tutorials</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="Acknow.html"><a href="Acknow.html"><i class="fa fa-check"></i><b>2</b> Acknowledgements and Contents</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="Acknow.html"><a href="Acknow.html#acknowledgements"><i class="fa fa-check"></i><b>2.1</b> Acknowledgements</a></li>
+<li class="chapter" data-level="2.2" data-path="Acknow.html"><a href="Acknow.html#digital-tutorial-chapters"><i class="fa fa-check"></i><b>2.2</b> Digital Tutorial Chapters:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="R-and-stats.html"><a href="R-and-stats.html"><i class="fa fa-check"></i><b>3</b> R and Rstudio: a general introduction with statistics.</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="R-and-stats.html"><a href="R-and-stats.html#introduction-section-on-r"><i class="fa fa-check"></i><b>3.1</b> Introduction section on R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="R-and-stats.html"><a href="R-and-stats.html#getting-the-data-ready"><i class="fa fa-check"></i><b>3.1.1</b> Getting the data ready</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="R-and-stats.html"><a href="R-and-stats.html#the-rstudio-layout-workspace-and-enviroment."><i class="fa fa-check"></i><b>3.2</b> The Rstudio layout, workspace and enviroment.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="R-and-stats.html"><a href="R-and-stats.html#working-directory"><i class="fa fa-check"></i><b>3.2.1</b> Working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="R-and-stats.html"><a href="R-and-stats.html#basic-r-syntx"><i class="fa fa-check"></i><b>3.3</b> Basic R Syntx</a></li>
+<li class="chapter" data-level="3.4" data-path="R-and-stats.html"><a href="R-and-stats.html#reading-in-data"><i class="fa fa-check"></i><b>3.4</b> Reading in data</a></li>
+<li class="chapter" data-level="3.5" data-path="R-and-stats.html"><a href="R-and-stats.html#understanding-data-types-and-r-objects"><i class="fa fa-check"></i><b>3.5</b> Understanding data types and R objects</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="R-and-stats.html"><a href="R-and-stats.html#summary"><i class="fa fa-check"></i><b>3.5.1</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="R-and-stats.html"><a href="R-and-stats.html#summarising-and-displaying-data"><i class="fa fa-check"></i><b>3.6</b> Summarising and displaying data</a></li>
+<li class="chapter" data-level="3.7" data-path="R-and-stats.html"><a href="R-and-stats.html#calculations-and-data-manipulation"><i class="fa fa-check"></i><b>3.7</b> Calculations and data manipulation</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="R-and-stats.html"><a href="R-and-stats.html#sorting-data"><i class="fa fa-check"></i><b>3.7.1</b> Sorting data</a></li>
+<li class="chapter" data-level="3.7.2" data-path="R-and-stats.html"><a href="R-and-stats.html#relationships-between-variates."><i class="fa fa-check"></i><b>3.7.2</b> Relationships between variates.</a></li>
+<li class="chapter" data-level="3.7.3" data-path="R-and-stats.html"><a href="R-and-stats.html#exporting-your-script-and-workspace"><i class="fa fa-check"></i><b>3.7.3</b> Exporting your script and workspace</a></li>
+<li class="chapter" data-level="3.7.4" data-path="R-and-stats.html"><a href="R-and-stats.html#saving-a-data-table"><i class="fa fa-check"></i><b>3.7.4</b> Saving a data table</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="R-and-stats.html"><a href="R-and-stats.html#basic-statistical-analysis"><i class="fa fa-check"></i><b>3.8</b> Basic statistical analysis</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="R-and-stats.html"><a href="R-and-stats.html#the-t-test"><i class="fa fa-check"></i><b>3.8.1</b> The t-test</a></li>
+<li class="chapter" data-level="3.8.2" data-path="R-and-stats.html"><a href="R-and-stats.html#linear-regression"><i class="fa fa-check"></i><b>3.8.2</b> Linear Regression</a></li>
+<li class="chapter" data-level="3.8.3" data-path="R-and-stats.html"><a href="R-and-stats.html#multiple-regression"><i class="fa fa-check"></i><b>3.8.3</b> Multiple regression</a></li>
+<li class="chapter" data-level="3.8.4" data-path="R-and-stats.html"><a href="R-and-stats.html#the-analysis-of-variance"><i class="fa fa-check"></i><b>3.8.4</b> The analysis of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="R-and-stats.html"><a href="R-and-stats.html#categorical-data---the-chi-squared-test"><i class="fa fa-check"></i><b>3.9</b> Categorical data - <em>the chi-squared test</em></a></li>
+<li class="chapter" data-level="3.10" data-path="R-and-stats.html"><a href="R-and-stats.html#more-useful-information"><i class="fa fa-check"></i><b>3.10</b> More useful information</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="R-and-stats.html"><a href="R-and-stats.html#plotting-graphs"><i class="fa fa-check"></i><b>3.10.1</b> Plotting Graphs</a></li>
+<li class="chapter" data-level="3.10.2" data-path="R-and-stats.html"><a href="R-and-stats.html#probability-distributions"><i class="fa fa-check"></i><b>3.10.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="3.10.3" data-path="R-and-stats.html"><a href="R-and-stats.html#random-number-generation"><i class="fa fa-check"></i><b>3.10.3</b> Random number generation</a></li>
+<li class="chapter" data-level="3.10.4" data-path="R-and-stats.html"><a href="R-and-stats.html#loops-second-example"><i class="fa fa-check"></i><b>3.10.4</b> Loops: <em>second example</em></a></li>
+<li class="chapter" data-level="3.10.5" data-path="R-and-stats.html"><a href="R-and-stats.html#miscellany"><i class="fa fa-check"></i><b>3.10.5</b> Miscellany</a></li>
+<li class="chapter" data-level="3.10.6" data-path="R-and-stats.html"><a href="R-and-stats.html#my-number-one-piece-of-advice"><i class="fa fa-check"></i><b>3.10.6</b> My number one piece of advice</a></li>
+<li class="chapter" data-level="3.10.7" data-path="R-and-stats.html"><a href="R-and-stats.html#learn-more"><i class="fa fa-check"></i><b>3.10.7</b> Learn more</a></li>
+<li class="chapter" data-level="3.10.8" data-path="R-and-stats.html"><a href="R-and-stats.html#packages"><i class="fa fa-check"></i><b>3.10.8</b> Packages</a></li>
+<li class="chapter" data-level="3.10.9" data-path="R-and-stats.html"><a href="R-and-stats.html#the-tidyverse"><i class="fa fa-check"></i><b>3.10.9</b> The Tidyverse</a></li>
+<li class="chapter" data-level="3.10.10" data-path="R-and-stats.html"><a href="R-and-stats.html#other-resources"><i class="fa fa-check"></i><b>3.10.10</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="R-and-stats.html"><a href="R-and-stats.html#list-of-commands-mainly-described-in-this-guide."><i class="fa fa-check"></i><b>3.11</b> List of commands, mainly described in this guide.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Trial-design.html"><a href="Trial-design.html"><i class="fa fa-check"></i><b>4</b> Trial Design.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="Trial-design.html"><a href="Trial-design.html#randomised-complete-block-designs"><i class="fa fa-check"></i><b>4.1</b> Randomised complete block designs</a></li>
+<li class="chapter" data-level="4.2" data-path="Trial-design.html"><a href="Trial-design.html#trial-design-in-r"><i class="fa fa-check"></i><b>4.2</b> Trial design in R</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="Trial-design.html"><a href="Trial-design.html#partially-replicated-designs"><i class="fa fa-check"></i><b>4.2.1</b> Partially replicated designs</a></li>
+<li class="chapter" data-level="4.2.2" data-path="Trial-design.html"><a href="Trial-design.html#two-dimensional-designs"><i class="fa fa-check"></i><b>4.2.2</b> Two-dimensional designs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="Trial-design.html"><a href="Trial-design.html#farm-scale-experiments"><i class="fa fa-check"></i><b>4.3</b> Farm scale experiments</a></li>
+<li class="chapter" data-level="4.4" data-path="Trial-design.html"><a href="Trial-design.html#alpha-designs."><i class="fa fa-check"></i><b>4.4</b> Alpha designs.</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="Trial-design.html"><a href="Trial-design.html#creation-of-augmented-and-p-rep-designs-from-2-replicate-alpha-designs"><i class="fa fa-check"></i><b>4.4.1</b> Creation of augmented and p-rep designs from 2-replicate alpha designs</a></li>
+<li class="chapter" data-level="4.4.2" data-path="Trial-design.html"><a href="Trial-design.html#final-message"><i class="fa fa-check"></i><b>4.4.2</b> Final message</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Trial-analysis.html"><a href="Trial-analysis.html"><i class="fa fa-check"></i><b>5</b> Trial analysis (sugar beet example).</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#the-layout-of-the-sugar-beet-trial"><i class="fa fa-check"></i><b>5.1</b> The layout of the sugar beet trial</a></li>
+<li class="chapter" data-level="5.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#fixed-effects-random-effects-and-reml"><i class="fa fa-check"></i><b>5.2</b> Fixed effects, random effects and REML</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#preparing-the-data"><i class="fa fa-check"></i><b>5.2.1</b> Preparing the data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#randomised-complete-block-design"><i class="fa fa-check"></i><b>5.2.2</b> Randomised complete block design</a></li>
+<li class="chapter" data-level="5.2.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#randomised-compelete-block-design---with-mixed-models"><i class="fa fa-check"></i><b>5.2.3</b> Randomised compelete block design - with mixed models</a></li>
+<li class="chapter" data-level="5.2.4" data-path="Trial-analysis.html"><a href="Trial-analysis.html#plotting-residuals-against-field-structure."><i class="fa fa-check"></i><b>5.2.4</b> Plotting residuals against field structure.</a></li>
+<li class="chapter" data-level="5.2.5" data-path="Trial-analysis.html"><a href="Trial-analysis.html#alpha-design-include-block-structure"><i class="fa fa-check"></i><b>5.2.5</b> Alpha design (include block structure)</a></li>
+<li class="chapter" data-level="5.2.6" data-path="Trial-analysis.html"><a href="Trial-analysis.html#rows-and-column-analysis"><i class="fa fa-check"></i><b>5.2.6</b> Rows and column analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#spatial-analysis"><i class="fa fa-check"></i><b>5.3</b> Spatial analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html"><i class="fa fa-check"></i><b>6</b> Cross sites analysis in R.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#blues-blups-and-one-stage-analysis"><i class="fa fa-check"></i><b>6.1</b> BLUEs, BLUPs and one stage analysis</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#one-stage-analysis-with-weights"><i class="fa fa-check"></i><b>6.1.1</b> One stage analysis with weights</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#weighted-two-stage-analysis"><i class="fa fa-check"></i><b>6.2</b> Weighted two-stage analysis</a></li>
+<li class="chapter" data-level="6.3" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#ammi"><i class="fa fa-check"></i><b>6.3</b> AMMI</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="Population-genetics.html"><a href="Population-genetics.html"><i class="fa fa-check"></i><b>7</b> Population genetics.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="Population-genetics.html"><a href="Population-genetics.html#hardy-weinberg-equilibrium-and-population-structure"><i class="fa fa-check"></i><b>7.1</b> Hardy-Weinberg equilibrium and population structure</a></li>
+<li class="chapter" data-level="7.2" data-path="Population-genetics.html"><a href="Population-genetics.html#other-ways-of-analysing-population-structure"><i class="fa fa-check"></i><b>7.2</b> Other ways of analysing population structure</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="Population-genetics.html"><a href="Population-genetics.html#distance-trees"><i class="fa fa-check"></i><b>7.2.1</b> Distance Trees</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="Population-genetics.html"><a href="Population-genetics.html#structure"><i class="fa fa-check"></i><b>7.3</b> Structure</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="Population-genetics.html"><a href="Population-genetics.html#what-structure-does"><i class="fa fa-check"></i><b>7.3.1</b> What STRUCTURE does</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Population-genetics.html"><a href="Population-genetics.html#limitations-of-structure"><i class="fa fa-check"></i><b>7.3.2</b> Limitations of STRUCTURE</a></li>
+<li class="chapter" data-level="7.3.3" data-path="Population-genetics.html"><a href="Population-genetics.html#using-structure"><i class="fa fa-check"></i><b>7.3.3</b> Using Structure</a></li>
+<li class="chapter" data-level="7.3.4" data-path="Population-genetics.html"><a href="Population-genetics.html#the-exercise"><i class="fa fa-check"></i><b>7.3.4</b> The exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="Population-genetics.html"><a href="Population-genetics.html#linkage-disequilibrium-analysis"><i class="fa fa-check"></i><b>7.4</b> Linkage disequilibrium analysis</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="Population-genetics.html"><a href="Population-genetics.html#linkage-disequilibrium-in-the-teosinte-and-barley-data-sets"><i class="fa fa-check"></i><b>7.4.1</b> Linkage disequilibrium in the teosinte and barley data sets</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="Population-genetics.html"><a href="Population-genetics.html#recombination-and-linkage-disequilibrium-applications"><i class="fa fa-check"></i><b>7.5</b> Recombination and linkage disequilibrium: applications</a></li>
+<li class="chapter" data-level="7.6" data-path="Population-genetics.html"><a href="Population-genetics.html#pedigree-analysis"><i class="fa fa-check"></i><b>7.6</b> Pedigree analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Imputation.html"><a href="Imputation.html"><i class="fa fa-check"></i><b>8</b> Imputation.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="Imputation.html"><a href="Imputation.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="Imputation.html"><a href="Imputation.html#the-exercise-1"><i class="fa fa-check"></i><b>8.2</b> The exercise</a></li>
+<li class="chapter" data-level="8.3" data-path="Imputation.html"><a href="Imputation.html#data-preparation-for-all-methods"><i class="fa fa-check"></i><b>8.3</b> Data preparation (for all methods)</a></li>
+<li class="chapter" data-level="8.4" data-path="Imputation.html"><a href="Imputation.html#svd-imputation"><i class="fa fa-check"></i><b>8.4</b> SVD imputation</a></li>
+<li class="chapter" data-level="8.5" data-path="Imputation.html"><a href="Imputation.html#mean-imputation"><i class="fa fa-check"></i><b>8.5</b> Mean imputation</a></li>
+<li class="chapter" data-level="8.6" data-path="Imputation.html"><a href="Imputation.html#random-forest-imputation"><i class="fa fa-check"></i><b>8.6</b> Random Forest Imputation</a></li>
+<li class="chapter" data-level="8.7" data-path="Imputation.html"><a href="Imputation.html#summary-1"><i class="fa fa-check"></i><b>8.7</b> Summary</a></li>
+<li class="chapter" data-level="8.8" data-path="Imputation.html"><a href="Imputation.html#conclusions-and-comments"><i class="fa fa-check"></i><b>8.8</b> Conclusions and comments</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="Association-mapping.html"><a href="Association-mapping.html"><i class="fa fa-check"></i><b>9</b> Association Mapping.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="Association-mapping.html"><a href="Association-mapping.html#introduction-1"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="Association-mapping.html"><a href="Association-mapping.html#preparing-the-data-set"><i class="fa fa-check"></i><b>9.2</b> Preparing the data set</a></li>
+<li class="chapter" data-level="9.3" data-path="Association-mapping.html"><a href="Association-mapping.html#running-gwaspoly"><i class="fa fa-check"></i><b>9.3</b> Running GWASpoly</a></li>
+<li class="chapter" data-level="9.4" data-path="Association-mapping.html"><a href="Association-mapping.html#the-exercise-2"><i class="fa fa-check"></i><b>9.4</b> The exercise</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="Association-mapping.html"><a href="Association-mapping.html#calculation-and-comparison-of-kinship"><i class="fa fa-check"></i><b>9.4.1</b> Calculation and comparison of kinship</a></li>
+<li class="chapter" data-level="9.4.2" data-path="Association-mapping.html"><a href="Association-mapping.html#gwas"><i class="fa fa-check"></i><b>9.4.2</b> GWAS</a></li>
+<li class="chapter" data-level="9.4.3" data-path="Association-mapping.html"><a href="Association-mapping.html#analysis-with-covariates"><i class="fa fa-check"></i><b>9.4.3</b> Analysis with covariates</a></li>
+<li class="chapter" data-level="9.4.4" data-path="Association-mapping.html"><a href="Association-mapping.html#accounting-for-population-structure"><i class="fa fa-check"></i><b>9.4.4</b> Accounting for population structure</a></li>
+<li class="chapter" data-level="9.4.5" data-path="Association-mapping.html"><a href="Association-mapping.html#further-analysis"><i class="fa fa-check"></i><b>9.4.5</b> Further analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative methods in plant breeding: the digital tutorials.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Trial-analysis" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Trial analysis (sugar beet example).</h1>
+<div id="the-layout-of-the-sugar-beet-trial" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> The layout of the sugar beet trial</h2>
+<p>These data are from an NL/RL sugar beet trial grown in 2007, designed as an alpha design. We shall analyse this in several different ways, using it to introduce REML as a routine algorithm for the analysis of this sort of data and also to look at the improvements over randomised complete blocks that incomplete blocks and spatial analysis can bring. I’ve scrambled the names of varieties to avoid anyone’s embarrassment. This is a variable site, chosen to illustrate the advantages of more sophisticated trial design.</p>
+<p>The design of the trial is as follows:</p>
+<pre><code>  DESIGN TYPE    INCOMPLETE BLOCK
+  PLOTS          460
+  REPLICATES     4
+  BLOCKS/REP     17
+  VARIETIES      115
+  PLOTS/VARIETY  4</code></pre>
+<p>A typical sugar beet plot is in three rows wide, 0.5m apart and is 12m long, with 10m harvested – the two discarded metres are the alleyways between the plots used by tractors for spraying. I make this trial to be 28 plots = 42m wide and 18 plots = 216m long.</p>
+<p><img src="images/sugar_beet_trial.png" alt="The layout of the sugar beet trial" />
+For a better impression of the above image: there is a file called “sugar_beet_trial R.xls” in the data folder for this chapter. Inspect the field plan book.</p>
+<p>The incomplete blocks run along the rows of the spreadsheet. Note that to accommodate the variety number and the shape of the field, the block sizes are unequal and that there are discard plots within the trial area.</p>
+
+<div class="rmdquiz">
+<strong>1</strong> Can anyone come up with a better design to fit this area? What about the shape and size of the replicates? Numbers of entries per block? Do you regard the discard plots as a waste of space, or as a saving in cost?
+</div>
+</div>
+<div id="fixed-effects-random-effects-and-reml" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Fixed effects, random effects and REML</h2>
+<p>Fixed effects are generally the things you are interested in such as variety performances, fertilizer treatments etc. Random effects are often things that you are not interested in that get in the way of getting good estimates of the fixed effects such as fertility effects; and therefore also include factors in the design to control for fertility effects such as replicates and incomplete. Residual errors from any analysis are always random effects. Over multiple trials, the sites and year effects can be viewed as random. There is ambiguity: sometimes varieties can be viewed as a random sample from a population of possible varieties. The most pure examples of this would be a set of RIL’s from an F2 or clones from a cross between two outbred parents. All data are analysed by fitting a model; even a t-test fits a model. A dataset in which some effects are fixed and some effects are random is called a mixed model. REML, residual (or restricted) estimation by maximum likelihood, is an algorithm for analysing mixed models. Variety trials, either individually or in sets, are now routinely analysed by mixed models. This is because some aspect of them - blocks, reps, sites, years and interactions of these with varieties - are often treated as random effects. Increasingly, varieties are treated as random too. There are advantages and disadvantages to this. The decision depends on the objectives of the experiment.</p>
+<div id="preparing-the-data" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Preparing the data</h3>
+<p>The data are saved in the Chapter 5 data folder sorted as columns within rows. The CSV file is called: <em>“sugar_beet_data.csv”</em></p>
+
+<div class="rmdquiz">
+<strong>2</strong> You should now have picked up on how to read a csv file into R and save it as an object. Do this now for the “sugar_beet_data.csv” and save it as: <code>beet.data</code>.
+</div>
+<p>The discard plots have been left out of the file as they had missing data. However, if they had been measured for each trait, it would have improved our fertility correction. Note there are some missing data included as <code>NA</code>: measurements which failed.</p>
+<p>We’ll work with four of the traits which were recorded:</p>
+<ol style="list-style-type: decimal">
+<li><p>Number of roots measured before harvest – can have an obvious effect on yield in a row crop like beet. Closely correlated with emergence too.</p></li>
+<li><p>Sugar content – the proportion of the fresh weight of a root which is sugar.</p></li>
+<li><p>Sugar yield.</p></li>
+<li><p>Total impurities – a measure of the chemical crud in the beet which affects the efficiency with which the factory can extract the sugar from the root.</p></li>
+</ol>
+<p>I’ve selected these because they are the most important characters and can also show different patterns of variability within a trial and among varieties.</p>
+<p>There is no need to analyse all the characters. This year well concentrate on <em>sugar content</em>.</p>
+<p>Let’s take a look at our column headers in the data object <code>beet.data</code> that you’ve created above:</p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="Trial-analysis.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(beet.data)</span></code></pre></div>
+<pre><code>##  [1] &quot;rep&quot;           &quot;column&quot;        &quot;row&quot;           &quot;plot&quot;         
+##  [5] &quot;block&quot;         &quot;variety&quot;       &quot;roots&quot;         &quot;sugar.content&quot;
+##  [9] &quot;yield&quot;         &quot;impurities&quot;</code></pre>
+<p>If you don’t get the same result on your PC, you may have left out the required: <code>headers=T</code> argument in the <code>read.csv</code> command. The first 6 columns are experimental design information and therefore need to be treated as factors. We can inspect how R is currently treating them using:</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="Trial-analysis.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(beet.data)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    460 obs. of  10 variables:
+##  $ rep          : int  1 2 3 4 1 2 3 4 1 2 ...
+##  $ column       : int  9 4 17 21 14 4 15 19 9 1 ...
+##  $ row          : int  14 4 14 8 10 3 15 7 18 9 ...
+##  $ plot         : int  54 187 279 366 115 200 264 378 2 116 ...
+##  $ block        : int  9 28 42 54 17 30 40 56 1 18 ...
+##  $ variety      : int  469 469 469 469 468 468 468 468 467 467 ...
+##  $ roots        : int  160 153 157 156 151 160 157 159 154 145 ...
+##  $ sugar.content: num  19.1 18.9 19.4 19.2 18.1 ...
+##  $ yield        : num  12.6 10.6 12.3 12.4 14.6 ...
+##  $ impurities   : num  2.39 2.38 2.37 2.37 2.29 ...</code></pre>
+<p>That’s informative. The trait data (roots, sugar.content, yield and impurities) are treated as either numeric or integers. That’s how we want R to treat the phenotypes. However, the experimental design columns (first 6) are treated as integers. We need to convert these to factors. Use the command: <code>factor()</code>.</p>
+<p>You can do this for each individual column, referring to it by name [eg <code>factor(beet.data$rep)</code>] or by index [e.g. <code>factor(beet.data[,1])</code>]:</p>
+<p>Or put it into a loop if you wish to speed things up:</p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="Trial-analysis.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>){</span>
+<span id="cb290-2"><a href="Trial-analysis.html#cb290-2" aria-hidden="true" tabindex="-1"></a>   beet.data[,i]<span class="ot">&lt;-</span><span class="fu">factor</span>(beet.data[,i])</span>
+<span id="cb290-3"><a href="Trial-analysis.html#cb290-3" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
+<p>If you want help understanding how the loop works you can ask a demonstrator or refer to Chapter 3.</p>
+
+<div class="rmdnote">
+We haven’t attached the data before carrying out these conversions. We could do so and carry out the conversions to factors on the attached dataset, but we want to work on a subset of the data and it is easy to be confused about what version of the data we are working on.
+</div>
+<p>As we saw in the R introduction chapter, some analysis in R requires NA to be removed in the response variable. We could do that using:</p>
+<p><code>beet.for.anal&lt;-subset(beet.data,!is.na(sugar.content))</code></p>
+<p>However, I don’t think we need to worry about that here; the functions we are using have in built handling of NA.</p>
+<p>There are some points to consider before we start:</p>
+<ul>
+<li><p><em>Watch out for negative variance components</em> – if you get them, drop that term from the analysis. This is true for all mixed model analyses - not just for variety trials.</p></li>
+<li><p><em>“Informative missingness.”</em> Usually we should check that missing data are not associated with a particular variety. Not so much in variety trials, but in case-control analysis of disease risk, this can result in major problems.</p></li>
+</ul>
+</div>
+<div id="randomised-complete-block-design" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Randomised complete block design</h3>
+<p>You should get the same result as from an ANOVA, as with REML. Try both.</p>
+<p>Note that there are some missing data, so the values in the analysis of variance table will vary slightly depending on the order in which terms are fitted. You should fit <code>varieties</code> last.</p>
+<p>Using <code>lm</code>, the standard method for fitting linear models in R:</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="Trial-analysis.html#cb291-1" aria-hidden="true" tabindex="-1"></a>RCB<span class="ot">&lt;-</span><span class="fu">lm</span>(sugar.content<span class="sc">~</span>rep<span class="sc">+</span>variety , <span class="at">data=</span>beet.data)</span>
+<span id="cb291-2"><a href="Trial-analysis.html#cb291-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(RCB)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: sugar.content
+##            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## rep         3  4.111  1.3702  36.837 &lt; 2.2e-16 ***
+## variety   114 62.928  0.5520  14.840 &lt; 2.2e-16 ***
+## Residuals 332 12.349  0.0372                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+
+<div class="rmdnote">
+Want to stop writing <code>data = beet.data</code>? You could use <code>attach()</code>. However, I find it can lead to downstream issue when you start subsetting data.
+</div>
+<p>We could have carried this out in one step:</p>
+<p><code>anova(lm(sugar.content~rep+variety,data=beet.data))</code></p>
+<p>It makes more sense to save the output first as there is other information we want to extract. In particular we would like to see the line means.</p>
+<p>Run this on your computer:
+<code>summary(RCB)</code></p>
+<p>As you will see, this gives more information that we require, but it is worth knowing the command is there.</p>
+<p><code>RCB$coefficients</code></p>
+<p>gives the “coefficients” without the other information, Note, however, that we are missing an entry for rep 1. You may also observe that we are missing an entry for variety 1.</p>
+<p>R, rather than providing simple means, as you would get if you analysed the data by hand (or e.g. by GenStat) expresses results as a deviation from an “Intercept.” The intercept is the mean for rep 1, variety 1. You can adjust for this by adding the “Intercept” to all other values. As it is usually the differences between varieties we are interested in, this doesn’t matter, though is not very satisfying. However, there are some packages to do this for you. One example is <em>emmeans</em> <span class="citation">(<a href="references.html#ref-R-emmeans" role="doc-biblioref">Lenth 2020</a>)</span> which will do this job, and more. Another example is <em>predictmeans</em> <span class="citation">(<a href="references.html#ref-R-predictmeans" role="doc-biblioref">Luo, Ganesh, and Koolaard 2020</a>)</span> which runs faster in my experience, so we’ll use that for this tutorial. You will need to install the package by running:</p>
+<p><code>install.packages('predictmeans')</code></p>
+<p>Then load it via:</p>
+<p><code>library(predictmeans)</code></p>
+<p>This package only has several functions but it provides some detailed summaries and diagnostics for a large range of different models. The key function is: <code>predictmeans</code>.</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="Trial-analysis.html#cb293-1" aria-hidden="true" tabindex="-1"></a>RCB.vars<span class="ot">&lt;-</span><span class="fu">predictmeans</span>(RCB,<span class="st">&quot;variety&quot;</span>,<span class="at">plot=</span>F)</span></code></pre></div>
+<p>That’s saved a list object called <code>RCB.vars</code> which contains the functions output. There’s a lot of information there, but for now we are just after the line means in a sensible format, which we can access using:</p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="Trial-analysis.html#cb294-1" aria-hidden="true" tabindex="-1"></a>RCB.vars<span class="sc">$</span><span class="st">`</span><span class="at">Predicted Means</span><span class="st">`</span> [<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## variety
+##       1      55     105     150     155 
+## 17.9850 18.6025 17.7475 18.3750 18.2625</code></pre>
+<p>Note I’ve added <code>[1:5]</code> to save paper. Print on your screens without <code>[1:5]</code> included. If we access another part of the function output, we can print the first ten standard error of the means:</p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="Trial-analysis.html#cb296-1" aria-hidden="true" tabindex="-1"></a>RCB.vars<span class="sc">$</span><span class="st">`</span><span class="at">Standard Error of Means</span><span class="st">`</span> [<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>## variety
+##       1      55     105     150     155     157     166     189     194     204 
+## 0.09643 0.09643 0.09643 0.09643 0.09643 0.09643 0.11148 0.09643 0.13668 0.09643</code></pre>
+
+<div class="rmdquiz">
+<strong>3</strong> Note that the standard errors are not all identical. Why is this?
+</div>
+<p>GenStat and ASReml (and other packages?) also provide standard errors of differences between variety means, and this is often the information used in comparing different statistical analysis methods of analysis.</p>
+
+<div class="rmdquiz">
+<strong>4</strong> Why is the standard error of differences between mean preferred?
+</div>
+<p>The function has already calculated this for us, we just need to access it from our saved object:</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="Trial-analysis.html#cb298-1" aria-hidden="true" tabindex="-1"></a>RCB.vars<span class="sc">$</span><span class="st">`</span><span class="at">Standard Error of Differences</span><span class="st">`</span></span></code></pre></div>
+<pre><code>##   Max.SED   Min.SED  Aveg.SED 
+## 0.1765377 0.1363749 0.1384401</code></pre>
+</div>
+<div id="randomised-compelete-block-design---with-mixed-models" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Randomised compelete block design - with mixed models</h3>
+<p>Next, we are going to use the package ‘lme4’ <span class="citation">(<a href="references.html#ref-R-lme4" role="doc-biblioref">Bates et al. 2020</a>)</span>. Using the techniques you’ve mastered, install and load this package to your R environment. This is typically the package that <code>R</code> users would use to fit and analyze linear mixed models.</p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="Trial-analysis.html#cb300-1" aria-hidden="true" tabindex="-1"></a>RCB.lmer<span class="ot">&lt;-</span><span class="fu">lmer</span>(sugar.content<span class="sc">~</span>variety<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>rep), <span class="at">data=</span>beet.data)</span></code></pre></div>
+<p>Print the output of <code>RCB.lmer</code> to your own computers and inspect the output. The <code>(1|rep)</code> structure fits replicates as a random effect.</p>
+
+<div class="rmdquiz">
+<strong>5:</strong>
+It is impossible to do this using <code>lm</code>. Here it should make little difference. Why is this?
+</div>
+<p>There are a number of useful commands that we can use to inspect our fitted model:</p>
+<p><code>anova(RCB.lmer)</code> will give you a test for significance of the fixed effects in the model (here varieties). These will be very similar to those from <code>lm</code>. The tiny difference arises from the treatment of missing data. (With replicates treated as random, there is some information about varieties in between replicates comparisons.)</p>
+<p><code>ranef(RCB.lmer)</code> will give you the random effects for replicates.</p>
+<p><code>fixef(RCB.lmer)</code> will give you the fixed effects for varieties. Note that variety 1 is missing again. Its effect, as a deviation from the intercept is zero).</p>
+<p><code>summary(RCB.lmer)</code> gives a lot of output, mainly consisting of correlations among the estimates of the fixed effects. At the top are the estimates of variance components and a list of fixed effects and their standard errors. Note: the standard deviation listed alongside the variance component is just the square root of the variance component. It is not a measure of precision.</p>
+<p>As before, the fixed effects are all expressed as deviations from variety 1. An easy way to see the fitted means is to alter the way the model parameters are fitted:</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="Trial-analysis.html#cb301-1" aria-hidden="true" tabindex="-1"></a>test<span class="ot">&lt;-</span><span class="fu">lmer</span>(sugar.content<span class="sc">~</span>variety<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>rep)<span class="sc">-</span><span class="dv">1</span>,  <span class="at">data=</span>beet.data)</span></code></pre></div>
+
+<div class="rmdcaution">
+Beware – this alters the result from the anova, since this now includes one extra df testing for the difference of the mean from zero.
+</div>
+<p><code>summary(test)</code> will now give all variety means and their standard errors. Again, there are no standard errors of differences. Alternative summaries of the efficiency of the analysis are to look the F ratio or p-value for the variety effects, or use Akaike’s Information Criterion.</p>
+<p>As before, we can again use <code>predictmeans</code> to extract our fitted means and standard errors.</p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="Trial-analysis.html#cb302-1" aria-hidden="true" tabindex="-1"></a>RCB.lmer.vars<span class="ot">&lt;-</span><span class="fu">predictmeans</span>(RCB,<span class="st">&quot;variety&quot;</span>,<span class="at">plot=</span>F)</span></code></pre></div>
+<p>You can then inspect components of the saved list <code>RCB.lmer.vars</code>, such as <code>Predicted Means</code> and <code>Standard Error of Means</code>. Results are similar to those we had before. To get the average standard error of variety differences, if desired, we can edit and re run the previous commands:</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="Trial-analysis.html#cb303-1" aria-hidden="true" tabindex="-1"></a>RCB.lmer.vars<span class="sc">$</span><span class="st">`</span><span class="at">Standard Error of Differences</span><span class="st">`</span></span></code></pre></div>
+<pre><code>##   Max.SED   Min.SED  Aveg.SED 
+## 0.1765377 0.1363749 0.1384401</code></pre>
+<p>We can check on the fit of the model. Residuals and fitted values are available as:
+<code>resid(RCB.lmer)</code> and <code>fitted(RCB.lmer)</code>. We should plot several elements of the model to inspect the fit and check the assumptions. Such as the distribution of the residuals, residuals against fitted values and observed against fitted values. Thankfully, <code>predictmeans</code> has a function that takes care of this for us:</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="Trial-analysis.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">residplot</span>(RCB.lmer)</span></code></pre></div>
+<p>All these plots look acceptable to me.</p>
+</div>
+<div id="plotting-residuals-against-field-structure." class="section level3" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Plotting residuals against field structure.</h3>
+<p>It is always worth checking the pattern of the residuals in the field layout. There is a method for doing this in R which can be quite resourceful. It requires row and column to be set to numeric. If you remember we changed these to factors at the start of the tutorial, we can check the current type (or mode) of a column using <code>class</code>:</p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="Trial-analysis.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(beet.data<span class="sc">$</span>column)</span></code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="Trial-analysis.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(beet.data<span class="sc">$</span>row)</span></code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<p>Let’s keep these columns as factors but save new columns with row and column as numeric, this is easy in R:</p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="Trial-analysis.html#cb310-1" aria-hidden="true" tabindex="-1"></a>beet.data<span class="sc">$</span>c <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(beet.data<span class="sc">$</span>column)</span>
+<span id="cb310-2"><a href="Trial-analysis.html#cb310-2" aria-hidden="true" tabindex="-1"></a>beet.data<span class="sc">$</span>r <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(beet.data<span class="sc">$</span>row)</span></code></pre></div>
+<p>Something that is not as simple is our NA pattern in the data. We need to extract the residuals from our model and then add a column to our dataset, so the plotting function can use our layout and residuals at the same time. This is problematic because we have NAs in our phenotype, which were ignored in the model. This means we have less residuals than we have plots:</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="Trial-analysis.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">resid</span>(RCB.lmer))</span></code></pre></div>
+<pre><code>## [1] 450</code></pre>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="Trial-analysis.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(beet.data<span class="sc">$</span>plot)</span></code></pre></div>
+<pre><code>## [1] 460</code></pre>
+<p>There’s a 10 plot difference, which is explained by the plots with NA for sugar.content:</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="Trial-analysis.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(beet.data<span class="sc">$</span>sugar.content))</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>This is a classic R problem, as it stands R won’t let us merge columns of different length (which is a good thing). We could have taken the NA plots out of the data beforehand - but this can mean multiple data sets if we have multiple traits. Here’s a neater solution:</p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="Trial-analysis.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="co">#identify which positions contain none NA phenotypes and save as vector called sel</span></span>
+<span id="cb317-2"><a href="Trial-analysis.html#cb317-2" aria-hidden="true" tabindex="-1"></a>sel<span class="ot">&lt;-</span><span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(beet.data<span class="sc">$</span>sugar.content))</span>
+<span id="cb317-3"><a href="Trial-analysis.html#cb317-3" aria-hidden="true" tabindex="-1"></a><span class="co">#create column with all entries marked as NA in main data</span></span>
+<span id="cb317-4"><a href="Trial-analysis.html#cb317-4" aria-hidden="true" tabindex="-1"></a>beet.data<span class="sc">$</span>res<span class="ot">&lt;-</span><span class="cn">NA</span></span>
+<span id="cb317-5"><a href="Trial-analysis.html#cb317-5" aria-hidden="true" tabindex="-1"></a><span class="co">#extract residuals from our model and save in the positions of none NA data points</span></span>
+<span id="cb317-6"><a href="Trial-analysis.html#cb317-6" aria-hidden="true" tabindex="-1"></a>beet.data<span class="sc">$</span>res[sel] <span class="ot">&lt;-</span> <span class="fu">resid</span>(RCB.lmer)</span></code></pre></div>
+<p>I’ve used the <code>#</code> symbol to break down what each step does. In short - we now have residuals + those 10 NA plots in the correct place in our data and we can plot the residuals against the field layout. You will need to download and load the R package: desplot <span class="citation">(<a href="references.html#ref-R-desplot" role="doc-biblioref">Wright 2020</a>)</span>.</p>
+<p>The command we then run is <code>desplot</code>:</p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="Trial-analysis.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="fu">desplot</span>(beet.data, res <span class="sc">~</span> c <span class="sc">+</span> r, <span class="at">text=</span>plot, <span class="at">cex=</span><span class="fl">0.5</span>,<span class="at">gg=</span>T,</span>
+<span id="cb318-2"><a href="Trial-analysis.html#cb318-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">&quot;Field layout of residuals from mixed model.&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-210-1.png" width="672" /></p>
+<p>That’s worked well. The command has several arguments (see <code>help(desplot)</code>), the ones we’ve used were:</p>
+<ul>
+<li><code>beet.data</code> simply the name of our data</li>
+<li><code>res ~ c + r</code> a formula that tells the function to plot residuals against columns + rows</li>
+<li><code>text=plot</code> this labels each plot, which is very helpful (note the image is flipped compared to our first inspection of the trial layout)</li>
+<li><code>gg=T</code> plots via <code>ggplot2</code> which speeds up the plotting function</li>
+</ul>
+<p>You can see patches of high and low residuals. The residuals can show patterns of field fertility that are not controlled by the experimental design. You can see here such patches of high and low residuals. This is not too surprising as this is a large trial and the only control of field fertility effects in the analysis is through replicates. As these are large, variation within replicates is not so well controlled. That is why we use incomplete block designs.</p>
+<p>You can use this plotting method to plot out other elements of the data against the field structure:</p>
+<ol style="list-style-type: decimal">
+<li>We could have plotted our actual raw trait values and inspect obvious issues in the data.</li>
+<li>We could use it plot the NA structure of the data (NA plots appear to be marked as gray). This would help us look for meaningful NA patterns.</li>
+<li>We could use it to visualise the field structure and trial layout, you can add blocks and reps ect to the image and create figures for publications or presentations.<br />
+The package for spatial analysis we shall use later will produce similar plots within R.</li>
+</ol>
+</div>
+<div id="alpha-design-include-block-structure" class="section level3" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> Alpha design (include block structure)</h3>
+<p>We shall now fit the alpha design block structure. We can compare standard errors and look at the fertility patterns again. Will the alpha design offer any improvements?</p>
+<p>To include blocks, fit as random effects using <code>lmer</code>. Add blocks to the previous run of <code>lmer</code> as <code>(1|block)</code>.</p>
+
+<div class="rmdnote">
+In the experimental design, each block has a unique code. What would happen if blocks were coded 1..17 in each replicate rather than 1..68 over the four replicates? The coding I have used is safer. If the coding is 1..17 in each replicate then you must fit blocks as:<code>(1|rep/block)</code>. The <code>/</code> nests the term following it within the term preceding it, so that in this case 4 x 17 block effects are correctly fitted.
+</div>
+<p>Here’s how I ran the analysis:</p>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="Trial-analysis.html#cb319-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span><span class="fu">lmer</span>(sugar.content<span class="sc">~</span>variety<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>rep)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>block), <span class="at">data=</span> beet.data)</span>
+<span id="cb319-2"><a href="Trial-analysis.html#cb319-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(alpha)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+##         npar Sum Sq Mean Sq F value
+## variety  114 56.735 0.49767  18.851</code></pre>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="Trial-analysis.html#cb321-1" aria-hidden="true" tabindex="-1"></a>alpha.lmer.vars<span class="ot">&lt;-</span><span class="fu">predictmeans</span>(alpha ,<span class="st">&quot;variety&quot;</span>,<span class="at">plot=</span>F)</span>
+<span id="cb321-2"><a href="Trial-analysis.html#cb321-2" aria-hidden="true" tabindex="-1"></a>alpha.lmer.vars<span class="sc">$</span><span class="st">`</span><span class="at">Standard Error of Differences</span><span class="st">`</span></span></code></pre></div>
+<pre><code>##   Max.SED   Min.SED  Aveg.SED 
+## 0.1599940 0.1206777 0.1245988</code></pre>
+<p>This gives me an average standard error of a variety difference of 0.1246, a reduction of about 10% compared to the RCB design. The average variance of a difference from the alpha design divided by that from the RCB design is termed efficiency and is 123%.</p>
+</div>
+<div id="rows-and-column-analysis" class="section level3" number="5.2.6">
+<h3><span class="header-section-number">5.2.6</span> Rows and column analysis</h3>
+<p>As a final refinement, model the random effects as</p>
+<p><code>(1|rep/row)+(1|rep:column)</code></p>
+<p>What block effects are we fitting. Do these make sense?</p>
+<p>If you compare the variance components using the two different methods, in this case you will find they are very similar. In this case, I find the average standard error of the variety means is 0.1087824. Did you get the same?</p>
+<p>As an alternative, to compare the different analyses, and in the interests of speed, we can tabulate the F statistic from the analysis of variance:</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="Trial-analysis.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(RCB.lmer)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+##         npar Sum Sq Mean Sq F value
+## variety  114 62.935 0.55206  14.842</code></pre>
+<p>For the other designs I get:</p>
+<ul>
+<li>RCB = 14.842</li>
+<li>Alpha design = 18.851</li>
+<li>Row and column design 24.442</li>
+</ul>
+
+<div class="rmdquiz">
+<strong>6:</strong>
+Can you think of any additional models? What do the results say about the original alpha blocking for this trial?
+</div>
+<p>The process of changing the trial design after the analysis is called post-blocking. For studies of alternative designs: to suggest improvements to the blocking structures used in the future, it is acceptable. However, it should not be used routinely to estimate variety means as the standard errors, if not the effects themselves, will be biased by continually searching to find the better fitting model. You should stick to the analysis appropriate to the experimental design.</p>
+</div>
+</div>
+<div id="spatial-analysis" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Spatial analysis</h2>
+<p>Field fertility effects are not typically refined to the blocks, reps, rows and columns of your trial design and you may need a more sophisticated method to capture a spatial effect in the field. We saw earlier in the plot of our residuals in the rows and columns of the trial layout that there were clear non random high and low areas in our field associated with the phenotype:</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="Trial-analysis.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="fu">desplot</span>(beet.data, res <span class="sc">~</span> c <span class="sc">+</span> r, <span class="at">text=</span>plot, <span class="at">cex=</span><span class="fl">0.5</span>,<span class="at">gg=</span>T, <span class="at">main=</span><span class="st">&quot;Residuals from mixed model&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-216-1.png" width="672" /></p>
+<p>In that model we just included replicate and clearly missed patterns in our data. If we were to plot the residuals after fitting block, rows and column, hopefully we would account for what was missed. However, in some cases the trial design components still don’t adjust appropriately for the noise in the data and we might be able to find a better model by running a spatial analysis.</p>
+<p>Autoregressive models of order 1 (AR1: the standard methods of spatial analysis of yield trials) are available in GenStat or ASReml and guides to their use in these packages are available. ASReml is available in an R version, so it is easy to start using it if you know R. Unfortunately, there is no free version. It may be possible to fit spatial models with lmer too, though it is beyond my understanding and I have yet to find anyone who knows how to.</p>
+<p>We shall try a slightly different approach using the free R package from Wageningen (WUR); SpATS <span class="citation">(<a href="references.html#ref-SpATS2017" role="doc-biblioref">Rodríguez-Álvarez et al. 2017</a>)</span>. This models fertility effects using a two dimensional spline. A one-dimensional spline is a bendy curve, so a two-dimensional spline is a sheet, bent to fit fertility patterns running over the field. This is conceptually simple, but the statistical modeling is difficult. You will need to install the package to your R and load it:</p>
+<p><code>install.packages(“SpATS”)</code></p>
+<p><code>library(SpATS)</code></p>
+<p>SpATS requires rows and columns to be present as both numeric and factors. Moreover, they must both be part of the dataframe. If you remember, we have already met these requirements:</p>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="Trial-analysis.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(beet.data<span class="sc">$</span>row)</span></code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="Trial-analysis.html#cb328-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(beet.data<span class="sc">$</span>r)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>We need to specify the number of knots in our spatial fit. I believe this controls how flexible our bendy sheet is. Here we specify half the number of rows and columns in our design.</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="Trial-analysis.html#cb330-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the number of segments used in fitting the spline</span></span>
+<span id="cb330-2"><a href="Trial-analysis.html#cb330-2" aria-hidden="true" tabindex="-1"></a>nrow <span class="ot">&lt;-</span> <span class="fu">max</span>(beet.data<span class="sc">$</span>r)</span>
+<span id="cb330-3"><a href="Trial-analysis.html#cb330-3" aria-hidden="true" tabindex="-1"></a>ncol <span class="ot">&lt;-</span> <span class="fu">max</span>(beet.data<span class="sc">$</span>c)</span>
+<span id="cb330-4"><a href="Trial-analysis.html#cb330-4" aria-hidden="true" tabindex="-1"></a>nseg.row <span class="ot">&lt;-</span> nrow<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb330-5"><a href="Trial-analysis.html#cb330-5" aria-hidden="true" tabindex="-1"></a>nseg.col <span class="ot">&lt;-</span> ncol<span class="sc">/</span><span class="dv">2</span></span></code></pre></div>
+<p>Now fit the model using the main function of SpATS, which is conveniently called <code>SpATS</code>. Options are spread over several lines for ease of reading:</p>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="Trial-analysis.html#cb331-1" aria-hidden="true" tabindex="-1"></a>SpATS.out <span class="ot">&lt;-</span> <span class="fu">SpATS</span>(<span class="at">response =</span> <span class="st">&quot;sugar.content&quot;</span>,</span>
+<span id="cb331-2"><a href="Trial-analysis.html#cb331-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">genotype =</span> <span class="st">&quot;variety&quot;</span>,</span>
+<span id="cb331-3"><a href="Trial-analysis.html#cb331-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">spatial =</span> <span class="sc">~</span><span class="fu">PSANOVA</span>(c,r, <span class="at">nseg =</span> <span class="fu">c</span>(nseg.col, nseg.row)),</span>
+<span id="cb331-4"><a href="Trial-analysis.html#cb331-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">genotype.as.random =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb331-5"><a href="Trial-analysis.html#cb331-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">random =</span> <span class="sc">~</span> row <span class="sc">+</span> column,</span>
+<span id="cb331-6"><a href="Trial-analysis.html#cb331-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> beet.data,</span>
+<span id="cb331-7"><a href="Trial-analysis.html#cb331-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">control =</span> <span class="fu">list</span>(<span class="at">monitoring=</span><span class="dv">0</span>))</span></code></pre></div>
+<p>That looks complicated. So let’s break it down step by step:</p>
+<ul>
+<li><code>response = "sugar.content"</code> is our phenotype, for some reason it has be included in speech marks.</li>
+<li><code>genotype = "variety"</code> the name of our genotype factor<br />
+</li>
+<li><code>spatial = ~PSANOVA(c,r, nseg = c(nseg.col, nseg.row))</code> this is a formula for defining our spatial P-Spline model. <code>PSANOVA</code> means you are running a P-spline ANOVA, where the smoothing consists of five components each dependent on a single smoothing parameter (we’ll get on to that next).</li>
+<li><code>genotype.as.random = FALSE</code> simply whether we express genotype as random or fixed</li>
+<li><code>random = ~ row + column</code> here we specify random factors of our model in a formula. We could have added block and rep here. We can add fixed factors too in the same fashion.</li>
+<li><code>data = beet.data</code> our dataset.</li>
+<li><code>control = list(monitoring=0)</code> setting monitoring to 0 here prevents a lot of unwanted output being printed during the fitting. We could control other elements of the fitting via the same means.</li>
+</ul>
+<p>We can inspect the model with the following:</p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="Trial-analysis.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(SpATS.out,<span class="at">which =</span> <span class="st">&quot;variance&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## Spatial analysis of trials with splines 
+## 
+## Response:                   sugar.content
+## Genotypes (as fixed):       variety   
+## Spatial:                    ~PSANOVA(c, r, nseg = c(nseg.col, nseg.row))
+## Random:                     ~row + column
+## 
+## 
+## Number of observations:        450
+## Number of missing data:        10
+## Effective dimension:           156.91
+## Deviance:                      -741.432
+## 
+## Variance components:
+##                Variance            SD     log10(lambda)
+## row           6.944e-03     8.333e-02           0.44462
+## column        5.932e-03     7.702e-02           0.51301
+## f(c)          3.856e-04     1.964e-02           1.70007
+## f(r)          9.192e-03     9.587e-02           0.32282
+## f(c):r        3.107e-04     1.763e-02           1.79390
+## c:f(r)        2.775e-04     1.666e-02           1.84291
+## f(c):f(r)     3.380e-03     5.814e-02           0.75725
+##                                                        
+## Residual      1.933e-02     1.390e-01</code></pre>
+<p>Here we can examine the variance components from the model, there are 8 in total:</p>
+<ul>
+<li><code>row</code> and <code>colunm</code> treated as random effects</li>
+<li>the residual variance</li>
+</ul>
+<p>Then the 5 smooth effects of the spatial trend:</p>
+<ul>
+<li><code>f(c)</code> and <code>f(r)</code> are main smooth effects</li>
+<li><code>f(c):r</code> and <code>c:f(r)</code> are smooth varying coefficient terms</li>
+<li><code>f(c):f(r)</code> is the smooth-by-smooth interaction between the row and column trend</li>
+</ul>
+<p>The interpretation of this part can be useful for looking at how much variation has not been accounted for in our model; shown by the residual variance. The column <code>log10(lambda)</code> shows the log10 of the proportion of residual variance to each model component. The lower the value, the greater proportion of the model term variance compared to the residual variance.</p>
+<p>Let’s take a look at the dimensions of the model which are informative of the complexity of the spatial fit.</p>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="Trial-analysis.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(SpATS.out,<span class="at">which =</span> <span class="st">&quot;dimensions&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## Spatial analysis of trials with splines 
+## 
+## Response:                   sugar.content
+## Genotypes (as fixed):       variety   
+## Spatial:                    ~PSANOVA(c, r, nseg = c(nseg.col, nseg.row))
+## Random:                     ~row + column
+## 
+## 
+## Number of observations:        450
+## Number of missing data:        10
+## Effective dimension:           156.91
+## Deviance:                      -741.432
+## 
+## Dimensions:
+##               Effective     Model     Nominal     Ratio     Type
+## variety           114.0       114         114      1.00        F
+## Intercept           1.0         1           1      1.00        F
+## row                13.0        18          16      0.81        R
+## column             19.6        28          26      0.75        R
+## c                   1.0         1           1      1.00        S
+## r                   1.0         1           1      1.00        S
+## rc                  1.0         1           1      1.00        S
+## f(c)                0.5        15          15      0.03        S
+## f(r)                0.9        10          10      0.09        S
+## f(c):r              0.6        15          15      0.04        S
+## c:f(r)              0.2        10          10      0.02        S
+## f(c):f(r)           4.2       150         150      0.03        S
+##                                                                 
+## Total             156.9       364         360      0.44         
+## Residual          293.1                                         
+## Nobs                450                                         
+## 
+## Type codes: F &#39;Fixed&#39;    R &#39;Random&#39;    S &#39;Smooth/Semiparametric&#39;</code></pre>
+<p>The table is a little complicated. We can see all the components included in the model. We can see what ‘Type’ each component is, either ‘Fixed,’ ‘Random’ or a ‘Smooth’ component. The other key columns show: ‘Effective’ which can be considered the effective degrees of freedom of that component, ‘Model’ is the number of parameters of that component,‘Nominal’ is the same as ‘Model’ except for random factors which have -1 and ‘ratio’ is the proportion of effective and nominal dimension.</p>
+<p>There are 8 components to the spatial trend, the 5 smooth components discussed above and the linear effects of row and column and their linear interaction.</p>
+<p>The effective dimensions (ED) are really informative for the 5 smooth components. The higher the ED of these components (and thus the higher the value in the ‘ratio’ column) indicates that more of the spatial trend has been captured by that component. It’s an indicator that the fitted surface of that component is more complex than the others and has more spatial patterns.</p>
+<p>In our trial you can see that out of the smooth components, the smooth-by-smooth interaction between the row and column f(c):f(r) had the highest ED. This is typically informative of a more complicated spatial effect, not limited to rows and columns. We can interpret this for ourselves with the excellent <code>plot()</code> function of <code>SpATS</code>:</p>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="Trial-analysis.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(SpATS.out)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-223-1.png" width="672" /></p>
+<p>These plots are really useful for a more straight forward interpretation of our spatial model. The ‘Raw data’ plot is the phenotype plotted out in the row and column structure of our trial. That pattern looks familiar. We saw there was an area of the field associated with lower phenotype values in our residual plot earlier. I would call the worse part of this area between columns 0-10 and rows 4-10. Now if we look at the residual plot on the top right, we should check for any remaining patterns. It looks like our model has been much better at clearing up the residual noise. What is left appears to be mostly random.</p>
+<p>We can then compare our residual plot to the Fitted Spatial Trend. This is the easiest way of assessing how strong our spatial trend is (or how well the model has captured it). Compare the axis values of each plot. The spatial trend is of the same magnitude as the residuals. That’s typically a sign of a strong spatial effect that has been accounted for by the model. If the fitted spatial trend were a few orders of magnitude lower than the raw data and residual values, we’d know that we had an unidimensional trend.</p>
+<p>You can see in the Fitted Spatial Trend plot that there is strong and complex trend across the trial. This explains why the effective dimensions for the more complicated smoothing component (the smooth-by-smooth interaction) were highest. We can also clearly see the region of the field that had low phenotypic values (in dark blue) and we now know that the spatial effect associated with the trial partially contributed to that issue. We’ve accounted for that in our model now.</p>
+<p>Line means are accessed from our SpATS model using:</p>
+<p><code>predict.SpATS(SpATS.out,which= "variety")</code></p>
+<p><code>predict.SpATS</code> works to predict fixed and random effect. Standard errors of effects are reported, and these can be averaged, but unfortunately <code>predictmeans</code> does not work with the output so we cannot currently get the standard errors of differences. For the time being, the best we can do is compare average standard errors (rather than standard errors of differences).</p>
+<p><code>mean(predict.SpATS(SpATS.out,which= "variety")[,7])</code></p>
+<p>I get 0.07984206 compared to 0.09437533 for the row and column design, which is an impressive improvement in this case. We would expect that, as the row and column design would not of captured the complexity of spatial trend that we found through SpATs.</p>
+<p>SpATs is a relatively new package. Therefore, the literature and guidance surrounding its use and interpretation is limited. There is an associated paper with the package <span class="citation">(<a href="references.html#ref-rodríguezálvarez2016" role="doc-biblioref">Rodríguez-Álvarez et al. 2016</a>)</span>, it’s informative but not easy reading. The paper <span class="citation"><a href="references.html#ref-velazco_modelling_2017" role="doc-biblioref">Velazco et al.</a> (<a href="references.html#ref-velazco_modelling_2017" role="doc-biblioref">2017</a>)</span> has some really nice examples and it clear to follow. I’ve used definitions and explanations from both for forming this section.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Trial-design.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Cross-site-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-Trial_analysis.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Imputation. | Quantitative methods in plant breeding: the digital tutorials.</title>
+  <meta name="description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Imputation. | Quantitative methods in plant breeding: the digital tutorials." />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="github-repo" content="rstudio/bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Imputation. | Quantitative methods in plant breeding: the digital tutorials." />
+  
+  <meta name="twitter:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="twitter:image" content="images/cover.jpg" />
+
+<meta name="author" content="NIAB 2021" />
+
+
+<meta name="date" content="2021-02-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Population-genetics.html"/>
+<link rel="next" href="Association-mapping.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The QMPB digital tutorials</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="Acknow.html"><a href="Acknow.html"><i class="fa fa-check"></i><b>2</b> Acknowledgements and Contents</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="Acknow.html"><a href="Acknow.html#acknowledgements"><i class="fa fa-check"></i><b>2.1</b> Acknowledgements</a></li>
+<li class="chapter" data-level="2.2" data-path="Acknow.html"><a href="Acknow.html#digital-tutorial-chapters"><i class="fa fa-check"></i><b>2.2</b> Digital Tutorial Chapters:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="R-and-stats.html"><a href="R-and-stats.html"><i class="fa fa-check"></i><b>3</b> R and Rstudio: a general introduction with statistics.</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="R-and-stats.html"><a href="R-and-stats.html#introduction-section-on-r"><i class="fa fa-check"></i><b>3.1</b> Introduction section on R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="R-and-stats.html"><a href="R-and-stats.html#getting-the-data-ready"><i class="fa fa-check"></i><b>3.1.1</b> Getting the data ready</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="R-and-stats.html"><a href="R-and-stats.html#the-rstudio-layout-workspace-and-enviroment."><i class="fa fa-check"></i><b>3.2</b> The Rstudio layout, workspace and enviroment.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="R-and-stats.html"><a href="R-and-stats.html#working-directory"><i class="fa fa-check"></i><b>3.2.1</b> Working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="R-and-stats.html"><a href="R-and-stats.html#basic-r-syntx"><i class="fa fa-check"></i><b>3.3</b> Basic R Syntx</a></li>
+<li class="chapter" data-level="3.4" data-path="R-and-stats.html"><a href="R-and-stats.html#reading-in-data"><i class="fa fa-check"></i><b>3.4</b> Reading in data</a></li>
+<li class="chapter" data-level="3.5" data-path="R-and-stats.html"><a href="R-and-stats.html#understanding-data-types-and-r-objects"><i class="fa fa-check"></i><b>3.5</b> Understanding data types and R objects</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="R-and-stats.html"><a href="R-and-stats.html#summary"><i class="fa fa-check"></i><b>3.5.1</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="R-and-stats.html"><a href="R-and-stats.html#summarising-and-displaying-data"><i class="fa fa-check"></i><b>3.6</b> Summarising and displaying data</a></li>
+<li class="chapter" data-level="3.7" data-path="R-and-stats.html"><a href="R-and-stats.html#calculations-and-data-manipulation"><i class="fa fa-check"></i><b>3.7</b> Calculations and data manipulation</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="R-and-stats.html"><a href="R-and-stats.html#sorting-data"><i class="fa fa-check"></i><b>3.7.1</b> Sorting data</a></li>
+<li class="chapter" data-level="3.7.2" data-path="R-and-stats.html"><a href="R-and-stats.html#relationships-between-variates."><i class="fa fa-check"></i><b>3.7.2</b> Relationships between variates.</a></li>
+<li class="chapter" data-level="3.7.3" data-path="R-and-stats.html"><a href="R-and-stats.html#exporting-your-script-and-workspace"><i class="fa fa-check"></i><b>3.7.3</b> Exporting your script and workspace</a></li>
+<li class="chapter" data-level="3.7.4" data-path="R-and-stats.html"><a href="R-and-stats.html#saving-a-data-table"><i class="fa fa-check"></i><b>3.7.4</b> Saving a data table</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="R-and-stats.html"><a href="R-and-stats.html#basic-statistical-analysis"><i class="fa fa-check"></i><b>3.8</b> Basic statistical analysis</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="R-and-stats.html"><a href="R-and-stats.html#the-t-test"><i class="fa fa-check"></i><b>3.8.1</b> The t-test</a></li>
+<li class="chapter" data-level="3.8.2" data-path="R-and-stats.html"><a href="R-and-stats.html#linear-regression"><i class="fa fa-check"></i><b>3.8.2</b> Linear Regression</a></li>
+<li class="chapter" data-level="3.8.3" data-path="R-and-stats.html"><a href="R-and-stats.html#multiple-regression"><i class="fa fa-check"></i><b>3.8.3</b> Multiple regression</a></li>
+<li class="chapter" data-level="3.8.4" data-path="R-and-stats.html"><a href="R-and-stats.html#the-analysis-of-variance"><i class="fa fa-check"></i><b>3.8.4</b> The analysis of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="R-and-stats.html"><a href="R-and-stats.html#categorical-data---the-chi-squared-test"><i class="fa fa-check"></i><b>3.9</b> Categorical data - <em>the chi-squared test</em></a></li>
+<li class="chapter" data-level="3.10" data-path="R-and-stats.html"><a href="R-and-stats.html#more-useful-information"><i class="fa fa-check"></i><b>3.10</b> More useful information</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="R-and-stats.html"><a href="R-and-stats.html#plotting-graphs"><i class="fa fa-check"></i><b>3.10.1</b> Plotting Graphs</a></li>
+<li class="chapter" data-level="3.10.2" data-path="R-and-stats.html"><a href="R-and-stats.html#probability-distributions"><i class="fa fa-check"></i><b>3.10.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="3.10.3" data-path="R-and-stats.html"><a href="R-and-stats.html#random-number-generation"><i class="fa fa-check"></i><b>3.10.3</b> Random number generation</a></li>
+<li class="chapter" data-level="3.10.4" data-path="R-and-stats.html"><a href="R-and-stats.html#loops-second-example"><i class="fa fa-check"></i><b>3.10.4</b> Loops: <em>second example</em></a></li>
+<li class="chapter" data-level="3.10.5" data-path="R-and-stats.html"><a href="R-and-stats.html#miscellany"><i class="fa fa-check"></i><b>3.10.5</b> Miscellany</a></li>
+<li class="chapter" data-level="3.10.6" data-path="R-and-stats.html"><a href="R-and-stats.html#my-number-one-piece-of-advice"><i class="fa fa-check"></i><b>3.10.6</b> My number one piece of advice</a></li>
+<li class="chapter" data-level="3.10.7" data-path="R-and-stats.html"><a href="R-and-stats.html#learn-more"><i class="fa fa-check"></i><b>3.10.7</b> Learn more</a></li>
+<li class="chapter" data-level="3.10.8" data-path="R-and-stats.html"><a href="R-and-stats.html#packages"><i class="fa fa-check"></i><b>3.10.8</b> Packages</a></li>
+<li class="chapter" data-level="3.10.9" data-path="R-and-stats.html"><a href="R-and-stats.html#the-tidyverse"><i class="fa fa-check"></i><b>3.10.9</b> The Tidyverse</a></li>
+<li class="chapter" data-level="3.10.10" data-path="R-and-stats.html"><a href="R-and-stats.html#other-resources"><i class="fa fa-check"></i><b>3.10.10</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="R-and-stats.html"><a href="R-and-stats.html#list-of-commands-mainly-described-in-this-guide."><i class="fa fa-check"></i><b>3.11</b> List of commands, mainly described in this guide.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Trial-design.html"><a href="Trial-design.html"><i class="fa fa-check"></i><b>4</b> Trial Design.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="Trial-design.html"><a href="Trial-design.html#randomised-complete-block-designs"><i class="fa fa-check"></i><b>4.1</b> Randomised complete block designs</a></li>
+<li class="chapter" data-level="4.2" data-path="Trial-design.html"><a href="Trial-design.html#trial-design-in-r"><i class="fa fa-check"></i><b>4.2</b> Trial design in R</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="Trial-design.html"><a href="Trial-design.html#partially-replicated-designs"><i class="fa fa-check"></i><b>4.2.1</b> Partially replicated designs</a></li>
+<li class="chapter" data-level="4.2.2" data-path="Trial-design.html"><a href="Trial-design.html#two-dimensional-designs"><i class="fa fa-check"></i><b>4.2.2</b> Two-dimensional designs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="Trial-design.html"><a href="Trial-design.html#farm-scale-experiments"><i class="fa fa-check"></i><b>4.3</b> Farm scale experiments</a></li>
+<li class="chapter" data-level="4.4" data-path="Trial-design.html"><a href="Trial-design.html#alpha-designs."><i class="fa fa-check"></i><b>4.4</b> Alpha designs.</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="Trial-design.html"><a href="Trial-design.html#creation-of-augmented-and-p-rep-designs-from-2-replicate-alpha-designs"><i class="fa fa-check"></i><b>4.4.1</b> Creation of augmented and p-rep designs from 2-replicate alpha designs</a></li>
+<li class="chapter" data-level="4.4.2" data-path="Trial-design.html"><a href="Trial-design.html#final-message"><i class="fa fa-check"></i><b>4.4.2</b> Final message</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Trial-analysis.html"><a href="Trial-analysis.html"><i class="fa fa-check"></i><b>5</b> Trial analysis (sugar beet example).</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#the-layout-of-the-sugar-beet-trial"><i class="fa fa-check"></i><b>5.1</b> The layout of the sugar beet trial</a></li>
+<li class="chapter" data-level="5.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#fixed-effects-random-effects-and-reml"><i class="fa fa-check"></i><b>5.2</b> Fixed effects, random effects and REML</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#preparing-the-data"><i class="fa fa-check"></i><b>5.2.1</b> Preparing the data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#randomised-complete-block-design"><i class="fa fa-check"></i><b>5.2.2</b> Randomised complete block design</a></li>
+<li class="chapter" data-level="5.2.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#randomised-compelete-block-design---with-mixed-models"><i class="fa fa-check"></i><b>5.2.3</b> Randomised compelete block design - with mixed models</a></li>
+<li class="chapter" data-level="5.2.4" data-path="Trial-analysis.html"><a href="Trial-analysis.html#plotting-residuals-against-field-structure."><i class="fa fa-check"></i><b>5.2.4</b> Plotting residuals against field structure.</a></li>
+<li class="chapter" data-level="5.2.5" data-path="Trial-analysis.html"><a href="Trial-analysis.html#alpha-design-include-block-structure"><i class="fa fa-check"></i><b>5.2.5</b> Alpha design (include block structure)</a></li>
+<li class="chapter" data-level="5.2.6" data-path="Trial-analysis.html"><a href="Trial-analysis.html#rows-and-column-analysis"><i class="fa fa-check"></i><b>5.2.6</b> Rows and column analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#spatial-analysis"><i class="fa fa-check"></i><b>5.3</b> Spatial analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html"><i class="fa fa-check"></i><b>6</b> Cross sites analysis in R.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#blues-blups-and-one-stage-analysis"><i class="fa fa-check"></i><b>6.1</b> BLUEs, BLUPs and one stage analysis</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#one-stage-analysis-with-weights"><i class="fa fa-check"></i><b>6.1.1</b> One stage analysis with weights</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#weighted-two-stage-analysis"><i class="fa fa-check"></i><b>6.2</b> Weighted two-stage analysis</a></li>
+<li class="chapter" data-level="6.3" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#ammi"><i class="fa fa-check"></i><b>6.3</b> AMMI</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="Population-genetics.html"><a href="Population-genetics.html"><i class="fa fa-check"></i><b>7</b> Population genetics.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="Population-genetics.html"><a href="Population-genetics.html#hardy-weinberg-equilibrium-and-population-structure"><i class="fa fa-check"></i><b>7.1</b> Hardy-Weinberg equilibrium and population structure</a></li>
+<li class="chapter" data-level="7.2" data-path="Population-genetics.html"><a href="Population-genetics.html#other-ways-of-analysing-population-structure"><i class="fa fa-check"></i><b>7.2</b> Other ways of analysing population structure</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="Population-genetics.html"><a href="Population-genetics.html#distance-trees"><i class="fa fa-check"></i><b>7.2.1</b> Distance Trees</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="Population-genetics.html"><a href="Population-genetics.html#structure"><i class="fa fa-check"></i><b>7.3</b> Structure</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="Population-genetics.html"><a href="Population-genetics.html#what-structure-does"><i class="fa fa-check"></i><b>7.3.1</b> What STRUCTURE does</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Population-genetics.html"><a href="Population-genetics.html#limitations-of-structure"><i class="fa fa-check"></i><b>7.3.2</b> Limitations of STRUCTURE</a></li>
+<li class="chapter" data-level="7.3.3" data-path="Population-genetics.html"><a href="Population-genetics.html#using-structure"><i class="fa fa-check"></i><b>7.3.3</b> Using Structure</a></li>
+<li class="chapter" data-level="7.3.4" data-path="Population-genetics.html"><a href="Population-genetics.html#the-exercise"><i class="fa fa-check"></i><b>7.3.4</b> The exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="Population-genetics.html"><a href="Population-genetics.html#linkage-disequilibrium-analysis"><i class="fa fa-check"></i><b>7.4</b> Linkage disequilibrium analysis</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="Population-genetics.html"><a href="Population-genetics.html#linkage-disequilibrium-in-the-teosinte-and-barley-data-sets"><i class="fa fa-check"></i><b>7.4.1</b> Linkage disequilibrium in the teosinte and barley data sets</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="Population-genetics.html"><a href="Population-genetics.html#recombination-and-linkage-disequilibrium-applications"><i class="fa fa-check"></i><b>7.5</b> Recombination and linkage disequilibrium: applications</a></li>
+<li class="chapter" data-level="7.6" data-path="Population-genetics.html"><a href="Population-genetics.html#pedigree-analysis"><i class="fa fa-check"></i><b>7.6</b> Pedigree analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Imputation.html"><a href="Imputation.html"><i class="fa fa-check"></i><b>8</b> Imputation.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="Imputation.html"><a href="Imputation.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="Imputation.html"><a href="Imputation.html#the-exercise-1"><i class="fa fa-check"></i><b>8.2</b> The exercise</a></li>
+<li class="chapter" data-level="8.3" data-path="Imputation.html"><a href="Imputation.html#data-preparation-for-all-methods"><i class="fa fa-check"></i><b>8.3</b> Data preparation (for all methods)</a></li>
+<li class="chapter" data-level="8.4" data-path="Imputation.html"><a href="Imputation.html#svd-imputation"><i class="fa fa-check"></i><b>8.4</b> SVD imputation</a></li>
+<li class="chapter" data-level="8.5" data-path="Imputation.html"><a href="Imputation.html#mean-imputation"><i class="fa fa-check"></i><b>8.5</b> Mean imputation</a></li>
+<li class="chapter" data-level="8.6" data-path="Imputation.html"><a href="Imputation.html#random-forest-imputation"><i class="fa fa-check"></i><b>8.6</b> Random Forest Imputation</a></li>
+<li class="chapter" data-level="8.7" data-path="Imputation.html"><a href="Imputation.html#summary-1"><i class="fa fa-check"></i><b>8.7</b> Summary</a></li>
+<li class="chapter" data-level="8.8" data-path="Imputation.html"><a href="Imputation.html#conclusions-and-comments"><i class="fa fa-check"></i><b>8.8</b> Conclusions and comments</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="Association-mapping.html"><a href="Association-mapping.html"><i class="fa fa-check"></i><b>9</b> Association Mapping.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="Association-mapping.html"><a href="Association-mapping.html#introduction-1"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="Association-mapping.html"><a href="Association-mapping.html#preparing-the-data-set"><i class="fa fa-check"></i><b>9.2</b> Preparing the data set</a></li>
+<li class="chapter" data-level="9.3" data-path="Association-mapping.html"><a href="Association-mapping.html#running-gwaspoly"><i class="fa fa-check"></i><b>9.3</b> Running GWASpoly</a></li>
+<li class="chapter" data-level="9.4" data-path="Association-mapping.html"><a href="Association-mapping.html#the-exercise-2"><i class="fa fa-check"></i><b>9.4</b> The exercise</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="Association-mapping.html"><a href="Association-mapping.html#calculation-and-comparison-of-kinship"><i class="fa fa-check"></i><b>9.4.1</b> Calculation and comparison of kinship</a></li>
+<li class="chapter" data-level="9.4.2" data-path="Association-mapping.html"><a href="Association-mapping.html#gwas"><i class="fa fa-check"></i><b>9.4.2</b> GWAS</a></li>
+<li class="chapter" data-level="9.4.3" data-path="Association-mapping.html"><a href="Association-mapping.html#analysis-with-covariates"><i class="fa fa-check"></i><b>9.4.3</b> Analysis with covariates</a></li>
+<li class="chapter" data-level="9.4.4" data-path="Association-mapping.html"><a href="Association-mapping.html#accounting-for-population-structure"><i class="fa fa-check"></i><b>9.4.4</b> Accounting for population structure</a></li>
+<li class="chapter" data-level="9.4.5" data-path="Association-mapping.html"><a href="Association-mapping.html#further-analysis"><i class="fa fa-check"></i><b>9.4.5</b> Further analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative methods in plant breeding: the digital tutorials.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Imputation" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Imputation.</h1>
+<div id="introduction" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Introduction</h2>
+<p>Marker data almost always come with missing values. When working with a small number of values, say regressing a phenotype on a single marker, this is not a problem: the records with the missing data are simply dropped from the analysis. However, with very many markers, and in analyses which work on multiple markers simultaneously, this does cause problems. For example, computation of kinship from a marker set with missing data can result in a matrix which does not invert. Many methods using genomic selection also require complete data.</p>
+<p>For this purpose, methods have been adapted to fill in the missing values with a best guess, and then analyses proceed as if the data were complete. The validity of using these imputed data as if they were real is questionable: if the imputation is accurate, then there is no problem, but with increasing inaccuracy come enhanced Type I and Type II error rates; significance tests assume you have more data than is true. Also, biased imputation (of heterozygotes for one of the homozygous classes say) could act to increase or reduce power – it is hard to predict which.</p>
+<p>There are other uses of imputation. If we knew one marker could be perfectly predicted from a set of others, there would be no requirement to genotype it. Over the whole genome, this can save a lot of genotyping. This approach is described as “haplotype tagging” or SNP tagging. Imputation can also be used to search for genotype errors: where a predicted SNP call disagrees with the observed call this may indicate bad data rather than bad prediction. This is akin to the use of observed double recombinants in linkage analysis as indicators of genotyping error. Finally, in genotyping by sequencing, individuals are sequenced with very low coverage to keep costs down. Very many SNPs are detected but with a massive missing data problem. However, because the SNP density is so high there are always SNPs in high LD with each other that can be used to patch-in the missing data. That’s the theory anyway.</p>
+<p>There are specific methods for imputation of SNP data. These rely on having a genetic or physical map and explicitly or implicitly model linkage disequilibrium. These are much used in human genetics with very high densities of markers. Marchini and Howie (2010) give a review of methods and software.</p>
+<p>For many of the datasets we have available we don’t have an adequate genetic map so these methods cannot be applied. In addition, I am uncertain how well they perform with errors in map order or in allocation of markers to linkage groups, or whether the marker density used in many crops is adequate for their successful application. This is an area of active research.</p>
+<p>Fortunately, imputation is not restricted to genetic applications so generic methods can also be used. It is some of these which we shall look at today. We’ll first describe three possible approaches to imputation.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Mean</strong>: replace the missing marker genotype with the mean allele frequency (or twice the allele frequency for diploids). This isn’t strictly imputation. It has the merit of being quick and easy. It is also probably adequate for many purposes where significance testing and/or precise estimation of effects are not necessary. Examples would be in computation of kinship matrices and in genomic prediction.</p></li>
+<li><p><strong>Singular value decomposition (SVD)</strong>: approximates the missing values from the first n row and column eigenvectors and values. This is not straight forward since SVD requires a complete matrix in the first place, so an initial guess at the missing values, usually the column means, is first made, followed by prediction from SVD, often with iteration until the prediction of the missing values stabilises.</p></li>
+<li><p><strong>Random Forest</strong>: This method is based on decision trees. A decision tree is a classification or regression system whereby data for an outcome variable are repeatedly split into smaller subsets on the basis of an optimally selected threshold of an optimally selected predictor. At each split different predictors/thresholds are selected. Subsequently, given data on the predictors, by following the tree through these splits, an estimate of the outcome variable is made. A random forest is a resampling method whereby multiple decision trees are built from bootstrapped samples of the data. For each bootstrapped dataset, at each split, a different subset of predictors is sampled at random from which the optimal predictor/threshold for that subset is then selected. The final set of random forest predictions is just the average of the predictions from each tree. The resampling ensures that the random forest predictions are more robust than those from single trees.</p></li>
+</ol>
+<p>For more on these and other contemporary approaches to handling large data sets see <span class="citation"><a href="references.html#ref-james_2013" role="doc-biblioref">James et al.</a> (<a href="references.html#ref-james_2013" role="doc-biblioref">2013</a>)</span> for more details. A pdf is also available free online but it’s worth buying.</p>
+</div>
+<div id="the-exercise-1" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> The exercise</h2>
+<p>The aims of today’s exercise are:</p>
+<ol style="list-style-type: decimal">
+<li><p>Compare the different imputation approaches.</p></li>
+<li><p>Examine how accuracy of imputation decreases with decreasing LD among the markers.</p></li>
+</ol>
+<p>We are going to work on a subset of data from a NIAB MAGIC population. We have extracted 4434 markers on 710 lines for which there are no missing data. This means we can artificially delete data, impute these missing values and compare the imputed values with the originals. Many of these markers are in very high LD with each other. We shall therefore delete one marker of each pair with correlation above a given threshold and repeat the delete–impute–compare process to assess how accuracy of imputation decreases with LD.</p>
+<p>Below is a description of the work flow:</p>
+<ol style="list-style-type: decimal">
+<li><p>Skim the markers on correlation coefficients of &lt;1, &lt;0.9, &lt;0.8, &lt;0.7, &lt;0.6, &lt;0.5 to give seven datasets with reduced levels of LD among the markers. To speed things up we have already carried out this stage of the exercise (using the “deduplicate” script provided in the Chapter 8 data folder). The files are labeled “magic.full.txt,” “magic.lt.1.0.txt,” “magic.lt.0.9.txt,”etc. These are in the data folder on the course website.</p></li>
+<li><p>For each dataset, select 500 markers at random – so that accuracy of imputation isn’t confounded with numbers of markers. We would expect better results with higher marker density.</p></li>
+<li><p>For each dataset, delete 10% of the genotypes at random.</p></li>
+<li><p>Impute the missing data and compare observed with imputed.</p></li>
+<li><p>Tabulate the results for each LD threshold and method of imputation and discuss.</p></li>
+</ol>
+<p>To speed things up, we are going to share the workload. Everyone will run the exercise using only one of the different MAGIC data sets (1.0, 0.9, etc), with 3-4 people assigned to each data set.</p>
+<p>The order in which we run the analyses will depend on the time of day: the random forest approach is slow so best run over a break. We shall start with the svd package.</p>
+
+<div class="rmdnote">
+There is a R script the data folder for today: “Imputation_Script_2021.R.” You can use this to avoid copying the sections below. Or just copy from this tutorial if you rather.
+</div>
+</div>
+<div id="data-preparation-for-all-methods" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Data preparation (for all methods)</h2>
+<p>Note that the data are coded ‘0, 1, 2’ and that there is a low frequency of heterozygosity among these lines – they are F4:5 families. Read the data in, here shown for the data after skimming on a correlation coefficient of 0.5</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="Imputation.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="co">#delete the &quot;data/&quot; if you copy</span></span>
+<span id="cb423-2"><a href="Imputation.html#cb423-2" aria-hidden="true" tabindex="-1"></a>magic.data<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;data/magic.lt.0.5.txt&quot;</span>)</span></code></pre></div>
+<p>Sample 500 markers using the function sample.</p>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="Imputation.html#cb424-1" aria-hidden="true" tabindex="-1"></a>sample<span class="fl">.500</span><span class="ot">&lt;-</span>magic.data[,<span class="fu">sort</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(magic.data)[<span class="dv">2</span>],<span class="dv">500</span>,<span class="at">replace=</span><span class="cn">FALSE</span>))]</span></code></pre></div>
+<p>Delete 10% of markers at random (may take a while):</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="Imputation.html#cb425-1" aria-hidden="true" tabindex="-1"></a>missing<span class="ot">&lt;-</span>sample<span class="fl">.500</span></span>
+<span id="cb425-2"><a href="Imputation.html#cb425-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">710</span>) {</span>
+<span id="cb425-3"><a href="Imputation.html#cb425-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">500</span>)  {</span>
+<span id="cb425-4"><a href="Imputation.html#cb425-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">runif</span>(<span class="dv">1</span>) <span class="sc">&lt;</span><span class="fl">0.1</span>) missing[i,j]<span class="ot">&lt;-</span><span class="cn">NA</span></span>
+<span id="cb425-5"><a href="Imputation.html#cb425-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb425-6"><a href="Imputation.html#cb425-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb425-7"><a href="Imputation.html#cb425-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(missing) </span></code></pre></div>
+<pre><code>## [1] 710 500</code></pre>
+<p>We can use the below script to calculate the mean NA % per marker:</p>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="Imputation.html#cb427-1" aria-hidden="true" tabindex="-1"></a><span class="co">#count NA per marker</span></span>
+<span id="cb427-2"><a href="Imputation.html#cb427-2" aria-hidden="true" tabindex="-1"></a>na_count <span class="ot">&lt;-</span><span class="fu">sapply</span>(missing, <span class="cf">function</span>(y) <span class="fu">sum</span>(<span class="fu">length</span>(<span class="fu">which</span>(<span class="fu">is.na</span>(y)))))</span>
+<span id="cb427-3"><a href="Imputation.html#cb427-3" aria-hidden="true" tabindex="-1"></a><span class="co">#convert to a percentage</span></span>
+<span id="cb427-4"><a href="Imputation.html#cb427-4" aria-hidden="true" tabindex="-1"></a>na_count <span class="ot">&lt;-</span>(na_count<span class="sc">/</span><span class="dv">710</span>)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb427-5"><a href="Imputation.html#cb427-5" aria-hidden="true" tabindex="-1"></a><span class="co">#pull mean</span></span>
+<span id="cb427-6"><a href="Imputation.html#cb427-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(na_count)</span></code></pre></div>
+<pre><code>## [1] 10.00451</code></pre>
+<p>On average we have 10% missing data per marker, as we intended. You now have a data set ready to be imputed.</p>
+</div>
+<div id="svd-imputation" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> SVD imputation</h2>
+<p>In this exercise, we shall use the package <code>softImpute</code> which implements a sophisticated version of SVD which seems to work, though I don’t wholly understand the method.</p>
+<p>The basic command in softImpute is: <code>softImpute(data.matrix, rank.max = 100)</code>.</p>
+<p><code>data</code> is the name of the matrix holding your data.</p>
+<p><code>rank.max</code> is the maximum rank of the solution. It must be less than or equal to the smallest of either the number of rows or columns. The larger the value, the longer the programme will take to run but potentially the more accurate the solution. The more structured the data, the lower <code>rank.max</code> could be. If <code>rank.max</code> is too large we risk overfitting (adding noise) and accuracy of imputation could decrease. We are going to run <code>softImpute</code> with 500 markers at a time, so <code>500</code> is the maximum possible value. There are other parameters that one can adjust, but this is the minimum we need and seems to work well on this dataset.</p>
+<p>There are two other useful commands within the package that we shall use:</p>
+<p><code>biScale(data,row.center=F,row.scale=F,col.center=T,col.scale=T)</code></p>
+<p><code>biScale</code> standardises rows and columns to means of zero and variances of one. It is similar to the standard R command scale, except it can scale over rows and columns simultaneously. Marker data are generally standardised for use in PCO and kinship matrices so we shall adopt that as the default position here. In the package, the default is to standardise data over both rows and columns. We shall be explicit in defining that we only want columns (ie markers) standardised.</p>
+<p><code>complete(data,softImpute.output.file,unscale=T)</code></p>
+<p><code>complete</code> takes the original data, and substitutes the imputed data for the missing values. A convenient option is <code>unscale=T</code>. This transforms the imputed values from the standardised scale (if you used <code>biScale</code>) back to the original. This back transformation may not always be required, but for comparison of original and imputed data it makes things easier.</p>
+<p>All the other commands we shall use are standard R for manipulating and displaying the data and results.</p>
+<p>Now we can start….</p>
+<p>Scale the selected data:</p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="Imputation.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(softImpute) <span class="co">#you will need to install if you have not already</span></span>
+<span id="cb429-2"><a href="Imputation.html#cb429-2" aria-hidden="true" tabindex="-1"></a>missing.scale<span class="ot">&lt;-</span><span class="fu">biScale</span>(missing,<span class="at">row.center=</span>F,<span class="at">row.scale=</span>F,<span class="at">col.center=</span>T,<span class="at">col.scale=</span>T)</span></code></pre></div>
+<p>Impute the missing data – may take a while. Note we have set the maximum rank of the solution to 100.</p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="Imputation.html#cb430-1" aria-hidden="true" tabindex="-1"></a>missing.scale.imp<span class="ot">&lt;-</span><span class="fu">softImpute</span>(missing.scale,<span class="at">rank.max=</span><span class="dv">100</span>,<span class="at">lambda=</span><span class="dv">0</span>)  </span></code></pre></div>
+<p>Create a new matrix, including the imputed data, transformed back to the original scale.</p>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="Imputation.html#cb431-1" aria-hidden="true" tabindex="-1"></a>missing.imp<span class="ot">&lt;-</span><span class="fu">complete</span>(missing,missing.scale.imp,<span class="at">unscale=</span>T)</span></code></pre></div>
+<p>Plot the imputed data for each original class:</p>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="Imputation.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(missing.imp[<span class="fu">is.na</span>(missing)]<span class="sc">~</span>sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)],<span class="at">main=</span><span class="st">&quot;distribution of imputed data&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;imputed&quot;</span>,<span class="at">xlab=</span><span class="st">&quot;original&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-323-1.png" width="672" /></p>
+<p>Plot histograms of the imputed data for each class in turn:</p>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="Imputation.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(missing.imp[<span class="fu">is.na</span>(missing)][sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)]<span class="sc">==</span><span class="dv">1</span>],<span class="at">breaks=</span><span class="dv">1000</span>,<span class="at">main=</span><span class="st">&quot;imputed hets&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-324-1.png" width="672" /></p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="Imputation.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(missing.imp[<span class="fu">is.na</span>(missing)][sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)]<span class="sc">==</span><span class="dv">2</span>],<span class="at">breaks=</span><span class="dv">1000</span>,<span class="at">main=</span><span class="st">&quot;imputed homs (2)&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-324-2.png" width="672" /></p>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="Imputation.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(missing.imp[<span class="fu">is.na</span>(missing)][sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)]<span class="sc">==</span><span class="dv">0</span>],<span class="at">breaks=</span><span class="dv">1000</span>,<span class="at">main=</span><span class="st">&quot;imputed homs (0)&quot;</span>) </span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-324-3.png" width="672" /></p>
+<p>What do you think?</p>
+<p>The imputed data are on the original scale, but they are non-integer values. Round these to the nearest whole number. Values of 0, 1 and 2 represent the three genotype classes.</p>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="Imputation.html#cb436-1" aria-hidden="true" tabindex="-1"></a>missing.imp.round<span class="ot">&lt;-</span><span class="fu">round</span>(missing.imp)</span></code></pre></div>
+<p>On your own computer, look at the plots of rounded, imputed genotype data:</p>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="Imputation.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(missing.imp.round[<span class="fu">is.na</span>(missing)]<span class="sc">~</span>sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)],<span class="at">main=</span><span class="st">&quot;distribution of imputed data&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;imputed&quot;</span>,<span class="at">xlab=</span><span class="st">&quot;original&quot;</span>)</span>
+<span id="cb437-2"><a href="Imputation.html#cb437-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-3"><a href="Imputation.html#cb437-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(missing.imp.round[<span class="fu">is.na</span>(missing)][sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)]<span class="sc">==</span><span class="dv">1</span>],<span class="at">breaks=</span><span class="dv">1000</span>,<span class="at">main=</span><span class="st">&quot;imputed hets&quot;</span>)</span>
+<span id="cb437-4"><a href="Imputation.html#cb437-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-5"><a href="Imputation.html#cb437-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(missing.imp.round[<span class="fu">is.na</span>(missing)][sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)]<span class="sc">==</span><span class="dv">2</span>],<span class="at">breaks=</span><span class="dv">1000</span>,<span class="at">main=</span><span class="st">&quot;imputed homs (2)&quot;</span>)</span>
+<span id="cb437-6"><a href="Imputation.html#cb437-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-7"><a href="Imputation.html#cb437-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(missing.imp.round[<span class="fu">is.na</span>(missing)][sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)]<span class="sc">==</span><span class="dv">0</span>],<span class="at">breaks=</span><span class="dv">1000</span>,<span class="at">main=</span><span class="st">&quot;imputed homs (0)&quot;</span>) </span></code></pre></div>
+<p>Some integers are not &lt;0 or &gt;2. Round these up or down to the nearest genotype class.</p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="Imputation.html#cb438-1" aria-hidden="true" tabindex="-1"></a>missing.imp.round[missing.imp.round<span class="sc">&gt;</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="dv">2</span></span>
+<span id="cb438-2"><a href="Imputation.html#cb438-2" aria-hidden="true" tabindex="-1"></a>missing.imp.round[missing.imp.round<span class="sc">&lt;</span><span class="dv">0</span>]<span class="ot">&lt;-</span><span class="dv">0</span></span></code></pre></div>
+<p>Now, compare the imputed and original class using ‘table’:</p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="Imputation.html#cb439-1" aria-hidden="true" tabindex="-1"></a>imp.test<span class="ot">&lt;-</span><span class="fu">table</span>(missing.imp.round[<span class="fu">is.na</span>(missing)],sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)],<span class="at">dnn=</span><span class="fu">c</span>(<span class="st">&quot;imputed&quot;</span>,<span class="st">&quot;original&quot;</span>))</span>
+<span id="cb439-2"><a href="Imputation.html#cb439-2" aria-hidden="true" tabindex="-1"></a>imp.test</span></code></pre></div>
+<pre><code>##        original
+## imputed     0     1     2
+##       0  8319   243  1785
+##       1  5779   406  6334
+##       2  1920   234 10496</code></pre>
+<p>A single number we can use summarise the accuracy of the imputation is the contingency chi-squared test statistic – high values are good in this context: we want the rows (imputed) and columns (observed) to be highly dependent on each other.</p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="Imputation.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(imp.test) </span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  imp.test
+## X-squared = 10126, df = 4, p-value &lt; 2.2e-16</code></pre>
+<p>Has the imputation done a good job? Record the chisq value on the board in the classroom for subsequent comparison with other runs.</p>
+<p>Aside from our methods comparison, there are a couple more things that can be investigated with softImpute:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Round all predictions to homozygotes only.</li>
+<li>Change rank.max</li>
+</ol>
+<p>We have observed above that most misclassifications are of true homozygotes as heterozygotes. e.g. for the full data set:</p>
+<pre><code>            original 
+imputed   0     1     2 
+0       11508   135   824 
+1       3303    623   3365 
+2       760     141   14691 </code></pre>
+<p>Suppose we refused to impute missing genotypes as heterozygotes but insisted on classifying them has homozygotes:</p>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="Imputation.html#cb444-1" aria-hidden="true" tabindex="-1"></a>missing.imp.round<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">round</span>(missing.imp<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb444-2"><a href="Imputation.html#cb444-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb444-3"><a href="Imputation.html#cb444-3" aria-hidden="true" tabindex="-1"></a>missing.imp.round<span class="fl">.2</span>[missing.imp.round<span class="fl">.2</span><span class="sc">&gt;</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="dv">2</span></span>
+<span id="cb444-4"><a href="Imputation.html#cb444-4" aria-hidden="true" tabindex="-1"></a>missing.imp.round<span class="fl">.2</span>[missing.imp.round<span class="fl">.2</span><span class="sc">&lt;</span><span class="dv">0</span>]<span class="ot">&lt;-</span><span class="dv">0</span></span>
+<span id="cb444-5"><a href="Imputation.html#cb444-5" aria-hidden="true" tabindex="-1"></a>imp.test<span class="fl">.2</span><span class="ot">&lt;-</span><span class="fu">table</span>(missing.imp.round<span class="fl">.2</span>[<span class="fu">is.na</span>(missing)],sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)],<span class="at">dnn=</span><span class="fu">c</span>(<span class="st">&quot;imputed&quot;</span>,<span class="st">&quot;original&quot;</span>))</span></code></pre></div>
+<p>The first line above forces genotypes which would be otherwise be imputed as heterozygotes into the nearest homozygous class. All the other lines of code are the same as before. The results seem better:</p>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="Imputation.html#cb445-1" aria-hidden="true" tabindex="-1"></a>imp.test<span class="fl">.2</span></span></code></pre></div>
+<pre><code>##        original
+## imputed     0     1     2
+##       0 11848   442  4132
+##       2  4170   441 14483</code></pre>
+<p>In practice, the wisdom of this reclassification is unclear. Carrying out the same exercise using mean imputation amounts to substituting all missing values by the most common allele, which doesn’t seem very sensible.</p>
+<p>Why did we choose a value for <code>max.rank</code> of 100? This was initially by trial and error on my part. Too low a rank and the prediction is too poor. Too high a value and there is a risk of overfitting: additional eigenvalues give a better fit to the observed data but are adding noise to the predictions.</p>
+<p>One approach to determining an appropriate value which works on these data, at least, is as follows:</p>
+<p>First impute the missing data using the mean. To do this we need to work out the means:</p>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="Imputation.html#cb447-1" aria-hidden="true" tabindex="-1"></a>av<span class="ot">&lt;-</span><span class="fu">colMeans</span>(missing,<span class="at">na.rm=</span>T)</span>
+<span id="cb447-2"><a href="Imputation.html#cb447-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb447-3"><a href="Imputation.html#cb447-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Then, as before: </span></span>
+<span id="cb447-4"><a href="Imputation.html#cb447-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb447-5"><a href="Imputation.html#cb447-5" aria-hidden="true" tabindex="-1"></a>missing.imp.av<span class="ot">&lt;-</span>missing     </span>
+<span id="cb447-6"><a href="Imputation.html#cb447-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">500</span>) {</span>
+<span id="cb447-7"><a href="Imputation.html#cb447-7" aria-hidden="true" tabindex="-1"></a>  missing.imp.av[<span class="fu">is.na</span>(missing[,i]),i]<span class="ot">&lt;-</span>av[i]</span>
+<span id="cb447-8"><a href="Imputation.html#cb447-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb447-9"><a href="Imputation.html#cb447-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb447-10"><a href="Imputation.html#cb447-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Then compute the eigenvalues and plot them, individually and cumulatively: </span></span>
+<span id="cb447-11"><a href="Imputation.html#cb447-11" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb447-12"><a href="Imputation.html#cb447-12" aria-hidden="true" tabindex="-1"></a>svd.imp<span class="ot">&lt;-</span><span class="fu">svd</span>(missing.imp.av)        </span>
+<span id="cb447-13"><a href="Imputation.html#cb447-13" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfcol=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">cex=</span><span class="fl">0.5</span>)</span>
+<span id="cb447-14"><a href="Imputation.html#cb447-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(svd.imp<span class="sc">$</span>d[<span class="sc">-</span><span class="dv">1</span>])         </span>
+<span id="cb447-15"><a href="Imputation.html#cb447-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ecdf</span>(svd.imp<span class="sc">$</span>d[<span class="sc">-</span><span class="dv">1</span>]))   </span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-332-1.png" width="672" /></p>
+<p><code>svd</code> is the standard R function to carry out SVD. <code>ecdf</code> is a function for plotting empirical cumulative distributions. We drop the first eigenvalue from the plot ( the [-1] ) since this is very large and its vector merely predicts the mean allele frequency of each marker. We could avoid this problem by rescaling the data first, but as we are aware of the problem it is hardly necessary.</p>
+<p>The cumulative distribution would suggest a rank of about 50 (though my results were better using 100). If you have time, try altering <code>rank.max</code>, repeat the analyses and compare results.</p>
+</div>
+<div id="mean-imputation" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> Mean imputation</h2>
+<p>First work out the means:</p>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="Imputation.html#cb448-1" aria-hidden="true" tabindex="-1"></a>av<span class="ot">&lt;-</span><span class="fu">colMeans</span>(missing,<span class="at">na.rm=</span>T)   </span></code></pre></div>
+<p>For each missing value, insert the mean allele frequency:</p>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="Imputation.html#cb449-1" aria-hidden="true" tabindex="-1"></a>missing.imp.av<span class="ot">&lt;-</span>missing </span>
+<span id="cb449-2"><a href="Imputation.html#cb449-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">500</span>) {</span>
+<span id="cb449-3"><a href="Imputation.html#cb449-3" aria-hidden="true" tabindex="-1"></a>  missing.imp.av[<span class="fu">is.na</span>(missing[,i]),i]<span class="ot">&lt;-</span>av[i]   </span>
+<span id="cb449-4"><a href="Imputation.html#cb449-4" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
+<p>Round up or down as before and tabulate</p>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="Imputation.html#cb450-1" aria-hidden="true" tabindex="-1"></a>missing.imp.av<span class="ot">&lt;-</span><span class="fu">round</span>(missing.imp.av)</span>
+<span id="cb450-2"><a href="Imputation.html#cb450-2" aria-hidden="true" tabindex="-1"></a>missing.imp.av[missing.imp.av<span class="sc">&gt;</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="dv">2</span></span>
+<span id="cb450-3"><a href="Imputation.html#cb450-3" aria-hidden="true" tabindex="-1"></a>missing.imp.av[missing.imp.av<span class="sc">&lt;</span><span class="dv">0</span>]<span class="ot">&lt;-</span><span class="dv">0</span></span>
+<span id="cb450-4"><a href="Imputation.html#cb450-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb450-5"><a href="Imputation.html#cb450-5" aria-hidden="true" tabindex="-1"></a>imp.test.av<span class="ot">&lt;-</span><span class="fu">table</span>(missing.imp.av[<span class="fu">is.na</span>(missing)],sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)],</span>
+<span id="cb450-6"><a href="Imputation.html#cb450-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">dnn=</span><span class="fu">c</span>(<span class="st">&quot;imputed&quot;</span>,<span class="st">&quot;       original&quot;</span>))</span></code></pre></div>
+<p>Inspect the results:</p>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="Imputation.html#cb451-1" aria-hidden="true" tabindex="-1"></a>imp.test.av</span></code></pre></div>
+<pre><code>##               original
+## imputed    0    1    2
+##       0 6151  133  957
+##       1 8069  534 7982
+##       2 1798  216 9676</code></pre>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="Imputation.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(imp.test.av)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  imp.test.av
+## X-squared = 9188.5, df = 4, p-value &lt; 2.2e-16</code></pre>
+<p>What do you think? We’ll collate the results over repeat runs and different values of LD threshold and discuss.</p>
+</div>
+<div id="random-forest-imputation" class="section level2" number="8.6">
+<h2><span class="header-section-number">8.6</span> Random Forest Imputation</h2>
+<p>We shall also look at the random forest, as implemented in the R package <code>missForest</code>. This gave the most accurate results in a recent review <span class="citation"><a href="references.html#ref-Rutkoski_2013" role="doc-biblioref">Rutkoski et al.</a> (<a href="references.html#ref-Rutkoski_2013" role="doc-biblioref">2013</a>)</span>. However, for accurate results it is slow to run.</p>
+<p>Work on the same dataset as you used for svd and mean imputation.</p>
+<p><code>missForest</code> can impute missing factors as well as missing numerical values, which ought to be better for marker data, since we will no longer have numerical values which need to be rounded up or down to be {0, 1, 2}. When I tested this, this was indeed the case, though the analysis took two hours compared to twenty minutes. Nevertheless, we’ll work on factors, but shall reduce the running time for demonstration purposes.</p>
+<p>First we therefore need to change our numeric data to factor:</p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="Imputation.html#cb455-1" aria-hidden="true" tabindex="-1"></a>missing.factor<span class="ot">&lt;-</span>missing</span>
+<span id="cb455-2"><a href="Imputation.html#cb455-2" aria-hidden="true" tabindex="-1"></a>missing.factor[]<span class="ot">&lt;-</span><span class="fu">lapply</span>(missing.factor,factor)</span></code></pre></div>
+<p>Apply applies a function, here <code>factor</code>, across all the elements of the data frame. Using the <code>[]</code> at the end of <code>missing.factor</code> ensures the data frame structure is maintained. It runs quicker than a loop doing the same thing.</p>
+<p>The Random Forest method takes bootstrap samples of the original data. In <code>missForest</code>, the default number of bootstrap samples is 100. In the interests of speed we’ll just take 10 (<code>ntree=10</code>). If you have the computing power, missForest can be run in parallel. In addition to bootstrapping the data, the random forest algorithm selects a random sample of variables for each split of the tree. This prevents the bootstrapped trees from being too similar to each other. The recommended default number to be selected is √(no. of variables). Reducing the number will make the algorithm run faster. Increasing it may result in overfitting. The option mtry can be used to increase or reduce the number of selected variables. It is more important for the number of bootstrap samples to be large enough. Ten is too small: many lines will never be included in the analysis. There is no harm in having a very large number of bootstraps, but once a limit is reached there is no improvement either.</p>
+<p>Install and then load the package in your R:</p>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="Imputation.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(missForest) <span class="co">#you will also need to install</span></span></code></pre></div>
+<p>Running an analysis with 10 bootstraps only to save time:</p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="Imputation.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="co">#this took 2 minutes on my laptop</span></span>
+<span id="cb457-2"><a href="Imputation.html#cb457-2" aria-hidden="true" tabindex="-1"></a>missing.imp.forest<span class="ot">&lt;-</span><span class="fu">missForest</span>(missing.factor,<span class="at">ntree=</span><span class="dv">10</span>,<span class="at">mtry=</span><span class="dv">20</span>)</span></code></pre></div>
+<pre><code>##   missForest iteration 1 in progress...done!
+##   missForest iteration 2 in progress...done!</code></pre>
+<p>We can also estimate imputation error using the function <code>mixError</code>:</p>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="Imputation.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mixError</span>(missing.imp.forest<span class="sc">$</span>ximp,missing,sample<span class="fl">.500</span>)</span></code></pre></div>
+<pre><code>##       PFC 
+## 0.2560818</code></pre>
+<p>for mixError, values close to 0 are good, close to 1 are bad.</p>
+<p>We compare across methods using our earlier code, summarising the results:</p>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="Imputation.html#cb461-1" aria-hidden="true" tabindex="-1"></a>chi.forest<span class="ot">&lt;-</span><span class="fu">table</span>(missing.imp.forest<span class="sc">$</span>ximp[<span class="fu">is.na</span>(missing)],sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)],<span class="at">dnn=</span><span class="fu">c</span>(<span class="st">&quot;imputed&quot;</span>,<span class="st">&quot;       original&quot;</span>))</span>
+<span id="cb461-2"><a href="Imputation.html#cb461-2" aria-hidden="true" tabindex="-1"></a>chi.forest</span></code></pre></div>
+<pre><code>##               original
+## imputed     0     1     2
+##       0 11720   429  3910
+##       1    23    16    20
+##       2  4275   438 14685</code></pre>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="Imputation.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(chi.forest) </span></code></pre></div>
+<pre><code>## Warning in chisq.test(chi.forest): Chi-squared approximation may be incorrect</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  chi.forest
+## X-squared = 9630.9, df = 4, p-value &lt; 2.2e-16</code></pre>
+<p>How does this compare with what we had before? Are there any differences in the pattern of assignment to different classes?</p>
+</div>
+<div id="summary-1" class="section level2" number="8.7">
+<h2><span class="header-section-number">8.7</span> Summary</h2>
+
+<div class="rmdquiz">
+Now we have collected all the data, we can compare chi-squared values across methods and across different LD values. Is one method generally better, or do different methods work better with different amounts of LD in the data set? Do some methods perform more strongly as LD decreases?
+</div>
+</div>
+<div id="conclusions-and-comments" class="section level2" number="8.8">
+<h2><span class="header-section-number">8.8</span> Conclusions and comments</h2>
+<p>Before adopting any method of imputation, test it against simply substituting the mean (it could do worse).</p>
+<p>For many analyses, substitution of the mean allele frequency is probably adequate. This applies particularly to kinship matrices.</p>
+<p>With a new dataset, it is worth experimenting by deleting data to see how well an imputation method works.</p>
+<p>You need a lot of markers for imputation. Therefore impute before you delete highly correlated markers, not after. i.e. thin markers after imputation.</p>
+<p>Just because you’ve run an imputation programme, it doesn’t mean the imputed values are accurate.</p>
+<p>Problems surrounding imputation are going to become more important in the future as datasets continue to get bigger and methods such as genotyping by sequencing, become more common.</p>
+<p>Random forest looks good but is slow: run overnight or in parallel. Random forest approaches are now becoming widely used in genetics in general, e.g. to predict trait values. Try the R package <code>randomForest</code>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Population-genetics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Association-mapping.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-Imputation.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
