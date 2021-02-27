@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 13 Genomic prediction. | Quantitative Methods in Plant Breeding: The Digital Tutorials.</title>
+  <meta name="description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 13 Genomic prediction. | Quantitative Methods in Plant Breeding: The Digital Tutorials." />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="github-repo" content="rstudio/bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 13 Genomic prediction. | Quantitative Methods in Plant Breeding: The Digital Tutorials." />
+  
+  <meta name="twitter:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="twitter:image" content="images/cover.jpg" />
+
+<meta name="author" content="NIAB 2021" />
+
+
+<meta name="date" content="2021-02-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="selection-theory.html"/>
+<link rel="next" href="Breeding-simulations.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The QMPB digital tutorials</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="Acknow.html"><a href="Acknow.html"><i class="fa fa-check"></i><b>2</b> Acknowledgements and Contents</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="Acknow.html"><a href="Acknow.html#acknowledgements"><i class="fa fa-check"></i><b>2.1</b> Acknowledgements</a></li>
+<li class="chapter" data-level="2.2" data-path="Acknow.html"><a href="Acknow.html#digital-tutorial-chapters"><i class="fa fa-check"></i><b>2.2</b> Digital Tutorial Chapters:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="R-and-stats.html"><a href="R-and-stats.html"><i class="fa fa-check"></i><b>3</b> R and Rstudio: a general introduction with statistics.</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="R-and-stats.html"><a href="R-and-stats.html#introduction-section-on-r"><i class="fa fa-check"></i><b>3.1</b> Introduction section on R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="R-and-stats.html"><a href="R-and-stats.html#getting-the-data-ready"><i class="fa fa-check"></i><b>3.1.1</b> Getting the data ready</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="R-and-stats.html"><a href="R-and-stats.html#the-rstudio-layout-workspace-and-environment."><i class="fa fa-check"></i><b>3.2</b> The Rstudio layout, workspace and environment.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="R-and-stats.html"><a href="R-and-stats.html#working-directory"><i class="fa fa-check"></i><b>3.2.1</b> Working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="R-and-stats.html"><a href="R-and-stats.html#basic-r-syntx"><i class="fa fa-check"></i><b>3.3</b> Basic R Syntx</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="R-and-stats.html"><a href="R-and-stats.html#brackets"><i class="fa fa-check"></i><b>3.3.1</b> Brackets</a></li>
+<li class="chapter" data-level="3.3.2" data-path="R-and-stats.html"><a href="R-and-stats.html#equals-symbols"><i class="fa fa-check"></i><b>3.3.2</b> Equals symbols</a></li>
+<li class="chapter" data-level="3.3.3" data-path="R-and-stats.html"><a href="R-and-stats.html#continuation-character."><i class="fa fa-check"></i><b>3.3.3</b> Continuation character.</a></li>
+<li class="chapter" data-level="3.3.4" data-path="R-and-stats.html"><a href="R-and-stats.html#text-and-numbers"><i class="fa fa-check"></i><b>3.3.4</b> Text and numbers</a></li>
+<li class="chapter" data-level="3.3.5" data-path="R-and-stats.html"><a href="R-and-stats.html#summary-of-syntax"><i class="fa fa-check"></i><b>3.3.5</b> Summary of syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="R-and-stats.html"><a href="R-and-stats.html#reading-in-data"><i class="fa fa-check"></i><b>3.4</b> Reading in data</a></li>
+<li class="chapter" data-level="3.5" data-path="R-and-stats.html"><a href="R-and-stats.html#understanding-data-types-and-r-objects"><i class="fa fa-check"></i><b>3.5</b> Understanding data types and R objects</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="R-and-stats.html"><a href="R-and-stats.html#summary"><i class="fa fa-check"></i><b>3.5.1</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="R-and-stats.html"><a href="R-and-stats.html#summarising-and-displaying-data"><i class="fa fa-check"></i><b>3.6</b> Summarising and displaying data</a></li>
+<li class="chapter" data-level="3.7" data-path="R-and-stats.html"><a href="R-and-stats.html#calculations-and-data-manipulation"><i class="fa fa-check"></i><b>3.7</b> Calculations and data manipulation</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="R-and-stats.html"><a href="R-and-stats.html#sorting-data"><i class="fa fa-check"></i><b>3.7.1</b> Sorting data</a></li>
+<li class="chapter" data-level="3.7.2" data-path="R-and-stats.html"><a href="R-and-stats.html#relationships-between-variates"><i class="fa fa-check"></i><b>3.7.2</b> Relationships between variates</a></li>
+<li class="chapter" data-level="3.7.3" data-path="R-and-stats.html"><a href="R-and-stats.html#exporting-your-script-and-workspace"><i class="fa fa-check"></i><b>3.7.3</b> Exporting your script and workspace</a></li>
+<li class="chapter" data-level="3.7.4" data-path="R-and-stats.html"><a href="R-and-stats.html#saving-a-data-table"><i class="fa fa-check"></i><b>3.7.4</b> Saving a data table</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="R-and-stats.html"><a href="R-and-stats.html#basic-statistical-analysis"><i class="fa fa-check"></i><b>3.8</b> Basic statistical analysis</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="R-and-stats.html"><a href="R-and-stats.html#the-t-test"><i class="fa fa-check"></i><b>3.8.1</b> The t-test</a></li>
+<li class="chapter" data-level="3.8.2" data-path="R-and-stats.html"><a href="R-and-stats.html#linear-regression"><i class="fa fa-check"></i><b>3.8.2</b> Linear Regression</a></li>
+<li class="chapter" data-level="3.8.3" data-path="R-and-stats.html"><a href="R-and-stats.html#multiple-regression"><i class="fa fa-check"></i><b>3.8.3</b> Multiple regression</a></li>
+<li class="chapter" data-level="3.8.4" data-path="R-and-stats.html"><a href="R-and-stats.html#the-analysis-of-variance"><i class="fa fa-check"></i><b>3.8.4</b> The analysis of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="R-and-stats.html"><a href="R-and-stats.html#categorical-data---the-chi-squared-test"><i class="fa fa-check"></i><b>3.9</b> Categorical data - the <em>chi</em>-squared test</a></li>
+<li class="chapter" data-level="3.10" data-path="R-and-stats.html"><a href="R-and-stats.html#more-useful-information"><i class="fa fa-check"></i><b>3.10</b> More useful information</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="R-and-stats.html"><a href="R-and-stats.html#plotting-graphs"><i class="fa fa-check"></i><b>3.10.1</b> Plotting Graphs</a></li>
+<li class="chapter" data-level="3.10.2" data-path="R-and-stats.html"><a href="R-and-stats.html#probability-distributions"><i class="fa fa-check"></i><b>3.10.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="3.10.3" data-path="R-and-stats.html"><a href="R-and-stats.html#random-number-generation"><i class="fa fa-check"></i><b>3.10.3</b> Random number generation</a></li>
+<li class="chapter" data-level="3.10.4" data-path="R-and-stats.html"><a href="R-and-stats.html#loops-second-example"><i class="fa fa-check"></i><b>3.10.4</b> Loops: <em>second example</em></a></li>
+<li class="chapter" data-level="3.10.5" data-path="R-and-stats.html"><a href="R-and-stats.html#miscellany"><i class="fa fa-check"></i><b>3.10.5</b> Miscellany</a></li>
+<li class="chapter" data-level="3.10.6" data-path="R-and-stats.html"><a href="R-and-stats.html#my-number-one-piece-of-advice"><i class="fa fa-check"></i><b>3.10.6</b> My number one piece of advice</a></li>
+<li class="chapter" data-level="3.10.7" data-path="R-and-stats.html"><a href="R-and-stats.html#learn-more"><i class="fa fa-check"></i><b>3.10.7</b> Learn more</a></li>
+<li class="chapter" data-level="3.10.8" data-path="R-and-stats.html"><a href="R-and-stats.html#packages"><i class="fa fa-check"></i><b>3.10.8</b> Packages</a></li>
+<li class="chapter" data-level="3.10.9" data-path="R-and-stats.html"><a href="R-and-stats.html#the-tidyverse"><i class="fa fa-check"></i><b>3.10.9</b> The Tidyverse</a></li>
+<li class="chapter" data-level="3.10.10" data-path="R-and-stats.html"><a href="R-and-stats.html#other-resources"><i class="fa fa-check"></i><b>3.10.10</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="R-and-stats.html"><a href="R-and-stats.html#list-of-commands-mainly-described-in-this-guide."><i class="fa fa-check"></i><b>3.11</b> List of commands, mainly described in this guide.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Trial-design.html"><a href="Trial-design.html"><i class="fa fa-check"></i><b>4</b> Trial Design.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="Trial-design.html"><a href="Trial-design.html#randomised-complete-block-designs"><i class="fa fa-check"></i><b>4.1</b> Randomised complete block designs</a></li>
+<li class="chapter" data-level="4.2" data-path="Trial-design.html"><a href="Trial-design.html#trial-design-in-r"><i class="fa fa-check"></i><b>4.2</b> Trial design in R</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="Trial-design.html"><a href="Trial-design.html#partially-replicated-designs"><i class="fa fa-check"></i><b>4.2.1</b> Partially replicated designs</a></li>
+<li class="chapter" data-level="4.2.2" data-path="Trial-design.html"><a href="Trial-design.html#two-dimensional-designs"><i class="fa fa-check"></i><b>4.2.2</b> Two-dimensional designs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="Trial-design.html"><a href="Trial-design.html#farm-scale-experiments"><i class="fa fa-check"></i><b>4.3</b> Farm scale experiments</a></li>
+<li class="chapter" data-level="4.4" data-path="Trial-design.html"><a href="Trial-design.html#alpha-designs."><i class="fa fa-check"></i><b>4.4</b> Alpha designs.</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="Trial-design.html"><a href="Trial-design.html#creation-of-augmented-and-p-rep-designs-from-2-replicate-alpha-designs"><i class="fa fa-check"></i><b>4.4.1</b> Creation of augmented and p-rep designs from 2-replicate alpha designs</a></li>
+<li class="chapter" data-level="4.4.2" data-path="Trial-design.html"><a href="Trial-design.html#final-message"><i class="fa fa-check"></i><b>4.4.2</b> Final message</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Trial-analysis.html"><a href="Trial-analysis.html"><i class="fa fa-check"></i><b>5</b> Trial analysis (sugar beet example).</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#the-layout-of-the-sugar-beet-trial"><i class="fa fa-check"></i><b>5.1</b> The layout of the sugar beet trial</a></li>
+<li class="chapter" data-level="5.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#fixed-effects-random-effects-and-reml"><i class="fa fa-check"></i><b>5.2</b> Fixed effects, random effects and REML</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#preparing-the-data"><i class="fa fa-check"></i><b>5.2.1</b> Preparing the data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#randomised-complete-block-design"><i class="fa fa-check"></i><b>5.2.2</b> Randomised complete block design</a></li>
+<li class="chapter" data-level="5.2.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#randomised-compelete-block-design---with-mixed-models"><i class="fa fa-check"></i><b>5.2.3</b> Randomised compelete block design - with mixed models</a></li>
+<li class="chapter" data-level="5.2.4" data-path="Trial-analysis.html"><a href="Trial-analysis.html#plotting-residuals-against-field-structure."><i class="fa fa-check"></i><b>5.2.4</b> Plotting residuals against field structure.</a></li>
+<li class="chapter" data-level="5.2.5" data-path="Trial-analysis.html"><a href="Trial-analysis.html#alpha-design-include-block-structure"><i class="fa fa-check"></i><b>5.2.5</b> Alpha design (include block structure)</a></li>
+<li class="chapter" data-level="5.2.6" data-path="Trial-analysis.html"><a href="Trial-analysis.html#rows-and-column-analysis"><i class="fa fa-check"></i><b>5.2.6</b> Rows and column analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#spatial-analysis"><i class="fa fa-check"></i><b>5.3</b> Spatial analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html"><i class="fa fa-check"></i><b>6</b> Cross sites analysis in R.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#blues-blups-and-one-stage-analysis"><i class="fa fa-check"></i><b>6.1</b> BLUEs, BLUPs and one stage analysis</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#one-stage-analysis-with-weights"><i class="fa fa-check"></i><b>6.1.1</b> One stage analysis with weights</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#weighted-two-stage-analysis"><i class="fa fa-check"></i><b>6.2</b> Weighted two-stage analysis</a></li>
+<li class="chapter" data-level="6.3" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#ammi"><i class="fa fa-check"></i><b>6.3</b> AMMI</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="Population-genetics.html"><a href="Population-genetics.html"><i class="fa fa-check"></i><b>7</b> Population genetics.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="Population-genetics.html"><a href="Population-genetics.html#hardy-weinberg-equilibrium-and-population-structure"><i class="fa fa-check"></i><b>7.1</b> Hardy-Weinberg equilibrium and population structure</a></li>
+<li class="chapter" data-level="7.2" data-path="Population-genetics.html"><a href="Population-genetics.html#other-ways-of-analysing-population-structure"><i class="fa fa-check"></i><b>7.2</b> Other ways of analysing population structure</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="Population-genetics.html"><a href="Population-genetics.html#distance-trees"><i class="fa fa-check"></i><b>7.2.1</b> Distance Trees</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="Population-genetics.html"><a href="Population-genetics.html#structure"><i class="fa fa-check"></i><b>7.3</b> Structure</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="Population-genetics.html"><a href="Population-genetics.html#what-structure-does"><i class="fa fa-check"></i><b>7.3.1</b> What STRUCTURE does</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Population-genetics.html"><a href="Population-genetics.html#limitations-of-structure"><i class="fa fa-check"></i><b>7.3.2</b> Limitations of STRUCTURE</a></li>
+<li class="chapter" data-level="7.3.3" data-path="Population-genetics.html"><a href="Population-genetics.html#using-structure"><i class="fa fa-check"></i><b>7.3.3</b> Using Structure</a></li>
+<li class="chapter" data-level="7.3.4" data-path="Population-genetics.html"><a href="Population-genetics.html#the-exercise"><i class="fa fa-check"></i><b>7.3.4</b> The exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="Population-genetics.html"><a href="Population-genetics.html#linkage-disequilibrium-analysis"><i class="fa fa-check"></i><b>7.4</b> Linkage disequilibrium analysis</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="Population-genetics.html"><a href="Population-genetics.html#linkage-disequilibrium-in-the-teosinte-and-barley-data-sets"><i class="fa fa-check"></i><b>7.4.1</b> Linkage disequilibrium in the teosinte and barley data sets</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="Population-genetics.html"><a href="Population-genetics.html#recombination-and-linkage-disequilibrium-applications"><i class="fa fa-check"></i><b>7.5</b> Recombination and linkage disequilibrium: applications</a></li>
+<li class="chapter" data-level="7.6" data-path="Population-genetics.html"><a href="Population-genetics.html#pedigree-analysis"><i class="fa fa-check"></i><b>7.6</b> Pedigree analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Imputation.html"><a href="Imputation.html"><i class="fa fa-check"></i><b>8</b> Imputation.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="Imputation.html"><a href="Imputation.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="Imputation.html"><a href="Imputation.html#the-exercise-1"><i class="fa fa-check"></i><b>8.2</b> The exercise</a></li>
+<li class="chapter" data-level="8.3" data-path="Imputation.html"><a href="Imputation.html#data-preparation-for-all-methods"><i class="fa fa-check"></i><b>8.3</b> Data preparation (for all methods)</a></li>
+<li class="chapter" data-level="8.4" data-path="Imputation.html"><a href="Imputation.html#svd-imputation"><i class="fa fa-check"></i><b>8.4</b> SVD imputation</a></li>
+<li class="chapter" data-level="8.5" data-path="Imputation.html"><a href="Imputation.html#mean-imputation"><i class="fa fa-check"></i><b>8.5</b> Mean imputation</a></li>
+<li class="chapter" data-level="8.6" data-path="Imputation.html"><a href="Imputation.html#random-forest-imputation"><i class="fa fa-check"></i><b>8.6</b> Random Forest Imputation</a></li>
+<li class="chapter" data-level="8.7" data-path="Imputation.html"><a href="Imputation.html#summary-1"><i class="fa fa-check"></i><b>8.7</b> Summary</a></li>
+<li class="chapter" data-level="8.8" data-path="Imputation.html"><a href="Imputation.html#conclusions-and-comments"><i class="fa fa-check"></i><b>8.8</b> Conclusions and comments</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="Association-mapping.html"><a href="Association-mapping.html"><i class="fa fa-check"></i><b>9</b> Association Mapping.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="Association-mapping.html"><a href="Association-mapping.html#introduction-1"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="Association-mapping.html"><a href="Association-mapping.html#preparing-the-data-set"><i class="fa fa-check"></i><b>9.2</b> Preparing the data set</a></li>
+<li class="chapter" data-level="9.3" data-path="Association-mapping.html"><a href="Association-mapping.html#running-gwaspoly"><i class="fa fa-check"></i><b>9.3</b> Running GWASpoly</a></li>
+<li class="chapter" data-level="9.4" data-path="Association-mapping.html"><a href="Association-mapping.html#the-exercise-2"><i class="fa fa-check"></i><b>9.4</b> The exercise</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="Association-mapping.html"><a href="Association-mapping.html#calculation-and-comparison-of-kinship"><i class="fa fa-check"></i><b>9.4.1</b> Calculation and comparison of kinship</a></li>
+<li class="chapter" data-level="9.4.2" data-path="Association-mapping.html"><a href="Association-mapping.html#gwas"><i class="fa fa-check"></i><b>9.4.2</b> GWAS</a></li>
+<li class="chapter" data-level="9.4.3" data-path="Association-mapping.html"><a href="Association-mapping.html#analysis-with-covariates"><i class="fa fa-check"></i><b>9.4.3</b> Analysis with covariates</a></li>
+<li class="chapter" data-level="9.4.4" data-path="Association-mapping.html"><a href="Association-mapping.html#accounting-for-population-structure"><i class="fa fa-check"></i><b>9.4.4</b> Accounting for population structure</a></li>
+<li class="chapter" data-level="9.4.5" data-path="Association-mapping.html"><a href="Association-mapping.html#further-analysis"><i class="fa fa-check"></i><b>9.4.5</b> Further analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html"><i class="fa fa-check"></i><b>10</b> Mapping Markers and Quantitative Trait Loci.</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#introduction-2"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#constructing-a-genetic-map"><i class="fa fa-check"></i><b>10.2</b> Constructing a genetic map</a></li>
+<li class="chapter" data-level="10.3" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#formatting-and-reading-in-the-data"><i class="fa fa-check"></i><b>10.3</b> Formatting and reading in the data</a></li>
+<li class="chapter" data-level="10.4" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#a-quick-map"><i class="fa fa-check"></i><b>10.4</b> A quick map!</a></li>
+<li class="chapter" data-level="10.5" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#estimating-recombination-fractions"><i class="fa fa-check"></i><b>10.5</b> Estimating recombination fractions</a></li>
+<li class="chapter" data-level="10.6" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#forming-linkage-groups"><i class="fa fa-check"></i><b>10.6</b> Forming Linkage groups</a></li>
+<li class="chapter" data-level="10.7" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#marker-ordering"><i class="fa fa-check"></i><b>10.7</b> Marker ordering</a></li>
+<li class="chapter" data-level="10.8" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#improving-the-map"><i class="fa fa-check"></i><b>10.8</b> Improving the map</a></li>
+<li class="chapter" data-level="10.9" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#quality-control-commands-for-marker-qc-and-mapping"><i class="fa fa-check"></i><b>10.9</b> Quality Control commands for marker QC and mapping</a></li>
+<li class="chapter" data-level="10.10" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#asmap"><i class="fa fa-check"></i><b>10.10</b> ASMap</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="Data-Visualization.html"><a href="Data-Visualization.html"><i class="fa fa-check"></i><b>11</b> Data Visualization.</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="Data-Visualization.html"><a href="Data-Visualization.html#flapjack"><i class="fa fa-check"></i><b>11.1</b> Flapjack</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="Data-Visualization.html"><a href="Data-Visualization.html#genotype-data-.geno-file."><i class="fa fa-check"></i><b>11.1.1</b> Genotype data: “.geno” file.</a></li>
+<li class="chapter" data-level="11.1.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#map-data-.map-file."><i class="fa fa-check"></i><b>11.1.2</b> Map data : “.MAP” file.</a></li>
+<li class="chapter" data-level="11.1.3" data-path="Data-Visualization.html"><a href="Data-Visualization.html#trait-data"><i class="fa fa-check"></i><b>11.1.3</b> Trait data</a></li>
+<li class="chapter" data-level="11.1.4" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-3"><i class="fa fa-check"></i><b>11.1.4</b> The Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="selection-theory.html"><a href="selection-theory.html"><i class="fa fa-check"></i><b>12</b> Selection theory and breeding program design.</a></li>
+<li class="chapter" data-level="13" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html"><i class="fa fa-check"></i><b>13</b> Genomic prediction.</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#ridge-regression-and-genomic-prediction-in-excel"><i class="fa fa-check"></i><b>13.1</b> Ridge regression and Genomic Prediction in Excel</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-3"><i class="fa fa-check"></i><b>13.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.1.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-exercise-4"><i class="fa fa-check"></i><b>13.1.2</b> The Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#genomic-prediction-with-rrblup"><i class="fa fa-check"></i><b>13.2</b> Genomic Prediction with rrBLUP</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-4"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-dataset"><i class="fa fa-check"></i><b>13.2.2</b> The dataset</a></li>
+<li class="chapter" data-level="13.2.3" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#loading-and-preparing-the-data"><i class="fa fa-check"></i><b>13.2.3</b> Loading and preparing the data</a></li>
+<li class="chapter" data-level="13.2.4" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#examining-the-data-structure"><i class="fa fa-check"></i><b>13.2.4</b> Examining the data structure</a></li>
+<li class="chapter" data-level="13.2.5" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#ordinary-least-squares"><i class="fa fa-check"></i><b>13.2.5</b> Ordinary least squares</a></li>
+<li class="chapter" data-level="13.2.6" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#rrblup"><i class="fa fa-check"></i><b>13.2.6</b> rrBLUP</a></li>
+<li class="chapter" data-level="13.2.7" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#prediction-forward-in-time"><i class="fa fa-check"></i><b>13.2.7</b> Prediction forward in time</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="Breeding-simulations.html"><a href="Breeding-simulations.html"><i class="fa fa-check"></i><b>14</b> Breeding simulations.</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Methods in Plant Breeding: The Digital Tutorials.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Genomic-prediction" class="section level1" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Genomic prediction.</h1>
+<div id="ridge-regression-and-genomic-prediction-in-excel" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> Ridge regression and Genomic Prediction in Excel</h2>
+<div id="introduction-3" class="section level3" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> Introduction</h3>
+<p>Excel has functions for handling matrix operations, and using these is an easy way to get familiar with matrix algebra, as you can see what is happening. We’re going to have a go at genomic prediction using a subset of data from the TriticeaeGenome wheat association mapping panel. We shall work with a set of ten lines and twelve marker loci, with three traits, height (HT), flowering time (FT) and yield. In our example the ten selected lines were all first listed in 1996. The 12 markers include a marker for PPD_D1, which has a major effect on flowering time, and Rht2, which has a major effect on HT.</p>
+<p>The data file we shall use is “gs test class example.xlsx.” It is in the data folder for today’s lecture.</p>
+<p>We shall use the following matrix functions:</p>
+<ul>
+<li>TRANSPOSE(x)</li>
+<li>MMULT(x,y)</li>
+<li>MINVERSE(x)</li>
+</ul>
+<p>Matrix functions in Excel are different to the usual functions. They apply to a block of cells, not just to one. To enter, first mark the block of cells for the results. For example, to transpose a matrix of n rows by m columns, you would first mark a block of m rows and n columns. Then enter the formula in the normal way, using the formula wizard if you wish, as part of which you will enter the block of cells, n rows by m columns which you wish to transpose. But instead of typing ENTER to finish, hold down CTRL and SHIFT simultaneously then press ENTER. This applies the formula to the whole block, although visually the only difference is that the formula in each cell reference is now encased in {}.</p>
+</div>
+<div id="the-exercise-4" class="section level3" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> The Exercise</h3>
+<p>Open the Excel workbook. Start in the “TG example data” sheet.</p>
+<p>In this tutorial, you are expected to enter the appropriate formulae in the highlighted cells, working through the tabs, from left to right, either following the instructions below, or following me.</p>
+
+<div class="rmdquiz">
+<p><strong>1</strong></p>
+<p>a: Note there are no missing data. What would we have to do if there were some?</p>
+<p>b: Note there are no monomorphic markers. What would their effect be on the prediction equation?</p>
+c: There are ten lines and twelve markers, Why won’t an ordinary regression approach work?
+</div>
+<p>To fit a ridge regression of flowering time on the markers, we are going to solve the equation:</p>
+<p><span class="math display">\[b = (X’X+Iλ)^{-1} X’Y\]</span></p>
+
+<div class="rmdquiz">
+<strong>2</strong> What is X? Identify it in the spreadsheet. What is Y? What is b?
+</div>
+<p>We’ll work on standardised marker data. We don’t have to but it is common practice. There are arguments for and against this, which we can discuss.</p>
+<p>Enter formulae for the mean and variance of each marker where indicated</p>
+<p>Move over to the tab “standardised.” We are going to standardise the marker data and create the <span class="math inline">\(X\)</span> matrix here.</p>
+
+<div class="rmdquiz">
+<strong>3</strong>
+Insert values in the design matrix for the mean. Do you know what they should be?
+</div>
+<p>Standardise the data for each marker by subtracting the mean and dividing by the standard deviation. (Leave the column for the mean alone.)</p>
+
+<div class="rmdquiz">
+<strong>4</strong>
+How can you check you’ve done the standardisation correctly? Do this.
+</div>
+<p>In the next tab, “solution,” we are going to estimate the mean and the marker effects.</p>
+<p>At the top, for ease of working, there is a copy of <span class="math inline">\(X\)</span>. Below are <span class="math inline">\(X’\)</span> and <span class="math inline">\(X’X\)</span>.</p>
+<p>Work out <span class="math inline">\(X’X + Iλ\)</span>. (Use “=” to take a copy of <span class="math inline">\(X’X\)</span>, then modify the formula to add <span class="math inline">\(λ\)</span> to the diagonal.)</p>
+<p>Set this up so <span class="math inline">\(λ\)</span> can be altered for each diagonal element independently – i.e. have a column of <span class="math inline">\(λ\)</span>’s rather than a single value.</p>
+
+<div class="rmdquiz">
+<strong>5</strong> Are there any diagonal elements we should not penalise? What is the effect of the penalty?
+</div>
+<p>Set all <span class="math inline">\(λ\)</span>’s to 12 initially (except for any you think should be left alone). I usually start off with <span class="math inline">\(λ\)</span> equal to the number of markers. Invert <span class="math inline">\((X’X + Iλ)\)</span> i.e. find <span class="math inline">\((X’X + Iλ)^{-1}\)</span></p>
+<p>Check the inversion has been carried out correctly.</p>
+
+<div class="rmdquiz">
+<strong>6</strong>
+Set all λ to zero. What is the effect on the inverse?
+</div>
+<p>Change <span class="math inline">\(λ\)</span> back.</p>
+<p>Calculate <span class="math inline">\(X’Y\)</span></p>
+<p>Calculate the solution - <span class="math inline">\(b = (X’X+Iλ)^{-1} X’Y\)</span></p>
+
+<div class="rmdquiz">
+<p><strong>7</strong></p>
+<p>See what effect changing λ has on the solution:</p>
+a: What happens when you set λ to very high values.
+b: What happens when you set λ to different values for different markers.
+c: How many values of λ can you set to zero and still get a solution? Any idea why?
+</div>
+
+<div class="rmdquiz">
+<p><strong>8</strong></p>
+In the next tab “pred in training pop”: For any value of λ, predict the performance of the ten lines and compare it to the observed performance. You can get these through matrix multiplication as Xb. What is the best prediction you can get?
+</div>
+<p>Comparing observed and predicted values with the same set of lines used to create the prediction equation gives an over optimistic view of accuracy. The predictions would be biased if we search for the value of <span class="math inline">\(λ\)</span> which gives the best fit. Therefore we need to test our prediction in a separate set of lines. In practice (hard in Excel), we would use 90% of the lines in the TG dataset to work out the prediction equation, and the remaining 10% to test the prediction. This could be repeated this by leaving out 10 independent sets of 10%. This is called “ten-fold cross validation.” Five-fold cross validation also frequently used.</p>
+<p>For this exercise, we will instead use the 10 lines in the training set to predict the remaining 307 lines in the TG panel. At the top of the sheet “pred in test pop” you will find marker and height data for the lines in the TG panel (including the ten in the training population. These ought to have been removed for a fair test.) We can use these to see how well the prediction equation from the training panel performs.</p>
+<p>Underneath the data:</p>
+<p>Standardise the marker scores. Remember that the marker data must be standardised using the mean and the variance of the ten lines in the test set so that the prediction equation is valid on these lines. Should we have standardised the training population using the mean and variance of the entire dataset? I don’t know but we could alter the workbook to test this.</p>
+<p>Again, use <span class="math inline">\(Xb\)</span> to predict their performance.</p>
+<p>The predictions will be much worse than those for the lines in the training population. Ten lines in the training population was a ludicrously small number used for demonstration purposes only.</p>
+
+<div class="rmdquiz">
+<p><strong>9</strong></p>
+<p>a: Returning to the “solution” worksheet, try different values of λ for different SNPs. Two of the markers tag known major genes in wheat: Ppd for flowering time and Rht for height. You can remove the penalty for those loci, or set one value of λ for those and a different one for the remaining SNPs. Experiment. Can you improve the agreement between predicted and observed further?</p>
+b: For this small data set, you can also set a different value for λ for each SNP and search for the values which give the maximum correlation. Use Solver to try this. What is the highest correlation achieved for height
+</div>
+<p>It would be great if we could do this routinely in a training population with large numbers of markers and individuals, but that is not possible. Instead, other models are used in which an assumption is made about the nature of the marker effects and the genetic architecture of the trait. This prior knowledge allows different penalties to be fitted to each marker. The methods Bayes A and Bayes B do this for example. Bayes B estimates a proportion of the markers to have no effect on the trait. (Ridge regression and Bayes A give every marker an effect, no matter how small.) In practice, it has been found that there is usually little difference between methods, so using ridge regression doesn’t go too far wrong. This is not guaranteed, however.</p>
+
+<div class="rmdquiz">
+<strong>10</strong>
+If there is time, you can now repeat the GS analysis for flowering time and yield by modifying the vlookup functions in column C in “pred in test pop” and column D in “TG example data.” What is the best correlation you can achieve for each trait? Why might some traits be easier to predict than others?
+</div>
+</div>
+</div>
+<div id="genomic-prediction-with-rrblup" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> Genomic Prediction with rrBLUP</h2>
+<div id="introduction-4" class="section level3" number="13.2.1">
+<h3><span class="header-section-number">13.2.1</span> Introduction</h3>
+<p>Genomic Selection was first proposed in 2001 <span class="citation">(<a href="references.html#ref-Meuwissen1819" role="doc-biblioref">Meuwissen, Hayes, and Goddard 2001</a>)</span>. It looked ahead to the use of high density markers to cover the whole genome, selecting on a score accumulated over marker intervals. It is now much discussed in plant breeding (<span class="citation"><a href="references.html#ref-Bernardo2007" role="doc-biblioref">Bernardo and Yu</a> (<a href="references.html#ref-Bernardo2007" role="doc-biblioref">2007</a>)</span>, <span class="citation"><a href="references.html#ref-Heffner2009" role="doc-biblioref">Heffner, Sorrells, and Jannink</a> (<a href="references.html#ref-Heffner2009" role="doc-biblioref">2009</a>)</span>,
+<span class="citation"><a href="references.html#ref-Piepho2009" role="doc-biblioref">Piepho</a> (<a href="references.html#ref-Piepho2009" role="doc-biblioref">2009</a>)</span>, <span class="citation"><a href="references.html#ref-Jannink2010" role="doc-biblioref">Jannink, Lorenz, and Iwata</a> (<a href="references.html#ref-Jannink2010" role="doc-biblioref">2010</a>)</span>). The basic idea is that all markers or marker intervals are included in a model of phenotype-genotype relationships simultaneously. Because there is no selection of a subset of markers which are significant, there is no bias from the winner’s curse. However, there are generally more markers than genotyped individuals available on which to estimate the marker effects and this causes statistical problems. The predicted
+trait value is generally called the GEBV for genomic estimated breeding value. Strictly, our
+predicted values aren’t breeding values in the animal genetics sense, but we’ll still use that terminology as shorthand. An excellent source of on-line information is the course notes of BJ Hayes, one of the authors of the original publication. <a href="http://snp.toulouse.inra.fr/~alegarra/ben_hayes_course/toulouse_course_notes.pdf">See this link.</a></p>
+<p>We’re going to have a go at Genomic Selection using some DArT marker data on wheat
+NL/RL varieties, using <code>rrBLUP</code> (ridge regression BLUP). A description of ridge regression is
+given in the lecture notes. The intention is to demonstrate that genomic prediction is really
+easy to do, but the answers you get depend critically on the composition of your data: the
+skill is not in running the software but in interpreting the results.</p>
+<p>The basic idea we shall follow is of “cross validation.” We shall partition the complete
+dataset into test and training sets. In the training set, we calibrate markers against the
+phenotype. We then use this calibration to predict phenotype from markers in the test set.
+Finally we can compare observed and predicted phenotypes and see how we’ve done. In this way we can compare the efficiency of different methods of calibration and of relationships between the test and training sets. One can also partition the data into test and training sets in many different ways – either at random or systematically to see what effect this has on predictions. Test and training sets don’t have to be of equal size. Often, the test set is small – say a fifth of the total. There are then five independent partitions of the data and one would look at all of them.</p>
+<p>In ridge regression, we are solving the equations (<em>see the lecture notes</em>):</p>
+<p><span class="math display">\[b = (X’X+Iλ)^{-1} X’Y\]</span>
+<span class="math inline">\(b\)</span> is the vector of regression coefficients: one for the mean plus one for each marker. <span class="math inline">\(X\)</span> is a matrix of marker effects, one column for each marker with values 0 or 1 (or 0, 1 2 if we had heterozygotes). <span class="math inline">\(λ\)</span> is a user supplied penalty to apply to each regression coefficient. <span class="math inline">\(Y\)</span> is the vector of yields, and <span class="math inline">\(I\)</span> is the identity matrix.</p>
+<p>This is the usual least squares solution for multiple regression, except that a penalty, <span class="math inline">\(λ\)</span>, is added to the diagonal elements of <span class="math inline">\(X’X\)</span>. If <span class="math inline">\(λ\)</span> is zero, the <span class="math inline">\(b\)</span> are the usual least squares estimates.</p>
+<p>Just as with BLUP, the regression coefficients are shrunk from their least squares values
+towards zero. Because of this, ridge regression is usually carried out after <span class="math inline">\(Y\)</span> is first adjusted to a mean of zero: it doesn’t make sense to want to shrink the mean towards zero too. Equivalently, the penalty is not applied to the first entry of <span class="math inline">\(X’X\)</span> so the mean estimate is not shrunk.</p>
+<p>The covariates are often standardized to zero mean and unit variance to ensure that all
+variables are on the same scale. With marker data it is arguable whether this is necessary or
+not: the scale is 0…1 for every marker. In practice, it doesn’t seem to matter much whether you standardize or not with the datasets I’ve looked at so far.</p>
+<p>More of a problem is to decide on the appropriate value for the penalty, <span class="math inline">\(λ\)</span>. According to
+Hayes, if <span class="math inline">\(λ = σ^2e / σ^2g\)</span> this is equivalent to BLUP. Here, <span class="math inline">\(σ^2g\)</span> is the contribution to the genetic variance for each marker and not <span class="math inline">\(σ^2g\)</span> for the whole genome. The package <code>rrBLUP</code> <span class="citation">(<a href="references.html#ref-Endelman2011" role="doc-biblioref">Endelman 2011</a>)</span> follows this approach. Alternatively, one could select <span class="math inline">\(λ\)</span> through cross validation.</p>
+<p>We are going to use a lot of R code. Don’t worry too much if you don’t understand it all. Much of the data processing could equally be done in Excel. Aside from learning R, its advantage is that once you’ve done something once, you can easily save and modify the commands to run on other datasets. However, the most important point of this exercise is to understand something about the strengths and weaknesses of genomic selection.</p>
+<p>Load R. Check that rrBLUP has been installed. If not, download it from the CRAN. Remember that after installing a package you must also load it into the current R session to be able to use it.</p>
+</div>
+<div id="the-dataset" class="section level3" number="13.2.2">
+<h3><span class="header-section-number">13.2.2</span> The dataset</h3>
+<p>Data are in “NL_RL_GS.xls.” The sheet “extended UK set” contains the raw data. There are 159
+varieties of winter wheat with yield data, and 217 DArT markers, largely unmapped. Ideally,
+we would need more markers and more individuals. Note also that the year in which the
+variety was first tested in UK National List trials is given. These data are a subset of those analysed in <span class="citation"><a href="references.html#ref-Mackay2011" role="doc-biblioref">Mackay et al.</a> (<a href="references.html#ref-Mackay2011" role="doc-biblioref">2011</a>)</span> in which you will find more information about the origins of the data.</p>
+</div>
+<div id="loading-and-preparing-the-data" class="section level3" number="13.2.3">
+<h3><span class="header-section-number">13.2.3</span> Loading and preparing the data</h3>
+<p>The data are in the spreadsheet NL_RL_GS.xls. You’ll see that there are some missing data.
+These have been imputed using “softImpute” and are also in the spreadsheet. These data have been saved as a csv file for ease of input.</p>
+<p>Read in the data :</p>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="Genomic-prediction.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="co">#delete the &quot;data/&quot; if you copy this</span></span>
+<span id="cb577-2"><a href="Genomic-prediction.html#cb577-2" aria-hidden="true" tabindex="-1"></a>NLRL<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;data/NL_RL_GS.csv&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Check the size of the dataset:</p>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="Genomic-prediction.html#cb578-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(NLRL) <span class="co"># Markers start in column four.</span></span></code></pre></div>
+<pre><code>## [1] 159 221</code></pre>
+</div>
+<div id="examining-the-data-structure" class="section level3" number="13.2.4">
+<h3><span class="header-section-number">13.2.4</span> Examining the data structure</h3>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="Genomic-prediction.html#cb580-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(NLRL)</span></code></pre></div>
+<pre><code>## The following object is masked from TG_data_for_day_1:
+## 
+##     yield</code></pre>
+<p>Before moving on to the ridge regression itself, we’ll look at the dominant feature of these data: the relationship between yield and age of varieties, given here by the column “year_in” which is the first year the variety entered this trial series.</p>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="Genomic-prediction.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(NLRL<span class="sc">$</span>year_in,NLRL<span class="sc">$</span>yield)</span>
+<span id="cb582-2"><a href="Genomic-prediction.html#cb582-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Just because we can, add a trend line:</span></span>
+<span id="cb582-3"><a href="Genomic-prediction.html#cb582-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(yield<span class="sc">~</span>year_in))</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-444-1.png" width="672" /></p>
+<p>Finally, try this:</p>
+<p><code>identify(year_in,yield,labels=Name)</code> - You’ll need to mouse-over the graph and click. (In Rstudio, nothing happens until you “Finish” in the graphics window. This works better in native R. Any comments on the graph?</p>
+<p>We’ll look at one other feature of the data before we move on: how genetic relationships
+among varieties have changed over time. The relevance of this will be seen later. To do a thorough job, we would analyse the data with packages designed for this task. Here, we’re going to do a cheap and cheerful analysis using some standard R functions. For ease of
+display, we’ll pool varieties into decade groups and display the relationships between
+decades.</p>
+<p>Don’t worry about the R code here: with a bit of experience, searching and by asking
+colleagues, your knowledge begins to grow. Or you stumble across something in someone else’s code. I only discovered “identify” a couple of years ago.</p>
+<p>We’re going to calculate the mean allele frequency for each marker, and save the results.
+First, we define a matrix to keep the results. There are seven decades in the dataset and 217
+markers:</p>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="Genomic-prediction.html#cb583-1" aria-hidden="true" tabindex="-1"></a>decade_means<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="at">nrow=</span><span class="dv">7</span>,<span class="at">ncol=</span><span class="dv">217</span>)</span></code></pre></div>
+<p>For ease of interpretation, I want to name the rows of this matrix by their decades.</p>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="Genomic-prediction.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(decade_means)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1940</span>,<span class="dv">1950</span>,<span class="dv">1960</span>,<span class="dv">1970</span>,<span class="dv">1980</span>,<span class="dv">1990</span>,<span class="dv">2000</span>)</span></code></pre></div>
+<p>The next bit of code defines the means:</p>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="Genomic-prediction.html#cb585-1" aria-hidden="true" tabindex="-1"></a>decade<span class="ot">&lt;-</span><span class="dv">10</span><span class="sc">*</span>(year_in<span class="dv">-1940</span>)<span class="sc">%/%</span><span class="dv">10</span><span class="sc">+</span><span class="dv">1940</span></span>
+<span id="cb585-2"><a href="Genomic-prediction.html#cb585-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">217</span>) decade_means[,(i<span class="dv">-4</span>)]<span class="ot">&lt;-</span>(<span class="fu">tapply</span>(NLRL[,i],<span class="at">INDEX=</span>decade,<span class="at">FUN=</span>mean))</span></code></pre></div>
+<p>The first line creates a new variable with the decade in which each variety entered trial. The <code>%/%</code> structure is new. It is for integer division, in which 41/10 = 4, 49/10 = 4 and 50/10 = 5. So you can see the line takes the year each variety entered trial and returns the decade of entry.</p>
+<p>The second line takes the mean allele frequency for each marker in each decade and saves
+it. <code>tapply()</code> is a command which applies an R function (given in <code>FUN=mean</code>) to each column
+of the data (in <code>NLRL[,i]</code>) for each value of the grouping criterion (given in <code>INDEX=decade</code>). You can write a loop to do exactly the same thing, but <code>tapply</code> is quicker. I only learned about this from a course I gave in which there were several R gurus among the participants.</p>
+<p>Have a look at the first few rows of <code>decade_means</code> to check that it has worked.</p>
+<p>Now we estimate a genetic distance between our mean allele frequencies using the R command dist. This has a number of options (see help(dist)for what distance measure to use. The default is Euclidian which is reasonable.</p>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="Genomic-prediction.html#cb586-1" aria-hidden="true" tabindex="-1"></a>decade_dist<span class="ot">&lt;-</span><span class="fu">dist</span>(decade_means,<span class="at">diag=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>decade_dist should be 7x7 matrix of distances between decades. Have a look at it. Can you
+see the pattern? You can visualize it:</p>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="Genomic-prediction.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(<span class="dv">1930</span><span class="sc">+</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)<span class="sc">*</span><span class="dv">10</span>,<span class="dv">1930</span><span class="sc">+</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)<span class="sc">*</span><span class="dv">10</span>,<span class="fu">as.matrix</span>(decade_dist))</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-449-1.png" width="672" /></p>
+<p>A more sophisticated view, which includes a tree is given by:</p>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="Genomic-prediction.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(<span class="fu">as.matrix</span>(decade_dist))</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-450-1.png" width="672" /></p>
+</div>
+<div id="ordinary-least-squares" class="section level3" number="13.2.5">
+<h3><span class="header-section-number">13.2.5</span> Ordinary least squares</h3>
+<p>We are now ready to have a go at getting some GEBVs. First, let’s demonstrate that having
+more markers (217) than varieties (159) is a problem. Use ordinary linear regression to fit
+three markers, then fit all the markers. To fit three markers:</p>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="Genomic-prediction.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="co"># regress yield on the first three markers</span></span>
+<span id="cb589-2"><a href="Genomic-prediction.html#cb589-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(yield<span class="sc">~</span>NLRL[,<span class="dv">5</span>]<span class="sc">+</span>NLRL[,<span class="dv">6</span>] <span class="sc">+</span>NLRL[,<span class="dv">7</span>]))</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: yield
+##            Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+## NLRL[, 5]   1  13.66 13.6567  6.0150 0.01529 *
+## NLRL[, 6]   1   1.98  1.9846  0.8741 0.35128  
+## NLRL[, 7]   1   0.01  0.0068  0.0030 0.95650  
+## Residuals 155 351.92  2.2704                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>To fit all the markers, we don’t want to enter <code>NLRL[,5] + NLRL[,7] + ... dim(NLRL+ NLRL[,221]))</code> by hand. We have to tell R to treat the data we have read in as a matrix, and then the <code>lm</code> command will let us reference the columns of the matrix:</p>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="Genomic-prediction.html#cb591-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit all markers</span></span>
+<span id="cb591-2"><a href="Genomic-prediction.html#cb591-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(yield<span class="sc">~</span><span class="fu">as.matrix</span>(NLRL[,<span class="dv">5</span><span class="sc">:</span><span class="dv">221</span>])))</span></code></pre></div>
+<pre><code>## Warning in anova.lm(lm(yield ~ as.matrix(NLRL[, 5:221]))): ANOVA F-tests on an
+## essentially perfect fit are unreliable</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: yield
+##                           Df Sum Sq Mean Sq F value Pr(&gt;F)
+## as.matrix(NLRL[, 5:221]) 158 367.57  2.3264               
+## Residuals                  0   0.00</code></pre>
+<p>How many markers can you fit? The anova tells you.</p>
+</div>
+<div id="rrblup" class="section level3" number="13.2.6">
+<h3><span class="header-section-number">13.2.6</span> rrBLUP</h3>
+<p>We’ll now use <code>rrBLUP</code> for genomic prediction . <code>rrBLUP</code> predicts individual performances
+using a genomic relationship matrix, but can transform results from this into weightings for
+individual markers. There is no search for an optimum value for <span class="math inline">\(λ\)</span>; this comes from the
+estimates of genetic and environmental variances among lines.</p>
+
+<div class="rmdnote">
+Don’t use <code>rrBLUP</code> for GWAS, although the manual says you can. Use the additional
+package from the same source; <code>GWASpoly</code>, which we used earlier in the week.
+</div>
+<p>Install the package if this has not been done. Then load it for use:</p>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="Genomic-prediction.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rrBLUP)</span></code></pre></div>
+<p><code>rrBLUP</code> requires that marker data are coded as -1, 0 +1 rather than 0,1,2. This allows the transformed marker data to be used to create a relationship matrix which takes into account differential inbreeding among parents and produce valid estimates (BLUPs) of the individuals under consideration. Data are currently coded 0 and 1, so to transform these values -1 and +1, subtract a half then multiply by two:</p>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="Genomic-prediction.html#cb595-1" aria-hidden="true" tabindex="-1"></a>NLRL[,<span class="dv">5</span><span class="sc">:</span><span class="dv">221</span>]<span class="ot">&lt;-</span>(NLRL[,<span class="dv">5</span><span class="sc">:</span><span class="dv">221</span>]<span class="sc">-</span><span class="fl">0.5</span>)<span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
+<p>There are no missing data in this dataset, but <code>rrBLUP</code> will handle missing data automatically. Let’s first see if prediction using a genomic relationship matrix and prediction from ridge regression give the same answer.</p>
+<p><code>mixed.solve</code> is the command for fitting the mixed model to either a relationship matrix
+among lines or by regression on markers. First, by use of a relationship matrix:</p>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="Genomic-prediction.html#cb596-1" aria-hidden="true" tabindex="-1"></a>BLUP <span class="ot">&lt;-</span> <span class="fu">mixed.solve</span>(NLRL<span class="sc">$</span>yield,<span class="at">K=</span><span class="fu">A.mat</span>(NLRL[,<span class="dv">5</span><span class="sc">:</span><span class="dv">221</span>]))</span>
+<span id="cb596-2"><a href="Genomic-prediction.html#cb596-2" aria-hidden="true" tabindex="-1"></a>pred.BLUP<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(BLUP<span class="sc">$</span>beta)<span class="sc">+</span>BLUP<span class="sc">$</span>u</span>
+<span id="cb596-3"><a href="Genomic-prediction.html#cb596-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.BLUP,NLRL<span class="sc">$</span>yield)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-456-1.png" width="672" /></p>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="Genomic-prediction.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.BLUP,NLRL<span class="sc">$</span>yield)</span></code></pre></div>
+<pre><code>## [1] 0.958079</code></pre>
+<p><code>A.mat</code> uses rrBLUP’s internal definition of kinship, and therefore of the additive relationship matrix. Alternative relationship matrices can be provided too. Next, by ridge regression:</p>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="Genomic-prediction.html#cb599-1" aria-hidden="true" tabindex="-1"></a>pred.RR<span class="ot">&lt;-</span><span class="fu">mixed.solve</span>(NLRL<span class="sc">$</span>yield,NLRL[,<span class="dv">5</span><span class="sc">:</span><span class="dv">221</span>], <span class="at">method=</span><span class="st">&quot;REML&quot;</span>,<span class="at">bounds=</span><span class="fu">c</span>(<span class="fl">1e-09</span>,</span>
+<span id="cb599-2"><a href="Genomic-prediction.html#cb599-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1e+09</span>), <span class="at">SE=</span><span class="cn">FALSE</span>, <span class="at">return.Hinv=</span><span class="cn">FALSE</span>)</span>
+<span id="cb599-3"><a href="Genomic-prediction.html#cb599-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb599-4"><a href="Genomic-prediction.html#cb599-4" aria-hidden="true" tabindex="-1"></a>pred.RR.all<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(NLRL[,<span class="dv">5</span><span class="sc">:</span><span class="dv">221</span>]) <span class="sc">%*%</span> pred.RR<span class="sc">$</span>u <span class="sc">+</span></span>
+<span id="cb599-5"><a href="Genomic-prediction.html#cb599-5" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(pred.RR<span class="sc">$</span>beta)</span>
+<span id="cb599-6"><a href="Genomic-prediction.html#cb599-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb599-7"><a href="Genomic-prediction.html#cb599-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.RR.all,NLRL<span class="sc">$</span>yield)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-457-1.png" width="672" /></p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="Genomic-prediction.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.RR.all,NLRL<span class="sc">$</span>yield)</span></code></pre></div>
+<pre><code>##           [,1]
+## [1,] 0.9580788</code></pre>
+<p>Now compare the results from the two:</p>
+<p><code>plot(pred.RR.all,pred.BLUP)</code>- How do the results compare? We can see what the maximum possible predicted yield is:</p>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="Genomic-prediction.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">abs</span>(pred.RR<span class="sc">$</span>u))<span class="sc">+</span>pred.RR<span class="sc">$</span>beta</span></code></pre></div>
+<pre><code>## [1] 14.17547</code></pre>
+<p>Is this realistic? To use the kinship matrix to predict the performance of individuals with no phenotype, include those individuals in the computations, but with their phenotype set to NA:</p>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="Genomic-prediction.html#cb604-1" aria-hidden="true" tabindex="-1"></a>samp.temp<span class="ot">&lt;-</span><span class="fu">sort</span>(<span class="fu">sample</span>(<span class="dv">159</span>,<span class="dv">50</span>,<span class="at">replace=</span>F))</span>
+<span id="cb604-2"><a href="Genomic-prediction.html#cb604-2" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span>NLRL[,<span class="dv">3</span>]</span>
+<span id="cb604-3"><a href="Genomic-prediction.html#cb604-3" aria-hidden="true" tabindex="-1"></a>temp[samp.temp] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb604-4"><a href="Genomic-prediction.html#cb604-4" aria-hidden="true" tabindex="-1"></a>BLUP <span class="ot">&lt;-</span> <span class="fu">mixed.solve</span>(temp,<span class="at">K=</span><span class="fu">A.mat</span>(NLRL[,<span class="dv">5</span><span class="sc">:</span><span class="dv">221</span>]))</span>
+<span id="cb604-5"><a href="Genomic-prediction.html#cb604-5" aria-hidden="true" tabindex="-1"></a>pred.BLUP<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(BLUP<span class="sc">$</span>beta)<span class="sc">+</span>BLUP<span class="sc">$</span>u</span>
+<span id="cb604-6"><a href="Genomic-prediction.html#cb604-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.BLUP[samp.temp],NLRL[samp.temp,<span class="dv">3</span>])</span></code></pre></div>
+<pre><code>## [1] 0.8618017</code></pre>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="Genomic-prediction.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.BLUP[samp.temp],NLRL[samp.temp,<span class="dv">3</span>])</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-459-1.png" width="672" /></p>
+<p>How does this accuracy compare with predictions for those with missing data?</p>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="Genomic-prediction.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.BLUP[<span class="sc">-</span>samp.temp],NLRL[<span class="sc">-</span>samp.temp,<span class="dv">3</span>])</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-460-1.png" width="672" /></p>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="Genomic-prediction.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.BLUP[<span class="sc">-</span>samp.temp],NLRL[<span class="sc">-</span>samp.temp,<span class="dv">3</span>])</span></code></pre></div>
+<pre><code>## [1] 0.9755676</code></pre>
+</div>
+<div id="prediction-forward-in-time" class="section level3" number="13.2.7">
+<h3><span class="header-section-number">13.2.7</span> Prediction forward in time</h3>
+<p>The results so far are positive. Given a new variety, we can predict its yield well without running any variety trials. The predictions are dependent on the quality of the phenotype data, so unless heritability is 100%, we’ll never get a perfect correlation. In fact, the upper limit for the correlation is h, the square root of the phenotypic heritability.</p>
+<p>For breeding purposes, we would be predicting forward in time using historical data: we
+don’t want to predict the performance of old varieties which are most likely already
+outclassed. To test this, we can split the data in half on age, using the old varieties as the training set and the new varieties as a test set. We’ll manipulate the data in R.</p>
+<p>First find a suitable point to split the data:</p>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="Genomic-prediction.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(NLRL[,<span class="st">&quot;year_in&quot;</span>])</span></code></pre></div>
+<pre><code>## [1] 1989</code></pre>
+<p>You can check the split by counting the number of varieties lying above and below your cutoff.</p>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="Genomic-prediction.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(NLRL[,<span class="st">&quot;year_in&quot;</span>]<span class="sc">&lt;</span><span class="dv">1950</span>)</span></code></pre></div>
+<pre><code>## [1] 13</code></pre>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="Genomic-prediction.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(NLRL[,<span class="st">&quot;year_in&quot;</span>]<span class="sc">&gt;=</span><span class="dv">1950</span>)</span></code></pre></div>
+<pre><code>## [1] 146</code></pre>
+<p>Now set the most recent half of varieties to missing values for their phenotype:</p>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="Genomic-prediction.html#cb616-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span>NLRL[,<span class="dv">3</span>]</span>
+<span id="cb616-2"><a href="Genomic-prediction.html#cb616-2" aria-hidden="true" tabindex="-1"></a>temp[NLRL[,<span class="dv">4</span>]<span class="sc">&gt;=</span><span class="dv">1989</span>]<span class="ot">&lt;-</span><span class="cn">NA</span></span></code></pre></div>
+<p>Fit BLUPs to the modified dataset, both for cases where phenotypes are present or missing:</p>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="Genomic-prediction.html#cb617-1" aria-hidden="true" tabindex="-1"></a>BLUP <span class="ot">&lt;-</span> <span class="fu">mixed.solve</span>(temp,<span class="at">K=</span><span class="fu">A.mat</span>(NLRL[,<span class="dv">5</span><span class="sc">:</span><span class="dv">221</span>]))</span>
+<span id="cb617-2"><a href="Genomic-prediction.html#cb617-2" aria-hidden="true" tabindex="-1"></a>pred.BLUP<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(BLUP<span class="sc">$</span>beta)<span class="sc">+</span>BLUP<span class="sc">$</span>u</span></code></pre></div>
+<p>How good a fit for the lines with missing phenotype:</p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="Genomic-prediction.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.BLUP[NLRL[,<span class="dv">4</span>]<span class="sc">&gt;=</span><span class="dv">1989</span>],NLRL[NLRL[,<span class="dv">4</span>]<span class="sc">&gt;=</span><span class="dv">1989</span>,<span class="dv">3</span>])</span></code></pre></div>
+<pre><code>## [1] 0.2056729</code></pre>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="Genomic-prediction.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.BLUP[NLRL[,<span class="dv">4</span>]<span class="sc">&gt;=</span><span class="dv">1989</span>],NLRL[NLRL[,<span class="dv">4</span>]<span class="sc">&gt;=</span><span class="dv">1989</span>,<span class="dv">3</span>])</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-465-1.png" width="672" /></p>
+<p>How good a fit for the lines with phenotype:</p>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="Genomic-prediction.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.BLUP[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span><span class="dv">1989</span>],NLRL[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span><span class="dv">1989</span>,<span class="dv">3</span>])</span></code></pre></div>
+<pre><code>## [1] 0.9411743</code></pre>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="Genomic-prediction.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.BLUP[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span><span class="dv">1989</span>],NLRL[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span><span class="dv">1989</span>,<span class="dv">3</span>])</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-466-1.png" width="672" /></p>
+<p>Try plotting over a specific range. This makes it easier to compare accuracy with age
+difference from training population. For example:</p>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="Genomic-prediction.html#cb624-1" aria-hidden="true" tabindex="-1"></a>upper<span class="ot">&lt;-</span><span class="dv">20000</span></span>
+<span id="cb624-2"><a href="Genomic-prediction.html#cb624-2" aria-hidden="true" tabindex="-1"></a>lower<span class="ot">&lt;-</span><span class="dv">2000</span></span>
+<span id="cb624-3"><a href="Genomic-prediction.html#cb624-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb624-4"><a href="Genomic-prediction.html#cb624-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.BLUP[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span>upper <span class="sc">&amp;</span> NLRL[,<span class="dv">4</span>]<span class="sc">&gt;</span>lower],NLRL[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span>upper <span class="sc">&amp;</span></span>
+<span id="cb624-5"><a href="Genomic-prediction.html#cb624-5" aria-hidden="true" tabindex="-1"></a>NLRL[,<span class="dv">4</span>]<span class="sc">&gt;</span>lower,<span class="dv">3</span>])</span></code></pre></div>
+<pre><code>## [1] 0.1606659</code></pre>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="Genomic-prediction.html#cb626-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.BLUP[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span>upper <span class="sc">&amp;</span> NLRL[,<span class="dv">4</span>]<span class="sc">&gt;</span>lower],NLRL[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span>upper <span class="sc">&amp;</span></span>
+<span id="cb626-2"><a href="Genomic-prediction.html#cb626-2" aria-hidden="true" tabindex="-1"></a>NLRL[,<span class="dv">4</span>]<span class="sc">&gt;</span>lower,<span class="dv">3</span>])</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-467-1.png" width="672" /></p>
+<p>Alter <code>upper</code> and <code>lower</code> to compare accuracies in different ranges of the test population.
+Can you explain the results? We shall discuss them!</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="selection-theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Breeding-simulations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/13-Genomic_prediction.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

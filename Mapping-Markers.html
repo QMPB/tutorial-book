@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Mapping Markers and Quantitative Trait Loci. | Quantitative Methods in Plant Breeding: The Digital Tutorials.</title>
+  <meta name="description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Mapping Markers and Quantitative Trait Loci. | Quantitative Methods in Plant Breeding: The Digital Tutorials." />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="github-repo" content="rstudio/bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Mapping Markers and Quantitative Trait Loci. | Quantitative Methods in Plant Breeding: The Digital Tutorials." />
+  
+  <meta name="twitter:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="twitter:image" content="images/cover.jpg" />
+
+<meta name="author" content="NIAB 2021" />
+
+
+<meta name="date" content="2021-02-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Association-mapping.html"/>
+<link rel="next" href="Data-Visualization.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The QMPB digital tutorials</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="Acknow.html"><a href="Acknow.html"><i class="fa fa-check"></i><b>2</b> Acknowledgements and Contents</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="Acknow.html"><a href="Acknow.html#acknowledgements"><i class="fa fa-check"></i><b>2.1</b> Acknowledgements</a></li>
+<li class="chapter" data-level="2.2" data-path="Acknow.html"><a href="Acknow.html#digital-tutorial-chapters"><i class="fa fa-check"></i><b>2.2</b> Digital Tutorial Chapters:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="R-and-stats.html"><a href="R-and-stats.html"><i class="fa fa-check"></i><b>3</b> R and Rstudio: a general introduction with statistics.</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="R-and-stats.html"><a href="R-and-stats.html#introduction-section-on-r"><i class="fa fa-check"></i><b>3.1</b> Introduction section on R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="R-and-stats.html"><a href="R-and-stats.html#getting-the-data-ready"><i class="fa fa-check"></i><b>3.1.1</b> Getting the data ready</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="R-and-stats.html"><a href="R-and-stats.html#the-rstudio-layout-workspace-and-environment."><i class="fa fa-check"></i><b>3.2</b> The Rstudio layout, workspace and environment.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="R-and-stats.html"><a href="R-and-stats.html#working-directory"><i class="fa fa-check"></i><b>3.2.1</b> Working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="R-and-stats.html"><a href="R-and-stats.html#basic-r-syntx"><i class="fa fa-check"></i><b>3.3</b> Basic R Syntx</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="R-and-stats.html"><a href="R-and-stats.html#brackets"><i class="fa fa-check"></i><b>3.3.1</b> Brackets</a></li>
+<li class="chapter" data-level="3.3.2" data-path="R-and-stats.html"><a href="R-and-stats.html#equals-symbols"><i class="fa fa-check"></i><b>3.3.2</b> Equals symbols</a></li>
+<li class="chapter" data-level="3.3.3" data-path="R-and-stats.html"><a href="R-and-stats.html#continuation-character."><i class="fa fa-check"></i><b>3.3.3</b> Continuation character.</a></li>
+<li class="chapter" data-level="3.3.4" data-path="R-and-stats.html"><a href="R-and-stats.html#text-and-numbers"><i class="fa fa-check"></i><b>3.3.4</b> Text and numbers</a></li>
+<li class="chapter" data-level="3.3.5" data-path="R-and-stats.html"><a href="R-and-stats.html#summary-of-syntax"><i class="fa fa-check"></i><b>3.3.5</b> Summary of syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="R-and-stats.html"><a href="R-and-stats.html#reading-in-data"><i class="fa fa-check"></i><b>3.4</b> Reading in data</a></li>
+<li class="chapter" data-level="3.5" data-path="R-and-stats.html"><a href="R-and-stats.html#understanding-data-types-and-r-objects"><i class="fa fa-check"></i><b>3.5</b> Understanding data types and R objects</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="R-and-stats.html"><a href="R-and-stats.html#summary"><i class="fa fa-check"></i><b>3.5.1</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="R-and-stats.html"><a href="R-and-stats.html#summarising-and-displaying-data"><i class="fa fa-check"></i><b>3.6</b> Summarising and displaying data</a></li>
+<li class="chapter" data-level="3.7" data-path="R-and-stats.html"><a href="R-and-stats.html#calculations-and-data-manipulation"><i class="fa fa-check"></i><b>3.7</b> Calculations and data manipulation</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="R-and-stats.html"><a href="R-and-stats.html#sorting-data"><i class="fa fa-check"></i><b>3.7.1</b> Sorting data</a></li>
+<li class="chapter" data-level="3.7.2" data-path="R-and-stats.html"><a href="R-and-stats.html#relationships-between-variates"><i class="fa fa-check"></i><b>3.7.2</b> Relationships between variates</a></li>
+<li class="chapter" data-level="3.7.3" data-path="R-and-stats.html"><a href="R-and-stats.html#exporting-your-script-and-workspace"><i class="fa fa-check"></i><b>3.7.3</b> Exporting your script and workspace</a></li>
+<li class="chapter" data-level="3.7.4" data-path="R-and-stats.html"><a href="R-and-stats.html#saving-a-data-table"><i class="fa fa-check"></i><b>3.7.4</b> Saving a data table</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="R-and-stats.html"><a href="R-and-stats.html#basic-statistical-analysis"><i class="fa fa-check"></i><b>3.8</b> Basic statistical analysis</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="R-and-stats.html"><a href="R-and-stats.html#the-t-test"><i class="fa fa-check"></i><b>3.8.1</b> The t-test</a></li>
+<li class="chapter" data-level="3.8.2" data-path="R-and-stats.html"><a href="R-and-stats.html#linear-regression"><i class="fa fa-check"></i><b>3.8.2</b> Linear Regression</a></li>
+<li class="chapter" data-level="3.8.3" data-path="R-and-stats.html"><a href="R-and-stats.html#multiple-regression"><i class="fa fa-check"></i><b>3.8.3</b> Multiple regression</a></li>
+<li class="chapter" data-level="3.8.4" data-path="R-and-stats.html"><a href="R-and-stats.html#the-analysis-of-variance"><i class="fa fa-check"></i><b>3.8.4</b> The analysis of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="R-and-stats.html"><a href="R-and-stats.html#categorical-data---the-chi-squared-test"><i class="fa fa-check"></i><b>3.9</b> Categorical data - the <em>chi</em>-squared test</a></li>
+<li class="chapter" data-level="3.10" data-path="R-and-stats.html"><a href="R-and-stats.html#more-useful-information"><i class="fa fa-check"></i><b>3.10</b> More useful information</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="R-and-stats.html"><a href="R-and-stats.html#plotting-graphs"><i class="fa fa-check"></i><b>3.10.1</b> Plotting Graphs</a></li>
+<li class="chapter" data-level="3.10.2" data-path="R-and-stats.html"><a href="R-and-stats.html#probability-distributions"><i class="fa fa-check"></i><b>3.10.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="3.10.3" data-path="R-and-stats.html"><a href="R-and-stats.html#random-number-generation"><i class="fa fa-check"></i><b>3.10.3</b> Random number generation</a></li>
+<li class="chapter" data-level="3.10.4" data-path="R-and-stats.html"><a href="R-and-stats.html#loops-second-example"><i class="fa fa-check"></i><b>3.10.4</b> Loops: <em>second example</em></a></li>
+<li class="chapter" data-level="3.10.5" data-path="R-and-stats.html"><a href="R-and-stats.html#miscellany"><i class="fa fa-check"></i><b>3.10.5</b> Miscellany</a></li>
+<li class="chapter" data-level="3.10.6" data-path="R-and-stats.html"><a href="R-and-stats.html#my-number-one-piece-of-advice"><i class="fa fa-check"></i><b>3.10.6</b> My number one piece of advice</a></li>
+<li class="chapter" data-level="3.10.7" data-path="R-and-stats.html"><a href="R-and-stats.html#learn-more"><i class="fa fa-check"></i><b>3.10.7</b> Learn more</a></li>
+<li class="chapter" data-level="3.10.8" data-path="R-and-stats.html"><a href="R-and-stats.html#packages"><i class="fa fa-check"></i><b>3.10.8</b> Packages</a></li>
+<li class="chapter" data-level="3.10.9" data-path="R-and-stats.html"><a href="R-and-stats.html#the-tidyverse"><i class="fa fa-check"></i><b>3.10.9</b> The Tidyverse</a></li>
+<li class="chapter" data-level="3.10.10" data-path="R-and-stats.html"><a href="R-and-stats.html#other-resources"><i class="fa fa-check"></i><b>3.10.10</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="R-and-stats.html"><a href="R-and-stats.html#list-of-commands-mainly-described-in-this-guide."><i class="fa fa-check"></i><b>3.11</b> List of commands, mainly described in this guide.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Trial-design.html"><a href="Trial-design.html"><i class="fa fa-check"></i><b>4</b> Trial Design.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="Trial-design.html"><a href="Trial-design.html#randomised-complete-block-designs"><i class="fa fa-check"></i><b>4.1</b> Randomised complete block designs</a></li>
+<li class="chapter" data-level="4.2" data-path="Trial-design.html"><a href="Trial-design.html#trial-design-in-r"><i class="fa fa-check"></i><b>4.2</b> Trial design in R</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="Trial-design.html"><a href="Trial-design.html#partially-replicated-designs"><i class="fa fa-check"></i><b>4.2.1</b> Partially replicated designs</a></li>
+<li class="chapter" data-level="4.2.2" data-path="Trial-design.html"><a href="Trial-design.html#two-dimensional-designs"><i class="fa fa-check"></i><b>4.2.2</b> Two-dimensional designs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="Trial-design.html"><a href="Trial-design.html#farm-scale-experiments"><i class="fa fa-check"></i><b>4.3</b> Farm scale experiments</a></li>
+<li class="chapter" data-level="4.4" data-path="Trial-design.html"><a href="Trial-design.html#alpha-designs."><i class="fa fa-check"></i><b>4.4</b> Alpha designs.</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="Trial-design.html"><a href="Trial-design.html#creation-of-augmented-and-p-rep-designs-from-2-replicate-alpha-designs"><i class="fa fa-check"></i><b>4.4.1</b> Creation of augmented and p-rep designs from 2-replicate alpha designs</a></li>
+<li class="chapter" data-level="4.4.2" data-path="Trial-design.html"><a href="Trial-design.html#final-message"><i class="fa fa-check"></i><b>4.4.2</b> Final message</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Trial-analysis.html"><a href="Trial-analysis.html"><i class="fa fa-check"></i><b>5</b> Trial analysis (sugar beet example).</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#the-layout-of-the-sugar-beet-trial"><i class="fa fa-check"></i><b>5.1</b> The layout of the sugar beet trial</a></li>
+<li class="chapter" data-level="5.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#fixed-effects-random-effects-and-reml"><i class="fa fa-check"></i><b>5.2</b> Fixed effects, random effects and REML</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#preparing-the-data"><i class="fa fa-check"></i><b>5.2.1</b> Preparing the data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#randomised-complete-block-design"><i class="fa fa-check"></i><b>5.2.2</b> Randomised complete block design</a></li>
+<li class="chapter" data-level="5.2.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#randomised-compelete-block-design---with-mixed-models"><i class="fa fa-check"></i><b>5.2.3</b> Randomised compelete block design - with mixed models</a></li>
+<li class="chapter" data-level="5.2.4" data-path="Trial-analysis.html"><a href="Trial-analysis.html#plotting-residuals-against-field-structure."><i class="fa fa-check"></i><b>5.2.4</b> Plotting residuals against field structure.</a></li>
+<li class="chapter" data-level="5.2.5" data-path="Trial-analysis.html"><a href="Trial-analysis.html#alpha-design-include-block-structure"><i class="fa fa-check"></i><b>5.2.5</b> Alpha design (include block structure)</a></li>
+<li class="chapter" data-level="5.2.6" data-path="Trial-analysis.html"><a href="Trial-analysis.html#rows-and-column-analysis"><i class="fa fa-check"></i><b>5.2.6</b> Rows and column analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#spatial-analysis"><i class="fa fa-check"></i><b>5.3</b> Spatial analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html"><i class="fa fa-check"></i><b>6</b> Cross sites analysis in R.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#blues-blups-and-one-stage-analysis"><i class="fa fa-check"></i><b>6.1</b> BLUEs, BLUPs and one stage analysis</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#one-stage-analysis-with-weights"><i class="fa fa-check"></i><b>6.1.1</b> One stage analysis with weights</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#weighted-two-stage-analysis"><i class="fa fa-check"></i><b>6.2</b> Weighted two-stage analysis</a></li>
+<li class="chapter" data-level="6.3" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#ammi"><i class="fa fa-check"></i><b>6.3</b> AMMI</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="Population-genetics.html"><a href="Population-genetics.html"><i class="fa fa-check"></i><b>7</b> Population genetics.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="Population-genetics.html"><a href="Population-genetics.html#hardy-weinberg-equilibrium-and-population-structure"><i class="fa fa-check"></i><b>7.1</b> Hardy-Weinberg equilibrium and population structure</a></li>
+<li class="chapter" data-level="7.2" data-path="Population-genetics.html"><a href="Population-genetics.html#other-ways-of-analysing-population-structure"><i class="fa fa-check"></i><b>7.2</b> Other ways of analysing population structure</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="Population-genetics.html"><a href="Population-genetics.html#distance-trees"><i class="fa fa-check"></i><b>7.2.1</b> Distance Trees</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="Population-genetics.html"><a href="Population-genetics.html#structure"><i class="fa fa-check"></i><b>7.3</b> Structure</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="Population-genetics.html"><a href="Population-genetics.html#what-structure-does"><i class="fa fa-check"></i><b>7.3.1</b> What STRUCTURE does</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Population-genetics.html"><a href="Population-genetics.html#limitations-of-structure"><i class="fa fa-check"></i><b>7.3.2</b> Limitations of STRUCTURE</a></li>
+<li class="chapter" data-level="7.3.3" data-path="Population-genetics.html"><a href="Population-genetics.html#using-structure"><i class="fa fa-check"></i><b>7.3.3</b> Using Structure</a></li>
+<li class="chapter" data-level="7.3.4" data-path="Population-genetics.html"><a href="Population-genetics.html#the-exercise"><i class="fa fa-check"></i><b>7.3.4</b> The exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="Population-genetics.html"><a href="Population-genetics.html#linkage-disequilibrium-analysis"><i class="fa fa-check"></i><b>7.4</b> Linkage disequilibrium analysis</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="Population-genetics.html"><a href="Population-genetics.html#linkage-disequilibrium-in-the-teosinte-and-barley-data-sets"><i class="fa fa-check"></i><b>7.4.1</b> Linkage disequilibrium in the teosinte and barley data sets</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="Population-genetics.html"><a href="Population-genetics.html#recombination-and-linkage-disequilibrium-applications"><i class="fa fa-check"></i><b>7.5</b> Recombination and linkage disequilibrium: applications</a></li>
+<li class="chapter" data-level="7.6" data-path="Population-genetics.html"><a href="Population-genetics.html#pedigree-analysis"><i class="fa fa-check"></i><b>7.6</b> Pedigree analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Imputation.html"><a href="Imputation.html"><i class="fa fa-check"></i><b>8</b> Imputation.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="Imputation.html"><a href="Imputation.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="Imputation.html"><a href="Imputation.html#the-exercise-1"><i class="fa fa-check"></i><b>8.2</b> The exercise</a></li>
+<li class="chapter" data-level="8.3" data-path="Imputation.html"><a href="Imputation.html#data-preparation-for-all-methods"><i class="fa fa-check"></i><b>8.3</b> Data preparation (for all methods)</a></li>
+<li class="chapter" data-level="8.4" data-path="Imputation.html"><a href="Imputation.html#svd-imputation"><i class="fa fa-check"></i><b>8.4</b> SVD imputation</a></li>
+<li class="chapter" data-level="8.5" data-path="Imputation.html"><a href="Imputation.html#mean-imputation"><i class="fa fa-check"></i><b>8.5</b> Mean imputation</a></li>
+<li class="chapter" data-level="8.6" data-path="Imputation.html"><a href="Imputation.html#random-forest-imputation"><i class="fa fa-check"></i><b>8.6</b> Random Forest Imputation</a></li>
+<li class="chapter" data-level="8.7" data-path="Imputation.html"><a href="Imputation.html#summary-1"><i class="fa fa-check"></i><b>8.7</b> Summary</a></li>
+<li class="chapter" data-level="8.8" data-path="Imputation.html"><a href="Imputation.html#conclusions-and-comments"><i class="fa fa-check"></i><b>8.8</b> Conclusions and comments</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="Association-mapping.html"><a href="Association-mapping.html"><i class="fa fa-check"></i><b>9</b> Association Mapping.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="Association-mapping.html"><a href="Association-mapping.html#introduction-1"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="Association-mapping.html"><a href="Association-mapping.html#preparing-the-data-set"><i class="fa fa-check"></i><b>9.2</b> Preparing the data set</a></li>
+<li class="chapter" data-level="9.3" data-path="Association-mapping.html"><a href="Association-mapping.html#running-gwaspoly"><i class="fa fa-check"></i><b>9.3</b> Running GWASpoly</a></li>
+<li class="chapter" data-level="9.4" data-path="Association-mapping.html"><a href="Association-mapping.html#the-exercise-2"><i class="fa fa-check"></i><b>9.4</b> The exercise</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="Association-mapping.html"><a href="Association-mapping.html#calculation-and-comparison-of-kinship"><i class="fa fa-check"></i><b>9.4.1</b> Calculation and comparison of kinship</a></li>
+<li class="chapter" data-level="9.4.2" data-path="Association-mapping.html"><a href="Association-mapping.html#gwas"><i class="fa fa-check"></i><b>9.4.2</b> GWAS</a></li>
+<li class="chapter" data-level="9.4.3" data-path="Association-mapping.html"><a href="Association-mapping.html#analysis-with-covariates"><i class="fa fa-check"></i><b>9.4.3</b> Analysis with covariates</a></li>
+<li class="chapter" data-level="9.4.4" data-path="Association-mapping.html"><a href="Association-mapping.html#accounting-for-population-structure"><i class="fa fa-check"></i><b>9.4.4</b> Accounting for population structure</a></li>
+<li class="chapter" data-level="9.4.5" data-path="Association-mapping.html"><a href="Association-mapping.html#further-analysis"><i class="fa fa-check"></i><b>9.4.5</b> Further analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html"><i class="fa fa-check"></i><b>10</b> Mapping Markers and Quantitative Trait Loci.</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#introduction-2"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#constructing-a-genetic-map"><i class="fa fa-check"></i><b>10.2</b> Constructing a genetic map</a></li>
+<li class="chapter" data-level="10.3" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#formatting-and-reading-in-the-data"><i class="fa fa-check"></i><b>10.3</b> Formatting and reading in the data</a></li>
+<li class="chapter" data-level="10.4" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#a-quick-map"><i class="fa fa-check"></i><b>10.4</b> A quick map!</a></li>
+<li class="chapter" data-level="10.5" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#estimating-recombination-fractions"><i class="fa fa-check"></i><b>10.5</b> Estimating recombination fractions</a></li>
+<li class="chapter" data-level="10.6" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#forming-linkage-groups"><i class="fa fa-check"></i><b>10.6</b> Forming Linkage groups</a></li>
+<li class="chapter" data-level="10.7" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#marker-ordering"><i class="fa fa-check"></i><b>10.7</b> Marker ordering</a></li>
+<li class="chapter" data-level="10.8" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#improving-the-map"><i class="fa fa-check"></i><b>10.8</b> Improving the map</a></li>
+<li class="chapter" data-level="10.9" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#quality-control-commands-for-marker-qc-and-mapping"><i class="fa fa-check"></i><b>10.9</b> Quality Control commands for marker QC and mapping</a></li>
+<li class="chapter" data-level="10.10" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#asmap"><i class="fa fa-check"></i><b>10.10</b> ASMap</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="Data-Visualization.html"><a href="Data-Visualization.html"><i class="fa fa-check"></i><b>11</b> Data Visualization.</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="Data-Visualization.html"><a href="Data-Visualization.html#flapjack"><i class="fa fa-check"></i><b>11.1</b> Flapjack</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="Data-Visualization.html"><a href="Data-Visualization.html#genotype-data-.geno-file."><i class="fa fa-check"></i><b>11.1.1</b> Genotype data: “.geno” file.</a></li>
+<li class="chapter" data-level="11.1.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#map-data-.map-file."><i class="fa fa-check"></i><b>11.1.2</b> Map data : “.MAP” file.</a></li>
+<li class="chapter" data-level="11.1.3" data-path="Data-Visualization.html"><a href="Data-Visualization.html#trait-data"><i class="fa fa-check"></i><b>11.1.3</b> Trait data</a></li>
+<li class="chapter" data-level="11.1.4" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-3"><i class="fa fa-check"></i><b>11.1.4</b> The Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="selection-theory.html"><a href="selection-theory.html"><i class="fa fa-check"></i><b>12</b> Selection theory and breeding program design.</a></li>
+<li class="chapter" data-level="13" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html"><i class="fa fa-check"></i><b>13</b> Genomic prediction.</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#ridge-regression-and-genomic-prediction-in-excel"><i class="fa fa-check"></i><b>13.1</b> Ridge regression and Genomic Prediction in Excel</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-3"><i class="fa fa-check"></i><b>13.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.1.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-exercise-4"><i class="fa fa-check"></i><b>13.1.2</b> The Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#genomic-prediction-with-rrblup"><i class="fa fa-check"></i><b>13.2</b> Genomic Prediction with rrBLUP</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-4"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-dataset"><i class="fa fa-check"></i><b>13.2.2</b> The dataset</a></li>
+<li class="chapter" data-level="13.2.3" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#loading-and-preparing-the-data"><i class="fa fa-check"></i><b>13.2.3</b> Loading and preparing the data</a></li>
+<li class="chapter" data-level="13.2.4" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#examining-the-data-structure"><i class="fa fa-check"></i><b>13.2.4</b> Examining the data structure</a></li>
+<li class="chapter" data-level="13.2.5" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#ordinary-least-squares"><i class="fa fa-check"></i><b>13.2.5</b> Ordinary least squares</a></li>
+<li class="chapter" data-level="13.2.6" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#rrblup"><i class="fa fa-check"></i><b>13.2.6</b> rrBLUP</a></li>
+<li class="chapter" data-level="13.2.7" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#prediction-forward-in-time"><i class="fa fa-check"></i><b>13.2.7</b> Prediction forward in time</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="Breeding-simulations.html"><a href="Breeding-simulations.html"><i class="fa fa-check"></i><b>14</b> Breeding simulations.</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Methods in Plant Breeding: The Digital Tutorials.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Mapping-Markers" class="section level1" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Mapping Markers and Quantitative Trait Loci.</h1>
+<p><em>Mapping Markers and Quantitative Trait Loci with R/qtl (and ASMap)</em></p>
+<div id="introduction-2" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Introduction</h2>
+<p>There are several excellent mapping programmes available. A list of some, suitable for plant breeders is found on the R/qtl <a href="http://www.rqtl.org/">homepage.</a> Software for
+creating maps of markers is less common than software for mapping QTL and most has
+specific limitations in terms of speed, population types, handling of missing data and so
+on. The gold standard is <a href="https://www.kyazma.nl/">Joinmap,</a> but this is expensive. In fact
+it’s so expensive that they don’t put the price on their web site.</p>
+<p>For this course we are going to use R/qtl. This is a popular, easy-to-use and well supported package and there is a useful book on QTL mapping associated with it: “A
+Guide to QTL Mapping with R/qtl.” Details are available <a href="http://www.rqtl.org/book/">here.</a> There is also an R/qtl <a href="http://www.rqtl.org/">web site,</a> which
+includes much useful information, including tutorials and there is a <a href="http://groups.google.com/group/Rqtl-disc">discussion group.</a> A quick tour of R/qtl can be found <a href="http://www.rqtl.org/tutorials/rqtltour.pdf">here</a>. R/qtl was originally written to map QTL and not to create linkage maps of markers. However, it will create marker maps, although it can be slow compared to alternative programs. However, in this tutorial we shall use R/qtl both to create a linkage map and then to map QTL onto that map.</p>
+<p>A rewritten version, R/qtl2 is now available, which is faster and better able to handle
+large data sets and complex cross-designs, including MAGIC. It also offers an automated
+marker thinning option for kinship matrix estimation (hooray!) and includes options to
+go beyond QTL detection to searching genomic databases for candidate SNP variants. It
+is available from <a href="http://kbroman.org/qtl2/">here</a> but not yet on CRAN. We are currently trying it out in our work at NIAB.</p>
+<p>Also relatively new, and available through CRAN, is the R package ASMap. This creates marker maps for basic biparental populations, but you would have to use R/qtl to map traits. The description of it is <a href="https://www.jstatsoft.org/article/view/v079i06">here</a>. The R manual for the package can be found <a href="https://cran.r-project.org/web/packages/ASMap/ASMap.pdf">here</a>. Its main benefit over R/qtl is in utilising a more advanced, much faster algorithm for clustering and marker ordering. We shall also have a brief look at this too.</p>
+
+<div class="rmdnote">
+A R script for this tutorial has been provided with the data, either work from that or copy and paste the chunks you wish to run from the book.
+</div>
+</div>
+<div id="constructing-a-genetic-map" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Constructing a genetic map</h2>
+<p>Most (all?) statistical packages for mapping markers start with a square matrix of recombination fractions. From this two-dimensional matrix, markers are partitioned into linkage groups by some form of clustering. Hopefully each cluster or linkage group belongs uniquely to a single chromosome. However, stringent significant thresholds must be employed in this clustering to reduce the number of falsely linked markers. As a result, a numbers of markers are often left unlinked or in clusters with only a very small number of members. In practice, therefore, it is common to identify more linkage groups than chromosomes. With modern genomic resources, these linkage groups can often be subsequently linked to specific chromosomes.</p>
+<p>Following clustering, for each linkage group in turn, markers are projected from the two-dimensional array of recombination fractions into a linear order. There are various methods for carrying out this linearization. Usually, as a final stage, the linear order is tested by some form of perturbation of the initial order to see if a new order can be found which is judged better: reducing the total number of recombinations required to create the observed set of chromosomes for example.</p>
+<p>The data we are going to analyse are from a DH mapping population in UK winter wheat: Avalon x Cadenza. Data were produced as part of an experiment to map wheat soil borne mosaic virus.</p>
+</div>
+<div id="formatting-and-reading-in-the-data" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Formatting and reading in the data</h2>
+<p>Data are in the file: “AxC_R.xlsx.” Note:</p>
+<p>Row 1: in separate cells, column names for ID, phenotypes, markers.</p>
+<p>Row 2: in the cells immediately under the marker names, the chromosome identifier for
+that marker. Here that identifier is 50 for all markers (we could have used anything except x – reserved for sex chromosomes. If we had a pre-existing map we wished to use, obviously this identifier would be for the chromosome or linkage group.</p>
+<p>Row 3: is missing here as it is not required. But if we were using a pre-existing map, then on this line, under its marker name, would be the position in cM for that marker (see
+the QTL mapping tutorial). Data are read in Haldane map units. You will see this after
+we have created a map and exported our data with the new map to a file.</p>
+<p>Coding for marker data follows that used by Mapmaker, one of the original pieces of
+mapping software (slow by current standards and hard to use):</p>
+<pre><code>genotype    default coding  
+AA            A               homozygous from parent A 
+Aa            H               heterozygous 
+aa            B               homozygous from parent B 
+A_            D               for dominant markers, homozygous in parent A 
+a_            C               for dominant markers, homozygous in parent B</code></pre>
+<p>This is the basic coding. It has been expanded to deal with more complex cross types which R/qtl can also handle.</p>
+<p>Should we drop any markers? Should we drop any individuals?</p>
+<p>The dataset we are using has already been through a QC process which has removed really bad markers and individuals. This can be done without a map by looking at marker failure rates and segregation distortion – over markers and over individuals. Some of these checks can be done by the mapping software, but they are easy to do in Excel too:</p>
+<p>To calculate a chi-sq with 1 df to test for 1:1 segregation you can use the quick formula:</p>
+<p><span class="math display">\[(A-B)^2/(A+B)\]</span></p>
+<p>This is just a simplification of the usual <span class="math inline">\(Σ(O-E)^2/E\)</span> (O= observed numbers, E = expected numbers) for a chi-sq test. It only applies when there are two classes and the expected are in the ratio 1:1. I prefer to do this prior to running any mapping programs but it is possible within R/qtl.</p>
+<p>After you are happy with the data, then we read it into R. R cannot read these data directly from Excel or from the clipboard. First you must save the data as a csv file. This has already been done, to create the file AxC_R.csv.</p>
+<p>Within R Studio, set the directory and load the package <code>qtl</code>. You will need to install from CRAN if you don’t have it already.</p>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="Mapping-Markers.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qtl)</span></code></pre></div>
+<p>We can now read data in using the command <code>read.cross</code>.</p>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="Mapping-Markers.html#cb512-1" aria-hidden="true" tabindex="-1"></a>AxC<span class="ot">&lt;-</span><span class="fu">read.cross</span>(<span class="st">&quot;csv&quot;</span>,<span class="at">dir=</span><span class="st">&quot;data&quot;</span>,<span class="st">&quot;AxC_R.csv&quot;</span>,<span class="at">genotypes=</span><span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>),<span class="at">estimate.map=</span>F)</span></code></pre></div>
+<pre><code>##  --Read the following data:
+##   78  individuals
+##   186  markers
+##   10  phenotypes
+##  --Cross type: bc</code></pre>
+<p>An option to note here is <code>estimate.map=F</code>. This is required to declare that we are not inputting a map with the data, You need the <code>dir="data"</code> in read.cross to declare the path to the file. However, you won’t have the directory ‘data’ on your computers. If you just want to call data from your working directory, like most of us do, just write this as <code>dir=""</code>. You will want to be working in the same directory as the data, as we have done for previous tutorials.</p>
+<p>Take a look at the output from reading the file in. The last line indicates that the cross has been identified as a backcross from the data format: because only two marker classes were found at each locus. In fact, the cross type is a doubled haploid population. For marker and trait mapping purposes this makes absolutely no difference. Do you know why not? Nevertheless, we can change the cross to dh as below:</p>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="Mapping-Markers.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(AxC)[<span class="dv">1</span>]<span class="ot">&lt;-</span><span class="st">&quot;dh&quot;</span> </span></code></pre></div>
+<p>If you read in a file which already has a map with some of the markers mapped to the same position you will get a warning message. To avoid problems in analysing the data, R/qtl uses the command <code>jittermap()</code> to add a tiny fraction to every interval on chromosomes where this occurs. We would need to overwrite the original data, or otherwise save the output (e.g. <code>AxC&lt;-jittermap(AxC)</code>) but there is no need to do that here.</p>
+</div>
+<div id="a-quick-map" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> A quick map!</h2>
+<p>Remember we have just read the data into the data table <code>AxC</code>. As with many R objects, the commands summary and plot give object specific details of the data contained within:</p>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="Mapping-Markers.html#cb515-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(AxC) </span></code></pre></div>
+<pre><code>##     Doubled haploids
+## 
+##     No. individuals:    78 
+## 
+##     No. phenotypes:     10 
+##     Percent phenotyped: 100 94.9 100 100 100 100 100 100 100 100 
+## 
+##     No. chromosomes:    1 
+##         Autosomes:      50 
+## 
+##     Total markers:      186 
+##     No. markers:        186 
+##     Percent genotyped:  96.1 
+##     Genotypes (%):      AA:50.2  BB:49.8</code></pre>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="Mapping-Markers.html#cb517-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AxC)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-387-1.png" width="672" /></p>
+<p>Before we go into detail about creating a map, we shall first do so very quickly to show that this can be done simply and with only a few commands:</p>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="Mapping-Markers.html#cb518-1" aria-hidden="true" tabindex="-1"></a>quick.map <span class="ot">&lt;-</span><span class="fu">est.rf</span>(AxC) </span>
+<span id="cb518-2"><a href="Mapping-Markers.html#cb518-2" aria-hidden="true" tabindex="-1"></a>quick.map <span class="ot">&lt;-</span><span class="fu">formLinkageGroups</span>(quick.map,<span class="at">reorgMarkers=</span>T) </span>
+<span id="cb518-3"><a href="Mapping-Markers.html#cb518-3" aria-hidden="true" tabindex="-1"></a>quick.map <span class="ot">&lt;-</span><span class="fu">orderMarkers</span>(quick.map)</span>
+<span id="cb518-4"><a href="Mapping-Markers.html#cb518-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plotMap</span>(quick.map)  </span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-388-1.png" width="672" /></p>
+<p>This should produce the map shown above, which doesn’t look bad, though we may wonder about the length of linkage group one, seemingly with some very large inter marker distances. While most mapping packages can probably produce maps as quickly and easily as this, it doesn’t mean that they are correct. It is worth understanding how and why they work so that you can better judge the quality of the map and seek improvements to it.</p>
+</div>
+<div id="estimating-recombination-fractions" class="section level2" number="10.5">
+<h2><span class="header-section-number">10.5</span> Estimating recombination fractions</h2>
+<p>First delete quick.map</p>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="Mapping-Markers.html#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(quick.map) </span></code></pre></div>
+<p>Now, the first thing to do is estimate the recombination frequencies among all pairs of loci:</p>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="Mapping-Markers.html#cb520-1" aria-hidden="true" tabindex="-1"></a>AxC<span class="ot">&lt;-</span><span class="fu">est.rf</span>(AxC) </span></code></pre></div>
+<p>Note that we have directed the output of <code>est.rf</code> back to <code>AxC</code> to which it is added.</p>
+<p>We can inspect the matrix of recombination frequencies. However, this is a large table, so we’ll just look at the top left hand corner:</p>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="Mapping-Markers.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pull.rf</span>(AxC)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] </span></code></pre></div>
+<pre><code>##              Aflp100.175     AFLP24 AFLP24.320 AFLP43-160Bp Aflp57.165
+## Aflp100.175           NA 0.44594595 0.46052632   0.01351351 0.46666667
+## AFLP24        0.44594595         NA 0.01369863   0.45833333 0.00000000
+## AFLP24.320    0.46052632 0.01369863         NA   0.47945205 0.01351351
+## AFLP43-160Bp  0.01351351 0.45833333 0.47945205           NA 0.46575342
+## Aflp57.165    0.46666667 0.00000000 0.01351351   0.46575342         NA</code></pre>
+<p>Rather fortuitously, you can see some very low recombination fractions and some indicating clear lack of linkage. Since we are working in R, we have access to all its other features. For instance, we can look at the distribution of recombination fractions:</p>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="Mapping-Markers.html#cb523-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">pull.rf</span>(AxC),<span class="at">breaks=</span><span class="dv">40</span>) </span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-392-1.png" width="672" /></p>
+<p>Does this help you put a threshold on recombination fraction at which you are willing to declare a pair of markers as linked? Generally, packages use a threshold on both recombination fraction and significance level. We can also extract the latter, as a LOD score:</p>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="Mapping-Markers.html#cb524-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">pull.rf</span>(AxC,<span class="at">what=</span><span class="st">&quot;lod&quot;</span>)) </span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-393-1.png" width="672" /></p>
+<p>Most marker pairs show no evidence of linkage and have a low LOD score. If we truncate the y axis the plot is a little more clear:</p>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="Mapping-Markers.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">pull.rf</span>(AxC,<span class="at">what=</span><span class="st">&quot;lod&quot;</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>),<span class="at">breaks=</span><span class="dv">40</span>) </span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-394-1.png" width="672" /></p>
+<p>Are the recombination fractions and LOD scores telling us the same thing? After a bit of trial and error, we can plot one against the other:</p>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="Mapping-Markers.html#cb526-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">pull.rf</span>(AxC,<span class="at">what=</span><span class="st">&quot;rf&quot;</span>)[,],<span class="fu">pull.rf</span>(AxC,<span class="at">what=</span><span class="st">&quot;lod&quot;</span>)[,],<span class="at">xlab=</span><span class="st">&quot;rf&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;lod&quot;</span>) </span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-395-1.png" width="672" /></p>
+
+<div class="rmdquiz">
+<p><strong>1</strong></p>
+What does this plot tell us? What do you think would be a good combination of cut-off parameters, and why?
+</div>
+</div>
+<div id="forming-linkage-groups" class="section level2" number="10.6">
+<h2><span class="header-section-number">10.6</span> Forming Linkage groups</h2>
+<p>Next we want to allocate our markers to linkage groups. The command for this is <code>formLinkageGroups</code>. It has some options that we could experiment with:</p>
+<p><code>max.rf</code> = Maximum recombination fraction for placing two markers in the same linkage group. The default is 0.25.</p>
+<p><code>min.lod</code> = Minimum LOD score for placing two markers in the same linkage group. The default is 3.</p>
+<p><code>reorgMarkers</code> = If TRUE, the markers are organized into the inferred linkage groups. If FALSE, the output is a table indicating the initial chromosome assignments and the inferred linkage group partitions.</p>
+<p>We want to add our chromosome assignments to <code>AxC</code> so <code>reorgMarkers</code> should be set to <code>T</code>.</p>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="Mapping-Markers.html#cb527-1" aria-hidden="true" tabindex="-1"></a>test.linkage.groups <span class="ot">&lt;-</span></span>
+<span id="cb527-2"><a href="Mapping-Markers.html#cb527-2" aria-hidden="true" tabindex="-1"></a><span class="fu">formLinkageGroups</span>(AxC,<span class="at">reorgMarkers=</span>T,<span class="at">verbose=</span>T,<span class="at">min.lod=</span><span class="dv">3</span>,<span class="at">max.rf=</span><span class="fl">0.25</span>) </span></code></pre></div>
+<pre><code>## 10 of 186 
+## 20 of 186 
+## 30 of 186 
+## 40 of 186 
+## 50 of 186 
+## 60 of 186 
+## 70 of 186 
+## 80 of 186 
+## 90 of 186 
+## 100 of 186 
+## 110 of 186 
+## 120 of 186 
+## 130 of 186 
+## 140 of 186 
+## 150 of 186 
+## 160 of 186 
+## 170 of 186 
+## 180 of 186</code></pre>
+<p>An easy way to look at the linkage groups created in <code>test.linkage.groups</code> is to use the command</p>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="Mapping-Markers.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRF</span>(test.linkage.groups)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-398-1.png" width="672" /></p>
+<p>Compare this with the unordered markers set in <code>AxC</code></p>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="Mapping-Markers.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRF</span>(AxC) </span></code></pre></div>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-399-1.png" width="672" />
+
+<div class="rmdquiz">
+<p><strong>2</strong></p>
+Alter the min.lod and max.rf thresholds (try higher and lower) to see what difference this makes to the plots. Do the default values seem reasonable?
+</div>
+<p>Once you have decided on a threshold, you can save the linkage groups back to <code>AxC</code> using your own thresholds.</p>
+<p><code>AxC &lt;-formLinkageGroups(AxC,reorgMarkers=T, verbose=T,min.lod=??,max.rf=??)</code></p>
+</div>
+<div id="marker-ordering" class="section level2" number="10.7">
+<h2><span class="header-section-number">10.7</span> Marker ordering</h2>
+<p>Next we must order markers within these linkage groups using the command orderMarkers(). This command also has some options we should experiment with:</p>
+<p><code>use.ripple</code> = If TRUE (the default), the initial order is refined by a call to the function ripple.</p>
+<p><code>window</code> = Indicates the number of markers to include in the sliding window of permuted markers for ripple (default is 7). Ripple can take a long time, especially with large number of markers in the window.</p>
+<p><code>error.prob</code> = Assumed genotyping error rate used in the final estimated map. Default is 0.0001. This can make a large difference: a double recombination between closely linked markers is more likely to result from genotyping errors.</p>
+<p>First. Let’s try without rippling;</p>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="Mapping-Markers.html#cb531-1" aria-hidden="true" tabindex="-1"></a>test<span class="ot">&lt;-</span><span class="fu">orderMarkers</span>(AxC,<span class="at">use.ripple=</span>F)</span></code></pre></div>
+<p>Plot the recombination fractions of the ordered markers and compare with the unordered (in AxC).</p>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="Mapping-Markers.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRF</span>(test)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-403-1.png" width="672" /></p>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="Mapping-Markers.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRF</span>(AxC)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-403-2.png" width="672" /></p>
+<p>We can also plot a simple cartoon of our mapped markers:</p>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="Mapping-Markers.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.map</span>(test)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-404-1.png" width="672" /></p>
+
+<div class="rmdquiz">
+<p><strong>3</strong></p>
+What do you think of the chromosome lengths and numbers in this map?
+</div>
+</div>
+<div id="improving-the-map" class="section level2" number="10.8">
+<h2><span class="header-section-number">10.8</span> Improving the map</h2>
+<p>There are three things we can do to try to improve the map:</p>
+<ol style="list-style-type: decimal">
+<li><p>Ripple; where the marker order within a defined window is perturbed to see if improvements are possible.</p></li>
+<li><p>Take into account the probability of genotype errors directly in the ordering process. This may be worthwhile for this data set, where we know the quality of the genotyping was poor.</p></li>
+<li><p>Clean the data of probable errors – eliminate improbable double recombinants.</p></li>
+</ol>
+<p>We’ll have a look at ripple first. Only one chromosome at a time can be rippled, and the window size should not be too large since this can take a long time. Here are three different versions of the command:</p>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="Mapping-Markers.html#cb535-1" aria-hidden="true" tabindex="-1"></a>chr1.ripple4<span class="ot">&lt;-</span><span class="fu">ripple</span>(AxC,<span class="at">chr=</span><span class="dv">1</span>)     <span class="co"># ripple chr 1 with defaults (window=4)</span></span></code></pre></div>
+<pre><code>##    276 total orders</code></pre>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="Mapping-Markers.html#cb537-1" aria-hidden="true" tabindex="-1"></a>chr1.ripple7<span class="ot">&lt;-</span><span class="fu">ripple</span>(AxC,<span class="at">chr=</span><span class="dv">1</span>,<span class="at">window=</span><span class="dv">7</span>)    <span class="co"># increase window size </span></span></code></pre></div>
+<pre><code>##    52560 total orders</code></pre>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="Mapping-Markers.html#cb539-1" aria-hidden="true" tabindex="-1"></a>chr1.ripple4.like<span class="ot">&lt;-</span><span class="fu">ripple</span>(AxC,<span class="at">chr=</span><span class="dv">1</span>,<span class="at">method=</span><span class="st">&quot;likelihood&quot;</span>) <span class="co"># use likelihood</span></span></code></pre></div>
+<pre><code>##    276 total orders
+##     --Order 10 
+##     --Order 20 
+##     --Order 30 
+##     --Order 40 
+##     --Order 50 
+##     --Order 60 
+##     --Order 70 
+##     --Order 80 
+##     --Order 90 
+##     --Order 100 
+##     --Order 110 
+##     --Order 120 
+##     --Order 130 
+##     --Order 140 
+##     --Order 150 
+##     --Order 160 
+##     --Order 170 
+##     --Order 180 
+##     --Order 190 
+##     --Order 200 
+##     --Order 210 
+##     --Order 220 
+##     --Order 230 
+##     --Order 240 
+##     --Order 250 
+##     --Order 260 
+##     --Order 270</code></pre>
+<p>The default method searches for orders which reduce the total number of recombinations. Using likelihood is better but takes longer.</p>
+<p>You can examine the output directly but using summary is easier:</p>
+<p><code>summary(chr1.ripple4)</code></p>
+
+<div class="rmdquiz">
+<p><strong>4</strong></p>
+Compare the three versions you have just made for chromosome 1. Has any version of ripple made an improvement? If so, which has worked best?
+</div>
+<p>Once we have identified an improved order, we can substitute it for the existing order using the command <code>switch.order</code>. Here is a worked example:</p>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="Mapping-Markers.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Existing map </span></span>
+<span id="cb541-2"><a href="Mapping-Markers.html#cb541-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pull.map</span>(AxC,<span class="at">chr=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##   BArc142_5B   BArc176_7B    BArc74_5B   dUpw115_5B   dUpw398_7B  eAACmCCG171 
+##            0           10           20           30           40           50 
+##  eAACmCCG184  eAACmCCG408  eAACmCGA270 eAACmeCCC249  eACGmCGG220  eACTmCGG200 
+##           60           70           80           90          100          110 
+##  eAGCmCTA340  eAGGmCTA120  eATTmCGG230       gwm213    gwm234_5B    wmc517_7B 
+##          120          130          140          150          160          170</code></pre>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="Mapping-Markers.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="co"># switch order (make sure you choose the correct row)</span></span>
+<span id="cb543-2"><a href="Mapping-Markers.html#cb543-2" aria-hidden="true" tabindex="-1"></a>AxC.v2<span class="ot">&lt;-</span><span class="fu">switch.order</span>(AxC,<span class="at">chr=</span><span class="dv">1</span>,<span class="at">order=</span>chr1.ripple7[<span class="dv">2</span>,])</span>
+<span id="cb543-3"><a href="Mapping-Markers.html#cb543-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  Compare new order with the initial order</span></span>
+<span id="cb543-4"><a href="Mapping-Markers.html#cb543-4" aria-hidden="true" tabindex="-1"></a><span class="fu">pull.map</span>(AxC.v2,<span class="at">chr=</span><span class="dv">1</span>) </span></code></pre></div>
+<pre><code>##   BArc142_5B   BArc176_7B    BArc74_5B   dUpw115_5B   dUpw398_7B  eAACmCCG408 
+##      0.00000     77.79435     80.52102    109.50827    183.34461    187.46286 
+##  eAACmCCG171  eACGmCGG220 eAACmeCCC249  eAACmCGA270  eACTmCGG200  eAACmCCG184 
+##    190.09164    226.04541    254.62921    264.18371    265.56842    282.12582 
+##  eAGCmCTA340  eAGGmCTA120  eATTmCGG230       gwm213    gwm234_5B    wmc517_7B 
+##    287.50267    322.18080    359.48948    394.33618    432.34606    487.79182</code></pre>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="Mapping-Markers.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Tidy up</span></span>
+<span id="cb545-2"><a href="Mapping-Markers.html#cb545-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(AxC.v2)</span></code></pre></div>
+<p>We don’t have to type in the new order, we can select the desired order as a row from the ripple output. We can also return the new order to our cross directly, which is what we want to do here:</p>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="Mapping-Markers.html#cb546-1" aria-hidden="true" tabindex="-1"></a>test<span class="ot">&lt;-</span><span class="fu">switch.order</span>(test,<span class="at">chr=</span><span class="dv">1</span>,<span class="at">order=</span><span class="fu">summary</span>(chr1.ripple7)[<span class="dv">2</span>,]) </span></code></pre></div>
+<p>We could go through every linkage group in turn like this. However, it is also possible to use the option <code>use.ripple =T</code> directly within orderMarkers which would be more efficient in general use.</p>
+<p>Now we can examine the effect of different assumed error rates on the data. The default in R/qtl is 0.0001 which is probably too low for most genotype platforms; at NIAB we achieved this only by extensive manual curation of SNP array data. 0.001 would be a good target to aim for, but 0.01 is probably more realistic for this data set, where it still represents an average of less than one error per marker over all lines. From your knowledge of genotyping, what do you think would be appropriate?</p>
+<p>To examine the effect of a higher assumed error rate, we will reorder our markers in “test” using different error rates :</p>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="Mapping-Markers.html#cb547-1" aria-hidden="true" tabindex="-1"></a>err.pr.order<span class="ot">&lt;-</span><span class="fu">orderMarkers</span>(test,<span class="at">use.ripple=</span>F,<span class="at">error.prob=</span><span class="fl">0.01</span>)</span></code></pre></div>
+<p>There is an easy graphical way of comparing the original and new map:</p>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="Mapping-Markers.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotMap</span>(err.pr.order,test) </span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-411-1.png" width="672" /></p>
+<p>Though it is easier to examine a chromosome at a time.</p>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="Mapping-Markers.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotMap</span>(err.pr.order,test,<span class="at">chr=</span><span class="dv">1</span>) </span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-412-1.png" width="672" /></p>
+<p>This has changed the order substantially and has also shrunk the chromosome length. However, there is a danger of over interpreting this map reduction. The elimination of genuine errors will generally reduce map length, but the assumption of too high an error rate will give a falsely short map and incorrect marker order.</p>
+
+<div class="rmdquiz">
+<p><strong>5</strong></p>
+Compare error rates of 0.0001, 0.01, 0.1 and 0.5. What do you notice about the inter-marker distances on the new map?
+</div>
+<p>Now, before doing further QC, we will make a basic map using the default rippling parameters (<code>window=4</code>) for all chromosomes. We will start from the first step again, so we know we are starting from a fresh data set, and as a reminder of the key steps required in making a map:</p>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="Mapping-Markers.html#cb550-1" aria-hidden="true" tabindex="-1"></a>AxC<span class="ot">&lt;-</span><span class="fu">read.cross</span>(<span class="st">&quot;csv&quot;</span>,<span class="at">dir=</span><span class="st">&quot;data&quot;</span>,<span class="st">&quot;AxC_R.csv&quot;</span>,<span class="at">genotypes=</span><span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>),<span class="at">estimate.map=</span>F)</span></code></pre></div>
+<pre><code>##  --Read the following data:
+##   78  individuals
+##   186  markers
+##   10  phenotypes
+##  --Cross type: bc</code></pre>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="Mapping-Markers.html#cb552-1" aria-hidden="true" tabindex="-1"></a>AxC<span class="ot">&lt;-</span><span class="fu">est.rf</span>(AxC) </span>
+<span id="cb552-2"><a href="Mapping-Markers.html#cb552-2" aria-hidden="true" tabindex="-1"></a>AxC<span class="ot">&lt;-</span><span class="fu">formLinkageGroups</span>(AxC,<span class="at">reorgMarkers=</span>T) </span>
+<span id="cb552-3"><a href="Mapping-Markers.html#cb552-3" aria-hidden="true" tabindex="-1"></a>AxC<span class="ot">&lt;-</span><span class="fu">orderMarkers</span>(AxC,<span class="at">use.ripple=</span>T) </span></code></pre></div>
+<p>Note we’ve set <code>ripple = T</code>.</p>
+<p>We can also export our data so as to save a copy for later work using <code>write.cross</code>, which has a simple to understand format:</p>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="Mapping-Markers.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.cross</span>(AxC,<span class="st">&quot;csv&quot;</span>,<span class="at">filestem=</span><span class="st">&quot;AxCmapped&quot;</span>) </span></code></pre></div>
+<p>To highlight probable errors, R/qtl can calculate a LOD associated with p(single genotype is wrong). This is not an absolute test, but intended as a QC tool. It is particularly useful for highlighting improbable double recombinants. The advice is to use a LOD of 4 as a threshold. The results will be added to the cross (AxC). In this case, our data looks pretty good:</p>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="Mapping-Markers.html#cb554-1" aria-hidden="true" tabindex="-1"></a>AxC<span class="ot">&lt;-</span><span class="fu">calc.errorlod</span>(AxC)</span>
+<span id="cb554-2"><a href="Mapping-Markers.html#cb554-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotErrorlod</span>(AxC)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-416-1.png" width="672" /></p>
+<p>But, from another data set, here is a non-so-clean version:</p>
+<p><img src="images/dirty_data.png" /></p>
+<ul>
+<li>LOD &lt;= 2 in white;</li>
+<li>2 &lt; LOD &lt;= 3 in grey;</li>
+<li>3 &lt; LOD &lt;= 4.5 in pink;</li>
+<li>LOD &gt; 4.5 in purple.</li>
+</ul>
+<p>You can restrict the plot to selected chromosomes if desired.</p>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="Mapping-Markers.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotErrorlod</span>(AxC,<span class="at">chr=</span><span class="dv">2</span>) </span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-417-1.png" width="672" /></p>
+<p>And take a look at the high error LOD markers:</p>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="Mapping-Markers.html#cb556-1" aria-hidden="true" tabindex="-1"></a><span class="fu">top.errorlod</span>(AxC,<span class="dv">2</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##   chr id      marker errorlod
+## 1   2 78 eACTmCAC172 3.543093
+## 2   2 54 eAACmCCC176 3.224461
+## 3   2  5 eACTmCAC320 2.704437
+## 4   2  8 eACTmCAC148 2.628603
+## 5   2 37 eACTmCAC148 2.628603
+## 6   2 75 eACTmCAC148 2.171784</code></pre>
+<p>With two markers given with the same map location (ignoring the effect of jitter) any observed recombination will generate a big LOD. Taking a look at the map:</p>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="Mapping-Markers.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pull.map</span>(AxC,<span class="dv">2</span>) </span></code></pre></div>
+<pre><code>## eAACmCCC272 B598mCGT390 eACTmCGG365 eAACmCCC176 eAACmCCC270 eACTmCAC172 
+##     0.00000    28.03907    31.16444    33.61117    36.04969    38.66313 
+## eACTmCAC170 eACTmCAC320 eACTmCAC148    gwm18_1B  BArc240_1B eATTmCGG110 
+##    39.75913    44.27192    48.65410    54.02940    55.33495    56.63453 
+## eACGmCTG185 eAGCmCTA234 eACTmCAC180 eAGGmCTA130  eAACmCCG96 eAGGmCTA290 
+##    63.49512    71.80965    88.49407    96.19450   105.42687   135.17296 
+## eACTmCAC115    wmc44_1B 
+##   165.85689   177.58855</code></pre>
+<p>That isn’t a problem here, though you can see the high error markers are all very close to adjacent markers, and presumably have some recombination between them. We can see this in more detail with this very useful plot:</p>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="Mapping-Markers.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotGeno</span>(AxC,<span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-420-1.png" width="672" /></p>
+<p>White and black circles indicate markers from each of the two parents. Blue crosses indicate cross-overs. Red squares (none here) highlight genotypes with LODs &gt; the error LOD threshold (default 4). A single double recombination event can however clearly be seen around the highest error LOD marker eACTmCAC172 (around 60 or 125cM depending on the orientation of the chromosome) for the individual at the bottom of the plot, despite the gaps to the neighbouring markers being 0.8 and 1.2cM respectively. This maybe a genotype error. Multiple double recombinant individuals in such a narrow interval would be a sure sign of a mapping or genotype error, suggesting the marker should be dropped.</p>
+<p>Other useful quality control tools are listed in the table below. The graphical tools are particularly helpful for detecting regions of the map that require further work. For example <code>plotRF(AxC)</code> plots pairwise recombination frequencies across all chromsomes or a restricted set: <code>plotRF(AxC,chr=1:5)</code>. It can clearly be seen that the ordering on Chromosome 1 can still be improved:</p>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="Mapping-Markers.html#cb561-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRF</span>(AxC,<span class="at">chr=</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-421-1.png" width="672" /></p>
+
+<div class="rmdquiz">
+<p><strong>6</strong></p>
+The block of markers 1:3 appear to be more closely linked to markers 11:14. We could swap their position as a block and see if it made an improvement. This anomaly may help explain some of the very long inter-marker distances we observed at the start of chromosome 1, that cause this chromosome to be so much longer than all the rest. What do you think might be going on here? (hint – it might be worth recalling that bread wheat is hexaploid).
+</div>
+<p>This last observation indicates we still have some way to go in improving our map! In reality, several cycles of improvement and QC will be involved in creating a final map; this tutorial has given a quick overview of the main approaches. It can be seen that R/qtl has excellent tools for detecting and displaying potential genotype errors: a table of key Quality Control commands is given below. There is plenty of good documentation on how to map markers in r/qtl, including the book <span class="citation"><a href="references.html#ref-broman_guide_2009" role="doc-biblioref">Broman and Sen</a> (<a href="references.html#ref-broman_guide_2009" role="doc-biblioref">2009</a>)</span>, though it is not free and the discussion page mentioned at the start of the tutorial.</p>
+</div>
+<div id="quality-control-commands-for-marker-qc-and-mapping" class="section level2" number="10.9">
+<h2><span class="header-section-number">10.9</span> Quality Control commands for marker QC and mapping</h2>
+<p><code>plot(AxC)</code> = provides a neat graphical summary of phenotypes and genotypes</p>
+<p><code>summary(AxC)</code>= worth running to check the data have been read in correctly</p>
+<p><code>summary.map(AxC)</code> = summarises chromosome lengths, marker nos. and spacing</p>
+<p><code>geno.table(AxC)</code> = summarises alleles and tests for segregation distortion</p>
+<p><code>plot(AxC,pheno.col=x)</code> = plots histogram for phenotype in column x or of a named phenotype - in which case the name must be in quotes. The phenotype data are stored in a data frame <code>AxC$pheno</code> which can be accessed and manipulated by column number or “name.” You might want to transform the data. eg:</p>
+<ul>
+<li><code>hist(AxC$pheno[,1])</code></li>
+<li><code>AxC$pheno[,1]&lt;-AxC$pheno[,1]^0.5 hist(AxC$pheno[,1])</code></li>
+<li><code>AxC$pheno[,1]&lt;-AxC$pheno[,1]^2</code></li>
+</ul>
+<p><code>plot.map(AxC,chr=1:2)</code> plots map for chrs 1 and 2. If the <code>chr</code> argument is missing,
+then plots all chromosomes. Can also be used to plot comparisons between maps – see <code>help(plot.map)</code>. This provides an easy way to look at map expansion/contraction between the supplied map and the estimated map in R/qtl (using the same map order). For example (using a different data set):</p>
+<p><code>plot.map(est.map(AxC),AxC)</code> = comparison of maps</p>
+<p><code>plotRF(AxC,chr=1)</code> = Plots pairwise recombination frequencies</p>
+<p><code>subset(AxC,chrs,inds)</code> = Selects a range of markers and individuals. eg<code>subset(AxC,5,2:10)</code></p>
+<p><code>pull.map(AxC,chr=5)</code> = Extract the existing map</p>
+<p><code>est.map(subset(AxC,2))</code> = Estimate map distances but keeps the order the same. Useful to study map expansion / contraction. The example re-estimates for chr 2 only</p>
+<p><code>jittermap(AxC)</code> = Gets rid of the problem of having markers at the same location in the supplied map.</p>
+<p><code>AxC&lt;-calc.errorlod(AxC)</code> = Calculates a LOD associated with p(single genotype is wrong). Add results to the cross (AxC here). Should be used to highlight probable errors, not as an absolute test. Advice is to use a LOD of 4 as a threshold.</p>
+<p><code>plotErrorlod(AxC)</code> = Plots possible genotype errors.</p>
+</div>
+<div id="asmap" class="section level2" number="10.10">
+<h2><span class="header-section-number">10.10</span> ASMap</h2>
+<p>Before using R/qtl to map QTL, we’ll have a brief look at <code>ASMap</code> as an alternative for mapping markers, which definitely worth considering if you have a larger number of markers and R/qtl is too slow.</p>
+<p>As ever, the problem with all computer packages is getting the data into them. Once that is achieved, then getting them to do something useful is generally straightforward. <code>ASmap</code> should work directly on pre-existing R/qtl objects, but after a lot of experimentation, this fails:</p>
+<p><code>test&lt;-mstmap.cross(AxC) Error in mstmap.cross(AxC)</code> :</p>
+<p><em>The unique identifier for the genotypes, “Genotype,” cannot be found in the object</em></p>
+<p><code>ASMap</code> will, however, work on dataframes, if correctly formatted. There is a text version of the AxC marker data in ASmap.txt. If you look at this, you will notice that; (1) there is no phenotype data; (2) missing data are represented by “U” and not “NA”; (3) the data are transposed compared to the initial AxC data file, with markers running across rows and individuals down columns. This is better for populations with large numbers of markers.</p>
+<p>Load the package, you will need to install if you don’t have it on your computers:</p>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="Mapping-Markers.html#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ASMap)</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="Mapping-Markers.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="co">#delete the &quot;data/&quot;</span></span>
+<span id="cb563-2"><a href="Mapping-Markers.html#cb563-2" aria-hidden="true" tabindex="-1"></a>AxC.mst<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;data/AxC_ASmap.txt&quot;</span>,<span class="at">header=</span>T,<span class="at">colClasses =</span> <span class="st">&quot;character&quot;</span>) </span></code></pre></div>
+<p>Note the added option <code>colClasses = "character"</code>. This is critical. Without it, the data might be read in as factors rather than text, and this is not an obvious error to pick up.</p>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="Mapping-Markers.html#cb564-1" aria-hidden="true" tabindex="-1"></a>AxC.mst.map<span class="ot">&lt;-</span><span class="fu">mstmap.data.frame</span>(AxC.mst)</span></code></pre></div>
+<pre><code>## Number of linkage groups: 45
+## The size of the linkage groups are: 6    8   10  5   11  1   1   7   5   19  6   6   6   3   6   18  3   3   3   3   2   4   3   1   5   1   6   3   1   3   2   1   5   3   1   1   1   1   2   4   1   1   2   1   1   
+## The number of bins in each linkage group: 6  5   10  3   10  1   1   7   5   18  4   4   5   3   5   18  2   3   3   3   2   4   3   1   5   1   6   3   1   3   2   1   5   3   1   1   1   1   2   4   1   1   2   1   1   </code></pre>
+<p>As the name of the command suggests, the markers are mapped (very rapidly) by means of a minimum spanning tree: finding the shortest route between points defined by the recombination fractions between all marker pairs. A minimum spanning tree is a solution to what is called “the travelling salesman problem”: what is the shortest route a salesman should take to visit all the towns in which he wishes to knock on doors? See the paper and documentation for more information.</p>
+<p>We are advised that the clustering of markers into linkage groups is very sensitive to the p-value used. The default is 1e-06 and as more markers are added, this should be increased. Try this:</p>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="Mapping-Markers.html#cb566-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.map</span>(<span class="fu">mstmap.data.frame</span>(AxC.mst,<span class="at">p.value =</span> <span class="fl">1e-06</span>)) </span></code></pre></div>
+<pre><code>## Number of linkage groups: 45
+## The size of the linkage groups are: 6    8   10  5   11  1   1   7   5   19  6   6   6   3   6   18  3   3   3   3   2   4   3   1   5   1   6   3   1   3   2   1   5   3   1   1   1   1   2   4   1   1   2   1   1   
+## The number of bins in each linkage group: 6  5   10  3   10  1   1   7   5   18  4   4   5   3   5   18  2   3   3   3   2   4   3   1   5   1   6   3   1   3   2   1   5   3   1   1   1   1   2   4   1   1   2   1   1   </code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-426-1.png" width="672" /></p>
+
+<div class="rmdquiz">
+<p><strong>7</strong></p>
+Now try altering the p.value up and down to see what effect this has on the map. What do you observe? (remember that the target number of chromosomes for wheat is 21). How might we decide what is best?
+</div>
+<p>Note that in all the ASMap maps, we still observe one very long chromosome, just as when we used R/qtl to create the map. As with R/qtl, this observation emphasizes that this is probably not a high quality data set (which we already knew). We will return now to using the default p.value.</p>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="Mapping-Markers.html#cb568-1" aria-hidden="true" tabindex="-1"></a>AxC.mst.map<span class="ot">&lt;-</span><span class="fu">mstmap.data.frame</span>(AxC.mst,<span class="at">p.value =</span> <span class="fl">1e-06</span>) </span></code></pre></div>
+<pre><code>## Number of linkage groups: 45
+## The size of the linkage groups are: 6    8   10  5   11  1   1   7   5   19  6   6   6   3   6   18  3   3   3   3   2   4   3   1   5   1   6   3   1   3   2   1   5   3   1   1   1   1   2   4   1   1   2   1   1   
+## The number of bins in each linkage group: 6  5   10  3   10  1   1   7   5   18  4   4   5   3   5   18  2   3   3   3   2   4   3   1   5   1   6   3   1   3   2   1   5   3   1   1   1   1   2   4   1   1   2   1   1   </code></pre>
+<p>The commands available in R/qtl should all work on the output file we have created (I haven’t tested this fully), but there are some useful additional commands available:</p>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="Mapping-Markers.html#cb570-1" aria-hidden="true" tabindex="-1"></a><span class="fu">heatMap</span>(AxC.mst.map) <span class="co"># LOD at the bottom rf at the top </span></span></code></pre></div>
+<pre><code>## Warning in heatMap(AxC.mst.map): Running est.rf.</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-429-1.png" width="672" /></p>
+<p>gives better looking output than</p>
+<p><code>plotRF(AxC.mst.map)</code></p>
+<p>Note that LG 16 (the long one) is still badly ordered in ASMap.</p>
+<p>Also note these useful diagnostic commands</p>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="Mapping-Markers.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="fu">profileGen</span>(AxC.mst.map,<span class="at">chr=</span><span class="st">&quot;L3&quot;</span>) </span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-430-1.png" width="672" /></p>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="Mapping-Markers.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="fu">profileMark</span>(AxC.mst.map,<span class="at">chr=</span><span class="st">&quot;L3&quot;</span>) </span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-430-2.png" width="672" /></p>
+<p>There are other options to audit and edit the map too: see the package documentation for more information.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Association-mapping.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Data-Visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-Mapping_Markers_and_Quantitative_Trait_Loci.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

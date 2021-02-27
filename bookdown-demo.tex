@@ -37,7 +37,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Quantitative methods in plant breeding: the digital tutorials.},
+  pdftitle={Quantitative Methods in Plant Breeding: The Digital Tutorials.},
   pdfauthor={NIAB 2021},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -224,9 +224,9 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Quantitative methods in plant breeding: the digital tutorials.}
+\title{Quantitative Methods in Plant Breeding: The Digital Tutorials.}
 \author{NIAB 2021}
-\date{2021-02-22}
+\date{2021-02-27}
 
 \begin{document}
 \maketitle
@@ -307,6 +307,8 @@ NIAB
   Chapter \ref{Imputation}: Imputation
 \item
   Chapter \ref{Association-mapping}: Association Mapping.
+\item
+  Chapter \ref{Mapping-Markers}: Mapping Markers and Quantitative Trait Loci.
 \end{itemize}
 
 \hypertarget{R-and-stats}{%
@@ -321,7 +323,7 @@ R is just one among several excellent statistical packages. Its major strength i
 
 For many users, the major disadvantage of R is that commands need to be typed at a prompt, rather than selected from a menu. However, most commands are short, and as we shall see, much repetitive typing can be avoided. Over the last few years, RStudio, an interface to R, has become so popular that it is now the standard way by which users are introduced to the package. RStudio retains the look and feel of R: it still requires commands to be typed but is more accessible. In this tutorial, we shall use Rstudio, but if you can use R you can use Rstudio, and vice-versa.
 
-The intention of this guide is twofold. Firstly, it is to help the beginner to get started. It will show you how to get data into RStudio, carry out basic analyses, produce graphs, and save results. It is hoped that this will allow users to dip directly into more complete guides as required. This guide is a long way off being thorough and many of the definitions and descriptions provided here are not wholly accurate. The hope is that the guide will allow you to carry out useful analyses as quickly as possible and provide a base from which additional knowledge can be acquired without too much extra effort.
+The intention of this guide is twofold. Firstly, it is to help the beginner to get started. It will show you how to get data into RStudio, carry out basic analyses, produce graphs, and save results. It is hoped that this will allow users to dip directly into more complete guides as required. This guide is a long way off being thorough and many of the definitions provided here are not perfectly precise. The hope is that this guide will allow you to rapidly carry out useful analyses of importance in plant breeding and provide a base from which additional knowledge can be acquired without too much extra effort.
 
 Secondly, the guide is intended to act as revision of some basic statistical methods. For this purpose we shall be studying some properties of a panel of European winter wheat lines; the TriteceaeGenome panel which was collected as part of a European collaborative project in association mapping, the results of which have been described by \citep{Bentley2014}. A copy of the paper has been supplied in the references folder on the course \href{https://tallywright.github.io/}{website}. We shall use this dataset for various analyses throughout the course.
 
@@ -346,10 +348,10 @@ The first step of this tutorial will be to open this excel sheet (in excel) and 
 You will need to complete the above section before moving on to the rest of the tutorial.
 \end{rmdcaution}
 
-\hypertarget{the-rstudio-layout-workspace-and-enviroment.}{%
-\section{The Rstudio layout, workspace and enviroment.}\label{the-rstudio-layout-workspace-and-enviroment.}}
+\hypertarget{the-rstudio-layout-workspace-and-environment.}{%
+\section{The Rstudio layout, workspace and environment.}\label{the-rstudio-layout-workspace-and-environment.}}
 
-Next open Rstudio which should be installed on your laptop. Typically Rstudio will open with three windows (possibly four if your script from your last session opens automatically).
+Next open Rstudio which should be installed on your computer. Typically Rstudio will open with three windows (possibly four if your script from your last session opens automatically).
 
 If you only have three windows, open a new script by pressing: \emph{Ctl + Shift + N}
 
@@ -389,7 +391,7 @@ Next, with RStudio, change the working directory to the folder containing the CS
 \hypertarget{basic-r-syntx}{%
 \section{Basic R Syntx}\label{basic-r-syntx}}
 
-Write your commands into the \emph{script editing window}, to then run a command you can leave the cursor on the line you wish to run and press \emph{Ctrl + Enter}. You can also press \emph{Run} at the top right of the window. If you want to run multiple lines at once, highlight the desired lines and click \emph{Run} or press \emph{Ctrl + Enter}.
+Write your commands into the \emph{script editing window}, to then run a command you can leave the cursor on the line you wish to run and press \emph{Ctrl + Return}. You can also press \emph{Run} at the top right of the window. If you want to run multiple lines at once, highlight the desired lines and click \emph{Run} or press \emph{Ctrl + Return}.
 
 When you run the line in the \emph{script editing window} you will see your command appear in the console and the result of what you have run.
 
@@ -446,7 +448,7 @@ Note also that it is possible to cut from windows outside RStudio and paste into
 \end{rmdnote}
 
 \hypertarget{brackets}{%
-\subsubsection{Brackets}\label{brackets}}
+\subsection{Brackets}\label{brackets}}
 
 We have seen brackets used above in simple formulae - just as in Excel formula. However, brackets are used more extensively in R: all commands include brackets. For example:
 
@@ -461,14 +463,14 @@ Running \texttt{quit()} will end your R session. However:
 \begin{verbatim}
 ## function (save = "default", status = 0, runLast = TRUE) 
 ## .Internal(quit(save, status, runLast))
-## <bytecode: 0x000000001648c8c8>
+## <bytecode: 0x000000001560ff08>
 ## <environment: namespace:base>
 \end{verbatim}
 
-Outputs the above. Note how the use of the brackets changes the outcome. The above is the section of computer code which is run when you type \texttt{quit()}. Unless you are an enthusiast, it is not necessary to know what this means.
+outputs the above. Note how the use of the brackets changes the outcome. The above is the section of computer code which is run when you type \texttt{quit()}. Unless you are an enthusiast, it is not necessary to know what this means.
 
 \hypertarget{equals-symbols}{%
-\subsubsection{Equals symbols}\label{equals-symbols}}
+\subsection{Equals symbols}\label{equals-symbols}}
 
 R has four sets of symbols all of which loosely mean ``equals'' but which have differences in use. This can take some getting used to.
 
@@ -567,9 +569,9 @@ Related to == are:
 These, together with \texttt{==} itself, are entered here for completeness. Try \texttt{A!=B}.
 
 \hypertarget{continuation-character.}{%
-\subsubsection{Continuation character.}\label{continuation-character.}}
+\subsection{Continuation character.}\label{continuation-character.}}
 
-If an R command is incomplete when the carriage return is depressed, you are prompted with a + to continue the command on the next line. Typing \texttt{sqrt(log10} returns: \texttt{+}
+When the \texttt{+} symbol is shown rather than the \texttt{\textgreater{}} symbol in the console window, it means that your previous command was `syntactically incomplete'. If an R command is incomplete when the carriage return is depressed, you are prompted with a \texttt{+} to continue the command on the next line. Typing \texttt{sqrt(log10} returns: \texttt{+}.
 
 The rest of the command can be entered after the \texttt{+}:
 
@@ -584,12 +586,12 @@ You might find it hard to generate these errors in Rstudio, as it helpfully inse
 \end{rmdnote}
 
 \hypertarget{text-and-numbers}{%
-\subsubsection{Text and numbers}\label{text-and-numbers}}
+\subsection{Text and numbers}\label{text-and-numbers}}
 
-Text is distinguished from numbers and from R commands by the use of quotes. Either single quotes `text' or double quotes ``text'' will do, but the quotes must match. Again, RStudio help you with this.
+Text is distinguished from numbers and from R commands by the use of quotes. Either single quotes `text' or double quotes ``text'' will do, but the quotes must match. Again, RStudio will help you with this.
 
 \hypertarget{summary-of-syntax}{%
-\subsubsection{Summary of syntax}\label{summary-of-syntax}}
+\subsection{Summary of syntax}\label{summary-of-syntax}}
 
 Arithmetic: \texttt{+\ -\ /\ *\ \^{}\ (\ )} just like Excel
 
@@ -657,31 +659,65 @@ Now we have our working directory set we can read in the data. Personally I alwa
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "_book"                          "_bookdown.yml"                 
-##  [3] "_bookdown_files"                "_build.sh"                     
-##  [5] "_deploy.sh"                     "_output.yml"                   
-##  [7] "_render.R"                      "02-Acknow.Rmd"                 
-##  [9] "03-R_and_stats.Rmd"             "04-Trial_design.Rmd"           
-## [11] "05-Trial_analysis.Rmd"          "06-Cross_site_analysis.Rmd"    
-## [13] "07-Population_genetics.Rmd"     "08-Imputation.Rmd"             
-## [15] "09-Assocation_mapping.Rmd"      "10-references.Rmd"             
-## [17] "aug_blocks.csv"                 "book.bib"                      
-## [19] "bookdown-demo.aux"              "bookdown-demo.bbl"             
-## [21] "bookdown-demo.blg"              "bookdown-demo.idx"             
-## [23] "bookdown-demo.ilg"              "bookdown-demo.ind"             
-## [25] "bookdown-demo.out"              "bookdown-demo.Rmd"             
-## [27] "bookdown-demo.Rproj"            "bookdown-demo.toc"             
-## [29] "bookdown-demo_files"            "cover.jpg"                     
-## [31] "data"                           "delete.csv"                    
-## [33] "DESCRIPTION"                    "Dockerfile"                    
-## [35] "images"                         "index.Rmd"                     
-## [37] "journals.bib"                   "latex"                         
-## [39] "lattice_25.csv"                 "lattice_9.csv"                 
-## [41] "LICENSE"                        "now.json"                      
-## [43] "packages.bib"                   "preamble.tex"                  
-## [45] "README.md"                      "style.css"                     
-## [47] "tables"                         "TG data for day 1.csv"         
-## [49] "this will be the file name.csv" "toc.css"
+##  [1] "_book"                                              
+##  [2] "_bookdown.yml"                                      
+##  [3] "_bookdown_files"                                    
+##  [4] "_build.sh"                                          
+##  [5] "_deploy.sh"                                         
+##  [6] "_output.yml"                                        
+##  [7] "_render.R"                                          
+##  [8] "02-Acknow.Rmd"                                      
+##  [9] "03-R_and_stats.Rmd"                                 
+## [10] "04-Trial_design.Rmd"                                
+## [11] "05-Trial_analysis.Rmd"                              
+## [12] "06-Cross_site_analysis.Rmd"                         
+## [13] "07-Population_genetics.Rmd"                         
+## [14] "08-Imputation.Rmd"                                  
+## [15] "09-Assocation_mapping.Rmd"                          
+## [16] "10-Mapping_Markers_and_Quantitative_Trait_Loci.Rmd" 
+## [17] "11-Data_visualization.Rmd"                          
+## [18] "12-Selection_theory_and_breeding_program_design.Rmd"
+## [19] "13-Genomic_prediction.Rmd"                          
+## [20] "14-Breeding_simulations.Rmd"                        
+## [21] "15-references.Rmd"                                  
+## [22] "aug_blocks.csv"                                     
+## [23] "AxCmapped.csv"                                      
+## [24] "book.bib"                                           
+## [25] "bookdown-demo.aux"                                  
+## [26] "bookdown-demo.bbl"                                  
+## [27] "bookdown-demo.blg"                                  
+## [28] "bookdown-demo.idx"                                  
+## [29] "bookdown-demo.ilg"                                  
+## [30] "bookdown-demo.ind"                                  
+## [31] "bookdown-demo.log"                                  
+## [32] "bookdown-demo.out"                                  
+## [33] "bookdown-demo.pdf"                                  
+## [34] "bookdown-demo.Rmd"                                  
+## [35] "bookdown-demo.Rproj"                                
+## [36] "bookdown-demo.tex"                                  
+## [37] "bookdown-demo.toc"                                  
+## [38] "bookdown-demo_files"                                
+## [39] "cover.jpg"                                          
+## [40] "data"                                               
+## [41] "delete.csv"                                         
+## [42] "DESCRIPTION"                                        
+## [43] "Dockerfile"                                         
+## [44] "images"                                             
+## [45] "index.Rmd"                                          
+## [46] "journals.bib"                                       
+## [47] "latex"                                              
+## [48] "lattice_25.csv"                                     
+## [49] "lattice_9.csv"                                      
+## [50] "LICENSE"                                            
+## [51] "now.json"                                           
+## [52] "packages.bib"                                       
+## [53] "preamble.tex"                                       
+## [54] "README.md"                                          
+## [55] "style.css"                                          
+## [56] "tables"                                             
+## [57] "TG data for day 1.csv"                              
+## [58] "this will be the file name.csv"                     
+## [59] "toc.css"
 \end{verbatim}
 
 In my example there are a number of files in my working directory. That's because my working directory contains all the files used to build this book. We are interested in reading in the file: \texttt{TG\ data\ for\ day\ 1.csv}. To read the data in we would use a command like:
@@ -758,13 +794,13 @@ Writing out the name of the data object each time is tedious. To speed things up
 \end{Highlighting}
 \end{Shaded}
 
-R will now assume that when you type yield, you mean \texttt{TG.data.for.day.1\$yield}.
+R will now assume that when you type yield, you mean \texttt{TG\_data\_for\_day\_1\$yield}.
 
 \begin{rmdwarning}
 This can sometimes be dangerous: if you have another dataset you are working with at the same time which also has a variable called yield, then it can be confusing to know which you are working with.
 \end{rmdwarning}
 
-To stop working, by default, with the TG\_data\_for\_day\_1 dataset you could type: \texttt{detach(TG\_data\_for\_day\_1)}. If you do this now, don't forget to attach it again!
+To stop working by default with the TG\_data\_for\_day\_1 dataset you could type: \texttt{detach(TG\_data\_for\_day\_1)}. If you do this now, don't forget to attach it again!
 
 We could had read our data in using \texttt{read.table()}, this is how we would read in data saved as a .txt file. We will use this function throughout the course. It is very similar to \texttt{read.csv}. Use the help documentation in R, to the read further information on the \texttt{read.table()} command, i.e.~run: \texttt{help(read.table)}.
 
@@ -795,7 +831,7 @@ Now that we have imported our data into R, it becomes important to understand so
 ## [1] "data.frame"
 \end{verbatim}
 
-If we run the function \texttt{class()}, R will tell us what type of data object we are working on. The data.frame is a common form of data for plotting, analysis and statistics. The \texttt{read.csv} function will form a data.frame automatically. Within a data.frame the columns are vectors. A vector contains a series of numbers (or characters). A vector is the most common and simple data form of R. You can assign a vector manually, using the function \texttt{c()}. This is a generic function which combines its arguments. For example:
+If we run the function \texttt{class()}, R will tell us what type of data object we are working on. The data.frame is a common form of data for plotting, analysis and statistics. The \texttt{read.csv} function will form a data.frame automatically. Within a data.frame the columns are vectors. A vector contains a series of numbers (or characters). A vector is the most common and simple data form of R. You can assign a vector manually, using the function \texttt{c()}. This is a generic function which combines its arguments (`c' is short for `concatenate'). For example:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -845,7 +881,7 @@ We've produced a character vector that contains 6 names.
 ## [1] "character"
 \end{verbatim}
 
-A Vector can also be logical, as in it contains either TRUE or FASLE:
+A Vector can also be logical, as in it contains either TRUE or FALSE:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -885,7 +921,7 @@ We can now actually combine these vectors into a data.frame. A data.frame can ha
 ##  $ AWNS       : int  0 0 0 0 0 1 0 0 0 0 ...
 \end{verbatim}
 
-It seems that the variables (columns in the data.frame) are either in the form of factors, numeric or integers. Depending on their content. Let's form a data.frame from our three vectors:
+It seems that the variables (columns in the data.frame) are either in the form of characters, numeric or integers, depending on their content. Let's form a data.frame from our three vectors:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1129,7 +1165,7 @@ A data frame is a structure in R that holds data and is similar to the datasets 
 
 Save the above as a data.frame and change the column names to: day\_of\_week, coffee\_consumed and attendance.
 
-Change the mode of the data in the Coffee\_consumed from numeric to factor.\\
+Change the mode of the data in the coffee\_consumed from numeric to factor.\\
 \end{rmdquiz}
 
 \hypertarget{summarising-and-displaying-data}{%
@@ -1139,7 +1175,7 @@ Change the mode of the data in the Coffee\_consumed from numeric to factor.\\
 
 It is always worthwhile to spend time scanning and summarising new datasets before starting formal statistical analysis. Simple methods such as studying the range, the distribution and the relationships between variables can often reveal unexpected structure or the presence of errors in a dataset.
 
-Let's look at the data. Try some or all of the commands below.
+Let's look at the TriticeaeGenome data. Try some or all of the commands below.
 
 \texttt{hist(yield)}
 
@@ -1153,13 +1189,13 @@ It is very easy to produce basic informative graphs in R. Titles, font sizes, co
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{boxplot}\NormalTok{(yield}\SpecialCharTok{\textasciitilde{}}\NormalTok{PpdD1}\SpecialCharTok{+}\NormalTok{Rht2)}
+\FunctionTok{boxplot}\NormalTok{(yield}\SpecialCharTok{\textasciitilde{}}\NormalTok{PpdD1}\SpecialCharTok{+}\NormalTok{Rht2, }\AttributeTok{varwidth=}\ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-44-1.pdf}
 
-We now have boxplots for the four classes of +/- ppd and +/- rht2 alleles. The group ``0.1'' carries the wild-type ppdD1 allele for late flowering and the dwarfing allele at rht2, and would appear to be the highest yielding, and largest, group of lines. Substitute FT (flowering time) for yield in the boxplot to get something a little more exciting.
+We now have boxplots for the four classes of +/- ppd and +/- rht2 alleles. We added \texttt{varwidth=TRUE} to scale the width of each boxplot to the square root of the different samples sizes. The group ``0.1'' carries the wild-type ppdD1 allele for late flowering and the dwarfing allele at rht2, and would appear to be the highest yielding, and largest, group of lines. Substitute FT (flowering time) for yield in the boxplot to get something a little more exciting.
 
 To find out what options are available for commands, switch from the ``Plots'' tab to ``Help'', then type in the name of the command you are interested in. The help is often cryptic, but with practice, its interpretation becomes easier.
 
@@ -1485,8 +1521,8 @@ Then display the top few lines of the new dataframe:
 
 We used \texttt{order(ORIGIN,year)} to sort the whole dataframe, indexed by country of origin and then year of release. Alphabetically, the German varieties are first.
 
-\hypertarget{relationships-between-variates.}{%
-\subsection{Relationships between variates.}\label{relationships-between-variates.}}
+\hypertarget{relationships-between-variates}{%
+\subsection{Relationships between variates}\label{relationships-between-variates}}
 
 The correlation coefficient ranges from zero to one and measures the strength of the relationship between two variables:
 
@@ -1613,7 +1649,7 @@ To reload your workspace you can go to: \emph{Session / Load Workspace}. Or use 
 \hypertarget{saving-a-data-table}{%
 \subsection{Saving a data table}\label{saving-a-data-table}}
 
-There are two simple methods of this, the simplest is to cut and paste from R to Word or Excel, exactly as you would for any other Windows application.
+There are two simple methods for this, the simplest is to cut and paste from R to Word or Excel, exactly as you would for any other Windows application.
 
 However, a better method would be to use R to do it. If you want to export a table you have created as a csv file (other formats are available):
 
@@ -1659,7 +1695,7 @@ For example, the plot below shows the distribution of 1000 numbers. Each number 
 \begin{figure}
 \centering
 \includegraphics{images/Distribution Plot.png}
-\caption{Central Limit Theorem example}
+\caption{Illustration of the central limit theorem}
 \end{figure}
 
 The t-test is very simply invoked in R. To test the difference in means between yield in Germany in the two years of testing:
@@ -1712,9 +1748,9 @@ To test whether the variances in the two groups are similar, we can use a varian
 
 The F-ratio of 0.86, with 375 and 375 degrees of freedom is not significant (p-value 0.1381).
 
-If var.test(LGE\_2011,LGE\_2010) was called (the order of the two trials is reversed), the F-ratio would be 1.17 but the p-value would be unchanged. When testing the ratios of two variances in an F test, care is required because we are not testing whether the numerator variance is significantly greater than the denominator, which is the usual use of the F-ratio in an nova. Here we are carrying out a two-tailed test of significance rather than a one-tailed. Fortunately using var.test() takes care of this for you. If you were to do this by hand; dividing the larger variance by the smaller, then looking up the probability associated with that value of F in tables (or you could use an R function, p(f), then the probability would need to be doubled.
+If var.test(LGE\_2011,LGE\_2010) was called (the order of the two trials is reversed), the F-ratio would be 1.17 but the p-value would be unchanged. When testing the ratios of two variances in an F test, care is required because we are not testing whether the numerator variance is significantly greater than the denominator, which is the usual use of the F-ratio in ANOVA. Here we are carrying out a two-tailed test of significance rather than a one-tailed. Fortunately using var.test() takes care of this for you. If you were to do this by hand; dividing the larger variance by the smaller, then looking up the probability associated with that value of F in tables (or you could use an R function, p(f), then the probability would need to be doubled.
 
-Since the variances are not significantly different (IE they are homogeneous), \texttt{t.test} can be called in a form to take this into account:
+Since the variances are not significantly different (i.e.~they are homogeneous), \texttt{t.test} can be called in a form to take this into account:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1764,17 +1800,21 @@ The difference in mean yield between the two PpdD1 alleles is significant, but q
 
 This would be achieved by running:
 
-\texttt{for(i\ in\ 6:12)\ \{}
-\texttt{print(t.test(TG\_data\_for\_day\_1{[},i{]}\textasciitilde{}PpdD1))}
-\texttt{\}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{6}\SpecialCharTok{:}\DecValTok{12}\NormalTok{) \{}
+   \FunctionTok{print}\NormalTok{(}\FunctionTok{t.test}\NormalTok{(TG\_data\_for\_day\_1[,i]}\SpecialCharTok{\textasciitilde{}}\NormalTok{ PpdD1))}
+\NormalTok{       \}}
+\end{Highlighting}
+\end{Shaded}
 
-Give this a go on your laptops.
+Give this a go on your computers.
 
 What do you make of the output? It's possible to select individual components of the output (such as the means and p-values) so we can summarise many analyses concisely.
 
-\texttt{for(i\ in\ 6:12)} means repeat the commands which follow a number of times by varying an index variable, here ``i'', from 6 to 12 (seven times in total), incrementing it by 1 each repeat. Then, because we are analysing have TG.data.for.day.1{[},i{]}, on each iteration {[},i{]} is substituted with {[},6{]} then {[},7{]} \ldots{} {[},12{]} and all our analyses are done. We are beginning to write scripts!
+\texttt{for(i\ in\ 6:12)} means repeat the commands which follow a number of times by varying an index variable, here ``i'', from 6 to 12 (seven times in total), incrementing it by 1 each repeat. Then, because we are analysing have TG\_data\_for\_day\_1{[},i{]}, on each iteration {[},i{]} is substituted with {[},6{]} then {[},7{]} \ldots{} {[},12{]} and all our analyses are done. We are beginning to write scripts!
 
-The commands we want to loop over does not have to be restricted to a single line, provided they are enclosed in curly brackets. Note that as these commands are run within a loop, the output does not get echoed to the screen unless we include the ``print'' statement as above.
+The commands we want to loop over do not have to be restricted to a single line, provided they are enclosed in curly brackets. Note that as these commands are run within a loop, the output does not get echoed to the screen unless we include the ``print'' statement as above.
 
 \hypertarget{linear-regression}{%
 \subsection{Linear Regression}\label{linear-regression}}
@@ -1870,9 +1910,9 @@ We can look at a plot of the data with our fitted line a follows:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-81-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-82-1.pdf}
 
-When using plot, give the name of the variate you want plotted on the x axis comes first. The additional command, \texttt{abline()}, adds the best fitting straight line. There is a lot of variation around the best fitting line, but as we have varieties from three different countries of origin, and we have tested them in three different countries, this is not surprising.
+When using plot, the name of the variate you want plotted on the x axis comes first. The additional command, \texttt{abline()}, adds the best fitting straight line. There is a lot of variation around the best fitting line, but as we have varieties from three different countries of origin, and we have tested them in three different countries, this is not surprising.
 
 Finally, we look at how to extract residual values and fitted values from a regression. Large residual values for particular observations are often of use in searching for errors in data. Also, identification of the individuals or varieties responsible for large residuals may sometimes suggest some other factor which needs to be considered in the analysis. Fitted values and residuals are extracted as:
 
@@ -1898,7 +1938,7 @@ Finally, we look at how to extract residual values and fitted values from a regr
 ##  8.321746 -4.326949  7.023919 -3.865936  3.444500
 \end{verbatim}
 
-Note I've only plotted values 1 to 5 (\texttt{{[}1:5{]}}) to save space. These could be saved to other variables, or plotted:
+Note I've only printed values 1 to 5 (\texttt{{[}1:5{]}}) to save space. These could be saved to other variables, or plotted:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1906,11 +1946,11 @@ Note I've only plotted values 1 to 5 (\texttt{{[}1:5{]}}) to save space. These c
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-84-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-85-1.pdf}
 
 A plot of residuals against fitted values is often informative. If large residuals tend to be associated with large fitted values, for example, this indicates that the error variances are not homogenous and we treat our results with more caution. Residuals which increase in magnitude with increasing fitted values are often an indication that transforming the data to logarithms before analysis may be warranted.
 
-For linear regression in R, however, we can produce four of diagnostic plots very easily:
+For linear regression in R, however, we can produce four diagnostic plots very easily:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1918,7 +1958,7 @@ For linear regression in R, however, we can produce four of diagnostic plots ver
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-85-1.pdf} \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-85-2.pdf} \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-85-3.pdf} \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-85-4.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-86-1.pdf} \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-86-2.pdf} \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-86-3.pdf} \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-86-4.pdf}
 
 The first two plots are the most important and the easiest to interpret:
 
@@ -1960,14 +2000,14 @@ Thus yield is predicted as:
 -461.2409\\
 + 0.2645 x year\\
 + -0.5637 if French origin\\
-+ 0.9510 if UK origin
++ 0.9510 if UK origin\\
 + -0.2157 x Pppd1\\
 + 2.2112 x Rht2\\
 + 0.2311 x FT\\
-+ -0.1402 x HT
++ -0.1402 x HT\\
 + -0.6402 x Awns
 
-Note this form of analysis is acceptable for PppD1 and Rht2, SNPs and other binary markers provided the markers are coded numerically. 0 and 1 are ideal codes, but 0 can sometimes be confused with a missing value, especially if data are to be analysed in packages other than R. 1, 2 coding is also acceptable. Numeric coding cannot be used at all for multiallelic markers since it implies that alleles coded with a higher number have a higher value than those with a lower number.
+Note this form of analysis is acceptable for PpdD1 and Rht2, SNPs and other binary markers provided the markers are coded numerically. 0 and 1 are ideal codes, but 0 can sometimes be confused with a missing value, especially if data are to be analysed in packages other than R. 1, 2 coding is also acceptable. Numeric coding cannot be used at all for multiallelic markers since it implies that alleles coded with a higher number have a higher value than those with a lower number.
 
 Note the order in which the variates are supplied to lm does not affect the estimated coefficients:
 
@@ -2133,7 +2173,7 @@ We'll start with a simple example. Does height differ significantly between coun
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-92-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-93-1.pdf}
 
 It's clear from this that there is a difference - German lines tend to be taller. The command for an analysis of variance is just like that for linear regression:
 
@@ -2158,7 +2198,7 @@ There are three countries of origin: so we have a test with 2 degrees of freedom
 
 To get more information from our analysis of variance, we can use all the methods introduced earlier for linear and multiple regressions: as stated, the analysis of variance is just a special case of multiple regression.
 
-Let's finish off the analysis of variance with something more interesting. We know that the three countries tend to have different requirements for optimum flowering times and height. France tends to require earlier flowering lines and many varieties carry the PpdD1 early allele to achieve this. German lines tend to be taller because German wheat is often treated wheat with a grown regulator which reduces height, so there is less requirement for varieties to be bred for reduced height, commonly by using a dwarfing allele at one of the rht loci. After adjusting HT for country of origin, can we detect the effects of these major phenological loci? Do they interact?
+Let's finish off the analysis of variance with something more interesting. We know that the three countries tend to have different requirements for optimum flowering times and height. France tends to require earlier flowering lines and many varieties carry the PpdD1 early allele to achieve this. German lines tend to be taller because German wheat is often treated wheat with a growth regulator which reduces height, so there is less requirement for varieties to be bred for reduced height, commonly by using a dwarfing allele at one of the rht loci. After adjusting HT for country of origin, can we detect the effects of these major phenological loci? Do they interact?
 
 Let's have a look at the data first:
 
@@ -2168,9 +2208,9 @@ Let's have a look at the data first:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-94-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-95-1.pdf}
 
-Note the coding within the command to indicate we wanted to see four classes. 0.0 represents the late Ppd allele and the tall rht2 allele. 1.0 is the Ppd early and Rht2 short allele, and so on. It's clear that both loci have a big effect on height, but you can see also that although 1.1 is the shortest class, there is a bigger drop from 0.0 to 0.1 and 1.0 than there is from 1.0 and 0.1 to 1.1
+Note the coding within the command to indicate we wanted to see four classes. 0.0 represents the late Ppd allele and the tall Rht2 allele. 1.0 is the Ppd early and Rht2 tall allele, and so on. It's clear that both loci have a big effect on height, but you can see also that although 1.1 is the shortest class, there is a bigger drop from 0.0 to 0.1 and 1.0 than there is from 1.0 and 0.1 to 1.1
 
 Analysing the data, while taking into account country of origin?
 
@@ -2225,7 +2265,7 @@ It appears there is some weak evidence that Rht2 and PpdD1are interacting. But w
 \end{verbatim}
 
 \hypertarget{categorical-data---the-chi-squared-test}{%
-\section{\texorpdfstring{Categorical data - \emph{the chi-squared test}}{Categorical data - the chi-squared test}}\label{categorical-data---the-chi-squared-test}}
+\section{\texorpdfstring{Categorical data - the \emph{chi}-squared test}{Categorical data - the chi-squared test}}\label{categorical-data---the-chi-squared-test}}
 
 Suppose we wish to test if there is an association between Rht2 and PpdD1. They are not linked, but perhaps breeders have favoured particular combinations of +/- at the two loci. Or an association might arise because of the way the varieties have been selected for inclusion in the panel of lines. The standard method of analysis of such data is the contingency chi-squared test.
 First we need to format our data into a table:
@@ -2271,8 +2311,7 @@ This chi-squared test is simply carried out as:
 ## X-squared = 20.275, df = 1, p-value = 6.706e-06
 \end{verbatim}
 
-The result is obviously hugely significant; the p-value is vanishingly small. Do you think this
-is evidence that Rht2 and PpdD1 are genetically linked?
+The result is obviously hugely significant; the p-value is vanishingly small. What might you conclude about how breeders have selected on these two loci?
 
 Chi squared tests can have a problem with low numbers of observations in some cells. Try
 this:
@@ -2354,7 +2393,7 @@ The warning message is given because some cells have expected counts less than 5
 ##    1 17  2
 \end{verbatim}
 
-The expected count in one cell is less than five. There is an approximate correction, Yates's correction, that takes into account the potential failure of the test statistic to follow a chi-squared distribution when the expected numbers were low. This has been applied automatically. To see results without Yates' correction:
+The expected count in two cells is less than five. There is an approximate correction, Yates's correction, that takes into account the potential failure of the test statistic to follow a chi-squared distribution when the expected numbers were low. This has been applied automatically. To see results without Yates' correction:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2391,36 +2430,12 @@ It is increasingly common, and better, to derive the distribution of the test st
 ##  replicates)
 ## 
 ## data:  rht.ppd.table.small
-## X-squared = 2.3314, df = NA, p-value = 0.2068
+## X-squared = 2.3314, df = NA, p-value = 0.2081
 \end{verbatim}
 
 The value of B, the number of randomisations, can be set by the user. The default value is 2000, but I've run 10,000 which is still very quick when the number of observations is small.
 
-An alternative test to the chi squared for contingency tables with small expected numbers is Fisher's exact test. This compares the probability of observing the actual 2x2 table, calculated from the multinomial distribution, with the cumulated probability of observing other, less likely, tables. This probability is also calculated from a multinomial distribution with the same marginal frequencies: here the overall allele frequencies at SNP1 and SNP2). In R:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{fisher.test}\NormalTok{(rht.ppd.table.small)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##  Fisher's Exact Test for Count Data
-## 
-## data:  rht.ppd.table.small
-## p-value = 0.2075
-## alternative hypothesis: true odds ratio is not equal to 1
-## 95 percent confidence interval:
-##  0.02194865 2.00594857
-## sample estimates:
-## odds ratio 
-##  0.2692599
-\end{verbatim}
-
-The p-value is very similar to that from permutation testing. The odds ratio is much favoured in medical statistics and in epidemiology. It need not concern us.
-
-The contingency chi-squared test will easily accommodate larger tables; a 10 x 10 table for example. In the context of genetic markers, this could be used to test for association between pairs of microsatellites with multiple alleles. Fisher's exact test is computationally hard to calculate, even on a computer, for large contingency chi-squared tables, so empirical methods are often favoured.
+The contingency chi-squared test will easily accommodate larger tables; a 10 x 10 table for example. In the context of genetic data, this could be used to test for association between genetic regions with multiple haplotype alleles.
 
 \hypertarget{more-useful-information}{%
 \section{More useful information}\label{more-useful-information}}
@@ -2504,6 +2519,10 @@ Then:
 \texttt{aes} stands for aesthetics. If you think this look better and is easier, then ggplot2 is for you. See the web site for more details.
 
 There's plenty more you can do with ggplot2. There are some good \href{https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf}{cheat sheets} available too.
+
+\begin{rmdnote}
+There are a number of other very useful cheatsheets for R and RStudio, you can take a look at many \href{https://rstudio.com/resources/cheatsheets/}{here.} It is always useful to have these handy when you are travelling through the R universe.
+\end{rmdnote}
 
 \hypertarget{probability-distributions}{%
 \subsection{Probability distributions}\label{probability-distributions}}
@@ -2655,7 +2674,7 @@ A block of commands, each on a separate line, can be saved in a file and later p
 \end{Highlighting}
 \end{Shaded}
 
-This code plots the distribution of the difference in value between a pair of uniformly distributed values. It takes a while to run: you may prefer to reduce the number from 100,000. If you cut and paste the code into R you should get something like this:
+This code plots the distribution of the difference in value between a pair of uniformly distributed values. You may prefer to reduce the number from 100,000. If you cut and paste the code into R you should get something like this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2663,7 +2682,7 @@ This code plots the distribution of the difference in value between a pair of un
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-119-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-120-1.pdf}
 
 Note that the beginning and end of the loop (or any R program block) is defined by curly brackets. The indentation isn't obligatory but is good programming practice. The program creates a vector, \texttt{diff} which is then indexed by \texttt{i}. If \texttt{diff} wasn't first created outside the loop, the program would fail.
 
@@ -2841,10 +2860,10 @@ Defines a matrix and fills it with data. For example:
 \end{Shaded}
 
 \begin{verbatim}
-##              [,1]       [,2]        [,3]       [,4]
-## [1,] -0.233995226 -0.3368211 -0.58919496  0.5523650
-## [2,] -0.866784024  1.0255816 -0.08874279 -1.7859894
-## [3,] -0.009812204 -2.1193455 -0.86261735 -0.5676484
+##            [,1]       [,2]       [,3]       [,4]
+## [1,] -1.1997940  0.6565469 -1.2640155 -0.1001170
+## [2,] -0.3932316  1.0922818 -0.7344448  1.3312798
+## [3,] -0.4301833 -1.0324728  0.5145625  0.7772152
 \end{verbatim}
 
 The \texttt{rnorm()} part has simulated 12 random numbers which have a specified normal distribution.
@@ -2900,7 +2919,7 @@ Remove those objects that are no longer required.
 
 \texttt{rm(list=ls(all.names=TRUE))} Would removes all variables, although this can be more easily achieved from the Session tab which offers more options.
 
-Pull row names from a object (and only show first 5):
+Pull row names from an object (and only show first 5):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3173,8 +3192,6 @@ searched.
 
 \texttt{colSums} = returns totals across columns of a dataset
 
-\texttt{fisher.test} = carry out a Fisher's exact test
-
 \texttt{cor} = returns the correlation coefficient
 
 \texttt{fitted} = returns the fitted values from a linear model
@@ -3191,13 +3208,13 @@ searched.
 
 \texttt{pchisq} = returns the p-value of a chi-squared statistic
 
+\texttt{pf} = returns the p-value of a F (variance ratio) statistic
+
 \texttt{pnorm} = returns the p-value for a normally distributed variate
 
 \texttt{pt} = returns the p-value of a t-test
 
 \texttt{qchisq} = returns a chi-squared statistic for a given probability
-
-\texttt{pf} = returns the p-value of a F (variance ratio) statistic
 
 \texttt{qnorm} = returns a normality distributed variate for a given probability
 
@@ -3206,12 +3223,6 @@ searched.
 \texttt{qf} = returns a F (variance ratio) statistic for a given probability
 
 \texttt{qt} = returns the t-test statistic for a given probability
-
-\texttt{sd} = returns the standard deviation of a variate
-
-\texttt{sum} = returns the sum of a variate
-
-\texttt{summary} = summarise data
 
 \texttt{resid} = returns the residuals from a linear model
 
@@ -3228,6 +3239,12 @@ searched.
 \texttt{runif} = returns random numbers from the uniform distribution
 
 \texttt{rt} = returns random numbers from the t distribution
+
+\texttt{sd} = returns the standard deviation of a variate
+
+\texttt{sum} = returns the sum of a variate
+
+\texttt{summary} = summarise data
 
 \texttt{t.test} = one and two sample t-test
 
@@ -3314,74 +3331,74 @@ The other options can be ignored for now, and omitted. \texttt{blocks} can be ig
 ## 
 ## $Design
 ##    Level_1 plots treatments
-## 1       B1     1          3
-## 2       B1     2          9
-## 3       B1     3          5
-## 4       B1     4          5
-## 5       B1     5          1
+## 1       B1     1          7
+## 2       B1     2          2
+## 3       B1     3          4
+## 4       B1     4          8
+## 5       B1     5          2
 ## 6       B1     6          3
 ## 7       B1     7          5
-## 8       B1     8          1
-## 9       B1     9         10
-## 10      B1    10          7
-## 11      B1    11          4
-## 12      B1    12          8
+## 8       B1     8          9
+## 9       B1     9          8
+## 10      B1    10          8
+## 11      B1    11         10
+## 12      B1    12          7
 ## 13      B1    13          6
-## 14      B1    14          7
-## 15      B1    15          4
-## 16      B1    16          1
-## 17      B1    17          7
+## 14      B1    14         10
+## 15      B1    15          5
+## 16      B1    16          9
+## 17      B1    17          3
 ## 18      B1    18          9
-## 19      B1    19          6
-## 20      B1    20          5
-## 21      B1    21          9
+## 19      B1    19          8
+## 20      B1    20          3
+## 21      B1    21          3
 ## 22      B1    22          1
 ## 23      B1    23          9
-## 24      B1    24          1
-## 25      B1    25          2
-## 26      B1    26          3
-## 27      B1    27          3
-## 28      B1    28          7
+## 24      B1    24         10
+## 25      B1    25          7
+## 26      B1    26          7
+## 27      B1    27          9
+## 28      B1    28         10
 ## 29      B1    29          8
-## 30      B1    30          4
-## 31      B1    31          2
-## 32      B1    32          8
-## 33      B1    33          7
-## 34      B1    34          2
-## 35      B1    35          5
-## 36      B1    36         10
-## 37      B1    37          4
-## 38      B1    38          8
-## 39      B1    39         10
-## 40      B1    40          2
-## 41      B1    41          3
-## 42      B1    42          9
-## 43      B1    43          4
+## 30      B1    30          7
+## 31      B1    31          6
+## 32      B1    32          5
+## 33      B1    33         10
+## 34      B1    34          5
+## 35      B1    35          3
+## 36      B1    36          4
+## 37      B1    37          8
+## 38      B1    38          2
+## 39      B1    39          1
+## 40      B1    40          5
+## 41      B1    41          9
+## 42      B1    42          5
+## 43      B1    43          1
 ## 44      B1    44          2
-## 45      B1    45          6
+## 45      B1    45          1
 ## 46      B1    46          2
-## 47      B1    47         10
-## 48      B1    48         10
-## 49      B1    49          7
-## 50      B1    50          5
-## 51      B1    51          8
-## 52      B1    52          4
-## 53      B1    53          3
-## 54      B1    54          9
-## 55      B1    55          6
-## 56      B1    56          6
-## 57      B1    57         10
-## 58      B1    58          8
+## 47      B1    47          4
+## 48      B1    48          6
+## 49      B1    49          2
+## 50      B1    50          3
+## 51      B1    51          6
+## 52      B1    52         10
+## 53      B1    53          4
+## 54      B1    54          1
+## 55      B1    55          7
+## 56      B1    56          4
+## 57      B1    57          6
+## 58      B1    58          1
 ## 59      B1    59          6
-## 60      B1    60          1
+## 60      B1    60          4
 ## 
 ## $Plan
-##   Level_1 Blocks.Plots: 1 2 3 4 5 6 7 8  9 10 11 12 13 14 15 16 17 18 19 20 21
-## 1      B1               3 9 5 5 1 3 5 1 10  7  4  8  6  7  4  1  7  9  6  5  9
+##   Level_1 Blocks.Plots: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
+## 1      B1               7 2 4 8 2 3 5 9 8  8 10  7  6 10  5  9  3  9  8  3  3
 ##   22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47
-## 1  1  9  1  2  3  3  7  8  4  2  8  7  2  5 10  4  8 10  2  3  9  4  2  6  2 10
+## 1  1  9 10  7  7  9 10  8  7  6  5 10  5  3  4  8  2  1  5  9  5  1  2  1  2  4
 ##   48 49 50 51 52 53 54 55 56 57 58 59 60
-## 1 10  7  5  8  4  3  9  6  6 10  8  6  1
+## 1  6  2  3  6 10  4  1  7  4  6  1  6  4
 ## 
 ## $seed
 ## NULL
@@ -3465,8 +3482,8 @@ If we wanted to count control number across block in larger trial we could run:
 \begin{verbatim}
 ##     
 ##      1 2 3 4 5 6 7 8 9 10
-##   B1 5 5 0 0 1 1 1 0 0  1
-##   B2 5 5 1 1 0 0 0 1 1  0
+##   B1 5 5 0 1 0 0 0 1 1  1
+##   B2 5 5 1 0 1 1 1 0 0  0
 \end{verbatim}
 
 This uses the function \texttt{table}. Perhaps we think that a block size of 10 is too great, but that 5 would be better.
@@ -3493,11 +3510,11 @@ If we run:
 \end{Shaded}
 
 \begin{verbatim}
-##   Level_1 Level_2 Blocks.Plots:  1 2 3 4 5 6 7
-## 1      B1   B1.B1                1 2 6 2 1 1 7
-## 2      B1   B1.B2                3 1 2 2 5 1 2
-## 3      B2   B2.B1                9 1 1 2 2 8 1
-## 4      B2   B2.B2               10 2 2 2 1 1 4
+##   Level_1 Level_2 Blocks.Plots: 1  2 3 4 5 6 7
+## 1      B1   B1.B1               2  5 8 1 2 1 1
+## 2      B1   B1.B2               6  1 2 2 1 2 3
+## 3      B2   B2.B1               7  1 2 4 1 2 2
+## 4      B2   B2.B2               2 10 1 9 1 2 1
 \end{verbatim}
 
 We have introduced an additional constraint. There are two levels of blocking: one with two blocks, each of size 10, and then one with two blocks of size five nested within each of the larger blocks. In this case, there is no difference in design between p.rep.3 and p.rep.4, but this is not usually the case.
@@ -3597,15 +3614,15 @@ Row blocks look good. What about column blocks?
 \begin{verbatim}
 ##    
 ##     1 2 3 4 5 6 7 8 9
-##   1 4 2 1 1 2 1 0 1 0
-##   2 2 4 0 1 1 1 1 1 1
-##   3 1 0 4 1 1 1 1 1 2
-##   4 1 1 1 4 1 0 2 1 1
-##   5 2 1 1 1 4 1 1 0 1
-##   6 1 1 1 0 1 4 1 1 2
-##   7 0 1 1 2 1 1 4 2 0
-##   8 1 1 1 1 0 1 2 4 1
-##   9 0 1 2 1 1 2 0 1 4
+##   1 4 1 1 1 1 1 1 1 1
+##   2 1 4 1 1 1 1 1 1 1
+##   3 1 1 4 1 1 1 1 1 1
+##   4 1 1 1 4 1 1 1 1 1
+##   5 1 1 1 1 4 1 1 1 1
+##   6 1 1 1 1 1 4 1 1 1
+##   7 1 1 1 1 1 1 4 1 1
+##   8 1 1 1 1 1 1 1 4 1
+##   9 1 1 1 1 1 1 1 1 4
 \end{verbatim}
 
 blocksdesign searches for the best design. We can make it search harder by increasing the number of \texttt{searches}:
@@ -3671,8 +3688,8 @@ Efficiencies (or \texttt{efficiency} factors) can be examined as:
 \begin{verbatim}
 ##        First_order effects  D.Effic  A.Effic       Second_order effects D.Effic
 ## 1           (reps)       5 1.000000 1.000000           (reps)^2       5      NA
-## 2      (reps+rows)      29 0.830539 0.827728      (reps+rows)^2      29      NA
-## 3 (reps+rows+cols)      53 0.659989 0.653184 (reps+rows+cols)^2     149      NA
+## 2      (reps+rows)      29 0.830656 0.827968      (reps+rows)^2      29      NA
+## 3 (reps+rows+cols)      53 0.659078 0.651444 (reps+rows+cols)^2     149      NA
 ##   A.Effic
 ## 1      NA
 ## 2      NA
@@ -3795,7 +3812,7 @@ On farm experiments, using farm equipment, are experiencing a revival, partly pr
 As an example, consider the imaginary design in this table:
 
 \begin{longtable}[t]{ll}
-\caption{\label{tab:unnamed-chunk-174}Farm Blocks}\\
+\caption{\label{tab:unnamed-chunk-175}Farm Blocks}\\
 \toprule
 farm & fields\\
 \midrule
@@ -3867,46 +3884,46 @@ Suppose we have six varieties to test. Five of these can be replicated seven tim
 
 \begin{verbatim}
 ##    farm fields treatments
-## 1     1      1          3
+## 1     1      1          5
 ## 2     1      1          2
 ## 3     1      2          4
-## 4    10      1          1
-## 5    10      1          4
-## 6    10      2          2
-## 7    10      2          5
-## 8     2      1          3
-## 9     2      1          4
-## 10    2      2          1
-## 11    2      2          5
-## 12    2      3          2
+## 4    10      1          2
+## 5    10      1          6
+## 6    10      2          1
+## 7    10      2          3
+## 8     2      1          4
+## 9     2      1          1
+## 10    2      2          2
+## 11    2      2          3
+## 12    2      3          5
 ## 13    2      3          6
-## 14    3      1          5
-## 15    3      1          4
-## 16    3      2          3
-## 17    4      1          6
-## 18    4      1          2
+## 14    3      1          4
+## 15    3      1          2
+## 16    3      2          1
+## 17    4      1          5
+## 18    4      1          1
 ## 19    4      2          3
-## 20    4      2          5
-## 21    5      1          5
-## 22    5      1          3
-## 23    5      2          1
+## 20    4      2          4
+## 21    5      1          2
+## 22    5      1          1
+## 23    5      2          5
 ## 24    5      2          6
-## 25    6      1          1
-## 26    6      1          3
+## 25    6      1          3
+## 26    6      1          5
 ## 27    6      2          2
 ## 28    7      1          4
-## 29    7      1          6
-## 30    7      2          1
-## 31    7      2          3
-## 32    8      1          1
-## 33    8      1          2
-## 34    8      2          6
-## 35    8      2          4
-## 36    8      3          5
+## 29    7      1          3
+## 30    7      2          2
+## 31    7      2          6
+## 32    8      1          6
+## 33    8      1          4
+## 34    8      2          1
+## 35    8      2          5
+## 36    8      3          3
 ## 37    9      1          6
-## 38    9      1          5
+## 38    9      1          3
 ## 39    9      2          4
-## 40    9      2          2
+## 40    9      2          5
 ## 41    9      3          1
 \end{verbatim}
 
@@ -3925,12 +3942,12 @@ Let's take a look at the results:
 \begin{verbatim}
 ##    
 ##     1 10 2 3 4 5 6 7 8 9
-##   1 0  1 1 0 0 1 1 1 1 1
-##   2 1  1 1 0 1 0 1 0 1 1
-##   3 1  0 1 1 1 1 1 1 0 0
-##   4 1  1 1 1 0 0 0 1 1 1
-##   5 0  1 1 1 1 1 0 0 1 1
-##   6 0  0 1 0 1 1 0 1 1 1
+##   1 0  1 1 1 1 1 0 0 1 1
+##   2 1  1 1 1 0 1 1 1 0 0
+##   3 0  1 1 0 1 0 1 1 1 1
+##   4 1  0 1 1 1 0 0 1 1 1
+##   5 1  0 1 0 1 1 1 0 1 1
+##   6 0  1 1 0 0 1 0 1 1 1
 \end{verbatim}
 
 \begin{Shaded}
@@ -3942,12 +3959,12 @@ Let's take a look at the results:
 \begin{verbatim}
 ##    
 ##     1 2 3 4 5 6
-##   1 7 5 4 5 5 5
-##   2 5 7 4 5 5 4
-##   3 4 4 7 4 4 4
-##   4 5 5 4 7 5 4
-##   5 5 5 4 5 7 5
-##   6 5 4 4 4 5 6
+##   1 7 4 5 5 5 5
+##   2 4 7 4 4 4 4
+##   3 5 4 7 5 5 5
+##   4 5 4 5 7 5 4
+##   5 5 4 5 5 7 4
+##   6 5 4 5 4 4 6
 \end{verbatim}
 
 The allocation of varieties across farms looks reasonable. What about the allocation within fields?
@@ -3961,12 +3978,12 @@ The allocation of varieties across farms looks reasonable. What about the alloca
 \begin{verbatim}
 ##    
 ##     1 2 3 4 5 6
-##   1 7 1 2 1 1 1
+##   1 7 1 1 1 2 0
 ##   2 1 7 1 1 1 2
-##   3 2 1 7 1 2 0
-##   4 1 1 1 7 1 2
-##   5 1 1 2 1 7 1
-##   6 1 2 0 2 1 6
+##   3 1 1 7 2 1 1
+##   4 1 1 2 7 1 1
+##   5 2 1 1 1 7 2
+##   6 0 2 1 1 2 6
 \end{verbatim}
 
 \begin{rmdquiz}
@@ -4487,7 +4504,7 @@ The command we then run is \texttt{desplot}:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-210-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-211-1.pdf}
 
 That's worked well. The command has several arguments (see \texttt{help(desplot)}), the ones we've used were:
 
@@ -4614,7 +4631,7 @@ Field fertility effects are not typically refined to the blocks, reps, rows and 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-216-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-217-1.pdf}
 
 In that model we just included replicate and clearly missed patterns in our data. If we were to plot the residuals after fitting block, rows and column, hopefully we would account for what was missed. However, in some cases the trial design components still don't adjust appropriately for the noise in the data and we might be able to find a better model by running a spatial analysis.
 
@@ -4813,7 +4830,7 @@ In our trial you can see that out of the smooth components, the smooth-by-smooth
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-223-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-224-1.pdf}
 
 These plots are really useful for a more straight forward interpretation of our spatial model. The `Raw data' plot is the phenotype plotted out in the row and column structure of our trial. That pattern looks familiar. We saw there was an area of the field associated with lower phenotype values in our residual plot earlier. I would call the worse part of this area between columns 0-10 and rows 4-10. Now if we look at the residual plot on the top right, we should check for any remaining patterns. It looks like our model has been much better at clearing up the residual noise. What is left appears to be mostly random.
 
@@ -4973,7 +4990,7 @@ We could have done this using \texttt{predictmeans} and not run into these warni
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-233-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-234-1.pdf}
 
 Looks convincing! Both methods produce the same results. In passing we can check that the means from \texttt{emmeans} agree with simply getting the fixed effects from lm.
 
@@ -4983,7 +5000,7 @@ Looks convincing! Both methods produce the same results. In passing we can check
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-234-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-235-1.pdf}
 
 Comments?
 
@@ -5052,7 +5069,7 @@ How do the BLUPs compare to the BLUEs? Look at the correlations and plot:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-237-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-238-1.pdf}
 
 To test the significance of random effects in mixed models, we use a likelihood ratio test (LRT). This is a very commonly used method in statistics and quantitative genetics. The difference between 2 x the log-likelihood of two models is approximately distributed as a chi-squared statistic with df (for the test) equal to the difference in df between the two models. This method is not appropriate for testing the significance of fixed effects in mixed models however. To get the log-likelihood of the model you should have just fitted:
 
@@ -5353,7 +5370,7 @@ We could produce the biplot, as it's just a scattergram, using the standard plot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-252-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-253-1.pdf}
 
 That is a bit ugly though, so we'll add some labels:
 
@@ -5363,7 +5380,7 @@ That is a bit ugly though, so we'll add some labels:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-253-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-254-1.pdf}
 
 Zoom the plot and we'll discuss it: is there any visible evidence for country specific adaptation? To my mind, this has worked very well. I wish I had done this earlier as I would have included it in the publication.
 
@@ -5397,7 +5414,7 @@ Then we can run svd and plot the results:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-255-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-256-1.pdf}
 
 Can you make sense of that? It is a little easier if we produce plots for each country of origin in turn. For example for the UK:
 
@@ -5407,7 +5424,7 @@ Can you make sense of that? It is a little easier if we produce plots for each c
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-256-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-257-1.pdf}
 
 Any better?
 
@@ -5433,7 +5450,7 @@ In the tables below are the SNP genotype frequencies of two markers are given (f
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-257}SNP genotype frequencies for two markers.}
+\caption{\label{tab:unnamed-chunk-258}SNP genotype frequencies for two markers.}
 \centering
 \begin{tabular}[t]{lrlr}
 \toprule
@@ -5462,7 +5479,7 @@ The table below gives the same information for SNP PZA00219\_6 but separated by 
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-259}SNP genotype frequencies by Mexican state for a single marker}
+\caption{\label{tab:unnamed-chunk-260}SNP genotype frequencies by Mexican state for a single marker}
 \centering
 \begin{tabular}[t]{lrrrr}
 \toprule
@@ -5561,7 +5578,7 @@ We can calculate the ``fixation index'' as you did earlier in the exercise, and 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-265-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-266-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5713,7 +5730,7 @@ So for doing the same for all states, we get the following values for Ho, He and
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-273}Ho, He and F for Mexican population and states.}
+\caption{\label{tab:unnamed-chunk-274}Ho, He and F for Mexican population and states.}
 \centering
 \begin{tabular}[t]{llll}
 \toprule
@@ -5782,7 +5799,7 @@ We can also plot the proportion of variance explained by first 10 PCAs by runnin
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-278-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-279-1.pdf}
 
 Inspect these outputs to comment on the following question:
 
@@ -5799,7 +5816,7 @@ Now, we will plot the first two PCs against each other, colouring the points by 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-280-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-281-1.pdf}
 
 Take a look at this plot and address the questions below:
 
@@ -5828,7 +5845,7 @@ Given what we have observed with the PCA investigation, it seems that state boun
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-283}Ho, He and F for Mexican population and sub-divided states.}
+\caption{\label{tab:unnamed-chunk-284}Ho, He and F for Mexican population and sub-divided states.}
 \centering
 \begin{tabular}[t]{llll}
 \toprule
@@ -5925,7 +5942,7 @@ Now we can plot the tree:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-289-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-290-1.pdf}
 
 \begin{rmdquiz}
 \textbf{9} Use the zoom function to look more closely at the plot. How many higher-level groups can reliably be distinguished in this network?
@@ -5957,7 +5974,7 @@ Plot the eigenvalues:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-293-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-294-1.pdf}
 
 Tabulate percentage variation explained by top 10 eigenvalues:
 
@@ -5981,7 +5998,7 @@ Plot the first two pco axes:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-295-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-296-1.pdf}
 
 You can also plot different pairs of pco axes using something like \texttt{plot(AG\_pco\$points{[},1{]},AG\_pco\$points{[},3{]})}.
 
@@ -6297,7 +6314,7 @@ Run the script for the teosinte analysis with no population structure. You shoul
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-301-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-302-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6310,7 +6327,7 @@ Run the script for the teosinte analysis with no population structure. You shoul
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-301-2.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-302-2.pdf}
 
 Inspect the results and answer the following questions:
 
@@ -6362,7 +6379,7 @@ Rerun the teosinte analysis selecting state as a subpopulation grouping (the scr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-303-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-304-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6375,7 +6392,7 @@ Rerun the teosinte analysis selecting state as a subpopulation grouping (the scr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-303-2.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-304-2.pdf}
 
 Now consider the following questions:
 
@@ -6426,7 +6443,7 @@ You might have observed some effect from the inclusion of the groups. However, w
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-305-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-306-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6439,7 +6456,7 @@ You might have observed some effect from the inclusion of the groups. However, w
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-305-2.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-306-2.pdf}
 
 \begin{rmdquiz}
 \textbf{15}
@@ -6495,7 +6512,7 @@ Run the LD analysis for barley chromosome 1 without population structure.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-308-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-309-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6508,7 +6525,7 @@ Run the LD analysis for barley chromosome 1 without population structure.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-308-2.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-309-2.pdf}
 
 \begin{rmdquiz}
 \textbf{17}
@@ -6556,7 +6573,7 @@ b: What is your initial interpretation of both plots?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-310-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-311-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6569,7 +6586,7 @@ b: What is your initial interpretation of both plots?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-310-2.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-311-2.pdf}
 
 \begin{rmdquiz}
 \textbf{18}
@@ -6751,7 +6768,7 @@ We can use the below script to calculate the mean NA \% per marker:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 9.974366
+## [1] 9.927887
 \end{verbatim}
 
 On average we have 10\% missing data per marker, as we intended. You now have a data set ready to be imputed.
@@ -6814,7 +6831,7 @@ Plot the imputed data for each original class:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-323-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-324-1.pdf}
 
 Plot histograms of the imputed data for each class in turn:
 
@@ -6824,7 +6841,7 @@ Plot histograms of the imputed data for each class in turn:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-324-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-325-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6832,7 +6849,7 @@ Plot histograms of the imputed data for each class in turn:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-324-2.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-325-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6840,7 +6857,7 @@ Plot histograms of the imputed data for each class in turn:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-324-3.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-325-3.pdf}
 
 What do you think?
 
@@ -6887,9 +6904,9 @@ Now, compare the imputed and original class using `table':
 \begin{verbatim}
 ##        original
 ## imputed     0     1     2
-##       0  8205   216  1846
-##       1  5624   403  6409
-##       2  1917   242 10547
+##       0  8321   228  1774
+##       1  5649   392  6364
+##       2  1774   251 10491
 \end{verbatim}
 
 A single number we can use summarise the accuracy of the imputation is the contingency chi-squared test statistic -- high values are good in this context: we want the rows (imputed) and columns (observed) to be highly dependent on each other.
@@ -6905,7 +6922,7 @@ A single number we can use summarise the accuracy of the imputation is the conti
 ##  Pearson's Chi-squared test
 ## 
 ## data:  imp.test
-## X-squared = 9952.8, df = 4, p-value < 2.2e-16
+## X-squared = 10391, df = 4, p-value < 2.2e-16
 \end{verbatim}
 
 Has the imputation done a good job? Record the chisq value on the board in the classroom for subsequent comparison with other runs.
@@ -6954,8 +6971,8 @@ The first line above forces genotypes which would be otherwise be imputed as het
 \begin{verbatim}
 ##        original
 ## imputed     0     1     2
-##       0 11641   415  4215
-##       2  4105   446 14587
+##       0 11677   414  4119
+##       2  4067   457 14510
 \end{verbatim}
 
 In practice, the wisdom of this reclassification is unclear. Carrying out the same exercise using mean imputation amounts to substituting all missing values by the most common allele, which doesn't seem very sensible.
@@ -6986,7 +7003,7 @@ First impute the missing data using the mean. To do this we need to work out the
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-332-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-333-1.pdf}
 
 \texttt{svd} is the standard R function to carry out SVD. \texttt{ecdf} is a function for plotting empirical cumulative distributions. We drop the first eigenvalue from the plot ( the {[}-1{]} ) since this is very large and its vector merely predicts the mean allele frequency of each marker. We could avoid this problem by rescaling the data first, but as we are aware of the problem it is hardly necessary.
 
@@ -7037,10 +7054,10 @@ Inspect the results:
 
 \begin{verbatim}
 ##               original
-## imputed    0    1    2
-##       0 6316  142 1054
-##       1 7693  489 7813
-##       2 1737  230 9935
+## imputed     0     1     2
+##       0  6588   137  1005
+##       1  7425   500  7595
+##       2  1731   234 10029
 \end{verbatim}
 
 \begin{Shaded}
@@ -7054,7 +7071,7 @@ Inspect the results:
 ##  Pearson's Chi-squared test
 ## 
 ## data:  imp.test.av
-## X-squared = 9415.2, df = 4, p-value < 2.2e-16
+## X-squared = 9915, df = 4, p-value < 2.2e-16
 \end{verbatim}
 
 What do you think? We'll collate the results over repeat runs and different values of LD threshold and discuss.
@@ -7113,7 +7130,7 @@ We can also estimate imputation error using the function \texttt{mixError}:
 
 \begin{verbatim}
 ##       PFC 
-## 0.2545398
+## 0.2504824
 \end{verbatim}
 
 for mixError, values close to 0 are good, close to 1 are bad.
@@ -7130,9 +7147,9 @@ We compare across methods using our earlier code, summarising the results:
 \begin{verbatim}
 ##               original
 ## imputed     0     1     2
-##       0 11593   427  3996
-##       1    21    20    23
-##       2  4132   414 14783
+##       0 11725   406  3933
+##       1    24    10    15
+##       2  3995   455 14681
 \end{verbatim}
 
 \begin{Shaded}
@@ -7150,7 +7167,7 @@ We compare across methods using our earlier code, summarising the results:
 ##  Pearson's Chi-squared test
 ## 
 ## data:  chi.forest
-## X-squared = 9738.7, df = 4, p-value < 2.2e-16
+## X-squared = 9887.8, df = 4, p-value < 2.2e-16
 \end{verbatim}
 
 How does this compare with what we had before? Are there any differences in the pattern of assignment to different classes?
@@ -7362,7 +7379,7 @@ These kinship matrices are essentially measuring the genetic distance between va
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-350-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-351-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7370,7 +7387,7 @@ These kinship matrices are essentially measuring the genetic distance between va
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-350-2.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-351-2.pdf}
 
 You should see that in both cases, the first few eigenvalues are much larger than the remainder: they therefore account for most of the variation in their respective matrices. We can now plot the largest and second largest eigenvectors against each other for both data sets:
 
@@ -7380,7 +7397,7 @@ You should see that in both cases, the first few eigenvalues are much larger tha
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-351-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-352-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7388,7 +7405,7 @@ You should see that in both cases, the first few eigenvalues are much larger tha
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-351-2.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-352-2.pdf}
 
 \begin{rmdquiz}
 \textbf{1}
@@ -7484,7 +7501,7 @@ We now need to look at QQ plots:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-358-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-359-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7492,7 +7509,7 @@ We now need to look at QQ plots:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-358-2.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-359-2.pdf}
 
 These look OK. If the lower values did not fall close to the line, we would need to reassess our corrections for kinship and/or take into account other covariates (such as population structure, as below).
 
@@ -7534,7 +7551,7 @@ Having set the threshold, you will find it is plotted on any Manhattan plots you
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-361-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-362-1.pdf}
 
 You must specify a single trait and a single model.
 
@@ -7570,7 +7587,7 @@ We can examine the significant results directly:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-363-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-364-1.pdf}
 
 Similarly, the top hit for height is the unmapped Rht2 gene (one of the `green revolution' dwarfing loci), where the reduced height allele has an effect size of about 5.5 cm relative to the reference allele.
 
@@ -7580,7 +7597,7 @@ Similarly, the top hit for height is the unmapped Rht2 gene (one of the `green r
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-364-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-365-1.pdf}
 
 \begin{rmdquiz}
 \textbf{2}
@@ -7769,6 +7786,1719 @@ We have seen that there remains some art in carrying out association analyses: w
 
 How would we run simulations to estimate the power of different analysis approaches?
 \end{rmdquiz}
+
+\hypertarget{Mapping-Markers}{%
+\chapter{Mapping Markers and Quantitative Trait Loci.}\label{Mapping-Markers}}
+
+\emph{Mapping Markers and Quantitative Trait Loci with R/qtl (and ASMap)}
+
+\hypertarget{introduction-2}{%
+\section{Introduction}\label{introduction-2}}
+
+There are several excellent mapping programmes available. A list of some, suitable for plant breeders is found on the R/qtl \href{http://www.rqtl.org/}{homepage.} Software for
+creating maps of markers is less common than software for mapping QTL and most has
+specific limitations in terms of speed, population types, handling of missing data and so
+on. The gold standard is \href{https://www.kyazma.nl/}{Joinmap,} but this is expensive. In fact
+it's so expensive that they don't put the price on their web site.
+
+For this course we are going to use R/qtl. This is a popular, easy-to-use and well supported package and there is a useful book on QTL mapping associated with it: ``A
+Guide to QTL Mapping with R/qtl.'' Details are available \href{http://www.rqtl.org/book/}{here.} There is also an R/qtl \href{http://www.rqtl.org/}{web site,} which
+includes much useful information, including tutorials and there is a \href{http://groups.google.com/group/Rqtl-disc}{discussion group.} A quick tour of R/qtl can be found \href{http://www.rqtl.org/tutorials/rqtltour.pdf}{here}. R/qtl was originally written to map QTL and not to create linkage maps of markers. However, it will create marker maps, although it can be slow compared to alternative programs. However, in this tutorial we shall use R/qtl both to create a linkage map and then to map QTL onto that map.
+
+A rewritten version, R/qtl2 is now available, which is faster and better able to handle
+large data sets and complex cross-designs, including MAGIC. It also offers an automated
+marker thinning option for kinship matrix estimation (hooray!) and includes options to
+go beyond QTL detection to searching genomic databases for candidate SNP variants. It
+is available from \href{http://kbroman.org/qtl2/}{here} but not yet on CRAN. We are currently trying it out in our work at NIAB.
+
+Also relatively new, and available through CRAN, is the R package ASMap. This creates marker maps for basic biparental populations, but you would have to use R/qtl to map traits. The description of it is \href{https://www.jstatsoft.org/article/view/v079i06}{here}. The R manual for the package can be found \href{https://cran.r-project.org/web/packages/ASMap/ASMap.pdf}{here}. Its main benefit over R/qtl is in utilising a more advanced, much faster algorithm for clustering and marker ordering. We shall also have a brief look at this too.
+
+\begin{rmdnote}
+A R script for this tutorial has been provided with the data, either work from that or copy and paste the chunks you wish to run from the book.
+\end{rmdnote}
+
+\hypertarget{constructing-a-genetic-map}{%
+\section{Constructing a genetic map}\label{constructing-a-genetic-map}}
+
+Most (all?) statistical packages for mapping markers start with a square matrix of recombination fractions. From this two-dimensional matrix, markers are partitioned into linkage groups by some form of clustering. Hopefully each cluster or linkage group belongs uniquely to a single chromosome. However, stringent significant thresholds must be employed in this clustering to reduce the number of falsely linked markers. As a result, a numbers of markers are often left unlinked or in clusters with only a very small number of members. In practice, therefore, it is common to identify more linkage groups than chromosomes. With modern genomic resources, these linkage groups can often be subsequently linked to specific chromosomes.
+
+Following clustering, for each linkage group in turn, markers are projected from the two-dimensional array of recombination fractions into a linear order. There are various methods for carrying out this linearization. Usually, as a final stage, the linear order is tested by some form of perturbation of the initial order to see if a new order can be found which is judged better: reducing the total number of recombinations required to create the observed set of chromosomes for example.
+
+The data we are going to analyse are from a DH mapping population in UK winter wheat: Avalon x Cadenza. Data were produced as part of an experiment to map wheat soil borne mosaic virus.
+
+\hypertarget{formatting-and-reading-in-the-data}{%
+\section{Formatting and reading in the data}\label{formatting-and-reading-in-the-data}}
+
+Data are in the file: ``AxC\_R.xlsx''. Note:
+
+Row 1: in separate cells, column names for ID, phenotypes, markers.
+
+Row 2: in the cells immediately under the marker names, the chromosome identifier for
+that marker. Here that identifier is 50 for all markers (we could have used anything except x -- reserved for sex chromosomes. If we had a pre-existing map we wished to use, obviously this identifier would be for the chromosome or linkage group.
+
+Row 3: is missing here as it is not required. But if we were using a pre-existing map, then on this line, under its marker name, would be the position in cM for that marker (see
+the QTL mapping tutorial). Data are read in Haldane map units. You will see this after
+we have created a map and exported our data with the new map to a file.
+
+Coding for marker data follows that used by Mapmaker, one of the original pieces of
+mapping software (slow by current standards and hard to use):
+
+\begin{verbatim}
+genotype    default coding  
+AA            A               homozygous from parent A 
+Aa            H               heterozygous 
+aa            B               homozygous from parent B 
+A_            D               for dominant markers, homozygous in parent A 
+a_            C               for dominant markers, homozygous in parent B
+\end{verbatim}
+
+This is the basic coding. It has been expanded to deal with more complex cross types which R/qtl can also handle.
+
+Should we drop any markers? Should we drop any individuals?
+
+The dataset we are using has already been through a QC process which has removed really bad markers and individuals. This can be done without a map by looking at marker failure rates and segregation distortion -- over markers and over individuals. Some of these checks can be done by the mapping software, but they are easy to do in Excel too:
+
+To calculate a chi-sq with 1 df to test for 1:1 segregation you can use the quick formula:
+
+\[(A-B)^2/(A+B)\]
+
+This is just a simplification of the usual \(Σ(O-E)^2/E\) (O= observed numbers, E = expected numbers) for a chi-sq test. It only applies when there are two classes and the expected are in the ratio 1:1. I prefer to do this prior to running any mapping programs but it is possible within R/qtl.
+
+After you are happy with the data, then we read it into R. R cannot read these data directly from Excel or from the clipboard. First you must save the data as a csv file. This has already been done, to create the file AxC\_R.csv.
+
+Within R Studio, set the directory and load the package \texttt{qtl}. You will need to install from CRAN if you don't have it already.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(qtl)}
+\end{Highlighting}
+\end{Shaded}
+
+We can now read data in using the command \texttt{read.cross}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AxC}\OtherTok{\textless{}{-}}\FunctionTok{read.cross}\NormalTok{(}\StringTok{"csv"}\NormalTok{,}\AttributeTok{dir=}\StringTok{"data"}\NormalTok{,}\StringTok{"AxC\_R.csv"}\NormalTok{,}\AttributeTok{genotypes=}\FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{,}\StringTok{"B"}\NormalTok{),}\AttributeTok{estimate.map=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  --Read the following data:
+##   78  individuals
+##   186  markers
+##   10  phenotypes
+##  --Cross type: bc
+\end{verbatim}
+
+An option to note here is \texttt{estimate.map=F}. This is required to declare that we are not inputting a map with the data, You need the \texttt{dir="data"} in read.cross to declare the path to the file. However, you won't have the directory `data' on your computers. If you just want to call data from your working directory, like most of us do, just write this as \texttt{dir=""}. You will want to be working in the same directory as the data, as we have done for previous tutorials.
+
+Take a look at the output from reading the file in. The last line indicates that the cross has been identified as a backcross from the data format: because only two marker classes were found at each locus. In fact, the cross type is a doubled haploid population. For marker and trait mapping purposes this makes absolutely no difference. Do you know why not? Nevertheless, we can change the cross to dh as below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(AxC)[}\DecValTok{1}\NormalTok{]}\OtherTok{\textless{}{-}}\StringTok{"dh"} 
+\end{Highlighting}
+\end{Shaded}
+
+If you read in a file which already has a map with some of the markers mapped to the same position you will get a warning message. To avoid problems in analysing the data, R/qtl uses the command \texttt{jittermap()} to add a tiny fraction to every interval on chromosomes where this occurs. We would need to overwrite the original data, or otherwise save the output (e.g.~\texttt{AxC\textless{}-jittermap(AxC)}) but there is no need to do that here.
+
+\hypertarget{a-quick-map}{%
+\section{A quick map!}\label{a-quick-map}}
+
+Remember we have just read the data into the data table \texttt{AxC}. As with many R objects, the commands summary and plot give object specific details of the data contained within:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(AxC) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Doubled haploids
+## 
+##     No. individuals:    78 
+## 
+##     No. phenotypes:     10 
+##     Percent phenotyped: 100 94.9 100 100 100 100 100 100 100 100 
+## 
+##     No. chromosomes:    1 
+##         Autosomes:      50 
+## 
+##     Total markers:      186 
+##     No. markers:        186 
+##     Percent genotyped:  96.1 
+##     Genotypes (%):      AA:50.2  BB:49.8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(AxC)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-387-1.pdf}
+
+Before we go into detail about creating a map, we shall first do so very quickly to show that this can be done simply and with only a few commands:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{quick.map }\OtherTok{\textless{}{-}}\FunctionTok{est.rf}\NormalTok{(AxC) }
+\NormalTok{quick.map }\OtherTok{\textless{}{-}}\FunctionTok{formLinkageGroups}\NormalTok{(quick.map,}\AttributeTok{reorgMarkers=}\NormalTok{T) }
+\NormalTok{quick.map }\OtherTok{\textless{}{-}}\FunctionTok{orderMarkers}\NormalTok{(quick.map)}
+\FunctionTok{plotMap}\NormalTok{(quick.map)  }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-388-1.pdf}
+
+This should produce the map shown above, which doesn't look bad, though we may wonder about the length of linkage group one, seemingly with some very large inter marker distances. While most mapping packages can probably produce maps as quickly and easily as this, it doesn't mean that they are correct. It is worth understanding how and why they work so that you can better judge the quality of the map and seek improvements to it.
+
+\hypertarget{estimating-recombination-fractions}{%
+\section{Estimating recombination fractions}\label{estimating-recombination-fractions}}
+
+First delete quick.map
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(quick.map) }
+\end{Highlighting}
+\end{Shaded}
+
+Now, the first thing to do is estimate the recombination frequencies among all pairs of loci:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AxC}\OtherTok{\textless{}{-}}\FunctionTok{est.rf}\NormalTok{(AxC) }
+\end{Highlighting}
+\end{Shaded}
+
+Note that we have directed the output of \texttt{est.rf} back to \texttt{AxC} to which it is added.
+
+We can inspect the matrix of recombination frequencies. However, this is a large table, so we'll just look at the top left hand corner:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pull.rf}\NormalTok{(AxC)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{,}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{] }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              Aflp100.175     AFLP24 AFLP24.320 AFLP43-160Bp Aflp57.165
+## Aflp100.175           NA 0.44594595 0.46052632   0.01351351 0.46666667
+## AFLP24        0.44594595         NA 0.01369863   0.45833333 0.00000000
+## AFLP24.320    0.46052632 0.01369863         NA   0.47945205 0.01351351
+## AFLP43-160Bp  0.01351351 0.45833333 0.47945205           NA 0.46575342
+## Aflp57.165    0.46666667 0.00000000 0.01351351   0.46575342         NA
+\end{verbatim}
+
+Rather fortuitously, you can see some very low recombination fractions and some indicating clear lack of linkage. Since we are working in R, we have access to all its other features. For instance, we can look at the distribution of recombination fractions:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(}\FunctionTok{pull.rf}\NormalTok{(AxC),}\AttributeTok{breaks=}\DecValTok{40}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-392-1.pdf}
+
+Does this help you put a threshold on recombination fraction at which you are willing to declare a pair of markers as linked? Generally, packages use a threshold on both recombination fraction and significance level. We can also extract the latter, as a LOD score:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(}\FunctionTok{pull.rf}\NormalTok{(AxC,}\AttributeTok{what=}\StringTok{"lod"}\NormalTok{)) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-393-1.pdf}
+
+Most marker pairs show no evidence of linkage and have a low LOD score. If we truncate the y axis the plot is a little more clear:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(}\FunctionTok{pull.rf}\NormalTok{(AxC,}\AttributeTok{what=}\StringTok{"lod"}\NormalTok{),}\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{200}\NormalTok{),}\AttributeTok{breaks=}\DecValTok{40}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-394-1.pdf}
+
+Are the recombination fractions and LOD scores telling us the same thing? After a bit of trial and error, we can plot one against the other:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{pull.rf}\NormalTok{(AxC,}\AttributeTok{what=}\StringTok{"rf"}\NormalTok{)[,],}\FunctionTok{pull.rf}\NormalTok{(AxC,}\AttributeTok{what=}\StringTok{"lod"}\NormalTok{)[,],}\AttributeTok{xlab=}\StringTok{"rf"}\NormalTok{,}\AttributeTok{ylab=}\StringTok{"lod"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-395-1.pdf}
+
+\begin{rmdquiz}
+\textbf{1}
+
+What does this plot tell us? What do you think would be a good combination of cut-off parameters, and why?
+\end{rmdquiz}
+
+\hypertarget{forming-linkage-groups}{%
+\section{Forming Linkage groups}\label{forming-linkage-groups}}
+
+Next we want to allocate our markers to linkage groups. The command for this is \texttt{formLinkageGroups}. It has some options that we could experiment with:
+
+\texttt{max.rf} = Maximum recombination fraction for placing two markers in the same linkage group. The default is 0.25.
+
+\texttt{min.lod} = Minimum LOD score for placing two markers in the same linkage group. The default is 3.
+
+\texttt{reorgMarkers} = If TRUE, the markers are organized into the inferred linkage groups. If FALSE, the output is a table indicating the initial chromosome assignments and the inferred linkage group partitions.
+
+We want to add our chromosome assignments to \texttt{AxC} so \texttt{reorgMarkers} should be set to \texttt{T}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test.linkage.groups }\OtherTok{\textless{}{-}}
+\FunctionTok{formLinkageGroups}\NormalTok{(AxC,}\AttributeTok{reorgMarkers=}\NormalTok{T,}\AttributeTok{verbose=}\NormalTok{T,}\AttributeTok{min.lod=}\DecValTok{3}\NormalTok{,}\AttributeTok{max.rf=}\FloatTok{0.25}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 10 of 186 
+## 20 of 186 
+## 30 of 186 
+## 40 of 186 
+## 50 of 186 
+## 60 of 186 
+## 70 of 186 
+## 80 of 186 
+## 90 of 186 
+## 100 of 186 
+## 110 of 186 
+## 120 of 186 
+## 130 of 186 
+## 140 of 186 
+## 150 of 186 
+## 160 of 186 
+## 170 of 186 
+## 180 of 186
+\end{verbatim}
+
+An easy way to look at the linkage groups created in \texttt{test.linkage.groups} is to use the command
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plotRF}\NormalTok{(test.linkage.groups)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-398-1.pdf}
+
+Compare this with the unordered markers set in \texttt{AxC}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plotRF}\NormalTok{(AxC) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-399-1.pdf}
+\begin{rmdquiz}
+\textbf{2}
+
+Alter the min.lod and max.rf thresholds (try higher and lower) to see what difference this makes to the plots. Do the default values seem reasonable?
+\end{rmdquiz}
+
+Once you have decided on a threshold, you can save the linkage groups back to \texttt{AxC} using your own thresholds.
+
+\texttt{AxC\ \textless{}-formLinkageGroups(AxC,reorgMarkers=T,\ verbose=T,min.lod=??,max.rf=??)}
+
+\hypertarget{marker-ordering}{%
+\section{Marker ordering}\label{marker-ordering}}
+
+Next we must order markers within these linkage groups using the command orderMarkers(). This command also has some options we should experiment with:
+
+\texttt{use.ripple} = If TRUE (the default), the initial order is refined by a call to the function ripple.
+
+\texttt{window} = Indicates the number of markers to include in the sliding window of permuted markers for ripple (default is 7). Ripple can take a long time, especially with large number of markers in the window.
+
+\texttt{error.prob} = Assumed genotyping error rate used in the final estimated map. Default is 0.0001. This can make a large difference: a double recombination between closely linked markers is more likely to result from genotyping errors.
+
+First. Let's try without rippling;
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test}\OtherTok{\textless{}{-}}\FunctionTok{orderMarkers}\NormalTok{(AxC,}\AttributeTok{use.ripple=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+Plot the recombination fractions of the ordered markers and compare with the unordered (in AxC).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plotRF}\NormalTok{(test)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-403-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plotRF}\NormalTok{(AxC)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-403-2.pdf}
+
+We can also plot a simple cartoon of our mapped markers:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot.map}\NormalTok{(test)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-404-1.pdf}
+
+\begin{rmdquiz}
+\textbf{3}
+
+What do you think of the chromosome lengths and numbers in this map?
+\end{rmdquiz}
+
+\hypertarget{improving-the-map}{%
+\section{Improving the map}\label{improving-the-map}}
+
+There are three things we can do to try to improve the map:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Ripple; where the marker order within a defined window is perturbed to see if improvements are possible.
+\item
+  Take into account the probability of genotype errors directly in the ordering process. This may be worthwhile for this data set, where we know the quality of the genotyping was poor.
+\item
+  Clean the data of probable errors -- eliminate improbable double recombinants.
+\end{enumerate}
+
+We'll have a look at ripple first. Only one chromosome at a time can be rippled, and the window size should not be too large since this can take a long time. Here are three different versions of the command:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{chr1.ripple4}\OtherTok{\textless{}{-}}\FunctionTok{ripple}\NormalTok{(AxC,}\AttributeTok{chr=}\DecValTok{1}\NormalTok{)     }\CommentTok{\# ripple chr 1 with defaults (window=4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    276 total orders
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{chr1.ripple7}\OtherTok{\textless{}{-}}\FunctionTok{ripple}\NormalTok{(AxC,}\AttributeTok{chr=}\DecValTok{1}\NormalTok{,}\AttributeTok{window=}\DecValTok{7}\NormalTok{)    }\CommentTok{\# increase window size }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    52560 total orders
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{chr1.ripple4.like}\OtherTok{\textless{}{-}}\FunctionTok{ripple}\NormalTok{(AxC,}\AttributeTok{chr=}\DecValTok{1}\NormalTok{,}\AttributeTok{method=}\StringTok{"likelihood"}\NormalTok{) }\CommentTok{\# use likelihood}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    276 total orders
+##     --Order 10 
+##     --Order 20 
+##     --Order 30 
+##     --Order 40 
+##     --Order 50 
+##     --Order 60 
+##     --Order 70 
+##     --Order 80 
+##     --Order 90 
+##     --Order 100 
+##     --Order 110 
+##     --Order 120 
+##     --Order 130 
+##     --Order 140 
+##     --Order 150 
+##     --Order 160 
+##     --Order 170 
+##     --Order 180 
+##     --Order 190 
+##     --Order 200 
+##     --Order 210 
+##     --Order 220 
+##     --Order 230 
+##     --Order 240 
+##     --Order 250 
+##     --Order 260 
+##     --Order 270
+\end{verbatim}
+
+The default method searches for orders which reduce the total number of recombinations. Using likelihood is better but takes longer.
+
+You can examine the output directly but using summary is easier:
+
+\texttt{summary(chr1.ripple4)}
+
+\begin{rmdquiz}
+\textbf{4}
+
+Compare the three versions you have just made for chromosome 1. Has any version of ripple made an improvement? If so, which has worked best?
+\end{rmdquiz}
+
+Once we have identified an improved order, we can substitute it for the existing order using the command \texttt{switch.order}. Here is a worked example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#  Existing map }
+\FunctionTok{pull.map}\NormalTok{(AxC,}\AttributeTok{chr=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   BArc142_5B   BArc176_7B    BArc74_5B   dUpw115_5B   dUpw398_7B  eAACmCCG171 
+##            0           10           20           30           40           50 
+##  eAACmCCG184  eAACmCCG408  eAACmCGA270 eAACmeCCC249  eACGmCGG220  eACTmCGG200 
+##           60           70           80           90          100          110 
+##  eAGCmCTA340  eAGGmCTA120  eATTmCGG230       gwm213    gwm234_5B    wmc517_7B 
+##          120          130          140          150          160          170
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# switch order (make sure you choose the correct row)}
+\NormalTok{AxC.v2}\OtherTok{\textless{}{-}}\FunctionTok{switch.order}\NormalTok{(AxC,}\AttributeTok{chr=}\DecValTok{1}\NormalTok{,}\AttributeTok{order=}\NormalTok{chr1.ripple7[}\DecValTok{2}\NormalTok{,])}
+\CommentTok{\#  Compare new order with the initial order}
+\FunctionTok{pull.map}\NormalTok{(AxC.v2,}\AttributeTok{chr=}\DecValTok{1}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   BArc142_5B   BArc176_7B    BArc74_5B   dUpw115_5B   dUpw398_7B  eAACmCCG408 
+##      0.00000     77.79435     80.52102    109.50827    183.34461    187.46286 
+##  eAACmCCG171  eACGmCGG220 eAACmeCCC249  eAACmCGA270  eACTmCGG200  eAACmCCG184 
+##    190.09164    226.04541    254.62921    264.18371    265.56842    282.12582 
+##  eAGCmCTA340  eAGGmCTA120  eATTmCGG230       gwm213    gwm234_5B    wmc517_7B 
+##    287.50267    322.18080    359.48948    394.33618    432.34606    487.79182
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#  Tidy up}
+\FunctionTok{rm}\NormalTok{(AxC.v2)}
+\end{Highlighting}
+\end{Shaded}
+
+We don't have to type in the new order, we can select the desired order as a row from the ripple output. We can also return the new order to our cross directly, which is what we want to do here:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test}\OtherTok{\textless{}{-}}\FunctionTok{switch.order}\NormalTok{(test,}\AttributeTok{chr=}\DecValTok{1}\NormalTok{,}\AttributeTok{order=}\FunctionTok{summary}\NormalTok{(chr1.ripple7)[}\DecValTok{2}\NormalTok{,]) }
+\end{Highlighting}
+\end{Shaded}
+
+We could go through every linkage group in turn like this. However, it is also possible to use the option \texttt{use.ripple\ =T} directly within orderMarkers which would be more efficient in general use.
+
+Now we can examine the effect of different assumed error rates on the data. The default in R/qtl is 0.0001 which is probably too low for most genotype platforms; at NIAB we achieved this only by extensive manual curation of SNP array data. 0.001 would be a good target to aim for, but 0.01 is probably more realistic for this data set, where it still represents an average of less than one error per marker over all lines. From your knowledge of genotyping, what do you think would be appropriate?
+
+To examine the effect of a higher assumed error rate, we will reorder our markers in ``test'' using different error rates :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{err.pr.order}\OtherTok{\textless{}{-}}\FunctionTok{orderMarkers}\NormalTok{(test,}\AttributeTok{use.ripple=}\NormalTok{F,}\AttributeTok{error.prob=}\FloatTok{0.01}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+There is an easy graphical way of comparing the original and new map:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plotMap}\NormalTok{(err.pr.order,test) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-411-1.pdf}
+
+Though it is easier to examine a chromosome at a time.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plotMap}\NormalTok{(err.pr.order,test,}\AttributeTok{chr=}\DecValTok{1}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-412-1.pdf}
+
+This has changed the order substantially and has also shrunk the chromosome length. However, there is a danger of over interpreting this map reduction. The elimination of genuine errors will generally reduce map length, but the assumption of too high an error rate will give a falsely short map and incorrect marker order.
+
+\begin{rmdquiz}
+\textbf{5}
+
+Compare error rates of 0.0001, 0.01, 0.1 and 0.5. What do you notice about the inter-marker distances on the new map?
+\end{rmdquiz}
+
+Now, before doing further QC, we will make a basic map using the default rippling parameters (\texttt{window=4}) for all chromosomes. We will start from the first step again, so we know we are starting from a fresh data set, and as a reminder of the key steps required in making a map:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AxC}\OtherTok{\textless{}{-}}\FunctionTok{read.cross}\NormalTok{(}\StringTok{"csv"}\NormalTok{,}\AttributeTok{dir=}\StringTok{"data"}\NormalTok{,}\StringTok{"AxC\_R.csv"}\NormalTok{,}\AttributeTok{genotypes=}\FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{,}\StringTok{"B"}\NormalTok{),}\AttributeTok{estimate.map=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  --Read the following data:
+##   78  individuals
+##   186  markers
+##   10  phenotypes
+##  --Cross type: bc
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AxC}\OtherTok{\textless{}{-}}\FunctionTok{est.rf}\NormalTok{(AxC) }
+\NormalTok{AxC}\OtherTok{\textless{}{-}}\FunctionTok{formLinkageGroups}\NormalTok{(AxC,}\AttributeTok{reorgMarkers=}\NormalTok{T) }
+\NormalTok{AxC}\OtherTok{\textless{}{-}}\FunctionTok{orderMarkers}\NormalTok{(AxC,}\AttributeTok{use.ripple=}\NormalTok{T) }
+\end{Highlighting}
+\end{Shaded}
+
+Note we've set \texttt{ripple\ =\ T}.
+
+We can also export our data so as to save a copy for later work using \texttt{write.cross}, which has a simple to understand format:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.cross}\NormalTok{(AxC,}\StringTok{"csv"}\NormalTok{,}\AttributeTok{filestem=}\StringTok{"AxCmapped"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+To highlight probable errors, R/qtl can calculate a LOD associated with p(single genotype is wrong). This is not an absolute test, but intended as a QC tool. It is particularly useful for highlighting improbable double recombinants. The advice is to use a LOD of 4 as a threshold. The results will be added to the cross (AxC). In this case, our data looks pretty good:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AxC}\OtherTok{\textless{}{-}}\FunctionTok{calc.errorlod}\NormalTok{(AxC)}
+\FunctionTok{plotErrorlod}\NormalTok{(AxC)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-416-1.pdf}
+
+But, from another data set, here is a non-so-clean version:
+
+\includegraphics{images/dirty_data.png}
+
+\begin{itemize}
+\tightlist
+\item
+  LOD \textless= 2 in white;
+\item
+  2 \textless{} LOD \textless= 3 in grey;
+\item
+  3 \textless{} LOD \textless= 4.5 in pink;
+\item
+  LOD \textgreater{} 4.5 in purple.
+\end{itemize}
+
+You can restrict the plot to selected chromosomes if desired.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plotErrorlod}\NormalTok{(AxC,}\AttributeTok{chr=}\DecValTok{2}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-417-1.pdf}
+
+And take a look at the high error LOD markers:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{top.errorlod}\NormalTok{(AxC,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   chr id      marker errorlod
+## 1   2 78 eACTmCAC172 3.105659
+## 2   2 54 eAACmCCC176 2.667347
+## 3   2  5 eACTmCAC320 2.576581
+## 4   2  8 eACTmCAC148 2.431070
+## 5   2 37 eACTmCAC148 2.431070
+\end{verbatim}
+
+With two markers given with the same map location (ignoring the effect of jitter) any observed recombination will generate a big LOD. Taking a look at the map:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pull.map}\NormalTok{(AxC,}\DecValTok{2}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## eAACmCCC272 B598mCGT390 eACTmCGG365 eAACmCCC176 eACTmCAC148 eACTmCAC320 
+##     0.00000    28.03892    31.16497    33.74564    42.10218    46.55053 
+## eACTmCAC172 eACTmCAC170 eAACmCCC270    gwm18_1B  BArc240_1B eATTmCGG110 
+##    52.52118    53.83598    55.32079    55.32080    56.62002    57.91867 
+## eACGmCTG185 eAGCmCTA234 eACTmCAC180 eAGGmCTA130  eAACmCCG96 eAGGmCTA290 
+##    64.77927    73.09380    89.77822    97.47865   106.71102   136.45711 
+## eACTmCAC115    wmc44_1B 
+##   167.14099   178.87267
+\end{verbatim}
+
+That isn't a problem here, though you can see the high error markers are all very close to adjacent markers, and presumably have some recombination between them. We can see this in more detail with this very useful plot:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plotGeno}\NormalTok{(AxC,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-420-1.pdf}
+
+White and black circles indicate markers from each of the two parents. Blue crosses indicate cross-overs. Red squares (none here) highlight genotypes with LODs \textgreater{} the error LOD threshold (default 4). A single double recombination event can however clearly be seen around the highest error LOD marker eACTmCAC172 (around 60 or 125cM depending on the orientation of the chromosome) for the individual at the bottom of the plot, despite the gaps to the neighbouring markers being 0.8 and 1.2cM respectively. This maybe a genotype error. Multiple double recombinant individuals in such a narrow interval would be a sure sign of a mapping or genotype error, suggesting the marker should be dropped.
+
+Other useful quality control tools are listed in the table below. The graphical tools are particularly helpful for detecting regions of the map that require further work. For example \texttt{plotRF(AxC)} plots pairwise recombination frequencies across all chromsomes or a restricted set: \texttt{plotRF(AxC,chr=1:5)}. It can clearly be seen that the ordering on Chromosome 1 can still be improved:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plotRF}\NormalTok{(AxC,}\AttributeTok{chr=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-421-1.pdf}
+
+\begin{rmdquiz}
+\textbf{6}
+
+The block of markers 1:3 appear to be more closely linked to markers 11:14. We could swap their position as a block and see if it made an improvement. This anomaly may help explain some of the very long inter-marker distances we observed at the start of chromosome 1, that cause this chromosome to be so much longer than all the rest. What do you think might be going on here? (hint -- it might be worth recalling that bread wheat is hexaploid).
+\end{rmdquiz}
+
+This last observation indicates we still have some way to go in improving our map! In reality, several cycles of improvement and QC will be involved in creating a final map; this tutorial has given a quick overview of the main approaches. It can be seen that R/qtl has excellent tools for detecting and displaying potential genotype errors: a table of key Quality Control commands is given below. There is plenty of good documentation on how to map markers in r/qtl, including the book \citet{broman_guide_2009}, though it is not free and the discussion page mentioned at the start of the tutorial.
+
+\hypertarget{quality-control-commands-for-marker-qc-and-mapping}{%
+\section{Quality Control commands for marker QC and mapping}\label{quality-control-commands-for-marker-qc-and-mapping}}
+
+\texttt{plot(AxC)} = provides a neat graphical summary of phenotypes and genotypes
+
+\texttt{summary(AxC)}= worth running to check the data have been read in correctly
+
+\texttt{summary.map(AxC)} = summarises chromosome lengths, marker nos. and spacing
+
+\texttt{geno.table(AxC)} = summarises alleles and tests for segregation distortion
+
+\texttt{plot(AxC,pheno.col=x)} = plots histogram for phenotype in column x or of a named phenotype - in which case the name must be in quotes. The phenotype data are stored in a data frame \texttt{AxC\$pheno} which can be accessed and manipulated by column number or ``name.'' You might want to transform the data. eg:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{hist(AxC\$pheno{[},1{]})}
+\item
+  \texttt{AxC\$pheno{[},1{]}\textless{}-AxC\$pheno{[},1{]}\^{}0.5\ hist(AxC\$pheno{[},1{]})}
+\item
+  \texttt{AxC\$pheno{[},1{]}\textless{}-AxC\$pheno{[},1{]}\^{}2}
+\end{itemize}
+
+\texttt{plot.map(AxC,chr=1:2)} plots map for chrs 1 and 2. If the \texttt{chr} argument is missing,
+then plots all chromosomes. Can also be used to plot comparisons between maps -- see \texttt{help(plot.map)}. This provides an easy way to look at map expansion/contraction between the supplied map and the estimated map in R/qtl (using the same map order). For example (using a different data set):
+
+\texttt{plot.map(est.map(AxC),AxC)} = comparison of maps
+
+\texttt{plotRF(AxC,chr=1)} = Plots pairwise recombination frequencies
+
+\texttt{subset(AxC,chrs,inds)} = Selects a range of markers and individuals. eg\texttt{subset(AxC,5,2:10)}
+
+\texttt{pull.map(AxC,chr=5)} = Extract the existing map
+
+\texttt{est.map(subset(AxC,2))} = Estimate map distances but keeps the order the same. Useful to study map expansion / contraction. The example re-estimates for chr 2 only
+
+\texttt{jittermap(AxC)} = Gets rid of the problem of having markers at the same location in the supplied map.
+
+\texttt{AxC\textless{}-calc.errorlod(AxC)} = Calculates a LOD associated with p(single genotype is wrong). Add results to the cross (AxC here). Should be used to highlight probable errors, not as an absolute test. Advice is to use a LOD of 4 as a threshold.
+
+\texttt{plotErrorlod(AxC)} = Plots possible genotype errors.
+
+\hypertarget{asmap}{%
+\section{ASMap}\label{asmap}}
+
+Before using R/qtl to map QTL, we'll have a brief look at \texttt{ASMap} as an alternative for mapping markers, which definitely worth considering if you have a larger number of markers and R/qtl is too slow.
+
+As ever, the problem with all computer packages is getting the data into them. Once that is achieved, then getting them to do something useful is generally straightforward. \texttt{ASmap} should work directly on pre-existing R/qtl objects, but after a lot of experimentation, this fails:
+
+\texttt{test\textless{}-mstmap.cross(AxC)\ Error\ in\ mstmap.cross(AxC)} :
+
+\emph{The unique identifier for the genotypes, ``Genotype'', cannot be found in the object}
+
+\texttt{ASMap} will, however, work on dataframes, if correctly formatted. There is a text version of the AxC marker data in ASmap.txt. If you look at this, you will notice that; (1) there is no phenotype data; (2) missing data are represented by ``U'' and not ``NA''; (3) the data are transposed compared to the initial AxC data file, with markers running across rows and individuals down columns. This is better for populations with large numbers of markers.
+
+Load the package, you will need to install if you don't have it on your computers:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ASMap)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#delete the "data/"}
+\NormalTok{AxC.mst}\OtherTok{\textless{}{-}}\FunctionTok{read.table}\NormalTok{(}\StringTok{"data/AxC\_ASmap.txt"}\NormalTok{,}\AttributeTok{header=}\NormalTok{T,}\AttributeTok{colClasses =} \StringTok{"character"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+Note the added option \texttt{colClasses\ =\ "character"}. This is critical. Without it, the data might be read in as factors rather than text, and this is not an obvious error to pick up.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AxC.mst.map}\OtherTok{\textless{}{-}}\FunctionTok{mstmap.data.frame}\NormalTok{(AxC.mst)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Number of linkage groups: 45
+## The size of the linkage groups are: 6    8   10  5   11  1   1   7   5   19  6   6   6   3   6   18  3   3   3   3   2   4   3   1   5   1   6   3   1   3   2   1   5   3   1   1   1   1   2   4   1   1   2   1   1   
+## The number of bins in each linkage group: 6  5   10  3   10  1   1   7   5   18  4   4   5   3   5   18  2   3   3   3   2   4   3   1   5   1   6   3   1   3   2   1   5   3   1   1   1   1   2   4   1   1   2   1   1   
+\end{verbatim}
+
+As the name of the command suggests, the markers are mapped (very rapidly) by means of a minimum spanning tree: finding the shortest route between points defined by the recombination fractions between all marker pairs. A minimum spanning tree is a solution to what is called ``the travelling salesman problem'': what is the shortest route a salesman should take to visit all the towns in which he wishes to knock on doors? See the paper and documentation for more information.
+
+We are advised that the clustering of markers into linkage groups is very sensitive to the p-value used. The default is 1e-06 and as more markers are added, this should be increased. Try this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot.map}\NormalTok{(}\FunctionTok{mstmap.data.frame}\NormalTok{(AxC.mst,}\AttributeTok{p.value =} \FloatTok{1e{-}06}\NormalTok{)) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Number of linkage groups: 45
+## The size of the linkage groups are: 6    8   10  5   11  1   1   7   5   19  6   6   6   3   6   18  3   3   3   3   2   4   3   1   5   1   6   3   1   3   2   1   5   3   1   1   1   1   2   4   1   1   2   1   1   
+## The number of bins in each linkage group: 6  5   10  3   10  1   1   7   5   18  4   4   5   3   5   18  2   3   3   3   2   4   3   1   5   1   6   3   1   3   2   1   5   3   1   1   1   1   2   4   1   1   2   1   1   
+\end{verbatim}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-426-1.pdf}
+
+\begin{rmdquiz}
+\textbf{7}
+
+Now try altering the p.value up and down to see what effect this has on the map. What do you observe? (remember that the target number of chromosomes for wheat is 21). How might we decide what is best?
+\end{rmdquiz}
+
+Note that in all the ASMap maps, we still observe one very long chromosome, just as when we used R/qtl to create the map. As with R/qtl, this observation emphasizes that this is probably not a high quality data set (which we already knew). We will return now to using the default p.value.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AxC.mst.map}\OtherTok{\textless{}{-}}\FunctionTok{mstmap.data.frame}\NormalTok{(AxC.mst,}\AttributeTok{p.value =} \FloatTok{1e{-}06}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Number of linkage groups: 45
+## The size of the linkage groups are: 6    8   10  5   11  1   1   7   5   19  6   6   6   3   6   18  3   3   3   3   2   4   3   1   5   1   6   3   1   3   2   1   5   3   1   1   1   1   2   4   1   1   2   1   1   
+## The number of bins in each linkage group: 6  5   10  3   10  1   1   7   5   18  4   4   5   3   5   18  2   3   3   3   2   4   3   1   5   1   6   3   1   3   2   1   5   3   1   1   1   1   2   4   1   1   2   1   1   
+\end{verbatim}
+
+The commands available in R/qtl should all work on the output file we have created (I haven't tested this fully), but there are some useful additional commands available:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{heatMap}\NormalTok{(AxC.mst.map) }\CommentTok{\# LOD at the bottom rf at the top }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in heatMap(AxC.mst.map): Running est.rf.
+\end{verbatim}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-429-1.pdf}
+
+gives better looking output than
+
+\texttt{plotRF(AxC.mst.map)}
+
+Note that LG 16 (the long one) is still badly ordered in ASMap.
+
+Also note these useful diagnostic commands
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{profileGen}\NormalTok{(AxC.mst.map,}\AttributeTok{chr=}\StringTok{"L3"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-430-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{profileMark}\NormalTok{(AxC.mst.map,}\AttributeTok{chr=}\StringTok{"L3"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-430-2.pdf}
+
+There are other options to audit and edit the map too: see the package documentation for more information.
+
+\hypertarget{Data_Visualization}{%
+\chapter{Data Visualization.}\label{Data_Visualization}}
+
+\hypertarget{flapjack}{%
+\section{Flapjack}\label{flapjack}}
+
+This is based on a tutorial presented by Pauline Bansept-Basler on this course in 2012
+Flapjack is software for displaying graphical genotypes and visualizing haplotypes, developed
+by the James Hutton institute. A link to the software online can be found \href{https://ics.hutton.ac.uk/flapjack/}{here}. It provides an easy way to store and explore visually your genotype, trait and QTL data. Breeders love it. It is great for displaying data for inbred individuals, less good for outbreeders.
+
+To give you an overview we are first going to explore the genotype example provided by Flapjack. It consists of SNP data from a barley association mapping project.
+
+Start Flapjack from the shortcut on your desktop or the Programs menu. In the bar menu
+select \textbf{\emph{File Import data\ldots{}}} a popup windows will appear, click on the tab \textbf{\emph{Example data}} and load the \textbf{\emph{Barley (Sample)}} clicking on Open example button.
+You will see the following display.
+
+\begin{figure}
+\centering
+\includegraphics{images/flapjack_1.png}
+\caption{Flapjack display}
+\end{figure}
+
+The genotype data are plotted as a grid, with lines displayed horizontally and the markers
+vertically. From the combo box above the grid, you can select which chromosome you wish
+to visualize. Using the sliding zoom at the bottom, you can select the resolution you wish. The horizontal and vertical scroll bars allows you to navigate the whole dataset for the selected chromosome.The default colouring system is 4 colours code for nucleotides.
+
+Flapjack also provides other options to view data in the Visualization menu/Colour scheme.
+
+\begin{itemize}
+\tightlist
+\item
+  2 colour mode for A/B or 1/0 data such as DArT
+\item
+  Colour alleles by similarity to a given standard line or parent line (particularly useful)
+\item
+  Colour alleles by similarity to a comparison marker (particularly useful)
+\item
+  By frequency of rare alleles
+\item
+  Random
+\item
+  And many more including an 8-parent MAGIC option!
+\end{itemize}
+
+Another useful option is to highlight heterozygotes: \textbf{\emph{Visualization/Highlight Heterozygote}}
+
+You can also move around the lines or markers to obtain a personal display:
+
+\begin{itemize}
+\tightlist
+\item
+  CTRL+click and drag up/down to move lines
+\item
+  CTRL+click and drag left/right to move markers
+\item
+  CTRL+double click to temporarily hide lines or markers.(You may need to switch to marker mode / Line mode using the buttons at the top.
+\item
+  Insert blank lines to help break the display into regions (Mouse right click , Split lines Insert line break)
+\end{itemize}
+
+To explore the sorting options available in flapjack and have a look at the file formats to import data; we are going to import DArT data for a collection of wheat varieties and a few
+phenotypes.
+
+Flapjack files formats are relatively simple.
+
+\hypertarget{genotype-data-.geno-file.}{%
+\subsection{Genotype data: ``.geno'' file.}\label{genotype-data-.geno-file.}}
+
+You can choose how you represent your missing values (NA /-/?). The genotype file contains a list of varieties or lines, with allele data per marker for that line. Homozygote and heterozygote data can be loaded simultaneously using ``/'' to separate the heterozygous alleles. The format also requires a header line specifying the marker information for each column.
+
+Example .geno file:
+
+\begin{verbatim}
+      Marker1 Marker2 Marker3 Marker4
+Line1 A       G       G       T
+Line2 A       NA      G       T
+Line3 T       A/T     C       G
+\end{verbatim}
+
+\hypertarget{map-data-.map-file.}{%
+\subsection{Map data : ``.MAP'' file.}\label{map-data-.map-file.}}
+
+This contains the markers, the chromosome they are on, and their position within that chromosome. The markers don't need to be in a particular order.
+
+Example .MAP file:
+
+\begin{verbatim}
+Marker1   1B    32.5
+Marker2   1D    45.0
+Marker3   2B    23.9
+\end{verbatim}
+
+\hypertarget{trait-data}{%
+\subsection{Trait data}\label{trait-data}}
+
+A flapjack data set can optionally store phenotype information associated with the lines. Trait information is imported from a tab delimited file, organized as follows:
+
+The first row is a header row with the trait names. The second header row is optional and can include additional classifiers, for instance environments or years. Subsequent rows include a line/variety name and the phenotype data for the selected line. Trait data for a single trait can be either numerical or categorical. Missing data are left blank.
+
+Example of trait data:
+
+\begin{verbatim}
+      Trait1      Trait2      Trait2
+      Experiment1 Experiment1 Experiment2
+Line1 5.6         High        High
+Line2 2.3         High        Low
+Line3             Low         Low
+Line4 4.7         High        Low
+\end{verbatim}
+
+In addition, QTL positions can be loaded. For further information, click on `?' within flapjack.
+
+To load the genotype and map data:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{\emph{File/Import data\ldots{}}} on the \textbf{\emph{Map and genotype}} tab
+\item
+  For the Map file, browse to ``Mapflapjack.MAP'' from your Flapjack tutorial data folder
+\item
+  For the Genotype file, browse to ``Genoflapjack.geno''
+\item
+  Click on \textbf{\emph{Advanced options\ldots{}}} button and check the missing data are set to NA. Some useful options for SNP data can found here: with very large numbers of SNPs, the option to import data with varieties in columns and SNPs in rows is useful.
+\end{enumerate}
+
+Click \textbf{\emph{OK}} and \textbf{\emph{Import Map/Genotypes}}
+
+The Wheat DArT genotype data will appear on the main window.
+
+Now to load the phenotype data:
+Under \textbf{\emph{File/Import data\ldots{}}} on the \textbf{\emph{Phenotypes tab}}, browse to ``Phenoflapjack.txt'' for Phenotype file and click \textbf{\emph{Import Phenotype}} button.
+
+A table with the phenotype data (yellow rust score, plant height and flowering time) will appear on the main windows. You can switch view between the phenotype data (Trait data folder) and genotype data (Default view folder) from the Data sets panel.
+
+In the default view, in addition to the genotype visualization, you can now see a graphical representation of traits for each line (or heat-map), to the left of the variety name. If you don't see this go to \textbf{\emph{Data Select Traits}} and select some.
+
+Hover over the heat map to obtain the name and value for the trait. To choose which trait is represented here go to \textbf{\emph{Data/Select Traits\ldots{}}}
+
+For example, in \textbf{\emph{Data/Select Traits}} select strawlength2010 and strawlength2011, the two phenotypes will now be visible from the default view. As these data are a measure of the straw length in two successive years, the heat map for both phenotypes follows is similar.
+
+Different sorting options are available in Flapjack. You can sort the lines:
+
+\begin{itemize}
+\tightlist
+\item
+  by their similarity to a given line
+\item
+  for a given marker, set of markers
+\item
+  by trait values
+\end{itemize}
+
+To sort lines by their similarity.
+
+Got to \textbf{\emph{Analysis/Sort lines/By similarity.}} In the pop-up windows select your reference line. As an example set it to \textbf{\emph{Cadenza\_833}}. Then select the chromosomes which are going to be use for the similarity calculation. For the example select all and click \textbf{\emph{OK}}.
+
+The varieties visible on the top of the list are now Cadenza, Cyber, Warlock, Xi19, Scorpion, Axona and Tonic. Warlock, Scorpion and Xi19 have Cadenza in their direct pedigree, Axona and Tonic are the parents of Cadenza. While the pedigree of Cyber is unknown, we can conclude that this variety has some parentage with Cadenza.
+
+To sort for a given marker, first we have to select the marker. For some reason, to do this, you first deselect the marker you want, then invert the selected and unselected markers: On chromosome 4D, hover over the different markers to find RhTD1b and then click on it. Then use the command \textbf{\emph{Edit/select marker/invert selection}}. Note you have to be in the Markers mode to be able to select a Column. The mode can be modified using the Edit menu or using the short cut under the menu line.
+
+The marker column for RhtB1b will now be the only one coloured, indicating that only this marker has been selected as a key for sorting.
+
+Resort the data on similarity. All the lines are now sorted in order of the marker alleles for RhTD1b. At the top of the list the lines with allele 0, and at the bottom the lines with the allele1, followed by a few lines with no genotype for the selected marker.
+
+Make sure all traits are being displayed. \textbf{\emph{Data/Select traits}} select them all.
+
+To sort by trait value go to \textbf{\emph{Analysis/Sort lines by trait}} and select ``strawlength2010'' and ``strawlength2011''. The phenotype heat map in now sorted from green (low values) to red (high values) for the two selected phenotypes selected with the varieties are sorted in the same order. You should be able to see that allele 0 of RhtD1b is often associated with varieties with high straw length. This may be easier to see if you display only the two height phenotypes. RhtD1b is one of the major dwarfing genes in wheat.
+
+\hypertarget{the-exercise-3}{%
+\subsection{The Exercise}\label{the-exercise-3}}
+
+\textbf{Use flapjack to examine the interval containing a QTL.}
+
+\hypertarget{background}{%
+\subsubsection{Background}\label{background}}
+
+The data are yellow rust scores from a MAGIC wheat population and an association mapping panel. In this population, genome-wide analysis detected very strong associations between disease resistance and a cluster of SNPs on chromosome 2D. MAGIC populations are created from multiple founder lines, eight in this case. The resistant alleles at each SNP were carried by only two founders, Claire and Alchemy. Claire is a parent line of Alchemy. The other parents carried no resistant alleles at SNPs on chromosome 2D. The resistant alleles carried by Claire and Alchemy are therefore not merely the same (identical by state), they are identical by descent. This means that by aligning chromosomes for Claire and Alchemy and looking for a common haplotype covering the associated SNPs we can define a chromosome block (a haplotype) unique to the two parents which must contain the QTL. This has been done and defined a region of 54cM. MAGIC populations are highly recombined. Can we be more precise?
+
+The two most associated SNPs are:
+
+BobWhite\_c5756\_516: --log10(p-value) = 289.9
+RAC875\_c50347\_258: --log10(p-value) = 300.0
+
+These are 1.5cM apart. It is hard to distinguish which of these best predicts resistance. The MAGIC lines are not that inbred and there is quite a bit of residual heterozygosity. RAC875\_c50347\_258 happens to be a dominant SNP. The QTL is also dominant for susceptibility. The dominant allele at the marker is in-phase with the dominant allele at the QTL. This SNP may therefore have the highest score not because it is closest to the QTL but because the dominant alleles at the SNP and QTL match, giving a higher test statistic.
+
+\hypertarget{method}{%
+\subsubsection{Method}\label{method}}
+
+We shall load the marker data from the 54 cM region for 720 MAGIC lines and the eight population founders into flapjack, and search for shortest haplotype which includes the QTL. The simplest way to do this is to select lines with very high levels of resistance, first confirm that these carry the resistance tagging alleles at the markers, and then construct the shortest haplotype we can.
+
+The data you need are in three files:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  YR.MAGIC.MAP
+\item
+  YR.MAGIC.geno
+\item
+  YR.MAGIC.phen
+\end{enumerate}
+
+Load the data as before. Alternatively, load `MAGIC 2D.flapjack' directly, which has saved the above data, by selecting Open Project.
+
+Low trait values are more resistant. Is it possible to discriminate between the two SNPs on trait values?
+
+Compare the 10 most resistant with the 10 least resistant lines. Ignore any lines with lots of missing data. (Tag the lines, invert the selection, then use \textbf{\emph{Edit /Show/Hide lines.}}) Identify the largest interval among the 20 selected lines which discriminates the two groups.
+
+What effect would map errors have on the process we have just done?
+What effect would genotype errors have?
+What effect would the size of the QTL effect have?
+
+\hypertarget{selection-theory}{%
+\chapter{Selection theory and breeding program design.}\label{selection-theory}}
+
+\hypertarget{Genomic-prediction}{%
+\chapter{Genomic prediction.}\label{Genomic-prediction}}
+
+\hypertarget{ridge-regression-and-genomic-prediction-in-excel}{%
+\section{Ridge regression and Genomic Prediction in Excel}\label{ridge-regression-and-genomic-prediction-in-excel}}
+
+\hypertarget{introduction-3}{%
+\subsection{Introduction}\label{introduction-3}}
+
+Excel has functions for handling matrix operations, and using these is an easy way to get familiar with matrix algebra, as you can see what is happening. We're going to have a go at genomic prediction using a subset of data from the TriticeaeGenome wheat association mapping panel. We shall work with a set of ten lines and twelve marker loci, with three traits, height (HT), flowering time (FT) and yield. In our example the ten selected lines were all first listed in 1996. The 12 markers include a marker for PPD\_D1, which has a major effect on flowering time, and Rht2, which has a major effect on HT.
+
+The data file we shall use is ``gs test class example.xlsx''. It is in the data folder for today's lecture.
+
+We shall use the following matrix functions:
+
+\begin{itemize}
+\tightlist
+\item
+  TRANSPOSE(x)
+\item
+  MMULT(x,y)
+\item
+  MINVERSE(x)
+\end{itemize}
+
+Matrix functions in Excel are different to the usual functions. They apply to a block of cells, not just to one. To enter, first mark the block of cells for the results. For example, to transpose a matrix of n rows by m columns, you would first mark a block of m rows and n columns. Then enter the formula in the normal way, using the formula wizard if you wish, as part of which you will enter the block of cells, n rows by m columns which you wish to transpose. But instead of typing ENTER to finish, hold down CTRL and SHIFT simultaneously then press ENTER. This applies the formula to the whole block, although visually the only difference is that the formula in each cell reference is now encased in \{\}.
+
+\hypertarget{the-exercise-4}{%
+\subsection{The Exercise}\label{the-exercise-4}}
+
+Open the Excel workbook. Start in the ``TG example data'' sheet.
+
+In this tutorial, you are expected to enter the appropriate formulae in the highlighted cells, working through the tabs, from left to right, either following the instructions below, or following me.
+
+\begin{rmdquiz}
+\textbf{1}
+
+a: Note there are no missing data. What would we have to do if there were some?
+
+b: Note there are no monomorphic markers. What would their effect be on the prediction equation?
+
+c: There are ten lines and twelve markers, Why won't an ordinary regression approach work?
+\end{rmdquiz}
+
+To fit a ridge regression of flowering time on the markers, we are going to solve the equation:
+
+\[b = (X’X+Iλ)^{-1} X’Y\]
+
+\begin{rmdquiz}
+\textbf{2} What is X? Identify it in the spreadsheet. What is Y? What is b?
+\end{rmdquiz}
+
+We'll work on standardised marker data. We don't have to but it is common practice. There are arguments for and against this, which we can discuss.
+
+Enter formulae for the mean and variance of each marker where indicated
+
+Move over to the tab ``standardised''. We are going to standardise the marker data and create the \(X\) matrix here.
+
+\begin{rmdquiz}
+\textbf{3}
+Insert values in the design matrix for the mean. Do you know what they should be?
+\end{rmdquiz}
+
+Standardise the data for each marker by subtracting the mean and dividing by the standard deviation. (Leave the column for the mean alone.)
+
+\begin{rmdquiz}
+\textbf{4}
+How can you check you've done the standardisation correctly? Do this.
+\end{rmdquiz}
+
+In the next tab, ``solution'', we are going to estimate the mean and the marker effects.
+
+At the top, for ease of working, there is a copy of \(X\). Below are \(X’\) and \(X’X\).
+
+Work out \(X’X + Iλ\). (Use ``='' to take a copy of \(X’X\), then modify the formula to add \(λ\) to the diagonal.)
+
+Set this up so \(λ\) can be altered for each diagonal element independently -- i.e.~have a column of \(λ\)'s rather than a single value.
+
+\begin{rmdquiz}
+\textbf{5} Are there any diagonal elements we should not penalise? What is the effect of the penalty?
+\end{rmdquiz}
+
+Set all \(λ\)'s to 12 initially (except for any you think should be left alone). I usually start off with \(λ\) equal to the number of markers. Invert \((X’X + Iλ)\) i.e.~find \((X’X + Iλ)^{-1}\)
+
+Check the inversion has been carried out correctly.
+
+\begin{rmdquiz}
+\textbf{6}
+Set all λ to zero. What is the effect on the inverse?
+\end{rmdquiz}
+
+Change \(λ\) back.
+
+Calculate \(X’Y\)
+
+Calculate the solution - \(b = (X’X+Iλ)^{-1} X’Y\)
+
+\begin{rmdquiz}
+\textbf{7}
+
+See what effect changing λ has on the solution:
+
+a: What happens when you set λ to very high values.
+b: What happens when you set λ to different values for different markers.
+c: How many values of λ can you set to zero and still get a solution? Any idea why?
+\end{rmdquiz}
+
+\begin{rmdquiz}
+\textbf{8}
+
+In the next tab ``pred in training pop'': For any value of λ, predict the performance of the ten lines and compare it to the observed performance. You can get these through matrix multiplication as Xb. What is the best prediction you can get?
+\end{rmdquiz}
+
+Comparing observed and predicted values with the same set of lines used to create the prediction equation gives an over optimistic view of accuracy. The predictions would be biased if we search for the value of \(λ\) which gives the best fit. Therefore we need to test our prediction in a separate set of lines. In practice (hard in Excel), we would use 90\% of the lines in the TG dataset to work out the prediction equation, and the remaining 10\% to test the prediction. This could be repeated this by leaving out 10 independent sets of 10\%. This is called ``ten-fold cross validation''. Five-fold cross validation also frequently used.
+
+For this exercise, we will instead use the 10 lines in the training set to predict the remaining 307 lines in the TG panel. At the top of the sheet ``pred in test pop'' you will find marker and height data for the lines in the TG panel (including the ten in the training population. These ought to have been removed for a fair test.) We can use these to see how well the prediction equation from the training panel performs.
+
+Underneath the data:
+
+Standardise the marker scores. Remember that the marker data must be standardised using the mean and the variance of the ten lines in the test set so that the prediction equation is valid on these lines. Should we have standardised the training population using the mean and variance of the entire dataset? I don't know but we could alter the workbook to test this.
+
+Again, use \(Xb\) to predict their performance.
+
+The predictions will be much worse than those for the lines in the training population. Ten lines in the training population was a ludicrously small number used for demonstration purposes only.
+
+\begin{rmdquiz}
+\textbf{9}
+
+a: Returning to the ``solution'' worksheet, try different values of λ for different SNPs. Two of the markers tag known major genes in wheat: Ppd for flowering time and Rht for height. You can remove the penalty for those loci, or set one value of λ for those and a different one for the remaining SNPs. Experiment. Can you improve the agreement between predicted and observed further?
+
+b: For this small data set, you can also set a different value for λ for each SNP and search for the values which give the maximum correlation. Use Solver to try this. What is the highest correlation achieved for height
+\end{rmdquiz}
+
+It would be great if we could do this routinely in a training population with large numbers of markers and individuals, but that is not possible. Instead, other models are used in which an assumption is made about the nature of the marker effects and the genetic architecture of the trait. This prior knowledge allows different penalties to be fitted to each marker. The methods Bayes A and Bayes B do this for example. Bayes B estimates a proportion of the markers to have no effect on the trait. (Ridge regression and Bayes A give every marker an effect, no matter how small.) In practice, it has been found that there is usually little difference between methods, so using ridge regression doesn't go too far wrong. This is not guaranteed, however.
+
+\begin{rmdquiz}
+\textbf{10}
+If there is time, you can now repeat the GS analysis for flowering time and yield by modifying the vlookup functions in column C in ``pred in test pop'' and column D in ``TG example data''. What is the best correlation you can achieve for each trait? Why might some traits be easier to predict than others?
+\end{rmdquiz}
+
+\hypertarget{genomic-prediction-with-rrblup}{%
+\section{Genomic Prediction with rrBLUP}\label{genomic-prediction-with-rrblup}}
+
+\hypertarget{introduction-4}{%
+\subsection{Introduction}\label{introduction-4}}
+
+Genomic Selection was first proposed in 2001 \citep{Meuwissen1819}. It looked ahead to the use of high density markers to cover the whole genome, selecting on a score accumulated over marker intervals. It is now much discussed in plant breeding (\citet{Bernardo2007}, \citet{Heffner2009},
+\citet{Piepho2009}, \citet{Jannink2010}). The basic idea is that all markers or marker intervals are included in a model of phenotype-genotype relationships simultaneously. Because there is no selection of a subset of markers which are significant, there is no bias from the winner's curse. However, there are generally more markers than genotyped individuals available on which to estimate the marker effects and this causes statistical problems. The predicted
+trait value is generally called the GEBV for genomic estimated breeding value. Strictly, our
+predicted values aren't breeding values in the animal genetics sense, but we'll still use that terminology as shorthand. An excellent source of on-line information is the course notes of BJ Hayes, one of the authors of the original publication. \href{http://snp.toulouse.inra.fr/~alegarra/ben_hayes_course/toulouse_course_notes.pdf}{See this link.}
+
+We're going to have a go at Genomic Selection using some DArT marker data on wheat
+NL/RL varieties, using \texttt{rrBLUP} (ridge regression BLUP). A description of ridge regression is
+given in the lecture notes. The intention is to demonstrate that genomic prediction is really
+easy to do, but the answers you get depend critically on the composition of your data: the
+skill is not in running the software but in interpreting the results.
+
+The basic idea we shall follow is of ``cross validation.'' We shall partition the complete
+dataset into test and training sets. In the training set, we calibrate markers against the
+phenotype. We then use this calibration to predict phenotype from markers in the test set.
+Finally we can compare observed and predicted phenotypes and see how we've done. In this way we can compare the efficiency of different methods of calibration and of relationships between the test and training sets. One can also partition the data into test and training sets in many different ways -- either at random or systematically to see what effect this has on predictions. Test and training sets don't have to be of equal size. Often, the test set is small -- say a fifth of the total. There are then five independent partitions of the data and one would look at all of them.
+
+In ridge regression, we are solving the equations (\emph{see the lecture notes}):
+
+\[b = (X’X+Iλ)^{-1} X’Y\]
+\(b\) is the vector of regression coefficients: one for the mean plus one for each marker. \(X\) is a matrix of marker effects, one column for each marker with values 0 or 1 (or 0, 1 2 if we had heterozygotes). \(λ\) is a user supplied penalty to apply to each regression coefficient. \(Y\) is the vector of yields, and \(I\) is the identity matrix.
+
+This is the usual least squares solution for multiple regression, except that a penalty, \(λ\), is added to the diagonal elements of \(X’X\). If \(λ\) is zero, the \(b\) are the usual least squares estimates.
+
+Just as with BLUP, the regression coefficients are shrunk from their least squares values
+towards zero. Because of this, ridge regression is usually carried out after \(Y\) is first adjusted to a mean of zero: it doesn't make sense to want to shrink the mean towards zero too. Equivalently, the penalty is not applied to the first entry of \(X’X\) so the mean estimate is not shrunk.
+
+The covariates are often standardized to zero mean and unit variance to ensure that all
+variables are on the same scale. With marker data it is arguable whether this is necessary or
+not: the scale is 0\ldots1 for every marker. In practice, it doesn't seem to matter much whether you standardize or not with the datasets I've looked at so far.
+
+More of a problem is to decide on the appropriate value for the penalty, \(λ\). According to
+Hayes, if \(λ = σ^2e / σ^2g\) this is equivalent to BLUP. Here, \(σ^2g\) is the contribution to the genetic variance for each marker and not \(σ^2g\) for the whole genome. The package \texttt{rrBLUP} \citep{Endelman2011} follows this approach. Alternatively, one could select \(λ\) through cross validation.
+
+We are going to use a lot of R code. Don't worry too much if you don't understand it all. Much of the data processing could equally be done in Excel. Aside from learning R, its advantage is that once you've done something once, you can easily save and modify the commands to run on other datasets. However, the most important point of this exercise is to understand something about the strengths and weaknesses of genomic selection.
+
+Load R. Check that rrBLUP has been installed. If not, download it from the CRAN. Remember that after installing a package you must also load it into the current R session to be able to use it.
+
+\hypertarget{the-dataset}{%
+\subsection{The dataset}\label{the-dataset}}
+
+Data are in ``NL\_RL\_GS.xls''. The sheet ``extended UK set'' contains the raw data. There are 159
+varieties of winter wheat with yield data, and 217 DArT markers, largely unmapped. Ideally,
+we would need more markers and more individuals. Note also that the year in which the
+variety was first tested in UK National List trials is given. These data are a subset of those analysed in \citet{Mackay2011} in which you will find more information about the origins of the data.
+
+\hypertarget{loading-and-preparing-the-data}{%
+\subsection{Loading and preparing the data}\label{loading-and-preparing-the-data}}
+
+The data are in the spreadsheet NL\_RL\_GS.xls. You'll see that there are some missing data.
+These have been imputed using ``softImpute'' and are also in the spreadsheet. These data have been saved as a csv file for ease of input.
+
+Read in the data :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#delete the "data/" if you copy this}
+\NormalTok{NLRL}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/NL\_RL\_GS.csv"}\NormalTok{,}\AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Check the size of the dataset:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dim}\NormalTok{(NLRL) }\CommentTok{\# Markers start in column four.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 159 221
+\end{verbatim}
+
+\hypertarget{examining-the-data-structure}{%
+\subsection{Examining the data structure}\label{examining-the-data-structure}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{attach}\NormalTok{(NLRL)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The following object is masked from TG_data_for_day_1:
+## 
+##     yield
+\end{verbatim}
+
+Before moving on to the ridge regression itself, we'll look at the dominant feature of these data: the relationship between yield and age of varieties, given here by the column ``year\_in'' which is the first year the variety entered this trial series.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(NLRL}\SpecialCharTok{$}\NormalTok{year\_in,NLRL}\SpecialCharTok{$}\NormalTok{yield)}
+\CommentTok{\#Just because we can, add a trend line:}
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lm}\NormalTok{(yield}\SpecialCharTok{\textasciitilde{}}\NormalTok{year\_in))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-444-1.pdf}
+
+Finally, try this:
+
+\texttt{identify(year\_in,yield,labels=Name)} - You'll need to mouse-over the graph and click. (In Rstudio, nothing happens until you ``Finish'' in the graphics window. This works better in native R. Any comments on the graph?
+
+We'll look at one other feature of the data before we move on: how genetic relationships
+among varieties have changed over time. The relevance of this will be seen later. To do a thorough job, we would analyse the data with packages designed for this task. Here, we're going to do a cheap and cheerful analysis using some standard R functions. For ease of
+display, we'll pool varieties into decade groups and display the relationships between
+decades.
+
+Don't worry about the R code here: with a bit of experience, searching and by asking
+colleagues, your knowledge begins to grow. Or you stumble across something in someone else's code. I only discovered ``identify'' a couple of years ago.
+
+We're going to calculate the mean allele frequency for each marker, and save the results.
+First, we define a matrix to keep the results. There are seven decades in the dataset and 217
+markers:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{decade\_means}\OtherTok{\textless{}{-}}\FunctionTok{matrix}\NormalTok{(}\AttributeTok{nrow=}\DecValTok{7}\NormalTok{,}\AttributeTok{ncol=}\DecValTok{217}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+For ease of interpretation, I want to name the rows of this matrix by their decades.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rownames}\NormalTok{(decade\_means)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1940}\NormalTok{,}\DecValTok{1950}\NormalTok{,}\DecValTok{1960}\NormalTok{,}\DecValTok{1970}\NormalTok{,}\DecValTok{1980}\NormalTok{,}\DecValTok{1990}\NormalTok{,}\DecValTok{2000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The next bit of code defines the means:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{decade}\OtherTok{\textless{}{-}}\DecValTok{10}\SpecialCharTok{*}\NormalTok{(year\_in}\DecValTok{{-}1940}\NormalTok{)}\SpecialCharTok{\%/\%}\DecValTok{10}\SpecialCharTok{+}\DecValTok{1940}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{5}\SpecialCharTok{:}\DecValTok{217}\NormalTok{) decade\_means[,(i}\DecValTok{{-}4}\NormalTok{)]}\OtherTok{\textless{}{-}}\NormalTok{(}\FunctionTok{tapply}\NormalTok{(NLRL[,i],}\AttributeTok{INDEX=}\NormalTok{decade,}\AttributeTok{FUN=}\NormalTok{mean))}
+\end{Highlighting}
+\end{Shaded}
+
+The first line creates a new variable with the decade in which each variety entered trial. The \texttt{\%/\%} structure is new. It is for integer division, in which 41/10 = 4, 49/10 = 4 and 50/10 = 5. So you can see the line takes the year each variety entered trial and returns the decade of entry.
+
+The second line takes the mean allele frequency for each marker in each decade and saves
+it. \texttt{tapply()} is a command which applies an R function (given in \texttt{FUN=mean}) to each column
+of the data (in \texttt{NLRL{[},i{]}}) for each value of the grouping criterion (given in \texttt{INDEX=decade}). You can write a loop to do exactly the same thing, but \texttt{tapply} is quicker. I only learned about this from a course I gave in which there were several R gurus among the participants.
+
+Have a look at the first few rows of \texttt{decade\_means} to check that it has worked.
+
+Now we estimate a genetic distance between our mean allele frequencies using the R command dist. This has a number of options (see help(dist)for what distance measure to use. The default is Euclidian which is reasonable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{decade\_dist}\OtherTok{\textless{}{-}}\FunctionTok{dist}\NormalTok{(decade\_means,}\AttributeTok{diag=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+decade\_dist should be 7x7 matrix of distances between decades. Have a look at it. Can you
+see the pattern? You can visualize it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{image}\NormalTok{(}\DecValTok{1930}\SpecialCharTok{+}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{7}\NormalTok{)}\SpecialCharTok{*}\DecValTok{10}\NormalTok{,}\DecValTok{1930}\SpecialCharTok{+}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{7}\NormalTok{)}\SpecialCharTok{*}\DecValTok{10}\NormalTok{,}\FunctionTok{as.matrix}\NormalTok{(decade\_dist))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-449-1.pdf}
+
+A more sophisticated view, which includes a tree is given by:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{heatmap}\NormalTok{(}\FunctionTok{as.matrix}\NormalTok{(decade\_dist))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-450-1.pdf}
+
+\hypertarget{ordinary-least-squares}{%
+\subsection{Ordinary least squares}\label{ordinary-least-squares}}
+
+We are now ready to have a go at getting some GEBVs. First, let's demonstrate that having
+more markers (217) than varieties (159) is a problem. Use ordinary linear regression to fit
+three markers, then fit all the markers. To fit three markers:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# regress yield on the first three markers}
+\FunctionTok{anova}\NormalTok{(}\FunctionTok{lm}\NormalTok{(yield}\SpecialCharTok{\textasciitilde{}}\NormalTok{NLRL[,}\DecValTok{5}\NormalTok{]}\SpecialCharTok{+}\NormalTok{NLRL[,}\DecValTok{6}\NormalTok{] }\SpecialCharTok{+}\NormalTok{NLRL[,}\DecValTok{7}\NormalTok{]))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: yield
+##            Df Sum Sq Mean Sq F value  Pr(>F)  
+## NLRL[, 5]   1  13.66 13.6567  6.0150 0.01529 *
+## NLRL[, 6]   1   1.98  1.9846  0.8741 0.35128  
+## NLRL[, 7]   1   0.01  0.0068  0.0030 0.95650  
+## Residuals 155 351.92  2.2704                  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+To fit all the markers, we don't want to enter \texttt{NLRL{[},5{]}\ +\ NLRL{[},7{]}\ +\ ...\ dim(NLRL+\ NLRL{[},221{]}))} by hand. We have to tell R to treat the data we have read in as a matrix, and then the \texttt{lm} command will let us reference the columns of the matrix:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# fit all markers}
+\FunctionTok{anova}\NormalTok{(}\FunctionTok{lm}\NormalTok{(yield}\SpecialCharTok{\textasciitilde{}}\FunctionTok{as.matrix}\NormalTok{(NLRL[,}\DecValTok{5}\SpecialCharTok{:}\DecValTok{221}\NormalTok{])))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in anova.lm(lm(yield ~ as.matrix(NLRL[, 5:221]))): ANOVA F-tests on an
+## essentially perfect fit are unreliable
+\end{verbatim}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: yield
+##                           Df Sum Sq Mean Sq F value Pr(>F)
+## as.matrix(NLRL[, 5:221]) 158 367.57  2.3264               
+## Residuals                  0   0.00
+\end{verbatim}
+
+How many markers can you fit? The anova tells you.
+
+\hypertarget{rrblup}{%
+\subsection{rrBLUP}\label{rrblup}}
+
+We'll now use \texttt{rrBLUP} for genomic prediction . \texttt{rrBLUP} predicts individual performances
+using a genomic relationship matrix, but can transform results from this into weightings for
+individual markers. There is no search for an optimum value for \(λ\); this comes from the
+estimates of genetic and environmental variances among lines.
+
+\begin{rmdnote}
+Don't use \texttt{rrBLUP} for GWAS, although the manual says you can. Use the additional
+package from the same source; \texttt{GWASpoly}, which we used earlier in the week.
+\end{rmdnote}
+
+Install the package if this has not been done. Then load it for use:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(rrBLUP)}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{rrBLUP} requires that marker data are coded as -1, 0 +1 rather than 0,1,2. This allows the transformed marker data to be used to create a relationship matrix which takes into account differential inbreeding among parents and produce valid estimates (BLUPs) of the individuals under consideration. Data are currently coded 0 and 1, so to transform these values -1 and +1, subtract a half then multiply by two:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{NLRL[,}\DecValTok{5}\SpecialCharTok{:}\DecValTok{221}\NormalTok{]}\OtherTok{\textless{}{-}}\NormalTok{(NLRL[,}\DecValTok{5}\SpecialCharTok{:}\DecValTok{221}\NormalTok{]}\SpecialCharTok{{-}}\FloatTok{0.5}\NormalTok{)}\SpecialCharTok{*}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+There are no missing data in this dataset, but \texttt{rrBLUP} will handle missing data automatically. Let's first see if prediction using a genomic relationship matrix and prediction from ridge regression give the same answer.
+
+\texttt{mixed.solve} is the command for fitting the mixed model to either a relationship matrix
+among lines or by regression on markers. First, by use of a relationship matrix:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{BLUP }\OtherTok{\textless{}{-}} \FunctionTok{mixed.solve}\NormalTok{(NLRL}\SpecialCharTok{$}\NormalTok{yield,}\AttributeTok{K=}\FunctionTok{A.mat}\NormalTok{(NLRL[,}\DecValTok{5}\SpecialCharTok{:}\DecValTok{221}\NormalTok{]))}
+\NormalTok{pred.BLUP}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(BLUP}\SpecialCharTok{$}\NormalTok{beta)}\SpecialCharTok{+}\NormalTok{BLUP}\SpecialCharTok{$}\NormalTok{u}
+\FunctionTok{plot}\NormalTok{(pred.BLUP,NLRL}\SpecialCharTok{$}\NormalTok{yield)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-456-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{(pred.BLUP,NLRL}\SpecialCharTok{$}\NormalTok{yield)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.958079
+\end{verbatim}
+
+\texttt{A.mat} uses rrBLUP's internal definition of kinship, and therefore of the additive relationship matrix. Alternative relationship matrices can be provided too. Next, by ridge regression:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pred.RR}\OtherTok{\textless{}{-}}\FunctionTok{mixed.solve}\NormalTok{(NLRL}\SpecialCharTok{$}\NormalTok{yield,NLRL[,}\DecValTok{5}\SpecialCharTok{:}\DecValTok{221}\NormalTok{], }\AttributeTok{method=}\StringTok{"REML"}\NormalTok{,}\AttributeTok{bounds=}\FunctionTok{c}\NormalTok{(}\FloatTok{1e{-}09}\NormalTok{,}
+\FloatTok{1e+09}\NormalTok{), }\AttributeTok{SE=}\ConstantTok{FALSE}\NormalTok{, }\AttributeTok{return.Hinv=}\ConstantTok{FALSE}\NormalTok{)}
+
+\NormalTok{pred.RR.all}\OtherTok{\textless{}{-}}\FunctionTok{as.matrix}\NormalTok{(NLRL[,}\DecValTok{5}\SpecialCharTok{:}\DecValTok{221}\NormalTok{]) }\SpecialCharTok{\%*\%}\NormalTok{ pred.RR}\SpecialCharTok{$}\NormalTok{u }\SpecialCharTok{+}
+\FunctionTok{as.numeric}\NormalTok{(pred.RR}\SpecialCharTok{$}\NormalTok{beta)}
+
+\FunctionTok{plot}\NormalTok{(pred.RR.all,NLRL}\SpecialCharTok{$}\NormalTok{yield)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-457-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{(pred.RR.all,NLRL}\SpecialCharTok{$}\NormalTok{yield)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]
+## [1,] 0.9580788
+\end{verbatim}
+
+Now compare the results from the two:
+
+\texttt{plot(pred.RR.all,pred.BLUP)}- How do the results compare? We can see what the maximum possible predicted yield is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{abs}\NormalTok{(pred.RR}\SpecialCharTok{$}\NormalTok{u))}\SpecialCharTok{+}\NormalTok{pred.RR}\SpecialCharTok{$}\NormalTok{beta}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 14.17547
+\end{verbatim}
+
+Is this realistic? To use the kinship matrix to predict the performance of individuals with no phenotype, include those individuals in the computations, but with their phenotype set to NA:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{samp.temp}\OtherTok{\textless{}{-}}\FunctionTok{sort}\NormalTok{(}\FunctionTok{sample}\NormalTok{(}\DecValTok{159}\NormalTok{,}\DecValTok{50}\NormalTok{,}\AttributeTok{replace=}\NormalTok{F))}
+\NormalTok{temp }\OtherTok{\textless{}{-}}\NormalTok{NLRL[,}\DecValTok{3}\NormalTok{]}
+\NormalTok{temp[samp.temp] }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\NormalTok{BLUP }\OtherTok{\textless{}{-}} \FunctionTok{mixed.solve}\NormalTok{(temp,}\AttributeTok{K=}\FunctionTok{A.mat}\NormalTok{(NLRL[,}\DecValTok{5}\SpecialCharTok{:}\DecValTok{221}\NormalTok{]))}
+\NormalTok{pred.BLUP}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(BLUP}\SpecialCharTok{$}\NormalTok{beta)}\SpecialCharTok{+}\NormalTok{BLUP}\SpecialCharTok{$}\NormalTok{u}
+\FunctionTok{cor}\NormalTok{(pred.BLUP[samp.temp],NLRL[samp.temp,}\DecValTok{3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8300724
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(pred.BLUP[samp.temp],NLRL[samp.temp,}\DecValTok{3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-459-1.pdf}
+
+How does this accuracy compare with predictions for those with missing data?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(pred.BLUP[}\SpecialCharTok{{-}}\NormalTok{samp.temp],NLRL[}\SpecialCharTok{{-}}\NormalTok{samp.temp,}\DecValTok{3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-460-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{(pred.BLUP[}\SpecialCharTok{{-}}\NormalTok{samp.temp],NLRL[}\SpecialCharTok{{-}}\NormalTok{samp.temp,}\DecValTok{3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9638327
+\end{verbatim}
+
+\hypertarget{prediction-forward-in-time}{%
+\subsection{Prediction forward in time}\label{prediction-forward-in-time}}
+
+The results so far are positive. Given a new variety, we can predict its yield well without running any variety trials. The predictions are dependent on the quality of the phenotype data, so unless heritability is 100\%, we'll never get a perfect correlation. In fact, the upper limit for the correlation is h, the square root of the phenotypic heritability.
+
+For breeding purposes, we would be predicting forward in time using historical data: we
+don't want to predict the performance of old varieties which are most likely already
+outclassed. To test this, we can split the data in half on age, using the old varieties as the training set and the new varieties as a test set. We'll manipulate the data in R.
+
+First find a suitable point to split the data:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{median}\NormalTok{(NLRL[,}\StringTok{"year\_in"}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1989
+\end{verbatim}
+
+You can check the split by counting the number of varieties lying above and below your cutoff.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(NLRL[,}\StringTok{"year\_in"}\NormalTok{]}\SpecialCharTok{\textless{}}\DecValTok{1950}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 13
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(NLRL[,}\StringTok{"year\_in"}\NormalTok{]}\SpecialCharTok{\textgreater{}=}\DecValTok{1950}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 146
+\end{verbatim}
+
+Now set the most recent half of varieties to missing values for their phenotype:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{temp }\OtherTok{\textless{}{-}}\NormalTok{NLRL[,}\DecValTok{3}\NormalTok{]}
+\NormalTok{temp[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textgreater{}=}\DecValTok{1989}\NormalTok{]}\OtherTok{\textless{}{-}}\ConstantTok{NA}
+\end{Highlighting}
+\end{Shaded}
+
+Fit BLUPs to the modified dataset, both for cases where phenotypes are present or missing:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{BLUP }\OtherTok{\textless{}{-}} \FunctionTok{mixed.solve}\NormalTok{(temp,}\AttributeTok{K=}\FunctionTok{A.mat}\NormalTok{(NLRL[,}\DecValTok{5}\SpecialCharTok{:}\DecValTok{221}\NormalTok{]))}
+\NormalTok{pred.BLUP}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(BLUP}\SpecialCharTok{$}\NormalTok{beta)}\SpecialCharTok{+}\NormalTok{BLUP}\SpecialCharTok{$}\NormalTok{u}
+\end{Highlighting}
+\end{Shaded}
+
+How good a fit for the lines with missing phenotype:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{(pred.BLUP[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textgreater{}=}\DecValTok{1989}\NormalTok{],NLRL[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textgreater{}=}\DecValTok{1989}\NormalTok{,}\DecValTok{3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2056729
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(pred.BLUP[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textgreater{}=}\DecValTok{1989}\NormalTok{],NLRL[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textgreater{}=}\DecValTok{1989}\NormalTok{,}\DecValTok{3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-465-1.pdf}
+
+How good a fit for the lines with phenotype:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{(pred.BLUP[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textless{}}\DecValTok{1989}\NormalTok{],NLRL[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textless{}}\DecValTok{1989}\NormalTok{,}\DecValTok{3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9411743
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(pred.BLUP[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textless{}}\DecValTok{1989}\NormalTok{],NLRL[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textless{}}\DecValTok{1989}\NormalTok{,}\DecValTok{3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-466-1.pdf}
+
+Try plotting over a specific range. This makes it easier to compare accuracy with age
+difference from training population. For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{upper}\OtherTok{\textless{}{-}}\DecValTok{20000}
+\NormalTok{lower}\OtherTok{\textless{}{-}}\DecValTok{2000}
+
+\FunctionTok{cor}\NormalTok{(pred.BLUP[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textless{}}\NormalTok{upper }\SpecialCharTok{\&}\NormalTok{ NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textgreater{}}\NormalTok{lower],NLRL[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textless{}}\NormalTok{upper }\SpecialCharTok{\&}
+\NormalTok{NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textgreater{}}\NormalTok{lower,}\DecValTok{3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1606659
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(pred.BLUP[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textless{}}\NormalTok{upper }\SpecialCharTok{\&}\NormalTok{ NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textgreater{}}\NormalTok{lower],NLRL[NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textless{}}\NormalTok{upper }\SpecialCharTok{\&}
+\NormalTok{NLRL[,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{\textgreater{}}\NormalTok{lower,}\DecValTok{3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-467-1.pdf}
+
+Alter \texttt{upper} and \texttt{lower} to compare accuracies in different ranges of the test population.
+Can you explain the results? We shall discuss them!
+
+\hypertarget{Breeding-simulations}{%
+\chapter{Breeding simulations.}\label{Breeding-simulations}}
 
 \backmatter
 
