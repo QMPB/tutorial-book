@@ -24,7 +24,7 @@
 <meta name="author" content="NIAB 2021" />
 
 
-<meta name="date" content="2021-02-27" />
+<meta name="date" content="2021-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -299,18 +299,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1.3" data-path="Data-Visualization.html"><a href="Data-Visualization.html#trait-data"><i class="fa fa-check"></i><b>11.1.3</b> Trait data</a></li>
 <li class="chapter" data-level="11.1.4" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-3"><i class="fa fa-check"></i><b>11.1.4</b> The Exercise</a></li>
 </ul></li>
+<li class="chapter" data-level="11.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#helium-pedigree-visualization-software"><i class="fa fa-check"></i><b>11.2</b> Helium pedigree visualization software</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="Data-Visualization.html"><a href="Data-Visualization.html#introduction-3"><i class="fa fa-check"></i><b>11.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="11.2.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-4"><i class="fa fa-check"></i><b>11.2.2</b> The exercise</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="selection-theory.html"><a href="selection-theory.html"><i class="fa fa-check"></i><b>12</b> Selection theory and breeding program design.</a></li>
 <li class="chapter" data-level="13" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html"><i class="fa fa-check"></i><b>13</b> Genomic prediction.</a>
 <ul>
 <li class="chapter" data-level="13.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#ridge-regression-and-genomic-prediction-in-excel"><i class="fa fa-check"></i><b>13.1</b> Ridge regression and Genomic Prediction in Excel</a>
 <ul>
-<li class="chapter" data-level="13.1.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-3"><i class="fa fa-check"></i><b>13.1.1</b> Introduction</a></li>
-<li class="chapter" data-level="13.1.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-exercise-4"><i class="fa fa-check"></i><b>13.1.2</b> The Exercise</a></li>
+<li class="chapter" data-level="13.1.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-4"><i class="fa fa-check"></i><b>13.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.1.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-exercise-5"><i class="fa fa-check"></i><b>13.1.2</b> The Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="13.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#genomic-prediction-with-rrblup"><i class="fa fa-check"></i><b>13.2</b> Genomic Prediction with rrBLUP</a>
 <ul>
-<li class="chapter" data-level="13.2.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-4"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-5"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-dataset"><i class="fa fa-check"></i><b>13.2.2</b> The dataset</a></li>
 <li class="chapter" data-level="13.2.3" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#loading-and-preparing-the-data"><i class="fa fa-check"></i><b>13.2.3</b> Loading and preparing the data</a></li>
 <li class="chapter" data-level="13.2.4" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#examining-the-data-structure"><i class="fa fa-check"></i><b>13.2.4</b> Examining the data structure</a></li>
@@ -345,7 +350,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 13</span> Genomic prediction.</h1>
 <div id="ridge-regression-and-genomic-prediction-in-excel" class="section level2" number="13.1">
 <h2><span class="header-section-number">13.1</span> Ridge regression and Genomic Prediction in Excel</h2>
-<div id="introduction-3" class="section level3" number="13.1.1">
+<div id="introduction-4" class="section level3" number="13.1.1">
 <h3><span class="header-section-number">13.1.1</span> Introduction</h3>
 <p>Excel has functions for handling matrix operations, and using these is an easy way to get familiar with matrix algebra, as you can see what is happening. We’re going to have a go at genomic prediction using a subset of data from the TriticeaeGenome wheat association mapping panel. We shall work with a set of ten lines and twelve marker loci, with three traits, height (HT), flowering time (FT) and yield. In our example the ten selected lines were all first listed in 1996. The 12 markers include a marker for PPD_D1, which has a major effect on flowering time, and Rht2, which has a major effect on HT.</p>
 <p>The data file we shall use is “gs test class example.xlsx.” It is in the data folder for today’s lecture.</p>
@@ -357,7 +362,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Matrix functions in Excel are different to the usual functions. They apply to a block of cells, not just to one. To enter, first mark the block of cells for the results. For example, to transpose a matrix of n rows by m columns, you would first mark a block of m rows and n columns. Then enter the formula in the normal way, using the formula wizard if you wish, as part of which you will enter the block of cells, n rows by m columns which you wish to transpose. But instead of typing ENTER to finish, hold down CTRL and SHIFT simultaneously then press ENTER. This applies the formula to the whole block, although visually the only difference is that the formula in each cell reference is now encased in {}.</p>
 </div>
-<div id="the-exercise-4" class="section level3" number="13.1.2">
+<div id="the-exercise-5" class="section level3" number="13.1.2">
 <h3><span class="header-section-number">13.1.2</span> The Exercise</h3>
 <p>Open the Excel workbook. Start in the “TG example data” sheet.</p>
 <p>In this tutorial, you are expected to enter the appropriate formulae in the highlighted cells, working through the tabs, from left to right, either following the instructions below, or following me.</p>
@@ -441,7 +446,7 @@ If there is time, you can now repeat the GS analysis for flowering time and yiel
 </div>
 <div id="genomic-prediction-with-rrblup" class="section level2" number="13.2">
 <h2><span class="header-section-number">13.2</span> Genomic Prediction with rrBLUP</h2>
-<div id="introduction-4" class="section level3" number="13.2.1">
+<div id="introduction-5" class="section level3" number="13.2.1">
 <h3><span class="header-section-number">13.2.1</span> Introduction</h3>
 <p>Genomic Selection was first proposed in 2001 <span class="citation">(<a href="references.html#ref-Meuwissen1819" role="doc-biblioref">Meuwissen, Hayes, and Goddard 2001</a>)</span>. It looked ahead to the use of high density markers to cover the whole genome, selecting on a score accumulated over marker intervals. It is now much discussed in plant breeding (<span class="citation"><a href="references.html#ref-Bernardo2007" role="doc-biblioref">Bernardo and Yu</a> (<a href="references.html#ref-Bernardo2007" role="doc-biblioref">2007</a>)</span>, <span class="citation"><a href="references.html#ref-Heffner2009" role="doc-biblioref">Heffner, Sorrells, and Jannink</a> (<a href="references.html#ref-Heffner2009" role="doc-biblioref">2009</a>)</span>,
 <span class="citation"><a href="references.html#ref-Piepho2009" role="doc-biblioref">Piepho</a> (<a href="references.html#ref-Piepho2009" role="doc-biblioref">2009</a>)</span>, <span class="citation"><a href="references.html#ref-Jannink2010" role="doc-biblioref">Jannink, Lorenz, and Iwata</a> (<a href="references.html#ref-Jannink2010" role="doc-biblioref">2010</a>)</span>). The basic idea is that all markers or marker intervals are included in a model of phenotype-genotype relationships simultaneously. Because there is no selection of a subset of markers which are significant, there is no bias from the winner’s curse. However, there are generally more markers than genotyped individuals available on which to estimate the marker effects and this causes statistical problems. The predicted
@@ -498,7 +503,7 @@ These have been imputed using “softImpute” and are also in the spreadsheet. 
 <div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="Genomic-prediction.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(NLRL<span class="sc">$</span>year_in,NLRL<span class="sc">$</span>yield)</span>
 <span id="cb582-2"><a href="Genomic-prediction.html#cb582-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Just because we can, add a trend line:</span></span>
 <span id="cb582-3"><a href="Genomic-prediction.html#cb582-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(yield<span class="sc">~</span>year_in))</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-444-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-446-1.png" width="672" /></p>
 <p>Finally, try this:</p>
 <p><code>identify(year_in,yield,labels=Name)</code> - You’ll need to mouse-over the graph and click. (In Rstudio, nothing happens until you “Finish” in the graphics window. This works better in native R. Any comments on the graph?</p>
 <p>We’ll look at one other feature of the data before we move on: how genetic relationships
@@ -526,10 +531,10 @@ of the data (in <code>NLRL[,i]</code>) for each value of the grouping criterion 
 <p>decade_dist should be 7x7 matrix of distances between decades. Have a look at it. Can you
 see the pattern? You can visualize it:</p>
 <div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="Genomic-prediction.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(<span class="dv">1930</span><span class="sc">+</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)<span class="sc">*</span><span class="dv">10</span>,<span class="dv">1930</span><span class="sc">+</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)<span class="sc">*</span><span class="dv">10</span>,<span class="fu">as.matrix</span>(decade_dist))</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-449-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-451-1.png" width="672" /></p>
 <p>A more sophisticated view, which includes a tree is given by:</p>
 <div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="Genomic-prediction.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(<span class="fu">as.matrix</span>(decade_dist))</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-450-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-452-1.png" width="672" /></p>
 </div>
 <div id="ordinary-least-squares" class="section level3" number="13.2.5">
 <h3><span class="header-section-number">13.2.5</span> Ordinary least squares</h3>
@@ -582,7 +587,7 @@ among lines or by regression on markers. First, by use of a relationship matrix:
 <div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="Genomic-prediction.html#cb596-1" aria-hidden="true" tabindex="-1"></a>BLUP <span class="ot">&lt;-</span> <span class="fu">mixed.solve</span>(NLRL<span class="sc">$</span>yield,<span class="at">K=</span><span class="fu">A.mat</span>(NLRL[,<span class="dv">5</span><span class="sc">:</span><span class="dv">221</span>]))</span>
 <span id="cb596-2"><a href="Genomic-prediction.html#cb596-2" aria-hidden="true" tabindex="-1"></a>pred.BLUP<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(BLUP<span class="sc">$</span>beta)<span class="sc">+</span>BLUP<span class="sc">$</span>u</span>
 <span id="cb596-3"><a href="Genomic-prediction.html#cb596-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.BLUP,NLRL<span class="sc">$</span>yield)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-456-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-458-1.png" width="672" /></p>
 <div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="Genomic-prediction.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.BLUP,NLRL<span class="sc">$</span>yield)</span></code></pre></div>
 <pre><code>## [1] 0.958079</code></pre>
 <p><code>A.mat</code> uses rrBLUP’s internal definition of kinship, and therefore of the additive relationship matrix. Alternative relationship matrices can be provided too. Next, by ridge regression:</p>
@@ -593,7 +598,7 @@ among lines or by regression on markers. First, by use of a relationship matrix:
 <span id="cb599-5"><a href="Genomic-prediction.html#cb599-5" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(pred.RR<span class="sc">$</span>beta)</span>
 <span id="cb599-6"><a href="Genomic-prediction.html#cb599-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb599-7"><a href="Genomic-prediction.html#cb599-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.RR.all,NLRL<span class="sc">$</span>yield)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-457-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-459-1.png" width="672" /></p>
 <div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="Genomic-prediction.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.RR.all,NLRL<span class="sc">$</span>yield)</span></code></pre></div>
 <pre><code>##           [,1]
 ## [1,] 0.9580788</code></pre>
@@ -608,14 +613,14 @@ among lines or by regression on markers. First, by use of a relationship matrix:
 <span id="cb604-4"><a href="Genomic-prediction.html#cb604-4" aria-hidden="true" tabindex="-1"></a>BLUP <span class="ot">&lt;-</span> <span class="fu">mixed.solve</span>(temp,<span class="at">K=</span><span class="fu">A.mat</span>(NLRL[,<span class="dv">5</span><span class="sc">:</span><span class="dv">221</span>]))</span>
 <span id="cb604-5"><a href="Genomic-prediction.html#cb604-5" aria-hidden="true" tabindex="-1"></a>pred.BLUP<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(BLUP<span class="sc">$</span>beta)<span class="sc">+</span>BLUP<span class="sc">$</span>u</span>
 <span id="cb604-6"><a href="Genomic-prediction.html#cb604-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.BLUP[samp.temp],NLRL[samp.temp,<span class="dv">3</span>])</span></code></pre></div>
-<pre><code>## [1] 0.8618017</code></pre>
+<pre><code>## [1] 0.7937956</code></pre>
 <div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="Genomic-prediction.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.BLUP[samp.temp],NLRL[samp.temp,<span class="dv">3</span>])</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-459-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-461-1.png" width="672" /></p>
 <p>How does this accuracy compare with predictions for those with missing data?</p>
 <div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="Genomic-prediction.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.BLUP[<span class="sc">-</span>samp.temp],NLRL[<span class="sc">-</span>samp.temp,<span class="dv">3</span>])</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-460-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-462-1.png" width="672" /></p>
 <div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="Genomic-prediction.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.BLUP[<span class="sc">-</span>samp.temp],NLRL[<span class="sc">-</span>samp.temp,<span class="dv">3</span>])</span></code></pre></div>
-<pre><code>## [1] 0.9755676</code></pre>
+<pre><code>## [1] 0.9760451</code></pre>
 </div>
 <div id="prediction-forward-in-time" class="section level3" number="13.2.7">
 <h3><span class="header-section-number">13.2.7</span> Prediction forward in time</h3>
@@ -641,12 +646,12 @@ outclassed. To test this, we can split the data in half on age, using the old va
 <div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="Genomic-prediction.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.BLUP[NLRL[,<span class="dv">4</span>]<span class="sc">&gt;=</span><span class="dv">1989</span>],NLRL[NLRL[,<span class="dv">4</span>]<span class="sc">&gt;=</span><span class="dv">1989</span>,<span class="dv">3</span>])</span></code></pre></div>
 <pre><code>## [1] 0.2056729</code></pre>
 <div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="Genomic-prediction.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.BLUP[NLRL[,<span class="dv">4</span>]<span class="sc">&gt;=</span><span class="dv">1989</span>],NLRL[NLRL[,<span class="dv">4</span>]<span class="sc">&gt;=</span><span class="dv">1989</span>,<span class="dv">3</span>])</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-465-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-467-1.png" width="672" /></p>
 <p>How good a fit for the lines with phenotype:</p>
 <div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="Genomic-prediction.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pred.BLUP[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span><span class="dv">1989</span>],NLRL[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span><span class="dv">1989</span>,<span class="dv">3</span>])</span></code></pre></div>
 <pre><code>## [1] 0.9411743</code></pre>
 <div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="Genomic-prediction.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.BLUP[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span><span class="dv">1989</span>],NLRL[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span><span class="dv">1989</span>,<span class="dv">3</span>])</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-466-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-468-1.png" width="672" /></p>
 <p>Try plotting over a specific range. This makes it easier to compare accuracy with age
 difference from training population. For example:</p>
 <div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="Genomic-prediction.html#cb624-1" aria-hidden="true" tabindex="-1"></a>upper<span class="ot">&lt;-</span><span class="dv">20000</span></span>
@@ -657,7 +662,7 @@ difference from training population. For example:</p>
 <pre><code>## [1] 0.1606659</code></pre>
 <div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="Genomic-prediction.html#cb626-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.BLUP[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span>upper <span class="sc">&amp;</span> NLRL[,<span class="dv">4</span>]<span class="sc">&gt;</span>lower],NLRL[NLRL[,<span class="dv">4</span>]<span class="sc">&lt;</span>upper <span class="sc">&amp;</span></span>
 <span id="cb626-2"><a href="Genomic-prediction.html#cb626-2" aria-hidden="true" tabindex="-1"></a>NLRL[,<span class="dv">4</span>]<span class="sc">&gt;</span>lower,<span class="dv">3</span>])</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-467-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-469-1.png" width="672" /></p>
 <p>Alter <code>upper</code> and <code>lower</code> to compare accuracies in different ranges of the test population.
 Can you explain the results? We shall discuss them!</p>
 

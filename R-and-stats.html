@@ -24,7 +24,7 @@
 <meta name="author" content="NIAB 2021" />
 
 
-<meta name="date" content="2021-02-27" />
+<meta name="date" content="2021-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -299,18 +299,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1.3" data-path="Data-Visualization.html"><a href="Data-Visualization.html#trait-data"><i class="fa fa-check"></i><b>11.1.3</b> Trait data</a></li>
 <li class="chapter" data-level="11.1.4" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-3"><i class="fa fa-check"></i><b>11.1.4</b> The Exercise</a></li>
 </ul></li>
+<li class="chapter" data-level="11.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#helium-pedigree-visualization-software"><i class="fa fa-check"></i><b>11.2</b> Helium pedigree visualization software</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="Data-Visualization.html"><a href="Data-Visualization.html#introduction-3"><i class="fa fa-check"></i><b>11.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="11.2.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-4"><i class="fa fa-check"></i><b>11.2.2</b> The exercise</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="selection-theory.html"><a href="selection-theory.html"><i class="fa fa-check"></i><b>12</b> Selection theory and breeding program design.</a></li>
 <li class="chapter" data-level="13" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html"><i class="fa fa-check"></i><b>13</b> Genomic prediction.</a>
 <ul>
 <li class="chapter" data-level="13.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#ridge-regression-and-genomic-prediction-in-excel"><i class="fa fa-check"></i><b>13.1</b> Ridge regression and Genomic Prediction in Excel</a>
 <ul>
-<li class="chapter" data-level="13.1.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-3"><i class="fa fa-check"></i><b>13.1.1</b> Introduction</a></li>
-<li class="chapter" data-level="13.1.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-exercise-4"><i class="fa fa-check"></i><b>13.1.2</b> The Exercise</a></li>
+<li class="chapter" data-level="13.1.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-4"><i class="fa fa-check"></i><b>13.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.1.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-exercise-5"><i class="fa fa-check"></i><b>13.1.2</b> The Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="13.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#genomic-prediction-with-rrblup"><i class="fa fa-check"></i><b>13.2</b> Genomic Prediction with rrBLUP</a>
 <ul>
-<li class="chapter" data-level="13.2.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-4"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-5"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-dataset"><i class="fa fa-check"></i><b>13.2.2</b> The dataset</a></li>
 <li class="chapter" data-level="13.2.3" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#loading-and-preparing-the-data"><i class="fa fa-check"></i><b>13.2.3</b> Loading and preparing the data</a></li>
 <li class="chapter" data-level="13.2.4" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#examining-the-data-structure"><i class="fa fa-check"></i><b>13.2.4</b> Examining the data structure</a></li>
@@ -421,7 +426,7 @@ Note also that it is possible to cut from windows outside RStudio and paste into
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="R-and-stats.html#cb7-1" aria-hidden="true" tabindex="-1"></a>quit</span></code></pre></div>
 <pre><code>## function (save = &quot;default&quot;, status = 0, runLast = TRUE) 
 ## .Internal(quit(save, status, runLast))
-## &lt;bytecode: 0x000000001484c680&gt;
+## &lt;bytecode: 0x0000000015802e60&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>outputs the above. Note how the use of the brackets changes the outcome. The above is the section of computer code which is run when you type <code>quit()</code>. Unless you are an enthusiast, it is not necessary to know what this means.</p>
 </div>
@@ -553,35 +558,32 @@ If you copy this line to the top of your <em>script editing window</em> and if y
 ## [28] &quot;bookdown-demo.idx&quot;                                  
 ## [29] &quot;bookdown-demo.ilg&quot;                                  
 ## [30] &quot;bookdown-demo.ind&quot;                                  
-## [31] &quot;bookdown-demo.log&quot;                                  
-## [32] &quot;bookdown-demo.out&quot;                                  
-## [33] &quot;bookdown-demo.pdf&quot;                                  
-## [34] &quot;bookdown-demo.Rmd&quot;                                  
-## [35] &quot;bookdown-demo.Rproj&quot;                                
-## [36] &quot;bookdown-demo.tex&quot;                                  
-## [37] &quot;bookdown-demo.toc&quot;                                  
-## [38] &quot;bookdown-demo_files&quot;                                
-## [39] &quot;cover.jpg&quot;                                          
-## [40] &quot;data&quot;                                               
-## [41] &quot;delete.csv&quot;                                         
-## [42] &quot;DESCRIPTION&quot;                                        
-## [43] &quot;Dockerfile&quot;                                         
-## [44] &quot;images&quot;                                             
-## [45] &quot;index.Rmd&quot;                                          
-## [46] &quot;journals.bib&quot;                                       
-## [47] &quot;latex&quot;                                              
-## [48] &quot;lattice_25.csv&quot;                                     
-## [49] &quot;lattice_9.csv&quot;                                      
-## [50] &quot;LICENSE&quot;                                            
-## [51] &quot;now.json&quot;                                           
-## [52] &quot;packages.bib&quot;                                       
-## [53] &quot;preamble.tex&quot;                                       
-## [54] &quot;README.md&quot;                                          
-## [55] &quot;style.css&quot;                                          
-## [56] &quot;tables&quot;                                             
-## [57] &quot;TG data for day 1.csv&quot;                              
-## [58] &quot;this will be the file name.csv&quot;                     
-## [59] &quot;toc.css&quot;</code></pre>
+## [31] &quot;bookdown-demo.out&quot;                                  
+## [32] &quot;bookdown-demo.Rmd&quot;                                  
+## [33] &quot;bookdown-demo.Rproj&quot;                                
+## [34] &quot;bookdown-demo.toc&quot;                                  
+## [35] &quot;bookdown-demo_files&quot;                                
+## [36] &quot;cover.jpg&quot;                                          
+## [37] &quot;data&quot;                                               
+## [38] &quot;delete.csv&quot;                                         
+## [39] &quot;DESCRIPTION&quot;                                        
+## [40] &quot;Dockerfile&quot;                                         
+## [41] &quot;images&quot;                                             
+## [42] &quot;index.Rmd&quot;                                          
+## [43] &quot;journals.bib&quot;                                       
+## [44] &quot;latex&quot;                                              
+## [45] &quot;lattice_25.csv&quot;                                     
+## [46] &quot;lattice_9.csv&quot;                                      
+## [47] &quot;LICENSE&quot;                                            
+## [48] &quot;now.json&quot;                                           
+## [49] &quot;packages.bib&quot;                                       
+## [50] &quot;preamble.tex&quot;                                       
+## [51] &quot;README.md&quot;                                          
+## [52] &quot;style.css&quot;                                          
+## [53] &quot;tables&quot;                                             
+## [54] &quot;TG data for day 1.csv&quot;                              
+## [55] &quot;this will be the file name.csv&quot;                     
+## [56] &quot;toc.css&quot;</code></pre>
 <p>In my example there are a number of files in my working directory. That’s because my working directory contains all the files used to build this book. We are interested in reading in the file: <code>TG data for day 1.csv</code>. To read the data in we would use a command like:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="R-and-stats.html#cb16-1" aria-hidden="true" tabindex="-1"></a>TG_data_for_day_1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;TG data for day 1.csv&quot;</span>,<span class="at">header=</span>T)</span></code></pre></div>
 <p>Looks complicated? It’s not really. We are only using the function <code>read.csv</code> which takes the the name of the csv file you want to read in as the first argument. Note this name has to be in speech marks and requires the .csv at the end. The second argument is <code>header=T</code>, this ensures that the top row in the excel file is read in as the column headers in R. The other part of the command was to assign the data to an R object called <code>TG_data_for_day_1</code>.</p>
@@ -1385,7 +1387,7 @@ this:</p>
 ##  replicates)
 ## 
 ## data:  rht.ppd.table.small
-## X-squared = 2.3314, df = NA, p-value = 0.2011</code></pre>
+## X-squared = 2.3314, df = NA, p-value = 0.2063</code></pre>
 <p>The value of B, the number of randomisations, can be set by the user. The default value is 2000, but I’ve run 10,000 which is still very quick when the number of observations is small.</p>
 <p>The contingency chi-squared test will easily accommodate larger tables; a 10 x 10 table for example. In the context of genetic data, this could be used to test for association between genetic regions with multiple haplotype alleles.</p>
 </div>
@@ -1573,10 +1575,10 @@ This is long winded, but functions are frequently longer sequences of commands r
 <p><code>matrix(data, nrow = x,ncol =y)</code></p>
 <p>Defines a matrix and fills it with data. For example:</p>
 <div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="R-and-stats.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">12</span>),<span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">4</span>)</span></code></pre></div>
-<pre><code>##           [,1]       [,2]       [,3]       [,4]
-## [1,] -1.438823  1.6780448 -0.8348513 -0.5138228
-## [2,] -1.167761 -0.1034786  2.0115816 -1.3274879
-## [3,]  1.383999  1.0041599 -0.5920141  0.4396548</code></pre>
+<pre><code>##            [,1]       [,2]        [,3]       [,4]
+## [1,]  0.4729843 -0.5753584 0.302689490 -1.2855917
+## [2,] -0.4634734 -1.2321825 0.252883478  0.3364934
+## [3,]  1.3876398  0.3597088 0.006909949 -1.8502695</code></pre>
 <p>The <code>rnorm()</code> part has simulated 12 random numbers which have a specified normal distribution.</p>
 <p>Note that there is no need to define the column number; it is fixed by the data and by the row number. More commonly, we would want to name the matrix. By default, all data are initially recorded as missing:</p>
 <div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="R-and-stats.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="at">nrow=</span><span class="dv">3</span>,<span class="at">ncol=</span><span class="dv">4</span>)</span></code></pre></div>

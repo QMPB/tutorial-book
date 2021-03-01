@@ -226,7 +226,7 @@
 
 \title{Quantitative Methods in Plant Breeding: The Digital Tutorials.}
 \author{NIAB 2021}
-\date{2021-02-27}
+\date{2021-03-01}
 
 \begin{document}
 \maketitle
@@ -463,7 +463,7 @@ Running \texttt{quit()} will end your R session. However:
 \begin{verbatim}
 ## function (save = "default", status = 0, runLast = TRUE) 
 ## .Internal(quit(save, status, runLast))
-## <bytecode: 0x000000001560ff08>
+## <bytecode: 0x00000000165f2f28>
 ## <environment: namespace:base>
 \end{verbatim}
 
@@ -689,35 +689,32 @@ Now we have our working directory set we can read in the data. Personally I alwa
 ## [28] "bookdown-demo.idx"                                  
 ## [29] "bookdown-demo.ilg"                                  
 ## [30] "bookdown-demo.ind"                                  
-## [31] "bookdown-demo.log"                                  
-## [32] "bookdown-demo.out"                                  
-## [33] "bookdown-demo.pdf"                                  
-## [34] "bookdown-demo.Rmd"                                  
-## [35] "bookdown-demo.Rproj"                                
-## [36] "bookdown-demo.tex"                                  
-## [37] "bookdown-demo.toc"                                  
-## [38] "bookdown-demo_files"                                
-## [39] "cover.jpg"                                          
-## [40] "data"                                               
-## [41] "delete.csv"                                         
-## [42] "DESCRIPTION"                                        
-## [43] "Dockerfile"                                         
-## [44] "images"                                             
-## [45] "index.Rmd"                                          
-## [46] "journals.bib"                                       
-## [47] "latex"                                              
-## [48] "lattice_25.csv"                                     
-## [49] "lattice_9.csv"                                      
-## [50] "LICENSE"                                            
-## [51] "now.json"                                           
-## [52] "packages.bib"                                       
-## [53] "preamble.tex"                                       
-## [54] "README.md"                                          
-## [55] "style.css"                                          
-## [56] "tables"                                             
-## [57] "TG data for day 1.csv"                              
-## [58] "this will be the file name.csv"                     
-## [59] "toc.css"
+## [31] "bookdown-demo.out"                                  
+## [32] "bookdown-demo.Rmd"                                  
+## [33] "bookdown-demo.Rproj"                                
+## [34] "bookdown-demo.toc"                                  
+## [35] "bookdown-demo_files"                                
+## [36] "cover.jpg"                                          
+## [37] "data"                                               
+## [38] "delete.csv"                                         
+## [39] "DESCRIPTION"                                        
+## [40] "Dockerfile"                                         
+## [41] "images"                                             
+## [42] "index.Rmd"                                          
+## [43] "journals.bib"                                       
+## [44] "latex"                                              
+## [45] "lattice_25.csv"                                     
+## [46] "lattice_9.csv"                                      
+## [47] "LICENSE"                                            
+## [48] "now.json"                                           
+## [49] "packages.bib"                                       
+## [50] "preamble.tex"                                       
+## [51] "README.md"                                          
+## [52] "style.css"                                          
+## [53] "tables"                                             
+## [54] "TG data for day 1.csv"                              
+## [55] "this will be the file name.csv"                     
+## [56] "toc.css"
 \end{verbatim}
 
 In my example there are a number of files in my working directory. That's because my working directory contains all the files used to build this book. We are interested in reading in the file: \texttt{TG\ data\ for\ day\ 1.csv}. To read the data in we would use a command like:
@@ -2430,7 +2427,7 @@ It is increasingly common, and better, to derive the distribution of the test st
 ##  replicates)
 ## 
 ## data:  rht.ppd.table.small
-## X-squared = 2.3314, df = NA, p-value = 0.2081
+## X-squared = 2.3314, df = NA, p-value = 0.2136
 \end{verbatim}
 
 The value of B, the number of randomisations, can be set by the user. The default value is 2000, but I've run 10,000 which is still very quick when the number of observations is small.
@@ -2860,10 +2857,10 @@ Defines a matrix and fills it with data. For example:
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]       [,3]       [,4]
-## [1,] -1.1997940  0.6565469 -1.2640155 -0.1001170
-## [2,] -0.3932316  1.0922818 -0.7344448  1.3312798
-## [3,] -0.4301833 -1.0324728  0.5145625  0.7772152
+##            [,1]        [,2]       [,3]       [,4]
+## [1,]  0.6489285  0.09295787 -0.4712225 -0.1986573
+## [2,] -0.1230421  0.02724679  0.4709999 -1.7472005
+## [3,] -2.6345635 -0.39001540  0.7697345 -2.8902735
 \end{verbatim}
 
 The \texttt{rnorm()} part has simulated 12 random numbers which have a specified normal distribution.
@@ -3331,74 +3328,74 @@ The other options can be ignored for now, and omitted. \texttt{blocks} can be ig
 ## 
 ## $Design
 ##    Level_1 plots treatments
-## 1       B1     1          7
-## 2       B1     2          2
-## 3       B1     3          4
-## 4       B1     4          8
-## 5       B1     5          2
-## 6       B1     6          3
-## 7       B1     7          5
+## 1       B1     1          4
+## 2       B1     2          7
+## 3       B1     3          5
+## 4       B1     4          7
+## 5       B1     5          9
+## 6       B1     6          5
+## 7       B1     7          8
 ## 8       B1     8          9
-## 9       B1     9          8
-## 10      B1    10          8
-## 11      B1    11         10
-## 12      B1    12          7
-## 13      B1    13          6
-## 14      B1    14         10
-## 15      B1    15          5
-## 16      B1    16          9
-## 17      B1    17          3
-## 18      B1    18          9
-## 19      B1    19          8
-## 20      B1    20          3
-## 21      B1    21          3
+## 9       B1     9          3
+## 10      B1    10          4
+## 11      B1    11          3
+## 12      B1    12          1
+## 13      B1    13          2
+## 14      B1    14          9
+## 15      B1    15          2
+## 16      B1    16          3
+## 17      B1    17          1
+## 18      B1    18          1
+## 19      B1    19          6
+## 20      B1    20          9
+## 21      B1    21          7
 ## 22      B1    22          1
-## 23      B1    23          9
-## 24      B1    24         10
-## 25      B1    25          7
-## 26      B1    26          7
-## 27      B1    27          9
-## 28      B1    28         10
+## 23      B1    23          2
+## 24      B1    24          3
+## 25      B1    25          5
+## 26      B1    26         10
+## 27      B1    27          2
+## 28      B1    28          5
 ## 29      B1    29          8
-## 30      B1    30          7
-## 31      B1    31          6
-## 32      B1    32          5
+## 30      B1    30          6
+## 31      B1    31         10
+## 32      B1    32          7
 ## 33      B1    33         10
-## 34      B1    34          5
-## 35      B1    35          3
+## 34      B1    34          7
+## 35      B1    35          6
 ## 36      B1    36          4
-## 37      B1    37          8
-## 38      B1    38          2
-## 39      B1    39          1
-## 40      B1    40          5
-## 41      B1    41          9
-## 42      B1    42          5
-## 43      B1    43          1
-## 44      B1    44          2
-## 45      B1    45          1
-## 46      B1    46          2
-## 47      B1    47          4
-## 48      B1    48          6
-## 49      B1    49          2
-## 50      B1    50          3
-## 51      B1    51          6
-## 52      B1    52         10
-## 53      B1    53          4
-## 54      B1    54          1
-## 55      B1    55          7
-## 56      B1    56          4
+## 37      B1    37          5
+## 38      B1    38          5
+## 39      B1    39          8
+## 40      B1    40          9
+## 41      B1    41          7
+## 42      B1    42          6
+## 43      B1    43          8
+## 44      B1    44          8
+## 45      B1    45         10
+## 46      B1    46          8
+## 47      B1    47          9
+## 48      B1    48         10
+## 49      B1    49         10
+## 50      B1    50          4
+## 51      B1    51          1
+## 52      B1    52          6
+## 53      B1    53          2
+## 54      B1    54          2
+## 55      B1    55          4
+## 56      B1    56          1
 ## 57      B1    57          6
-## 58      B1    58          1
-## 59      B1    59          6
+## 58      B1    58          3
+## 59      B1    59          3
 ## 60      B1    60          4
 ## 
 ## $Plan
 ##   Level_1 Blocks.Plots: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
-## 1      B1               7 2 4 8 2 3 5 9 8  8 10  7  6 10  5  9  3  9  8  3  3
+## 1      B1               4 7 5 7 9 5 8 9 3  4  3  1  2  9  2  3  1  1  6  9  7
 ##   22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47
-## 1  1  9 10  7  7  9 10  8  7  6  5 10  5  3  4  8  2  1  5  9  5  1  2  1  2  4
+## 1  1  2  3  5 10  2  5  8  6 10  7 10  7  6  4  5  5  8  9  7  6  8  8 10  8  9
 ##   48 49 50 51 52 53 54 55 56 57 58 59 60
-## 1  6  2  3  6 10  4  1  7  4  6  1  6  4
+## 1 10 10  4  1  6  2  2  4  1  6  3  3  4
 ## 
 ## $seed
 ## NULL
@@ -3482,8 +3479,8 @@ If we wanted to count control number across block in larger trial we could run:
 \begin{verbatim}
 ##     
 ##      1 2 3 4 5 6 7 8 9 10
-##   B1 5 5 0 1 0 0 0 1 1  1
-##   B2 5 5 1 0 1 1 1 0 0  0
+##   B1 5 5 1 0 0 1 0 1 1  0
+##   B2 5 5 0 1 1 0 1 0 0  1
 \end{verbatim}
 
 This uses the function \texttt{table}. Perhaps we think that a block size of 10 is too great, but that 5 would be better.
@@ -3510,11 +3507,11 @@ If we run:
 \end{Shaded}
 
 \begin{verbatim}
-##   Level_1 Level_2 Blocks.Plots: 1  2 3 4 5 6 7
-## 1      B1   B1.B1               2  5 8 1 2 1 1
-## 2      B1   B1.B2               6  1 2 2 1 2 3
-## 3      B2   B2.B1               7  1 2 4 1 2 2
-## 4      B2   B2.B2               2 10 1 9 1 2 1
+##   Level_1 Level_2 Blocks.Plots:  1 2 3 4 5 6 7
+## 1      B1   B1.B1                2 7 1 1 2 3 1
+## 2      B1   B1.B2                2 8 1 1 5 2 2
+## 3      B2   B2.B1               10 1 4 1 2 2 1
+## 4      B2   B2.B2                2 1 1 2 6 9 2
 \end{verbatim}
 
 We have introduced an additional constraint. There are two levels of blocking: one with two blocks, each of size 10, and then one with two blocks of size five nested within each of the larger blocks. In this case, there is no difference in design between p.rep.3 and p.rep.4, but this is not usually the case.
@@ -3688,8 +3685,8 @@ Efficiencies (or \texttt{efficiency} factors) can be examined as:
 \begin{verbatim}
 ##        First_order effects  D.Effic  A.Effic       Second_order effects D.Effic
 ## 1           (reps)       5 1.000000 1.000000           (reps)^2       5      NA
-## 2      (reps+rows)      29 0.830656 0.827968      (reps+rows)^2      29      NA
-## 3 (reps+rows+cols)      53 0.659078 0.651444 (reps+rows+cols)^2     149      NA
+## 2      (reps+rows)      29 0.833333 0.833333      (reps+rows)^2      29      NA
+## 3 (reps+rows+cols)      53 0.660143 0.653660 (reps+rows+cols)^2     149      NA
 ##   A.Effic
 ## 1      NA
 ## 2      NA
@@ -3884,47 +3881,47 @@ Suppose we have six varieties to test. Five of these can be replicated seven tim
 
 \begin{verbatim}
 ##    farm fields treatments
-## 1     1      1          5
-## 2     1      1          2
+## 1     1      1          3
+## 2     1      1          1
 ## 3     1      2          4
-## 4    10      1          2
-## 5    10      1          6
-## 6    10      2          1
-## 7    10      2          3
-## 8     2      1          4
-## 9     2      1          1
-## 10    2      2          2
-## 11    2      2          3
-## 12    2      3          5
-## 13    2      3          6
-## 14    3      1          4
+## 4    10      1          4
+## 5    10      1          3
+## 6    10      2          6
+## 7    10      2          5
+## 8     2      1          1
+## 9     2      1          4
+## 10    2      2          3
+## 11    2      2          2
+## 12    2      3          6
+## 13    2      3          5
+## 14    3      1          3
 ## 15    3      1          2
 ## 16    3      2          1
-## 17    4      1          5
-## 18    4      1          1
-## 19    4      2          3
-## 20    4      2          4
-## 21    5      1          2
+## 17    4      1          2
+## 18    4      1          6
+## 19    4      2          4
+## 20    4      2          3
+## 21    5      1          5
 ## 22    5      1          1
-## 23    5      2          5
-## 24    5      2          6
-## 25    6      1          3
-## 26    6      1          5
+## 23    5      2          2
+## 24    5      2          4
+## 25    6      1          5
+## 26    6      1          3
 ## 27    6      2          2
-## 28    7      1          4
-## 29    7      1          3
-## 30    7      2          2
-## 31    7      2          6
-## 32    8      1          6
-## 33    8      1          4
+## 28    7      1          1
+## 29    7      1          6
+## 30    7      2          3
+## 31    7      2          5
+## 32    8      1          2
+## 33    8      1          6
 ## 34    8      2          1
 ## 35    8      2          5
-## 36    8      3          3
-## 37    9      1          6
-## 38    9      1          3
-## 39    9      2          4
-## 40    9      2          5
-## 41    9      3          1
+## 36    8      3          4
+## 37    9      1          5
+## 38    9      1          4
+## 39    9      2          6
+## 40    9      2          1
+## 41    9      3          2
 \end{verbatim}
 
 \begin{rmdnote}
@@ -3942,12 +3939,12 @@ Let's take a look at the results:
 \begin{verbatim}
 ##    
 ##     1 10 2 3 4 5 6 7 8 9
-##   1 0  1 1 1 1 1 0 0 1 1
-##   2 1  1 1 1 0 1 1 1 0 0
-##   3 0  1 1 0 1 0 1 1 1 1
-##   4 1  0 1 1 1 0 0 1 1 1
-##   5 1  0 1 0 1 1 1 0 1 1
-##   6 0  1 1 0 0 1 0 1 1 1
+##   1 1  0 1 1 0 1 0 1 1 1
+##   2 0  0 1 1 1 1 1 0 1 1
+##   3 1  1 1 1 1 0 1 1 0 0
+##   4 1  1 1 0 1 1 0 0 1 1
+##   5 0  1 1 0 0 1 1 1 1 1
+##   6 0  1 1 0 1 0 0 1 1 1
 \end{verbatim}
 
 \begin{Shaded}
@@ -3959,12 +3956,12 @@ Let's take a look at the results:
 \begin{verbatim}
 ##    
 ##     1 2 3 4 5 6
-##   1 7 4 5 5 5 5
-##   2 4 7 4 4 4 4
-##   3 5 4 7 5 5 5
-##   4 5 4 5 7 5 4
-##   5 5 4 5 5 7 4
-##   6 5 4 5 4 4 6
+##   1 7 5 4 5 5 4
+##   2 5 7 4 5 5 4
+##   3 4 4 7 4 4 4
+##   4 5 5 4 7 5 5
+##   5 5 5 4 5 7 5
+##   6 4 4 4 5 5 6
 \end{verbatim}
 
 The allocation of varieties across farms looks reasonable. What about the allocation within fields?
@@ -3978,12 +3975,12 @@ The allocation of varieties across farms looks reasonable. What about the alloca
 \begin{verbatim}
 ##    
 ##     1 2 3 4 5 6
-##   1 7 1 1 1 2 0
-##   2 1 7 1 1 1 2
-##   3 1 1 7 2 1 1
-##   4 1 1 2 7 1 1
-##   5 2 1 1 1 7 2
-##   6 0 2 1 1 2 6
+##   1 7 0 1 1 2 2
+##   2 0 7 2 1 0 2
+##   3 1 2 7 2 2 0
+##   4 1 1 2 7 1 0
+##   5 2 0 2 1 7 2
+##   6 2 2 0 0 2 6
 \end{verbatim}
 
 \begin{rmdquiz}
@@ -6768,7 +6765,7 @@ We can use the below script to calculate the mean NA \% per marker:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 9.927887
+## [1] 10.0569
 \end{verbatim}
 
 On average we have 10\% missing data per marker, as we intended. You now have a data set ready to be imputed.
@@ -6904,9 +6901,9 @@ Now, compare the imputed and original class using `table':
 \begin{verbatim}
 ##        original
 ## imputed     0     1     2
-##       0  8321   228  1774
-##       1  5649   392  6364
-##       2  1774   251 10491
+##       0  8484   266  1931
+##       1  5763   386  6190
+##       2  1930   268 10484
 \end{verbatim}
 
 A single number we can use summarise the accuracy of the imputation is the contingency chi-squared test statistic -- high values are good in this context: we want the rows (imputed) and columns (observed) to be highly dependent on each other.
@@ -6922,7 +6919,7 @@ A single number we can use summarise the accuracy of the imputation is the conti
 ##  Pearson's Chi-squared test
 ## 
 ## data:  imp.test
-## X-squared = 10391, df = 4, p-value < 2.2e-16
+## X-squared = 9964.7, df = 4, p-value < 2.2e-16
 \end{verbatim}
 
 Has the imputation done a good job? Record the chisq value on the board in the classroom for subsequent comparison with other runs.
@@ -6971,8 +6968,8 @@ The first line above forces genotypes which would be otherwise be imputed as het
 \begin{verbatim}
 ##        original
 ## imputed     0     1     2
-##       0 11677   414  4119
-##       2  4067   457 14510
+##       0 11925   459  4276
+##       2  4252   461 14329
 \end{verbatim}
 
 In practice, the wisdom of this reclassification is unclear. Carrying out the same exercise using mean imputation amounts to substituting all missing values by the most common allele, which doesn't seem very sensible.
@@ -7054,10 +7051,10 @@ Inspect the results:
 
 \begin{verbatim}
 ##               original
-## imputed     0     1     2
-##       0  6588   137  1005
-##       1  7425   500  7595
-##       2  1731   234 10029
+## imputed    0    1    2
+##       0 6607  144 1046
+##       1 7826  553 7622
+##       2 1744  223 9937
 \end{verbatim}
 
 \begin{Shaded}
@@ -7071,7 +7068,7 @@ Inspect the results:
 ##  Pearson's Chi-squared test
 ## 
 ## data:  imp.test.av
-## X-squared = 9915, df = 4, p-value < 2.2e-16
+## X-squared = 9826.4, df = 4, p-value < 2.2e-16
 \end{verbatim}
 
 What do you think? We'll collate the results over repeat runs and different values of LD threshold and discuss.
@@ -7130,7 +7127,7 @@ We can also estimate imputation error using the function \texttt{mixError}:
 
 \begin{verbatim}
 ##       PFC 
-## 0.2504824
+## 0.2531231
 \end{verbatim}
 
 for mixError, values close to 0 are good, close to 1 are bad.
@@ -7147,9 +7144,9 @@ We compare across methods using our earlier code, summarising the results:
 \begin{verbatim}
 ##               original
 ## imputed     0     1     2
-##       0 11725   406  3933
-##       1    24    10    15
-##       2  3995   455 14681
+##       0 12103   432  4039
+##       1    15    18    22
+##       2  4059   470 14544
 \end{verbatim}
 
 \begin{Shaded}
@@ -7167,7 +7164,7 @@ We compare across methods using our earlier code, summarising the results:
 ##  Pearson's Chi-squared test
 ## 
 ## data:  chi.forest
-## X-squared = 9887.8, df = 4, p-value < 2.2e-16
+## X-squared = 10021, df = 4, p-value < 2.2e-16
 \end{verbatim}
 
 How does this compare with what we had before? Are there any differences in the pattern of assignment to different classes?
@@ -8418,11 +8415,12 @@ And take a look at the high error LOD markers:
 
 \begin{verbatim}
 ##   chr id      marker errorlod
-## 1   2 78 eACTmCAC172 3.105659
-## 2   2 54 eAACmCCC176 2.667347
-## 3   2  5 eACTmCAC320 2.576581
-## 4   2  8 eACTmCAC148 2.431070
-## 5   2 37 eACTmCAC148 2.431070
+## 1   2 78 eACTmCAC172 3.412501
+## 2   2 54 eAACmCCC176 3.222779
+## 3   2  5 eACTmCAC320 2.835562
+## 4   2  8 eACTmCAC148 2.603947
+## 5   2 37 eACTmCAC148 2.603947
+## 6   2 75 eACTmCAC148 2.382445
 \end{verbatim}
 
 With two markers given with the same map location (ignoring the effect of jitter) any observed recombination will generate a big LOD. Taking a look at the map:
@@ -8434,14 +8432,14 @@ With two markers given with the same map location (ignoring the effect of jitter
 \end{Shaded}
 
 \begin{verbatim}
-## eAACmCCC272 B598mCGT390 eACTmCGG365 eAACmCCC176 eACTmCAC148 eACTmCAC320 
-##     0.00000    28.03892    31.16497    33.74564    42.10218    46.55053 
-## eACTmCAC172 eACTmCAC170 eAACmCCC270    gwm18_1B  BArc240_1B eATTmCGG110 
-##    52.52118    53.83598    55.32079    55.32080    56.62002    57.91867 
+## eAACmCCC272 B598mCGT390 eACTmCGG365 eAACmCCC176    gwm18_1B eACTmCAC320 
+##     0.00000    28.03906    31.16444    33.61165    36.05915    39.18288 
+## eACTmCAC148 eAACmCCC270 eACTmCAC170 eACTmCAC172  BArc240_1B eATTmCGG110 
+##    43.86264    49.19056    50.49795    51.53478    55.26734    56.56658 
 ## eACGmCTG185 eAGCmCTA234 eACTmCAC180 eAGGmCTA130  eAACmCCG96 eAGGmCTA290 
-##    64.77927    73.09380    89.77822    97.47865   106.71102   136.45711 
+##    63.42718    71.74171    88.42613    96.12656   105.35892   135.10502 
 ## eACTmCAC115    wmc44_1B 
-##   167.14099   178.87267
+##   165.78894   177.52060
 \end{verbatim}
 
 That isn't a problem here, though you can see the high error markers are all very close to adjacent markers, and presumably have some recombination between them. We can see this in more detail with this very useful plot:
@@ -8648,7 +8646,7 @@ by the James Hutton institute. A link to the software online can be found \href{
 
 To give you an overview we are first going to explore the genotype example provided by Flapjack. It consists of SNP data from a barley association mapping project.
 
-Start Flapjack from the shortcut on your desktop or the Programs menu. In the bar menu
+Start Flapjack on your computers. In the bar menu
 select \textbf{\emph{File Import data\ldots{}}} a popup windows will appear, click on the tab \textbf{\emph{Example data}} and load the \textbf{\emph{Barley (Sample)}} clicking on Open example button.
 You will see the following display.
 
@@ -8819,6 +8817,7 @@ The data are yellow rust scores from a MAGIC wheat population and an association
 The two most associated SNPs are:
 
 BobWhite\_c5756\_516: --log10(p-value) = 289.9
+
 RAC875\_c50347\_258: --log10(p-value) = 300.0
 
 These are 1.5cM apart. It is hard to distinguish which of these best predicts resistance. The MAGIC lines are not that inbred and there is quite a bit of residual heterozygosity. RAC875\_c50347\_258 happens to be a dominant SNP. The QTL is also dominant for susceptibility. The dominant allele at the marker is in-phase with the dominant allele at the QTL. This SNP may therefore have the highest score not because it is closest to the QTL but because the dominant alleles at the SNP and QTL match, giving a higher test statistic.
@@ -8847,9 +8846,41 @@ Low trait values are more resistant. Is it possible to discriminate between the 
 
 Compare the 10 most resistant with the 10 least resistant lines. Ignore any lines with lots of missing data. (Tag the lines, invert the selection, then use \textbf{\emph{Edit /Show/Hide lines.}}) Identify the largest interval among the 20 selected lines which discriminates the two groups.
 
-What effect would map errors have on the process we have just done?
-What effect would genotype errors have?
-What effect would the size of the QTL effect have?
+\begin{rmdquiz}
+\textbf{1}
+
+a: What effect would map errors have on the process we have just done?
+
+b: What effect would genotype errors have?
+
+c: What effect would the size of the QTL effect have?
+\end{rmdquiz}
+
+\hypertarget{helium-pedigree-visualization-software}{%
+\section{Helium pedigree visualization software}\label{helium-pedigree-visualization-software}}
+
+\hypertarget{introduction-3}{%
+\subsection{Introduction}\label{introduction-3}}
+
+Helium is another useful software package developed by the James Hutton institute \url{https://ics.hutton.ac.uk/helium/} for data visualization. It provides an easy way to visualize pedigree data, especially at a large scale. To give an overview, we will use our recently published pedigree of northern European wheat \citep{Fradgley2019}. The pedigree data is in a file called ``Helium\_wheat\_pedigree\_NIAB.txt''. The format is straightforward -- 3 columns for the line name and its two parents. Take a look and also see how complex crosses are represented.
+
+Start Helium and load the pedigree. Aside from the main window, you will now see a navigation window at the upper left, where the whole pedigree can be seen. Practice zooming in and out and click on a variety in the main window. This will highlight the variety and bring it up in the \textbf{\emph{Pedigree Local View}} box at the bottom, where you can see the pedigree of that variety in more detail -- there are options you can change for the layout, and how many generations you can see at once. You can also search directly for a variety in the \textbf{\emph{Search}} tab on the left.
+
+Now investigate the \textbf{\emph{Settings}} tab. You have two tabs again: one to change the \textbf{\emph{Colour Scheme}} and the other to change the \textbf{\emph{Node Settings}}. There are some interesting options here, especially turning on \textbf{\emph{Size based on pedigree contribution}}, which changes the circle sizes of varieties to be proportional to their contribution to descendant lines. Turn this on and then find the varieties ``Robigus'', which is important in many modern pedigrees (and one of the founders of NIAB's elite MAGIC population), and ``Capelle-Desprez'', which was a key variety in earlier UK wheat breeding history.
+
+\hypertarget{the-exercise-4}{%
+\subsection{The exercise}\label{the-exercise-4}}
+
+A valuable tool in Helium is the ability to colour the varieties in the pedigree with categorical data of any kind, for example country of origin data, which we used in our publication.
+
+For this exercise, we have prepared a data file containing four genetic markers: for the 1B\_1R introgression from rye, for the two major ``green revolution'' dwarfing genes, RhtB and RhtD, and for a marker closely linked to the presence of awns. They were genotyped for the UK lines only. These are in the file ``Helium\_UK\_Wheat\_categories.txt''. Examine the file: again the layout is very straightforward. Load the file and click on the \textbf{\emph{Categorical Data}} tab, which allows you to click on one of these four markers, and see the colours assigned to alleles (which you can change the \textbf{\emph{Settings/ColourScheme}}.
+
+The aim of the exercise is to see if you can trace back the origin in the UK pedigrees of the awn presence allele (in variety Soissons), the RhtB and RhtD dwarfing alleles (RhtD dwarfing allele is in Claire and Alchemy, RhtB dwarfing allele is in Soissons and Robigus) and the source(s) of the 1B\_1R introgression (present in Brompton and Rialto). You only need to go as far as any major donors of alleles, but try to get as far back as possible. There will be plenty of dead ends at unknown breeder lines!
+
+\begin{rmdquiz}
+\textbf{2}
+What did you find? How might this exercise be useful in your own work?
+\end{rmdquiz}
 
 \hypertarget{selection-theory}{%
 \chapter{Selection theory and breeding program design.}\label{selection-theory}}
@@ -8860,8 +8891,8 @@ What effect would the size of the QTL effect have?
 \hypertarget{ridge-regression-and-genomic-prediction-in-excel}{%
 \section{Ridge regression and Genomic Prediction in Excel}\label{ridge-regression-and-genomic-prediction-in-excel}}
 
-\hypertarget{introduction-3}{%
-\subsection{Introduction}\label{introduction-3}}
+\hypertarget{introduction-4}{%
+\subsection{Introduction}\label{introduction-4}}
 
 Excel has functions for handling matrix operations, and using these is an easy way to get familiar with matrix algebra, as you can see what is happening. We're going to have a go at genomic prediction using a subset of data from the TriticeaeGenome wheat association mapping panel. We shall work with a set of ten lines and twelve marker loci, with three traits, height (HT), flowering time (FT) and yield. In our example the ten selected lines were all first listed in 1996. The 12 markers include a marker for PPD\_D1, which has a major effect on flowering time, and Rht2, which has a major effect on HT.
 
@@ -8881,8 +8912,8 @@ We shall use the following matrix functions:
 
 Matrix functions in Excel are different to the usual functions. They apply to a block of cells, not just to one. To enter, first mark the block of cells for the results. For example, to transpose a matrix of n rows by m columns, you would first mark a block of m rows and n columns. Then enter the formula in the normal way, using the formula wizard if you wish, as part of which you will enter the block of cells, n rows by m columns which you wish to transpose. But instead of typing ENTER to finish, hold down CTRL and SHIFT simultaneously then press ENTER. This applies the formula to the whole block, although visually the only difference is that the formula in each cell reference is now encased in \{\}.
 
-\hypertarget{the-exercise-4}{%
-\subsection{The Exercise}\label{the-exercise-4}}
+\hypertarget{the-exercise-5}{%
+\subsection{The Exercise}\label{the-exercise-5}}
 
 Open the Excel workbook. Start in the ``TG example data'' sheet.
 
@@ -8997,8 +9028,8 @@ If there is time, you can now repeat the GS analysis for flowering time and yiel
 \hypertarget{genomic-prediction-with-rrblup}{%
 \section{Genomic Prediction with rrBLUP}\label{genomic-prediction-with-rrblup}}
 
-\hypertarget{introduction-4}{%
-\subsection{Introduction}\label{introduction-4}}
+\hypertarget{introduction-5}{%
+\subsection{Introduction}\label{introduction-5}}
 
 Genomic Selection was first proposed in 2001 \citep{Meuwissen1819}. It looked ahead to the use of high density markers to cover the whole genome, selecting on a score accumulated over marker intervals. It is now much discussed in plant breeding (\citet{Bernardo2007}, \citet{Heffner2009},
 \citet{Piepho2009}, \citet{Jannink2010}). The basic idea is that all markers or marker intervals are included in a model of phenotype-genotype relationships simultaneously. Because there is no selection of a subset of markers which are significant, there is no bias from the winner's curse. However, there are generally more markers than genotyped individuals available on which to estimate the marker effects and this causes statistical problems. The predicted
@@ -9097,7 +9128,7 @@ Before moving on to the ridge regression itself, we'll look at the dominant feat
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-444-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-446-1.pdf}
 
 Finally, try this:
 
@@ -9163,7 +9194,7 @@ see the pattern? You can visualize it:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-449-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-451-1.pdf}
 
 A more sophisticated view, which includes a tree is given by:
 
@@ -9173,7 +9204,7 @@ A more sophisticated view, which includes a tree is given by:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-450-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-452-1.pdf}
 
 \hypertarget{ordinary-least-squares}{%
 \subsection{Ordinary least squares}\label{ordinary-least-squares}}
@@ -9269,7 +9300,7 @@ among lines or by regression on markers. First, by use of a relationship matrix:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-456-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-458-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9295,7 +9326,7 @@ among lines or by regression on markers. First, by use of a relationship matrix:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-457-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-459-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9336,7 +9367,7 @@ Is this realistic? To use the kinship matrix to predict the performance of indiv
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.8300724
+## [1] 0.8769654
 \end{verbatim}
 
 \begin{Shaded}
@@ -9345,7 +9376,7 @@ Is this realistic? To use the kinship matrix to predict the performance of indiv
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-459-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-461-1.pdf}
 
 How does this accuracy compare with predictions for those with missing data?
 
@@ -9355,7 +9386,7 @@ How does this accuracy compare with predictions for those with missing data?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-460-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-462-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9364,7 +9395,7 @@ How does this accuracy compare with predictions for those with missing data?
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9638327
+## [1] 0.9625502
 \end{verbatim}
 
 \hypertarget{prediction-forward-in-time}{%
@@ -9446,7 +9477,7 @@ How good a fit for the lines with missing phenotype:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-465-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-467-1.pdf}
 
 How good a fit for the lines with phenotype:
 
@@ -9466,7 +9497,7 @@ How good a fit for the lines with phenotype:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-466-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-468-1.pdf}
 
 Try plotting over a specific range. This makes it easier to compare accuracy with age
 difference from training population. For example:
@@ -9492,7 +9523,7 @@ difference from training population. For example:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-467-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-469-1.pdf}
 
 Alter \texttt{upper} and \texttt{lower} to compare accuracies in different ranges of the test population.
 Can you explain the results? We shall discuss them!

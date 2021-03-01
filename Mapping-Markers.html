@@ -24,7 +24,7 @@
 <meta name="author" content="NIAB 2021" />
 
 
-<meta name="date" content="2021-02-27" />
+<meta name="date" content="2021-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -299,18 +299,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1.3" data-path="Data-Visualization.html"><a href="Data-Visualization.html#trait-data"><i class="fa fa-check"></i><b>11.1.3</b> Trait data</a></li>
 <li class="chapter" data-level="11.1.4" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-3"><i class="fa fa-check"></i><b>11.1.4</b> The Exercise</a></li>
 </ul></li>
+<li class="chapter" data-level="11.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#helium-pedigree-visualization-software"><i class="fa fa-check"></i><b>11.2</b> Helium pedigree visualization software</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="Data-Visualization.html"><a href="Data-Visualization.html#introduction-3"><i class="fa fa-check"></i><b>11.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="11.2.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-4"><i class="fa fa-check"></i><b>11.2.2</b> The exercise</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="selection-theory.html"><a href="selection-theory.html"><i class="fa fa-check"></i><b>12</b> Selection theory and breeding program design.</a></li>
 <li class="chapter" data-level="13" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html"><i class="fa fa-check"></i><b>13</b> Genomic prediction.</a>
 <ul>
 <li class="chapter" data-level="13.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#ridge-regression-and-genomic-prediction-in-excel"><i class="fa fa-check"></i><b>13.1</b> Ridge regression and Genomic Prediction in Excel</a>
 <ul>
-<li class="chapter" data-level="13.1.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-3"><i class="fa fa-check"></i><b>13.1.1</b> Introduction</a></li>
-<li class="chapter" data-level="13.1.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-exercise-4"><i class="fa fa-check"></i><b>13.1.2</b> The Exercise</a></li>
+<li class="chapter" data-level="13.1.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-4"><i class="fa fa-check"></i><b>13.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.1.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-exercise-5"><i class="fa fa-check"></i><b>13.1.2</b> The Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="13.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#genomic-prediction-with-rrblup"><i class="fa fa-check"></i><b>13.2</b> Genomic Prediction with rrBLUP</a>
 <ul>
-<li class="chapter" data-level="13.2.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-4"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-5"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-dataset"><i class="fa fa-check"></i><b>13.2.2</b> The dataset</a></li>
 <li class="chapter" data-level="13.2.3" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#loading-and-preparing-the-data"><i class="fa fa-check"></i><b>13.2.3</b> Loading and preparing the data</a></li>
 <li class="chapter" data-level="13.2.4" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#examining-the-data-structure"><i class="fa fa-check"></i><b>13.2.4</b> Examining the data structure</a></li>
@@ -653,22 +658,20 @@ Compare error rates of 0.0001, 0.01, 0.1 and 0.5. What do you notice about the i
 <p>And take a look at the high error LOD markers:</p>
 <div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="Mapping-Markers.html#cb556-1" aria-hidden="true" tabindex="-1"></a><span class="fu">top.errorlod</span>(AxC,<span class="dv">2</span>,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##   chr id      marker errorlod
-## 1   2 78 eACTmCAC172 3.543093
-## 2   2 54 eAACmCCC176 3.224461
-## 3   2  5 eACTmCAC320 2.704437
-## 4   2  8 eACTmCAC148 2.628603
-## 5   2 37 eACTmCAC148 2.628603
-## 6   2 75 eACTmCAC148 2.171784</code></pre>
+## 1   2 78 eACTmCAC172 3.412542
+## 2   2 54 eAACmCCC176 3.225312
+## 3   2 13 B598mCGT390 2.997493
+## 4   2  5 eACTmCAC320 2.387348</code></pre>
 <p>With two markers given with the same map location (ignoring the effect of jitter) any observed recombination will generate a big LOD. Taking a look at the map:</p>
 <div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="Mapping-Markers.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pull.map</span>(AxC,<span class="dv">2</span>) </span></code></pre></div>
-<pre><code>## eAACmCCC272 B598mCGT390 eACTmCGG365 eAACmCCC176 eAACmCCC270 eACTmCAC172 
-##     0.00000    28.03907    31.16444    33.61117    36.04969    38.66313 
-## eACTmCAC170 eACTmCAC320 eACTmCAC148    gwm18_1B  BArc240_1B eATTmCGG110 
-##    39.75913    44.27192    48.65410    54.02940    55.33495    56.63453 
-## eACGmCTG185 eAGCmCTA234 eACTmCAC180 eAGGmCTA130  eAACmCCG96 eAGGmCTA290 
-##    63.49512    71.80965    88.49407    96.19450   105.42687   135.17296 
-## eACTmCAC115    wmc44_1B 
-##   165.85689   177.58855</code></pre>
+<pre><code>##    wmc44_1B eACTmCAC115 eAGGmCTA290  eAACmCCG96 eAGGmCTA130 eACTmCAC180 
+##     0.00000    11.73166    42.41559    72.16168    81.39404    89.09447 
+## eAGCmCTA234 eACGmCTG185 eATTmCGG110  BArc240_1B eACTmCAC172 eACTmCAC170 
+##   105.77889   114.09343   120.95402   122.25326   125.98568   127.02246 
+## eAACmCCC270 eAACmCCC176 eACTmCGG365    gwm18_1B B598mCGT390 eACTmCAC320 
+##   128.33014   130.76842   133.21060   134.52101   136.07698   142.55060 
+## eACTmCAC148 eAACmCCC272 
+##   147.67060   180.31822</code></pre>
 <p>That isn’t a problem here, though you can see the high error markers are all very close to adjacent markers, and presumably have some recombination between them. We can see this in more detail with this very useful plot:</p>
 <div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="Mapping-Markers.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotGeno</span>(AxC,<span class="dv">2</span>)</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-420-1.png" width="672" /></p>

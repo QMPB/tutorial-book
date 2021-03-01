@@ -24,7 +24,7 @@
 <meta name="author" content="NIAB 2021" />
 
 
-<meta name="date" content="2021-02-27" />
+<meta name="date" content="2021-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -299,18 +299,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1.3" data-path="Data-Visualization.html"><a href="Data-Visualization.html#trait-data"><i class="fa fa-check"></i><b>11.1.3</b> Trait data</a></li>
 <li class="chapter" data-level="11.1.4" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-3"><i class="fa fa-check"></i><b>11.1.4</b> The Exercise</a></li>
 </ul></li>
+<li class="chapter" data-level="11.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#helium-pedigree-visualization-software"><i class="fa fa-check"></i><b>11.2</b> Helium pedigree visualization software</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="Data-Visualization.html"><a href="Data-Visualization.html#introduction-3"><i class="fa fa-check"></i><b>11.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="11.2.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-4"><i class="fa fa-check"></i><b>11.2.2</b> The exercise</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="selection-theory.html"><a href="selection-theory.html"><i class="fa fa-check"></i><b>12</b> Selection theory and breeding program design.</a></li>
 <li class="chapter" data-level="13" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html"><i class="fa fa-check"></i><b>13</b> Genomic prediction.</a>
 <ul>
 <li class="chapter" data-level="13.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#ridge-regression-and-genomic-prediction-in-excel"><i class="fa fa-check"></i><b>13.1</b> Ridge regression and Genomic Prediction in Excel</a>
 <ul>
-<li class="chapter" data-level="13.1.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-3"><i class="fa fa-check"></i><b>13.1.1</b> Introduction</a></li>
-<li class="chapter" data-level="13.1.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-exercise-4"><i class="fa fa-check"></i><b>13.1.2</b> The Exercise</a></li>
+<li class="chapter" data-level="13.1.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-4"><i class="fa fa-check"></i><b>13.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.1.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-exercise-5"><i class="fa fa-check"></i><b>13.1.2</b> The Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="13.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#genomic-prediction-with-rrblup"><i class="fa fa-check"></i><b>13.2</b> Genomic Prediction with rrBLUP</a>
 <ul>
-<li class="chapter" data-level="13.2.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-4"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-5"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-dataset"><i class="fa fa-check"></i><b>13.2.2</b> The dataset</a></li>
 <li class="chapter" data-level="13.2.3" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#loading-and-preparing-the-data"><i class="fa fa-check"></i><b>13.2.3</b> Loading and preparing the data</a></li>
 <li class="chapter" data-level="13.2.4" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#examining-the-data-structure"><i class="fa fa-check"></i><b>13.2.4</b> Examining the data structure</a></li>
@@ -404,7 +409,7 @@ There is a R script the data folder for today: “Imputation_Script_2021.R.” Y
 <span id="cb426-4"><a href="Imputation.html#cb426-4" aria-hidden="true" tabindex="-1"></a>na_count <span class="ot">&lt;-</span>(na_count<span class="sc">/</span><span class="dv">710</span>)<span class="sc">*</span><span class="dv">100</span></span>
 <span id="cb426-5"><a href="Imputation.html#cb426-5" aria-hidden="true" tabindex="-1"></a><span class="co">#pull mean</span></span>
 <span id="cb426-6"><a href="Imputation.html#cb426-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(na_count)</span></code></pre></div>
-<pre><code>## [1] 9.999718</code></pre>
+<pre><code>## [1] 10.01944</code></pre>
 <p>On average we have 10% missing data per marker, as we intended. You now have a data set ready to be imputed.</p>
 </div>
 <div id="svd-imputation" class="section level2" number="8.4">
@@ -456,16 +461,16 @@ There is a R script the data folder for today: “Imputation_Script_2021.R.” Y
 <span id="cb438-2"><a href="Imputation.html#cb438-2" aria-hidden="true" tabindex="-1"></a>imp.test</span></code></pre></div>
 <pre><code>##        original
 ## imputed     0     1     2
-##       0  8164   238  1851
-##       1  5646   437  6330
-##       2  1948   242 10643</code></pre>
+##       0  8514   226  1758
+##       1  5623   416  6311
+##       2  1908   275 10538</code></pre>
 <p>A single number we can use summarise the accuracy of the imputation is the contingency chi-squared test statistic – high values are good in this context: we want the rows (imputed) and columns (observed) to be highly dependent on each other.</p>
 <div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="Imputation.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(imp.test) </span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  imp.test
-## X-squared = 9946.2, df = 4, p-value &lt; 2.2e-16</code></pre>
+## X-squared = 10426, df = 4, p-value &lt; 2.2e-16</code></pre>
 <p>Has the imputation done a good job? Record the chisq value on the board in the classroom for subsequent comparison with other runs.</p>
 <p>Aside from our methods comparison, there are a couple more things that can be investigated with softImpute:</p>
 <ol style="list-style-type: lower-alpha">
@@ -488,8 +493,8 @@ imputed   0     1     2
 <div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="Imputation.html#cb444-1" aria-hidden="true" tabindex="-1"></a>imp.test<span class="fl">.2</span></span></code></pre></div>
 <pre><code>##        original
 ## imputed     0     1     2
-##       0 11544   462  4269
-##       2  4214   455 14555</code></pre>
+##       0 11840   423  4081
+##       2  4205   494 14526</code></pre>
 <p>In practice, the wisdom of this reclassification is unclear. Carrying out the same exercise using mean imputation amounts to substituting all missing values by the most common allele, which doesn’t seem very sensible.</p>
 <p>Why did we choose a value for <code>max.rank</code> of 100? This was initially by trial and error on my part. Too low a rank and the prediction is too poor. Too high a value and there is a risk of overfitting: additional eigenvalues give a better fit to the observed data but are adding noise to the predictions.</p>
 <p>One approach to determining an appropriate value which works on these data, at least, is as follows:</p>
@@ -532,16 +537,16 @@ imputed   0     1     2
 <p>Inspect the results:</p>
 <div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="Imputation.html#cb450-1" aria-hidden="true" tabindex="-1"></a>imp.test.av</span></code></pre></div>
 <pre><code>##               original
-## imputed    0    1    2
-##       0 6154  153  979
-##       1 7891  555 7922
-##       2 1713  209 9923</code></pre>
+## imputed     0     1     2
+##       0  6550   176  1038
+##       1  7704   501  7561
+##       2  1791   240 10008</code></pre>
 <div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="Imputation.html#cb452-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(imp.test.av)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  imp.test.av
-## X-squared = 9489.8, df = 4, p-value &lt; 2.2e-16</code></pre>
+## X-squared = 9675.2, df = 4, p-value &lt; 2.2e-16</code></pre>
 <p>What do you think? We’ll collate the results over repeat runs and different values of LD threshold and discuss.</p>
 </div>
 <div id="random-forest-imputation" class="section level2" number="8.6">
@@ -564,23 +569,23 @@ imputed   0     1     2
 <p>We can also estimate imputation error using the function <code>mixError</code>:</p>
 <div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="Imputation.html#cb458-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mixError</span>(missing.imp.forest<span class="sc">$</span>ximp,missing,sample<span class="fl">.500</span>)</span></code></pre></div>
 <pre><code>##       PFC 
-## 0.2597538</code></pre>
+## 0.2518204</code></pre>
 <p>for mixError, values close to 0 are good, close to 1 are bad.</p>
 <p>We compare across methods using our earlier code, summarising the results:</p>
 <div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="Imputation.html#cb460-1" aria-hidden="true" tabindex="-1"></a>chi.forest<span class="ot">&lt;-</span><span class="fu">table</span>(missing.imp.forest<span class="sc">$</span>ximp[<span class="fu">is.na</span>(missing)],sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)],<span class="at">dnn=</span><span class="fu">c</span>(<span class="st">&quot;imputed&quot;</span>,<span class="st">&quot;       original&quot;</span>))</span>
 <span id="cb460-2"><a href="Imputation.html#cb460-2" aria-hidden="true" tabindex="-1"></a>chi.forest</span></code></pre></div>
 <pre><code>##               original
 ## imputed     0     1     2
-##       0 11586   439  4128
-##       1    12    10    14
-##       2  4160   468 14682</code></pre>
+##       0 11944   458  3936
+##       1    14    16    19
+##       2  4087   443 14652</code></pre>
 <div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="Imputation.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(chi.forest) </span></code></pre></div>
 <pre><code>## Warning in chisq.test(chi.forest): Chi-squared approximation may be incorrect</code></pre>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  chi.forest
-## X-squared = 9310.1, df = 4, p-value &lt; 2.2e-16</code></pre>
+## X-squared = 10045, df = 4, p-value &lt; 2.2e-16</code></pre>
 <p>How does this compare with what we had before? Are there any differences in the pattern of assignment to different classes?</p>
 </div>
 <div id="summary-1" class="section level2" number="8.7">
