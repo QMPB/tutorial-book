@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Cross sites analysis in R. | Quantitative Methods in Plant Breeding: The Digital Tutorials.</title>
+  <title>Chapter 6 Trial analysis (cross-sites). | Quantitative Methods in Plant Breeding: The Digital Tutorials.</title>
   <meta name="description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Cross sites analysis in R. | Quantitative Methods in Plant Breeding: The Digital Tutorials." />
+  <meta property="og:title" content="Chapter 6 Trial analysis (cross-sites). | Quantitative Methods in Plant Breeding: The Digital Tutorials." />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Cross sites analysis in R. | Quantitative Methods in Plant Breeding: The Digital Tutorials." />
+  <meta name="twitter:title" content="Chapter 6 Trial analysis (cross-sites). | Quantitative Methods in Plant Breeding: The Digital Tutorials." />
   
   <meta name="twitter:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
   <meta name="twitter:image" content="images/cover.jpg" />
@@ -24,7 +24,7 @@
 <meta name="author" content="NIAB 2021" />
 
 
-<meta name="date" content="2021-03-01" />
+<meta name="date" content="2021-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -208,7 +208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.2" data-path="Trial-design.html"><a href="Trial-design.html#final-message"><i class="fa fa-check"></i><b>4.4.2</b> Final message</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="Trial-analysis.html"><a href="Trial-analysis.html"><i class="fa fa-check"></i><b>5</b> Trial analysis (sugar beet example).</a>
+<li class="chapter" data-level="5" data-path="Trial-analysis.html"><a href="Trial-analysis.html"><i class="fa fa-check"></i><b>5</b> Trial analysis (single-site).</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#the-layout-of-the-sugar-beet-trial"><i class="fa fa-check"></i><b>5.1</b> The layout of the sugar beet trial</a></li>
 <li class="chapter" data-level="5.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#fixed-effects-random-effects-and-reml"><i class="fa fa-check"></i><b>5.2</b> Fixed effects, random effects and REML</a>
@@ -222,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#spatial-analysis"><i class="fa fa-check"></i><b>5.3</b> Spatial analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html"><i class="fa fa-check"></i><b>6</b> Cross sites analysis in R.</a>
+<li class="chapter" data-level="6" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html"><i class="fa fa-check"></i><b>6</b> Trial analysis (cross-sites).</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#blues-blups-and-one-stage-analysis"><i class="fa fa-check"></i><b>6.1</b> BLUEs, BLUPs and one stage analysis</a>
 <ul>
@@ -280,15 +280,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html"><i class="fa fa-check"></i><b>10</b> Mapping Markers and Quantitative Trait Loci.</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#introduction-2"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#constructing-a-genetic-map"><i class="fa fa-check"></i><b>10.2</b> Constructing a genetic map</a></li>
-<li class="chapter" data-level="10.3" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#formatting-and-reading-in-the-data"><i class="fa fa-check"></i><b>10.3</b> Formatting and reading in the data</a></li>
-<li class="chapter" data-level="10.4" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#a-quick-map"><i class="fa fa-check"></i><b>10.4</b> A quick map!</a></li>
-<li class="chapter" data-level="10.5" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#estimating-recombination-fractions"><i class="fa fa-check"></i><b>10.5</b> Estimating recombination fractions</a></li>
-<li class="chapter" data-level="10.6" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#forming-linkage-groups"><i class="fa fa-check"></i><b>10.6</b> Forming Linkage groups</a></li>
-<li class="chapter" data-level="10.7" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#marker-ordering"><i class="fa fa-check"></i><b>10.7</b> Marker ordering</a></li>
-<li class="chapter" data-level="10.8" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#improving-the-map"><i class="fa fa-check"></i><b>10.8</b> Improving the map</a></li>
-<li class="chapter" data-level="10.9" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#quality-control-commands-for-marker-qc-and-mapping"><i class="fa fa-check"></i><b>10.9</b> Quality Control commands for marker QC and mapping</a></li>
-<li class="chapter" data-level="10.10" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#asmap"><i class="fa fa-check"></i><b>10.10</b> ASMap</a></li>
+<li class="chapter" data-level="10.2" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#constructing-a-genetic-map"><i class="fa fa-check"></i><b>10.2</b> Constructing a genetic map</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#formatting-and-reading-in-the-data"><i class="fa fa-check"></i><b>10.2.1</b> Formatting and reading in the data</a></li>
+<li class="chapter" data-level="10.2.2" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#a-quick-map"><i class="fa fa-check"></i><b>10.2.2</b> A quick map!</a></li>
+<li class="chapter" data-level="10.2.3" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#estimating-recombination-fractions"><i class="fa fa-check"></i><b>10.2.3</b> Estimating recombination fractions</a></li>
+<li class="chapter" data-level="10.2.4" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#forming-linkage-groups"><i class="fa fa-check"></i><b>10.2.4</b> Forming Linkage groups</a></li>
+<li class="chapter" data-level="10.2.5" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#marker-ordering"><i class="fa fa-check"></i><b>10.2.5</b> Marker ordering</a></li>
+<li class="chapter" data-level="10.2.6" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#improving-the-map"><i class="fa fa-check"></i><b>10.2.6</b> Improving the map</a></li>
+<li class="chapter" data-level="10.2.7" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#quality-control-commands-for-marker-qc-and-mapping"><i class="fa fa-check"></i><b>10.2.7</b> Quality Control commands for marker QC and mapping</a></li>
+<li class="chapter" data-level="10.2.8" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#asmap"><i class="fa fa-check"></i><b>10.2.8</b> ASMap</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#qtl-mapping-in-rqtl"><i class="fa fa-check"></i><b>10.3</b> QTL mapping in R/qtl</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#genome-scan-single-qtl"><i class="fa fa-check"></i><b>10.3.1</b> Genome Scan – single QTL</a></li>
+<li class="chapter" data-level="10.3.2" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#genome-scan-covariates"><i class="fa fa-check"></i><b>10.3.2</b> Genome Scan – covariates</a></li>
+<li class="chapter" data-level="10.3.3" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#genome-scan-scantwo"><i class="fa fa-check"></i><b>10.3.3</b> Genome Scan – scantwo</a></li>
+<li class="chapter" data-level="10.3.4" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#genome-scan-composite-interval-mapping"><i class="fa fa-check"></i><b>10.3.4</b> Genome Scan – Composite Interval Mapping</a></li>
+<li class="chapter" data-level="10.3.5" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#mqm-multiple-qtl-mapping"><i class="fa fa-check"></i><b>10.3.5</b> MQM: multiple QTL mapping</a></li>
+<li class="chapter" data-level="10.3.6" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#rqtl2"><i class="fa fa-check"></i><b>10.3.6</b> R/QTL2</a></li>
+<li class="chapter" data-level="10.3.7" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#final-comments"><i class="fa fa-check"></i><b>10.3.7</b> Final comments</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="Data-Visualization.html"><a href="Data-Visualization.html"><i class="fa fa-check"></i><b>11</b> Data Visualization.</a>
 <ul>
@@ -305,7 +317,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.2.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-4"><i class="fa fa-check"></i><b>11.2.2</b> The exercise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="selection-theory.html"><a href="selection-theory.html"><i class="fa fa-check"></i><b>12</b> Selection theory and breeding program design.</a></li>
+<li class="chapter" data-level="12" data-path="selection-theory.html"><a href="selection-theory.html"><i class="fa fa-check"></i><b>12</b> Selection theory and breeding program design.</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="selection-theory.html"><a href="selection-theory.html#selecting-in-backcrosses"><i class="fa fa-check"></i><b>12.1</b> Selecting in backcrosses</a></li>
+<li class="chapter" data-level="12.2" data-path="selection-theory.html"><a href="selection-theory.html#size-of-breeding-programme-cycle-time-and-recurrent-selection-schemes."><i class="fa fa-check"></i><b>12.2</b> Size of breeding programme, cycle time and recurrent selection schemes.</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="selection-theory.html"><a href="selection-theory.html#size-of-breeding-programme"><i class="fa fa-check"></i><b>12.2.1</b> Size of breeding programme</a></li>
+<li class="chapter" data-level="12.2.2" data-path="selection-theory.html"><a href="selection-theory.html#speed-of-selection"><i class="fa fa-check"></i><b>12.2.2</b> Speed of selection</a></li>
+<li class="chapter" data-level="12.2.3" data-path="selection-theory.html"><a href="selection-theory.html#heritability"><i class="fa fa-check"></i><b>12.2.3</b> Heritability</a></li>
+<li class="chapter" data-level="12.2.4" data-path="selection-theory.html"><a href="selection-theory.html#family-structure-if-there-is-time"><i class="fa fa-check"></i><b>12.2.4</b> Family structure (if there is time)</a></li>
+<li class="chapter" data-level="12.2.5" data-path="selection-theory.html"><a href="selection-theory.html#sequential-selection"><i class="fa fa-check"></i><b>12.2.5</b> Sequential Selection</a></li>
+<li class="chapter" data-level="12.2.6" data-path="selection-theory.html"><a href="selection-theory.html#optimal-contribution-theory"><i class="fa fa-check"></i><b>12.2.6</b> Optimal Contribution Theory</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="13" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html"><i class="fa fa-check"></i><b>13</b> Genomic prediction.</a>
 <ul>
 <li class="chapter" data-level="13.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#ridge-regression-and-genomic-prediction-in-excel"><i class="fa fa-check"></i><b>13.1</b> Ridge regression and Genomic Prediction in Excel</a>
@@ -347,7 +371,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="Cross-site-analysis" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Cross sites analysis in R.</h1>
+<h1><span class="header-section-number">Chapter 6</span> Trial analysis (cross-sites).</h1>
 <p>We shall analyse the data from the TG association mapping panel to examine methods for analysing data across sites. For this we shall use the <code>lmer</code> package and (optionally) the <code>emmeans</code> package. Running <code>emmeans</code> here can add a lot to the run-time.</p>
 <p>It would be better to use ASReml or GenStat, or other commercial packages to analyse these data, but <code>lmer</code> in R is free and readily available.</p>
 <p>We shall compare variety effects from various types of analyses – BLUE / BLUP / one stage / two stage / weighted / and see what sort of a difference it makes?</p>
@@ -361,37 +385,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Read in the csv file “TG_all_data_for_stage_1.csv” and save as an object called TG</p></li>
 </ol>
 <p>We need to convert our experimental design columns to factors, to do by running the following:</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="Cross-site-analysis.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>){</span>
-<span id="cb336-2"><a href="Cross-site-analysis.html#cb336-2" aria-hidden="true" tabindex="-1"></a>  TG[,i]<span class="ot">&lt;-</span><span class="fu">factor</span>(TG[,i])</span>
-<span id="cb336-3"><a href="Cross-site-analysis.html#cb336-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="Cross-site-analysis.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>){</span>
+<span id="cb344-2"><a href="Cross-site-analysis.html#cb344-2" aria-hidden="true" tabindex="-1"></a>  TG[,i]<span class="ot">&lt;-</span><span class="fu">factor</span>(TG[,i])</span>
+<span id="cb344-3"><a href="Cross-site-analysis.html#cb344-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now inspect the data with:</p>
 <p><code>summary(TG)</code></p>
 <p><code>hist(TG$YLD_ADJ)</code></p>
 <p><code>hist(log(TG$YLD_ADJ))</code></p>
 <p><code>boxplot(TG$YLD~TG$SITE)</code></p>
 <p>Any comments on the data?</p>
-<p>The conventional way to analyse these data would be to first analyse each site (there are six here) separately, then take the line means from each site and analyse these in a second analysis fitting terms for varieties and sites with the interaction (varieties x sites) used as error. This approach, with minor modifications is still common. If there are no missing variety-site combinations, the estimates of average variety effects (the BLUEs) are identical to simply taking the average across sites. There is nothing wrong with it, but we ought to be able to do better. It is described as a two-stage analysis.</p>
-<p>Our data is of individual plot measurements at all sites. We can mimic simple analysis by:</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="Cross-site-analysis.html#cb337-1" aria-hidden="true" tabindex="-1"></a>TG.<span class="fl">2.</span>stage.mimic<span class="ot">&lt;-</span><span class="fu">lm</span>(YLD_ADJ<span class="sc">~</span>VAR<span class="sc">+</span>SITE<span class="sc">+</span>SITE<span class="sc">:</span>VAR<span class="sc">+</span>SITE<span class="sc">:</span>REP,<span class="at">data=</span>TG)</span></code></pre></div>
-
-<div class="rmdquiz">
-<strong>1</strong> Why do we have the term SITE:REP rather than just REP?
-Have a look at the analysis of variance table. Does it make sense? Are the F tests carried out correctly?
-</div>
+<p>The conventional way to analyse these data would be to first analyse each site (there are six here) separately, then take the line means from each site and analyse these in a second analysis fitting terms for varieties and sites with the interaction (varieties x sites) used as error. This approach, described as a two-stage analysis, with minor modifications is still common. If there are no missing variety-site combinations, the estimates of average variety effects (the BLUEs) are identical to simply taking the average across sites. There is nothing wrong with it, but we ought to be able to do better.</p>
 <p>We shall now repeat this analysis using <code>lmer</code>. Which terms should be fixed and which random?</p>
 <p>I fitted the model below. For simplicity and time, I’ve ignored the row and column structure of the experimental designs. This may take a little time to run.</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="Cross-site-analysis.html#cb338-1" aria-hidden="true" tabindex="-1"></a>TG.res<span class="fl">.1</span><span class="ot">&lt;-</span><span class="fu">lmer</span>(YLD_ADJ<span class="sc">~</span>(<span class="dv">1</span><span class="sc">|</span>SITE)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>REP)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>VAR)<span class="sc">+</span>VAR,<span class="at">data=</span>TG)</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="Cross-site-analysis.html#cb345-1" aria-hidden="true" tabindex="-1"></a>TG.res<span class="fl">.1</span><span class="ot">&lt;-</span><span class="fu">lmer</span>(YLD_ADJ<span class="sc">~</span>(<span class="dv">1</span><span class="sc">|</span>SITE)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>REP)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>VAR)<span class="sc">+</span>VAR,<span class="at">data=</span>TG)</span></code></pre></div>
 <p>Inspect the results:</p>
-<p><code>summary(TG.res.1)</code></p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="Cross-site-analysis.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(TG.res<span class="fl">.1</span>)</span></code></pre></div>
 <p>To inspect only the variance components we can use:</p>
 <p><code>VarCorr(TG.res.1)</code> on its own prints the standard deviations. Whereas, <code>print(VarCorr(TG.res.1),comp=c("Variance")</code> will give you variance:</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="Cross-site-analysis.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">VarCorr</span>(TG.res<span class="fl">.1</span>),<span class="at">comp=</span><span class="fu">c</span>(<span class="st">&quot;Variance&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="Cross-site-analysis.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">VarCorr</span>(TG.res<span class="fl">.1</span>),<span class="at">comp=</span><span class="fu">c</span>(<span class="st">&quot;Variance&quot;</span>))</span></code></pre></div>
 <pre><code>##  Groups   Name        Variance
 ##  SITE:VAR (Intercept)  28.042 
 ##  SITE:REP (Intercept)  13.391 
 ##  SITE     (Intercept) 379.378 
 ##  Residual              62.049</code></pre>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="Cross-site-analysis.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span> (TG.res<span class="fl">.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="Cross-site-analysis.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span> (TG.res<span class="fl">.1</span>)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ##     npar Sum Sq Mean Sq F value
 ## VAR  385 108474  281.75  4.5407</code></pre>
@@ -402,21 +419,19 @@ Have a look at the analysis of variance table. Does it make sense? Are the F tes
 Or you could look up the p-value via multiplying the F statistic by the degrees of freedom and treat the result as a chi-sq test statistic with the same number of df. This is perfectly acceptable for large experiments, as here.
 </div>
 <p>To get out the variety means we use this function from <code>emmeans</code> (make sure you have this package loaded).</p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="Cross-site-analysis.html#cb343-1" aria-hidden="true" tabindex="-1"></a>TG.BLUE<span class="ot">&lt;-</span><span class="fu">emmeans</span>(TG.res<span class="fl">.1</span>, <span class="sc">~</span> VAR)</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="Cross-site-analysis.html#cb351-1" aria-hidden="true" tabindex="-1"></a>TG.BLUE<span class="ot">&lt;-</span><span class="fu">emmeans</span>(TG.res<span class="fl">.1</span>, <span class="sc">~</span> VAR)</span></code></pre></div>
 <p>This gives a warning: you are advised to alter the options to emmeans: <code>emm_options(pbkrtest.limit = 4688)</code> but run time is then increased greatly, and in this case it makes no difference to the estimate of the BLUEs, so we shall ignore the warning.</p>
 <p>We could have done this using <code>predictmeans</code> and not run into these warnings, however, it takes about 5 minutes to run. Let’s check that the BLUEs we can get directly from the <code>lmer</code> output agree with those from <code>emmeans</code>. There’s a slightly messy workaround for extracting the BLUEs directly from lme4, remember you have to add the first variety to the rest of the data:</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="Cross-site-analysis.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="co">#extract fixed effects and add intercept to each</span></span>
-<span id="cb344-2"><a href="Cross-site-analysis.html#cb344-2" aria-hidden="true" tabindex="-1"></a>TG.BLUE2<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">fixef</span>(TG.res<span class="fl">.1</span>) <span class="sc">+</span> <span class="fu">fixef</span>(TG.res<span class="fl">.1</span>)[<span class="dv">1</span>])</span>
-<span id="cb344-3"><a href="Cross-site-analysis.html#cb344-3" aria-hidden="true" tabindex="-1"></a><span class="co">#change name of column to BLUE </span></span>
-<span id="cb344-4"><a href="Cross-site-analysis.html#cb344-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(TG.BLUE2)<span class="ot">&lt;-</span>(<span class="st">&quot;BLUE&quot;</span>)</span>
-<span id="cb344-5"><a href="Cross-site-analysis.html#cb344-5" aria-hidden="true" tabindex="-1"></a><span class="co">#the intercept (first variety) is x2 what it should be, so fix </span></span>
-<span id="cb344-6"><a href="Cross-site-analysis.html#cb344-6" aria-hidden="true" tabindex="-1"></a>TG.BLUE2[<span class="dv">1</span>,<span class="dv">1</span>]<span class="ot">&lt;-</span>TG.BLUE2[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb344-7"><a href="Cross-site-analysis.html#cb344-7" aria-hidden="true" tabindex="-1"></a><span class="co">#plot data against emmeans method</span></span>
-<span id="cb344-8"><a href="Cross-site-analysis.html#cb344-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">data.frame</span>(TG.BLUE)[,<span class="dv">2</span>],TG.BLUE2<span class="sc">$</span>BLUE)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-234-1.png" width="672" /></p>
-<p>Looks convincing! Both methods produce the same results. In passing we can check that the means from <code>emmeans</code> agree with simply getting the fixed effects from lm.</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="Cross-site-analysis.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">data.frame</span>(TG.BLUE)[,<span class="dv">2</span>],<span class="fu">fixef</span>(TG.res<span class="fl">.1</span>))</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-235-1.png" width="672" /></p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="Cross-site-analysis.html#cb352-1" aria-hidden="true" tabindex="-1"></a><span class="co">#extract fixed effects and add intercept to each</span></span>
+<span id="cb352-2"><a href="Cross-site-analysis.html#cb352-2" aria-hidden="true" tabindex="-1"></a>TG.BLUE2<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">fixef</span>(TG.res<span class="fl">.1</span>) <span class="sc">+</span> <span class="fu">fixef</span>(TG.res<span class="fl">.1</span>)[<span class="dv">1</span>])</span>
+<span id="cb352-3"><a href="Cross-site-analysis.html#cb352-3" aria-hidden="true" tabindex="-1"></a><span class="co">#change name of column to BLUE </span></span>
+<span id="cb352-4"><a href="Cross-site-analysis.html#cb352-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(TG.BLUE2)<span class="ot">&lt;-</span>(<span class="st">&quot;BLUE&quot;</span>)</span>
+<span id="cb352-5"><a href="Cross-site-analysis.html#cb352-5" aria-hidden="true" tabindex="-1"></a><span class="co">#the intercept (first variety) is x2 what it should be, so fix </span></span>
+<span id="cb352-6"><a href="Cross-site-analysis.html#cb352-6" aria-hidden="true" tabindex="-1"></a>TG.BLUE2[<span class="dv">1</span>,<span class="dv">1</span>]<span class="ot">&lt;-</span>TG.BLUE2[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb352-7"><a href="Cross-site-analysis.html#cb352-7" aria-hidden="true" tabindex="-1"></a><span class="co">#plot data against emmeans method</span></span>
+<span id="cb352-8"><a href="Cross-site-analysis.html#cb352-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">data.frame</span>(TG.BLUE)[,<span class="dv">2</span>],TG.BLUE2<span class="sc">$</span>BLUE)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-240-1.png" width="672" /></p>
+<p>Looks convincing! Both methods produce the same results.</p>
 <p>Comments?</p>
 <p>We want to save the BLUEs for comparison with others. We can do this using the <code>write.table</code> function:</p>
 <p><code>write.table(TG.BLUE,"TG.BLUE.txt")</code></p>
@@ -430,8 +445,8 @@ Or you could look up the p-value via multiplying the F statistic by the degrees 
 <li><p>We have lumped countries and years together into a single term: sites.</p></li>
 </ul>
 <p>Next, we shall repeat the analysis, but treat the varieties as random effects to estimate BLUPs. Paste the BLUPs into Excel, and record the variance components again</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="Cross-site-analysis.html#cb346-1" aria-hidden="true" tabindex="-1"></a>TG.res<span class="fl">.2</span><span class="ot">&lt;-</span><span class="fu">lmer</span>(YLD_ADJ<span class="sc">~</span>(<span class="dv">1</span><span class="sc">|</span>SITE)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>REP)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>VAR)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>VAR),<span class="at">data=</span>TG)</span>
-<span id="cb346-2"><a href="Cross-site-analysis.html#cb346-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">VarCorr</span>(TG.res<span class="fl">.2</span>),<span class="at">comp=</span><span class="fu">c</span>(<span class="st">&quot;Variance&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="Cross-site-analysis.html#cb353-1" aria-hidden="true" tabindex="-1"></a>TG.res<span class="fl">.2</span><span class="ot">&lt;-</span><span class="fu">lmer</span>(YLD_ADJ<span class="sc">~</span>(<span class="dv">1</span><span class="sc">|</span>SITE)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>REP)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>VAR)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>VAR),<span class="at">data=</span>TG)</span>
+<span id="cb353-2"><a href="Cross-site-analysis.html#cb353-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">VarCorr</span>(TG.res<span class="fl">.2</span>),<span class="at">comp=</span><span class="fu">c</span>(<span class="st">&quot;Variance&quot;</span>))</span></code></pre></div>
 <pre><code>##  Groups   Name        Variance
 ##  SITE:VAR (Intercept)  28.066 
 ##  VAR      (Intercept)  35.551 
@@ -439,16 +454,16 @@ Or you could look up the p-value via multiplying the F statistic by the degrees 
 ##  SITE     (Intercept) 379.817 
 ##  Residual              62.025</code></pre>
 <p>To get just the random effects for variety rather than a long list of all effects:</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="Cross-site-analysis.html#cb348-1" aria-hidden="true" tabindex="-1"></a>TG.BLUP<span class="ot">&lt;-</span><span class="fu">ranef</span>(TG.res<span class="fl">.2</span>)<span class="sc">$</span>VAR<span class="sc">+</span><span class="fu">fixef</span>(TG.res<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="Cross-site-analysis.html#cb355-1" aria-hidden="true" tabindex="-1"></a>TG.BLUP<span class="ot">&lt;-</span><span class="fu">ranef</span>(TG.res<span class="fl">.2</span>)<span class="sc">$</span>VAR<span class="sc">+</span><span class="fu">fixef</span>(TG.res<span class="fl">.2</span>)</span></code></pre></div>
 <p>How do the BLUPs compare to the BLUEs? Look at the correlations and plot:</p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="Cross-site-analysis.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(TG.BLUP[,<span class="dv">1</span>],<span class="fu">data.frame</span>(TG.BLUE)[,<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="Cross-site-analysis.html#cb356-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(TG.BLUP[,<span class="dv">1</span>],<span class="fu">data.frame</span>(TG.BLUE)[,<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## [1] 0.9953824</code></pre>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="Cross-site-analysis.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(TG.BLUP[,<span class="dv">1</span>],<span class="fu">data.frame</span>(TG.BLUE)[,<span class="dv">2</span>])</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-238-1.png" width="672" /></p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="Cross-site-analysis.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(TG.BLUP[,<span class="dv">1</span>],<span class="fu">data.frame</span>(TG.BLUE)[,<span class="dv">2</span>])</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-243-1.png" width="672" /></p>
 <p>To test the significance of random effects in mixed models, we use a likelihood ratio test (LRT). This is a very commonly used method in statistics and quantitative genetics. The difference between 2 x the log-likelihood of two models is approximately distributed as a chi-squared statistic with df (for the test) equal to the difference in df between the two models. This method is not appropriate for testing the significance of fixed effects in mixed models however. To get the log-likelihood of the model you should have just fitted:</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="Cross-site-analysis.html#cb352-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logLik</span>(TG.res<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="Cross-site-analysis.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logLik</span>(TG.res<span class="fl">.2</span>)</span></code></pre></div>
 <pre><code>## &#39;log Lik.&#39; -17385.84 (df=6)</code></pre>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="Cross-site-analysis.html#cb354-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logLik</span>(<span class="fu">lmer</span>(YLD_ADJ<span class="sc">~</span>(<span class="dv">1</span><span class="sc">|</span>SITE)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>REP)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>VAR),<span class="at">data=</span>TG))</span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="Cross-site-analysis.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logLik</span>(<span class="fu">lmer</span>(YLD_ADJ<span class="sc">~</span>(<span class="dv">1</span><span class="sc">|</span>SITE)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>REP)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>VAR),<span class="at">data=</span>TG))</span></code></pre></div>
 <pre><code>## &#39;log Lik.&#39; -17499.43 (df=5)</code></pre>
 <p>The likelihoods can be difficult to interpret. Higher values (i.e. less negative values) indicate a better fit to the data. The original mode therefore gave a better fit but used up 1 df to do this. This is always the case: adding parameters gives a better fit (a smaller error variance in linear modeling) but each parameter requires 1 df. In mixed modeling, each variance component has 1df – to estimate the variance.</p>
 <p>The LRT is therefore 2 x (-17385.84 - -17499.43) with (6 - 5) df.</p>
@@ -465,11 +480,11 @@ LGE_2010      12.64
 LGE_2011      25.41
 NIAB_2010     14.72</code></pre>
 <p>These were estimated from a full analysis which included row and column terms (just as in the sugar beet example) so it isn’t a perfect match for the model we are using. It serves to illustrate the method. We simply tell <code>lmer</code> to include the weights:</p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="Cross-site-analysis.html#cb357-1" aria-hidden="true" tabindex="-1"></a>TG.res<span class="fl">.3</span><span class="ot">&lt;-</span><span class="fu">lmer</span>(YLD_ADJ<span class="sc">~</span>(<span class="dv">1</span><span class="sc">|</span>SITE)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>REP)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>VAR)<span class="sc">+</span>VAR,<span class="at">weights =</span> WT,<span class="at">data=</span>TG)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="Cross-site-analysis.html#cb364-1" aria-hidden="true" tabindex="-1"></a>TG.res<span class="fl">.3</span><span class="ot">&lt;-</span><span class="fu">lmer</span>(YLD_ADJ<span class="sc">~</span>(<span class="dv">1</span><span class="sc">|</span>SITE)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>REP)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>SITE<span class="sc">:</span>VAR)<span class="sc">+</span>VAR,<span class="at">weights =</span> WT,<span class="at">data=</span>TG)</span></code></pre></div>
 <p><code>emmeans</code> will provide the BLUEs to compare results with the previous unweighted analysis.</p>
 
 <div class="rmdquiz">
-<strong>2</strong> Compare the standard errors from the two analyses as well as the BLUEs themselves. What do you find?
+<strong>1</strong> Compare the standard errors from the two analyses as well as the BLUEs themselves. What do you find?
 </div>
 <p>Finally, we shall export the BLUPs for each site. As an alternative we could make the sites x varieties effect fixed and estimate BLUEs for each site, but in practice this would give us the same result as if we analysed each site separately in a two-stage analysis. There are two possible advantages to using BLUPs. Firstly we automatically get an estimate for every variety, including those with missing data. Secondly, these estimates will be shrunk towards the overall sites BLUE depending on the magnitude of the sites x varieties interaction. This seems reasonable: if there is no interaction then whatever site we want to select for, we should just select on the overall mean yet if the interactions are very large we should select on the estimated effect from the single site analysis. Treating the interaction as random, we are in effect borrowing information from the other sites depending on how high the correlation is between site means. (This is a very similar approach to treating variety means at each site as separate traits and selecting on one trait (i.e. site) while incorporating information based on the correlation with other traits (i.e. sites). We shall return to correlated characters later in the course.)</p>
 <p>We just need to export the results from the analysis we have already carried out:</p>
@@ -479,7 +494,7 @@ NIAB_2010     14.72</code></pre>
 <p><code>getwd()</code></p>
 <p><code>write.csv(ranef(TG.res.1)$"SITE:VAR","site.var.csv")</code></p>
 <p><code>write.csv</code> is a version of <code>write.table</code> and writes csv files (so they can be read directly into Excel).</p>
-<p>After this, there is some tedious formatting of the results using vlookup since not all varieties are present in all sites. We require a column for each site, but we can’t simply cut and paste because not all varieties are present at all sites. I’ve done this for you. My results are in ‘results TG R.xlsx’ in the Chapter 5 data folder downloaded from the website. We want to compare the BLUPs we’ve estimated for each site with the means we can estimate from the site by site analyses. I have previously carried out the analysis for each site and results are also in the spreadsheet. To compare means we also need to add the average effect for each variety (from emmeans) onto the BLUP. I’ve also done this. Strictly, we should add on the average site (not variety) effect too, but as we are only interested in the correlation between sites this doesn’t matter.</p>
+<p>After this, there is some tedious formatting of the results using vlookup since not all varieties are present in all sites. We require a column for each site, but we can’t simply cut and paste because not all varieties are present at all sites. I’ve done this for you. My results are in ‘results TG R.xlsx’ in the Chapter 6 data folder downloaded from the website. We want to compare the BLUPs we’ve estimated for each site with the means we can estimate from the site by site analyses. I have previously carried out the analysis for each site and results are also in the spreadsheet. To compare means we also need to add the average effect for each variety (from emmeans) onto the BLUP. I’ve also done this. Strictly, we should add on the average site (not variety) effect too, but as we are only interested in the correlation between sites this doesn’t matter.</p>
 <p>I’ve done much of the tedious work for you here. It is the results that are important to think about. Correlating my shrunk estimates of variety effects with the individual site analysis I get:</p>
 <pre><code>CALLOW_2011 0.93
 FRANCE_2010 0.94
@@ -487,7 +502,11 @@ FRANCE_2011 0.95
 LGE_2010    0.87
 LGE_2011    0.94
 NIAB_2010   0.83</code></pre>
-<p>What do you think? What has happened to the correlation between sites:</p>
+
+<div class="rmdquiz">
+<strong>2</strong>
+What do you think? What has happened to the correlation between sites:
+</div>
 <p>On site specific BLUEs</p>
 <pre><code>              CALL11    FR10    FR11    LGE10   LG11    NIAB10
 CALLOW_2011   1.00      0.39    0.46    0.23    0.57    0.52
@@ -522,12 +541,12 @@ NIAB_2010                                               1.00</code></pre>
 <p>A comprehensive one-stage analysis, as implemented in Australia, will include the full experimental design at each site, with separate error variances for each site, analyse the data at site level with an AR1 x AR1 spatial model, incorporate information on relationships between varieties, and implement a more sophisticated G x E analysis than we have used here. Computation is in ASReml. That is beyond both the scope of this course and beyond me. Hans-Peter Piepho advocates use of the two-stage analysis, but weighting by the precision of the variety means, or better by the full variance-covariance matrix of variety effects. This has the advantage of making the analysis of individual sites much more flexible. Genetic relationships between varieties can also be incorporated. This too is beyond me. We shall carry out a simplified version:</p>
 <p>Approximate weights are 1/(variance a variety mean). These could be obtained from the output of emmeans for each site. Emmeans reports the standard error of the variety mean, so the weight would be <span class="math inline">\(1/se^2\)</span>. We could analyse each site in turn here, fitting row and column effects in addition to replicates, or carrying out a spatial analysis. However we shall approximate the weights as r/(error variance) where we shall use the same error variance reported earlier.</p>
 <p>Read in the csv file: ‘site_means_for_stage_2.csv,’ you should be able to say what each of the following commands does:</p>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="Cross-site-analysis.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="co">#to run the below line, you will need to remove: data/</span></span>
-<span id="cb361-2"><a href="Cross-site-analysis.html#cb361-2" aria-hidden="true" tabindex="-1"></a>TG2<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;data/site_means_for_stage_2.csv&quot;</span>,<span class="at">header=</span>T)</span>
-<span id="cb361-3"><a href="Cross-site-analysis.html#cb361-3" aria-hidden="true" tabindex="-1"></a>TG2<span class="sc">$</span>VAR<span class="ot">&lt;-</span><span class="fu">factor</span>(TG2<span class="sc">$</span>VAR)</span>
-<span id="cb361-4"><a href="Cross-site-analysis.html#cb361-4" aria-hidden="true" tabindex="-1"></a>TG2<span class="sc">$</span>SITE<span class="ot">&lt;-</span><span class="fu">factor</span>(TG2<span class="sc">$</span>SITE)</span>
-<span id="cb361-5"><a href="Cross-site-analysis.html#cb361-5" aria-hidden="true" tabindex="-1"></a>TG2.res<span class="fl">.1</span><span class="ot">&lt;-</span><span class="fu">lmer</span>(YLD_ADJ_av<span class="sc">~</span>(<span class="dv">1</span><span class="sc">|</span>SITE)<span class="sc">+</span>VAR,<span class="at">weights =</span> WT,<span class="at">data =</span> TG2)</span>
-<span id="cb361-6"><a href="Cross-site-analysis.html#cb361-6" aria-hidden="true" tabindex="-1"></a>TG2.BLUE<span class="ot">&lt;-</span><span class="fu">emmeans</span>(TG2.res<span class="fl">.1</span>,<span class="sc">~</span>VAR)</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="Cross-site-analysis.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="co">#to run the below line, you will need to remove: data/</span></span>
+<span id="cb368-2"><a href="Cross-site-analysis.html#cb368-2" aria-hidden="true" tabindex="-1"></a>TG2<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;data/site_means_for_stage_2.csv&quot;</span>,<span class="at">header=</span>T)</span>
+<span id="cb368-3"><a href="Cross-site-analysis.html#cb368-3" aria-hidden="true" tabindex="-1"></a>TG2<span class="sc">$</span>VAR<span class="ot">&lt;-</span><span class="fu">factor</span>(TG2<span class="sc">$</span>VAR)</span>
+<span id="cb368-4"><a href="Cross-site-analysis.html#cb368-4" aria-hidden="true" tabindex="-1"></a>TG2<span class="sc">$</span>SITE<span class="ot">&lt;-</span><span class="fu">factor</span>(TG2<span class="sc">$</span>SITE)</span>
+<span id="cb368-5"><a href="Cross-site-analysis.html#cb368-5" aria-hidden="true" tabindex="-1"></a>TG2.res<span class="fl">.1</span><span class="ot">&lt;-</span><span class="fu">lmer</span>(YLD_ADJ_av<span class="sc">~</span>(<span class="dv">1</span><span class="sc">|</span>SITE)<span class="sc">+</span>VAR,<span class="at">weights =</span> WT,<span class="at">data =</span> TG2)</span>
+<span id="cb368-6"><a href="Cross-site-analysis.html#cb368-6" aria-hidden="true" tabindex="-1"></a>TG2.BLUE<span class="ot">&lt;-</span><span class="fu">emmeans</span>(TG2.res<span class="fl">.1</span>,<span class="sc">~</span>VAR)</span></code></pre></div>
 
 <div class="rmdquiz">
 <strong>4</strong> Export the data and compare with the BLUEs from the previous analyses. Or plot / correlate with previous results we have saved. You should be able to edit the commands above to repeat these analyses with / without weighting and with varieties as a fixed or random term.
@@ -547,7 +566,7 @@ NIAB_2010                                               1.00</code></pre>
 <li><p>Should we treat differences between varieties within countries as fixed or random effects?</p></li>
 <li><p>Carry out the test for each trial site in turn. What do you make of the results?</p></li>
 </ol>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="Cross-site-analysis.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(TG.AMMI[,<span class="dv">3</span>]<span class="sc">~</span>COUNTRY,<span class="at">data=</span>TG.AMMI))</span></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="Cross-site-analysis.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(TG.AMMI[,<span class="dv">3</span>]<span class="sc">~</span>COUNTRY,<span class="at">data=</span>TG.AMMI))</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: TG.AMMI[, 3]
@@ -560,28 +579,28 @@ NIAB_2010                                               1.00</code></pre>
 <p>What is your interpretation of the variance components?</p>
 <p>We shall now get a matrix of G x E terms: deviations from row and column averages. There are various ways of getting at this. This is one:</p>
 <p>We shall use the command aggregate to group and average the data by country of origin.</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="Cross-site-analysis.html#cb364-1" aria-hidden="true" tabindex="-1"></a>country.means<span class="ot">&lt;-</span><span class="fu">aggregate</span>(TG.AMMI[,<span class="sc">-</span><span class="dv">1</span><span class="sc">:-</span><span class="dv">2</span>],<span class="fu">list</span>(TG.AMMI<span class="sc">$</span>COUNTRY),mean)</span>
-<span id="cb364-2"><a href="Cross-site-analysis.html#cb364-2" aria-hidden="true" tabindex="-1"></a>country.means</span></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="Cross-site-analysis.html#cb371-1" aria-hidden="true" tabindex="-1"></a>country.means<span class="ot">&lt;-</span><span class="fu">aggregate</span>(TG.AMMI[,<span class="sc">-</span><span class="dv">1</span><span class="sc">:-</span><span class="dv">2</span>],<span class="fu">list</span>(TG.AMMI<span class="sc">$</span>COUNTRY),mean)</span>
+<span id="cb371-2"><a href="Cross-site-analysis.html#cb371-2" aria-hidden="true" tabindex="-1"></a>country.means</span></code></pre></div>
 <pre><code>##   Group.1 CALLOW_2011 FRANCE_2010 FRANCE_2011 LGE_2010 LGE_2011 NIAB_2010
 ## 1     DEU    98.27816    124.4816    90.46138 86.33333 82.68701  68.45862
 ## 2     FRA    96.65825    125.2517    93.64142 86.40730 78.70014  67.00697
 ## 3     GBR   105.71096    125.7438    96.34849 83.18342 84.21452  70.53014</code></pre>
 <p>I can talk you through this command. Do you understand the <code>[,-1:-2]</code> reference? <code>list</code> is required to tell R that the term in the brackets is to be treated as a list – one of the R internal structures. Without it, you get an error. This is an annoying quirk of R: it is very fussy about the type of structure it is working on, but often the fix is very simple, as here, yet still takes some trial and error to identify.</p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="Cross-site-analysis.html#cb366-1" aria-hidden="true" tabindex="-1"></a>cm.rm<span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(country.means[,<span class="sc">-</span><span class="dv">1</span>])</span>
-<span id="cb366-2"><a href="Cross-site-analysis.html#cb366-2" aria-hidden="true" tabindex="-1"></a>cm.cm<span class="ot">&lt;-</span> <span class="fu">colMeans</span>(country.means[,<span class="sc">-</span><span class="dv">1</span>])</span>
-<span id="cb366-3"><a href="Cross-site-analysis.html#cb366-3" aria-hidden="true" tabindex="-1"></a>cm.mean<span class="ot">&lt;-</span><span class="fu">mean</span>(<span class="fu">as.matrix</span>(country.means[,<span class="sc">-</span><span class="dv">1</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="Cross-site-analysis.html#cb373-1" aria-hidden="true" tabindex="-1"></a>cm.rm<span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(country.means[,<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb373-2"><a href="Cross-site-analysis.html#cb373-2" aria-hidden="true" tabindex="-1"></a>cm.cm<span class="ot">&lt;-</span> <span class="fu">colMeans</span>(country.means[,<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb373-3"><a href="Cross-site-analysis.html#cb373-3" aria-hidden="true" tabindex="-1"></a>cm.mean<span class="ot">&lt;-</span><span class="fu">mean</span>(<span class="fu">as.matrix</span>(country.means[,<span class="sc">-</span><span class="dv">1</span>]))</span></code></pre></div>
 <p>It is reasonably obvious what these commands are doing, together with another example of a requirement to change the data type to get a command to run.</p>
 <p>Now that we have the marginal means, we can work out the GxE terms: in effect the error term from a simple linear model. Can you see what this is? Writing the model down may help if it isn’t obvious.</p>
 <p>The following bit of code - employing two loops, one nested inside the other, works out the deviations.</p>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="Cross-site-analysis.html#cb367-1" aria-hidden="true" tabindex="-1"></a>cm.GE<span class="ot">&lt;-</span>country.means</span>
-<span id="cb367-2"><a href="Cross-site-analysis.html#cb367-2" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>) {</span>
-<span id="cb367-3"><a href="Cross-site-analysis.html#cb367-3" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>){ </span>
-<span id="cb367-4"><a href="Cross-site-analysis.html#cb367-4" aria-hidden="true" tabindex="-1"></a>     cm.GE[j,i]<span class="ot">&lt;-</span></span>
-<span id="cb367-5"><a href="Cross-site-analysis.html#cb367-5" aria-hidden="true" tabindex="-1"></a>     cm.GE[j,i]<span class="sc">+</span> cm.mean <span class="sc">-</span> cm.rm[j]<span class="sc">-</span> cm.cm[(i<span class="dv">-1</span>)]</span>
-<span id="cb367-6"><a href="Cross-site-analysis.html#cb367-6" aria-hidden="true" tabindex="-1"></a>     }</span>
-<span id="cb367-7"><a href="Cross-site-analysis.html#cb367-7" aria-hidden="true" tabindex="-1"></a> }</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="Cross-site-analysis.html#cb374-1" aria-hidden="true" tabindex="-1"></a>cm.GE<span class="ot">&lt;-</span>country.means</span>
+<span id="cb374-2"><a href="Cross-site-analysis.html#cb374-2" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>) {</span>
+<span id="cb374-3"><a href="Cross-site-analysis.html#cb374-3" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>){ </span>
+<span id="cb374-4"><a href="Cross-site-analysis.html#cb374-4" aria-hidden="true" tabindex="-1"></a>     cm.GE[j,i]<span class="ot">&lt;-</span></span>
+<span id="cb374-5"><a href="Cross-site-analysis.html#cb374-5" aria-hidden="true" tabindex="-1"></a>     cm.GE[j,i]<span class="sc">+</span> cm.mean <span class="sc">-</span> cm.rm[j]<span class="sc">-</span> cm.cm[(i<span class="dv">-1</span>)]</span>
+<span id="cb374-6"><a href="Cross-site-analysis.html#cb374-6" aria-hidden="true" tabindex="-1"></a>     }</span>
+<span id="cb374-7"><a href="Cross-site-analysis.html#cb374-7" aria-hidden="true" tabindex="-1"></a> }</span></code></pre></div>
 <p>Let’s inspect cm.GE:</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="Cross-site-analysis.html#cb368-1" aria-hidden="true" tabindex="-1"></a>cm.GE</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="Cross-site-analysis.html#cb375-1" aria-hidden="true" tabindex="-1"></a>cm.GE</span></code></pre></div>
 <pre><code>##   Group.1 CALLOW_2011 FRANCE_2010 FRANCE_2011  LGE_2010   LGE_2011   NIAB_2010
 ## 1     DEU   -1.271135  -0.0109323   -2.355892  1.691808  1.4862798  0.45987222
 ## 2     FRA   -2.385319   1.2648473    1.329880  2.271503 -1.9948595 -0.48605159
@@ -595,37 +614,37 @@ NIAB_2010                                               1.00</code></pre>
 <p>So what? Well suppose you had a matrix of 20 sites and 1000 varieties – 20 000 entries. It is very difficult to identify or interpret patterns in the data. But two multiplicative iterations of the type described about would reduce the data to 20 x 2 eigenvectors for sites and 1000 x 2 eigenvectors for varieties. We are now trying to interpret 2040 rather than 20,000 data points, which is still quite a task but potentially easier. The interpretation is helped, however, because we can plot the data in something called a biplot. This is just a scattergram of the eigenvectors from the first and second iterations. It is called a biplot not because it is a plot in two dimensions, but because it plots both row (variety) and column (site) effects together, and these often lead to easier interpretation. We’ll see this once we produce our own.</p>
 <p>The second complication is that the solution to the multiplicative model is not unique. We could multiply every row eigenvalue, by any constant and divide the corresponding column eigenvalue by the same constant and we would get exactly the same prediction. The standard approach is to scale the sum of squares of row eigenvalues to 1 and independently scale the SS of the column eigenvalues to 1. When these two eigenvectors are multiplied together to estimate the values in the table, they then need rescaling. This rescaling factor is called the eigenvalue. That seems complicated, but the eigenvalue has the nice property that the bigger it is, the more variation is accounted for, so it is a measure of importance in its own right.</p>
 <p>Back to the data. To carry out the SVD:</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="Cross-site-analysis.html#cb370-1" aria-hidden="true" tabindex="-1"></a>svd.cm.GE<span class="ot">&lt;-</span><span class="fu">svd</span>(cm.GE[,<span class="sc">-</span><span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="Cross-site-analysis.html#cb377-1" aria-hidden="true" tabindex="-1"></a>svd.cm.GE<span class="ot">&lt;-</span><span class="fu">svd</span>(cm.GE[,<span class="sc">-</span><span class="dv">1</span>])</span></code></pre></div>
 <p>Inspect. We can discuss it.</p>
 <p>We could produce the biplot, as it’s just a scattergram, using the standard plot command, but there is a command biplot which helps interpretation:</p>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="Cross-site-analysis.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(svd.cm.GE<span class="sc">$</span>u,svd.cm.GE<span class="sc">$</span>v)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-253-1.png" width="672" /></p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="Cross-site-analysis.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(svd.cm.GE<span class="sc">$</span>u,svd.cm.GE<span class="sc">$</span>v)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-259-1.png" width="672" /></p>
 <p>That is a bit ugly though, so we’ll add some labels:</p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="Cross-site-analysis.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(svd.cm.GE<span class="sc">$</span>u,svd.cm.GE<span class="sc">$</span>v,<span class="at">xlabs =</span> <span class="fu">c</span>(<span class="st">&quot;DEU&quot;</span>,<span class="st">&quot;FRA&quot;</span>,<span class="st">&quot;GRB&quot;</span>),<span class="at">ylabs=</span><span class="fu">colnames</span>(cm.GE[<span class="sc">-</span><span class="dv">1</span>]),<span class="at">cex=</span><span class="fl">0.5</span>,<span class="at">xlab=</span><span class="st">&quot;eigenvector 1&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;eigenvector 2&quot;</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-254-1.png" width="672" /></p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="Cross-site-analysis.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(svd.cm.GE<span class="sc">$</span>u,svd.cm.GE<span class="sc">$</span>v,<span class="at">xlabs =</span> <span class="fu">c</span>(<span class="st">&quot;DEU&quot;</span>,<span class="st">&quot;FRA&quot;</span>,<span class="st">&quot;GRB&quot;</span>),<span class="at">ylabs=</span><span class="fu">colnames</span>(cm.GE[<span class="sc">-</span><span class="dv">1</span>]),<span class="at">cex=</span><span class="fl">0.5</span>,<span class="at">xlab=</span><span class="st">&quot;eigenvector 1&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;eigenvector 2&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-260-1.png" width="672" /></p>
 <p>Zoom the plot and we’ll discuss it: is there any visible evidence for country specific adaptation? To my mind, this has worked very well. I wish I had done this earlier as I would have included it in the publication.</p>
 <p>Finally, with the TG data, we could have produced a biplot on the variety x sites matrix, without first summarising over countries. Following the same commands as above run:</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="Cross-site-analysis.html#cb373-1" aria-hidden="true" tabindex="-1"></a>TG.AMMI.rowMeans<span class="ot">&lt;-</span><span class="fu">rowMeans</span>(TG.AMMI[,<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>])</span>
-<span id="cb373-2"><a href="Cross-site-analysis.html#cb373-2" aria-hidden="true" tabindex="-1"></a>TG.AMMI.colMeans<span class="ot">&lt;-</span><span class="fu">colMeans</span>(TG.AMMI[,<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>])</span>
-<span id="cb373-3"><a href="Cross-site-analysis.html#cb373-3" aria-hidden="true" tabindex="-1"></a>TG.AMMI.mean<span class="ot">&lt;-</span><span class="fu">mean</span>(<span class="fu">as.matrix</span>(TG.AMMI[,<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>]))        </span>
-<span id="cb373-4"><a href="Cross-site-analysis.html#cb373-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb373-5"><a href="Cross-site-analysis.html#cb373-5" aria-hidden="true" tabindex="-1"></a>TG.AMMI.GE<span class="ot">&lt;-</span>TG.AMMI</span>
-<span id="cb373-6"><a href="Cross-site-analysis.html#cb373-6" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>) {</span>
-<span id="cb373-7"><a href="Cross-site-analysis.html#cb373-7" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">371</span>){ </span>
-<span id="cb373-8"><a href="Cross-site-analysis.html#cb373-8" aria-hidden="true" tabindex="-1"></a>     TG.AMMI.GE[j,i]<span class="ot">&lt;-</span></span>
-<span id="cb373-9"><a href="Cross-site-analysis.html#cb373-9" aria-hidden="true" tabindex="-1"></a>     TG.AMMI.GE[j,i]<span class="sc">+</span> TG.AMMI.mean <span class="sc">-</span> TG.AMMI.rowMeans[j]<span class="sc">-</span> TG.AMMI.colMeans[(i<span class="dv">-2</span>)]</span>
-<span id="cb373-10"><a href="Cross-site-analysis.html#cb373-10" aria-hidden="true" tabindex="-1"></a>     }</span>
-<span id="cb373-11"><a href="Cross-site-analysis.html#cb373-11" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb373-12"><a href="Cross-site-analysis.html#cb373-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb373-13"><a href="Cross-site-analysis.html#cb373-13" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(TG.AMMI.GE[,<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>])</span>
-<span id="cb373-14"><a href="Cross-site-analysis.html#cb373-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rowMeans</span>(TG.AMMI.GE[,<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="Cross-site-analysis.html#cb380-1" aria-hidden="true" tabindex="-1"></a>TG.AMMI.rowMeans<span class="ot">&lt;-</span><span class="fu">rowMeans</span>(TG.AMMI[,<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>])</span>
+<span id="cb380-2"><a href="Cross-site-analysis.html#cb380-2" aria-hidden="true" tabindex="-1"></a>TG.AMMI.colMeans<span class="ot">&lt;-</span><span class="fu">colMeans</span>(TG.AMMI[,<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>])</span>
+<span id="cb380-3"><a href="Cross-site-analysis.html#cb380-3" aria-hidden="true" tabindex="-1"></a>TG.AMMI.mean<span class="ot">&lt;-</span><span class="fu">mean</span>(<span class="fu">as.matrix</span>(TG.AMMI[,<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>]))        </span>
+<span id="cb380-4"><a href="Cross-site-analysis.html#cb380-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb380-5"><a href="Cross-site-analysis.html#cb380-5" aria-hidden="true" tabindex="-1"></a>TG.AMMI.GE<span class="ot">&lt;-</span>TG.AMMI</span>
+<span id="cb380-6"><a href="Cross-site-analysis.html#cb380-6" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>) {</span>
+<span id="cb380-7"><a href="Cross-site-analysis.html#cb380-7" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">371</span>){ </span>
+<span id="cb380-8"><a href="Cross-site-analysis.html#cb380-8" aria-hidden="true" tabindex="-1"></a>     TG.AMMI.GE[j,i]<span class="ot">&lt;-</span></span>
+<span id="cb380-9"><a href="Cross-site-analysis.html#cb380-9" aria-hidden="true" tabindex="-1"></a>     TG.AMMI.GE[j,i]<span class="sc">+</span> TG.AMMI.mean <span class="sc">-</span> TG.AMMI.rowMeans[j]<span class="sc">-</span> TG.AMMI.colMeans[(i<span class="dv">-2</span>)]</span>
+<span id="cb380-10"><a href="Cross-site-analysis.html#cb380-10" aria-hidden="true" tabindex="-1"></a>     }</span>
+<span id="cb380-11"><a href="Cross-site-analysis.html#cb380-11" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb380-12"><a href="Cross-site-analysis.html#cb380-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb380-13"><a href="Cross-site-analysis.html#cb380-13" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(TG.AMMI.GE[,<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>])</span>
+<span id="cb380-14"><a href="Cross-site-analysis.html#cb380-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rowMeans</span>(TG.AMMI.GE[,<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>])</span></code></pre></div>
 <p>Then we can run svd and plot the results:</p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="Cross-site-analysis.html#cb374-1" aria-hidden="true" tabindex="-1"></a>svd.TG.AMMI.GE<span class="ot">&lt;-</span><span class="fu">svd</span>(TG.AMMI.GE[,<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>])</span>
-<span id="cb374-2"><a href="Cross-site-analysis.html#cb374-2" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(svd.TG.AMMI.GE<span class="sc">$</span>u,svd.TG.AMMI.GE<span class="sc">$</span>v,<span class="at">cex=</span><span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-256-1.png" width="672" /></p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="Cross-site-analysis.html#cb381-1" aria-hidden="true" tabindex="-1"></a>svd.TG.AMMI.GE<span class="ot">&lt;-</span><span class="fu">svd</span>(TG.AMMI.GE[,<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>])</span>
+<span id="cb381-2"><a href="Cross-site-analysis.html#cb381-2" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(svd.TG.AMMI.GE<span class="sc">$</span>u,svd.TG.AMMI.GE<span class="sc">$</span>v,<span class="at">cex=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-262-1.png" width="672" /></p>
 <p>Can you make sense of that? It is a little easier if we produce plots for each country of origin in turn. For example for the UK:</p>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="Cross-site-analysis.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(svd.TG.AMMI.GE<span class="sc">$</span>u[TG.AMMI<span class="sc">$</span>COUNTRY<span class="sc">==</span><span class="st">&quot;GBR&quot;</span>,],svd.TG.AMMI.GE<span class="sc">$</span>v,<span class="at">cex=</span><span class="fl">0.5</span>,<span class="at">ylabs=</span><span class="fu">colnames</span>(TG.AMMI[,<span class="sc">-</span><span class="dv">1</span><span class="sc">:-</span><span class="dv">2</span>]))</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-257-1.png" width="672" /></p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="Cross-site-analysis.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(svd.TG.AMMI.GE<span class="sc">$</span>u[TG.AMMI<span class="sc">$</span>COUNTRY<span class="sc">==</span><span class="st">&quot;GBR&quot;</span>,],svd.TG.AMMI.GE<span class="sc">$</span>v,<span class="at">cex=</span><span class="fl">0.5</span>,<span class="at">ylabs=</span><span class="fu">colnames</span>(TG.AMMI[,<span class="sc">-</span><span class="dv">1</span><span class="sc">:-</span><span class="dv">2</span>]))</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-263-1.png" width="672" /></p>
 <p>Any better?</p>
 
 </div>
