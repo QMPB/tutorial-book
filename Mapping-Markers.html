@@ -24,7 +24,7 @@
 <meta name="author" content="NIAB 2021" />
 
 
-<meta name="date" content="2021-03-02" />
+<meta name="date" content="2021-03-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -298,9 +298,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.3" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#genome-scan-scantwo"><i class="fa fa-check"></i><b>10.3.3</b> Genome Scan – scantwo</a></li>
 <li class="chapter" data-level="10.3.4" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#genome-scan-composite-interval-mapping"><i class="fa fa-check"></i><b>10.3.4</b> Genome Scan – Composite Interval Mapping</a></li>
 <li class="chapter" data-level="10.3.5" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#mqm-multiple-qtl-mapping"><i class="fa fa-check"></i><b>10.3.5</b> MQM: multiple QTL mapping</a></li>
-<li class="chapter" data-level="10.3.6" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#rqtl2"><i class="fa fa-check"></i><b>10.3.6</b> R/QTL2</a></li>
+<li class="chapter" data-level="10.3.6" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#some-commands-for-mapping-in-markers-in-rqtl"><i class="fa fa-check"></i><b>10.3.6</b> Some commands for mapping in markers in R/qtl</a></li>
 <li class="chapter" data-level="10.3.7" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#final-comments"><i class="fa fa-check"></i><b>10.3.7</b> Final comments</a></li>
 </ul></li>
+<li class="chapter" data-level="10.4" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#rqtl2"><i class="fa fa-check"></i><b>10.4</b> R/QTL2</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="Data-Visualization.html"><a href="Data-Visualization.html"><i class="fa fa-check"></i><b>11</b> Data Visualization.</a>
 <ul>
@@ -681,35 +682,37 @@ Compare error rates of 0.0001, 0.01, 0.1 and 0.5. What do you notice about the i
 <p>And take a look at the high error LOD markers:</p>
 <div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="Mapping-Markers.html#cb565-1" aria-hidden="true" tabindex="-1"></a><span class="fu">top.errorlod</span>(AxC,<span class="dv">2</span>,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##   chr id      marker errorlod
-## 1   2 78 eACTmCAC172 3.743026
-## 2   2  5 eACTmCAC320 2.827774
-## 3   2 54 eAACmCCC176 2.671165
-## 4   2  8 eACTmCAC148 2.406370
-## 5   2 37 eACTmCAC148 2.406370
-## 6   2 75 eACTmCAC148 2.186911</code></pre>
+## 1   2 78 eACTmCAC172 3.740021
+## 2   2 54 eAACmCCC176 3.222779
+## 3   2  5 eACTmCAC320 2.835562
+## 4   2  8 eACTmCAC148 2.603951
+## 5   2 37 eACTmCAC148 2.603951
+## 6   2 75 eACTmCAC148 2.382449</code></pre>
 <p>With two markers given with the same map location (ignoring the effect of jitter) any observed recombination will generate a big LOD. Taking a look at the map:</p>
 <div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="Mapping-Markers.html#cb567-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pull.map</span>(AxC,<span class="dv">2</span>) </span></code></pre></div>
-<pre><code>## eAACmCCC272 B598mCGT390 eACTmCGG365 eAACmCCC176 eACTmCAC148 eACTmCAC320 
-##     0.00000    28.03895    31.16498    33.74515    42.02983    46.77959 
-## eAACmCCC270 eACTmCAC172 eACTmCAC170    gwm18_1B  BArc240_1B eATTmCGG110 
-##    49.91304    52.07325    52.90993    54.21573    55.51658    56.81546 
+<pre><code>## eAACmCCC272 B598mCGT390 eACTmCGG365 eAACmCCC176    gwm18_1B eACTmCAC320 
+##     0.00000    28.03907    31.16444    33.61165    36.05915    39.18288 
+## eACTmCAC148 eAACmCCC270 eACTmCAC172 eACTmCAC170  BArc240_1B eATTmCGG110 
+##    43.86264    49.19050    51.35663    52.19681    54.84212    56.14110 
 ## eACGmCTG185 eAGCmCTA234 eACTmCAC180 eAGGmCTA130  eAACmCCG96 eAGGmCTA290 
-##    63.67606    71.99059    88.67501    96.37544   105.60780   135.35389 
+##    63.00170    71.31623    88.00065    95.70108   104.93344   134.67953 
 ## eACTmCAC115    wmc44_1B 
-##   166.03782   177.76948</code></pre>
+##   165.36346   177.09512</code></pre>
 <p>That isn’t a problem here, though you can see the high error markers are all very close to adjacent markers, and presumably have some recombination between them. We can see this in more detail with this very useful plot:</p>
 <div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="Mapping-Markers.html#cb569-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotGeno</span>(AxC,<span class="dv">2</span>)</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-429-1.png" width="672" /></p>
-<p>White and black circles indicate markers from each of the two parents. Blue crosses indicate cross-overs. Red squares (none here) highlight genotypes with LODs &gt; the error LOD threshold (default 4). A single double recombination event can however clearly be seen around the highest error LOD marker eACTmCAC172 (around 60 or 125cM depending on the orientation of the chromosome) for the individual at the bottom of the plot, despite the gaps to the neighbouring markers being 0.8 and 1.2cM respectively. This maybe a genotype error. Multiple double recombinant individuals in such a narrow interval would be a sure sign of a mapping or genotype error, suggesting the marker should be dropped.</p>
-<p>Other useful quality control tools are listed in the table below. The graphical tools are particularly helpful for detecting regions of the map that require further work. For example <code>plotRF(AxC)</code> plots pairwise recombination frequencies across all chromosomes or a restricted set: <code>plotRF(AxC,chr=1:5)</code>. It can clearly be seen that the ordering on Chromosome 1 can still be improved:</p>
+<p>White and black circles indicate markers from each of the two parents. Blue crosses indicate cross-overs. Red squares (none here) highlight genotypes with LODs &gt; the error LOD threshold (default 4). A single double recombination event can however clearly be seen around the highest error LOD marker eACTmCAC172 (around 60 or 125cM depending on the orientation of the chromosome) for the individual at the bottom of the plot, despite the gaps to the neighbouring markers being 0.8 and 1.2cM respectively. This maybe a genotype error. Multiple double recombinant individuals in such a narrow interval would be a sure sign of a mapping or genotype error, suggesting the marker should be dropped.
+Other useful quality control tools are listed in the table below. The graphical tools are particularly helpful for detecting regions of the map that require further work. For example <code>plotRF(AxC)</code> plots pairwise recombination frequencies across all chromosomes or a restricted set: <code>plotRF(AxC,chr=1:5)</code>. In our case, chromosome 1 looks very well ordered.</p>
 <div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="Mapping-Markers.html#cb570-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRF</span>(AxC,<span class="at">chr=</span><span class="dv">1</span>)</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-430-1.png" width="672" /></p>
+<p>However, with the same dataset we have observed issues with this ordering before, take a look at the image below, it can clearly be seen that the ordering of this Chromosome 1 example could still be improved:</p>
+<p><img src="images/Chrome_1_error.png" /></p>
 
 <div class="rmdquiz">
 <p><strong>6</strong></p>
-The block of markers 1:3 appear to be more closely linked to markers 11:14. We could swap their position as a block and see if it made an improvement. This anomaly may help explain some of the very long inter-marker distances we observed at the start of chromosome 1, that cause this chromosome to be so much longer than all the rest. What do you think might be going on here?
+In the image above. The block of markers 1:3 appear to be more closely linked to markers 11:14. In this case, we could swap their position as a block and see if it made an improvement. This anomaly was observed in the same dataset we are using and may help explain some of the very long inter-marker distances we observed at the start of chromosome 1, that cause this chromosome to be so much longer than all the rest. What do you think might be going on here in the image above?
 </div>
-<p>This last observation indicates we still have some way to go in improving our map! In reality, several cycles of improvement and QC will be involved in creating a final map; this tutorial has given a quick overview of the main approaches. It can be seen that R/qtl has excellent tools for detecting and displaying potential genotype errors: a table of key Quality Control commands is given below. There is plenty of good documentation on how to map markers in r/qtl, including the book <span class="citation"><a href="references.html#ref-broman_guide_2009" role="doc-biblioref">Broman and Sen</a> (<a href="references.html#ref-broman_guide_2009" role="doc-biblioref">2009</a>)</span>, though it is not free, and the discussion page mentioned at the start of the tutorial.</p>
+<p>Overall we still have some way to go in improving our map! In reality, several cycles of improvement and QC will be involved in creating a final map; this tutorial has given a quick overview of the main approaches. It can be seen that R/qtl has excellent tools for detecting and displaying potential genotype errors: a table of key Quality Control commands is given below. There is plenty of good documentation on how to map markers in r/qtl, including the book <span class="citation"><a href="references.html#ref-broman_guide_2009" role="doc-biblioref">Broman and Sen</a> (<a href="references.html#ref-broman_guide_2009" role="doc-biblioref">2009</a>)</span>, though it is not free, and the discussion page mentioned at the start of the tutorial.</p>
 </div>
 <div id="quality-control-commands-for-marker-qc-and-mapping" class="section level3" number="10.2.7">
 <h3><span class="header-section-number">10.2.7</span> Quality Control commands for marker QC and mapping</h3>
@@ -812,44 +815,44 @@ n.perm = n    Permutes the phenotype n times and reports the maximum LOD for eac
 <div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="Mapping-Markers.html#cb586-1" aria-hidden="true" tabindex="-1"></a>scanone.result<span class="ot">&lt;-</span><span class="fu">scanone</span>(AxC, <span class="at">pheno.col=</span><span class="dv">3</span>,<span class="at">model=</span><span class="st">&quot;normal&quot;</span>,<span class="at">method=</span><span class="st">&quot;hk&quot;</span>) </span></code></pre></div>
 <p>will scan the whole genome for the phenotype in the third column of the data matrix using Haley-Knott regression – i.e. interval mapping by least squares.</p>
 <div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="Mapping-Markers.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(scanone.result) </span></code></pre></div>
-<pre><code>##                 chr    pos      lod
-## c1.loc190         1 190.00  1.32962
-## eAACmCCG96        2 105.61  1.18097
-## gwm617.2_6A       3  98.19  1.25221
-## BArc20_7B         4  88.49  0.44606
-## TAglUt_1A         5  98.38  1.08510
-## SBm1-RotHpAtH5D   6  14.38 13.57136
-## wmc453.1_2A       7  28.51  0.10169
-## WMC489_5A         8  74.18  0.27425
-## AFLP43-160Bp      9   1.31  5.26837
-## eAACmCCC236      10   0.00  0.54297
-## gwm614.2_2B      11   2.60  0.07646
-## c12.loc4         12   4.00  0.17256
-## eAGGmCTA350      13  48.71  0.44250
-## gdm72_3D         14   9.82  0.52445
-## c15.loc32        15  32.00  0.31542
-## c16.loc2         16   2.00  0.44217
-## c17.loc22        17  22.00  1.17265
-## c18.loc26        18  26.00  0.60374
-## gwm614.1_2A      19  12.50  0.00948
-## eAGCmCTA240      20  13.11  0.69652
-## BArc170_4A       21   3.73  0.14507
-## eACTmCAC375      22  10.25  0.34791
-## gwm631_7A        23   5.49  0.53412
-## BArc97_7D        24   0.00  0.04197
-## c25.loc2         25   2.00  0.02293
-## c26.loc10        26  10.00  0.05409
-## c27.loc58        27  58.00  0.57581
-## B598mCGT205      28   0.00  0.22441
-## gwm325_6D        29  10.00  0.08418
-## gwm437_7D        30   0.00  0.10709
-## c31.loc-1        31  -1.00  0.14200</code></pre>
+<pre><code>##              chr    pos      lod
+## c1.loc240      1 240.00  1.30871
+## eAACmCCG96     2 104.93  1.18097
+## gwm617.2_6A    3  98.52  1.25221
+## c4.loc20       4  20.00  0.25544
+## TAglUt_1A      5  98.38  1.08510
+## AFLP24         6  11.51 13.50844
+## wmc453.1_2A    7  28.51  0.10169
+## WMC489_5A      8  74.18  0.27425
+## AFLP43-160Bp   9   1.31  5.26837
+## eAACmCCC236   10   0.00  0.54297
+## gwm614.2_2B   11   2.60  0.07646
+## c12.loc4      12   4.00  0.17256
+## eAGGmCTA350   13  48.71  0.44250
+## gdm72_3D      14   9.82  0.52445
+## c15.loc32     15  32.00  0.31542
+## c16.loc2      16   2.00  0.44217
+## c17.loc22     17  22.00  1.17265
+## c18.loc26     18  26.00  0.60374
+## gwm614.1_2A   19  12.50  0.00948
+## eAGCmCTA240   20  13.11  0.69652
+## BArc170_4A    21   3.73  0.14507
+## eACTmCAC375   22  10.25  0.34791
+## gwm631_7A     23   5.49  0.53412
+## BArc97_7D     24   0.00  0.04197
+## c25.loc2      25   2.00  0.02293
+## c26.loc10     26  10.00  0.05409
+## c27.loc58     27  58.00  0.57581
+## B598mCGT205   28   0.00  0.22441
+## gwm325_6D     29  10.00  0.08418
+## gwm437_7D     30   0.00  0.10709
+## c31.loc1      31   1.00  0.14200</code></pre>
 <p>That outputs the highest peak in each chromosome. We can also plot the LOD scores across all chromosomes and print the QTL with the highest LOD:</p>
 <div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="Mapping-Markers.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(scanone.result) </span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-444-1.png" width="672" /></p>
 <div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="Mapping-Markers.html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(scanone.result) </span></code></pre></div>
-<pre><code>##                 chr  pos  lod
-## SBm1-RotHpAtH5D   6 14.4 13.6</code></pre>
+<pre><code>##        chr  pos  lod
+## AFLP24   6 11.5 13.5</code></pre>
 <p>We then then find the closest marker to a specified position. (You may get a different marker returned – use <code>pull.map</code> to discover why):</p>
 <div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="Mapping-Markers.html#cb592-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find.marker</span>(AxC,<span class="at">chr=</span><span class="dv">6</span>,<span class="at">pos =</span> <span class="fl">14.1</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;SBm1-RotHpAtH5D&quot;</code></pre>
@@ -862,8 +865,8 @@ n.perm = n    Permutes the phenotype n times and reports the maximum LOD for eac
 <div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="Mapping-Markers.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(scanone.perm) </span></code></pre></div>
 <pre><code>## LOD thresholds (1000 permutations)
 ##      lod
-## 5%  2.97
-## 10% 2.60</code></pre>
+## 5%  2.89
+## 10% 2.55</code></pre>
 <p>1,000 permutations are too few. Running permutations, say 100,000, will take time. For this reason, it is best to use <code>method ="hk”</code> for permutations and also for the original analysis: the method used should be the same for both.</p>
 <p>An estimate of QTL heritability (for scanone only, this doesn’t work for multiple QTL mapping) is</p>
 <p><span class="math display">\[1-10 ^{-2LOD/n}\]</span></p>
@@ -907,16 +910,16 @@ Looking at rows first – results are given for the peak values on each pair of 
 <div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="Mapping-Markers.html#cb605-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(scantwo_perm)</span></code></pre></div>
 <pre><code>## elisa_all (100 permutations)
 ##     full  fv1  int  add  av1  one
-## 5%  6.93 5.37 4.91 4.56 2.46 2.90
-## 10% 6.23 4.77 4.51 4.35 2.24 2.58</code></pre>
+## 5%  6.21 4.94 4.67 4.82 2.41 3.04
+## 10% 5.78 4.67 4.27 4.53 2.20 2.64</code></pre>
 <p>The maximum interaction LOD in my 100 permutations was:</p>
 <div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="Mapping-Markers.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(scantwo_perm<span class="sc">$</span>int) </span></code></pre></div>
-<pre><code>## [1] 6.246354</code></pre>
+<pre><code>## [1] 6.039109</code></pre>
 <p>Output from multiple permutations can be combined and then summarised. In fact there is a command within the package, <code>c.scantwoperm</code>, which will do this but you’d have to have access to the multiple outputs from the same R session.</p>
 <p><code>max(scantwo.res)</code> finds the maximum LOD which can be compared with these empirical significance levels.</p>
 <div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="Mapping-Markers.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(scan2.res)</span></code></pre></div>
 <pre><code>##       pos1f pos2f lod.full lod.fv1 lod.int     pos1a pos2a lod.add lod.av1
-## c6:c9    14     2     32.5      19    8.01        12     2    24.5      11</code></pre>
+## c6:c9    12     2     32.4    18.9    7.91        14     2    24.5      11</code></pre>
 <p>Even from only 100 permutations, it would seem our interaction is genuine, but we should carry out more.</p>
 <p><code>help(max.scantwo)</code> will give options on selection of LODs to search for the maximum.</p>
 <p>The most useful of the scantwo commands is plot:</p>
@@ -948,10 +951,10 @@ Looking at rows first – results are given for the peak values on each pair of 
 <span id="cb615-2"><a href="Mapping-Markers.html#cb615-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cim_perm) </span></code></pre></div>
 <pre><code>## LOD thresholds (100 permutations)
 ##     [,1]
-## 5%  5.27
-## 10% 4.33</code></pre>
+## 5%  4.55
+## 10% 4.27</code></pre>
 <div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="Mapping-Markers.html#cb617-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(cim_perm) </span></code></pre></div>
-<pre><code>## [1] 8.479317</code></pre>
+<pre><code>## [1] 6.792053</code></pre>
 <p>There is good evidence that the two peaks on linkage groups 6 and 9 are genuine, but note how high the empirical significance threshold LOD scores are!</p>
 </div>
 <div id="mqm-multiple-qtl-mapping" class="section level3" number="10.3.5">
@@ -959,14 +962,207 @@ Looking at rows first – results are given for the peak values on each pair of 
 <p>Multiple QTL mapping is available in R/qtl. Prior to this, there was no free software available which implemented the method. It is preferred to composite interval mapping, for reasons which are not totally clear to me, by the originator of R/qtl (Karl Broman) and also by Ritsert Jansen who developed the method. Within R/qtl, it exists as a separate mini-package, with a set of commands all beginning “mqm….” MQM has a separate tutorial pdf too in which more detailed information than given here can be found, Unfortunately, we do not have the time to go into more detail here.</p>
 <p>Take a look at Example 5 in “A brief tour of R/qtl” to see the full extent of multiple QTL modeling that is available.</p>
 </div>
-<div id="rqtl2" class="section level3" number="10.3.6">
-<h3><span class="header-section-number">10.3.6</span> R/QTL2</h3>
+<div id="some-commands-for-mapping-in-markers-in-rqtl" class="section level3" number="10.3.6">
+<h3><span class="header-section-number">10.3.6</span> Some commands for mapping in markers in R/qtl</h3>
+<p><code>allchrsplits</code> = Test all possible splits of a chromosome into two pieces.</p>
+<p><code>calc.errorlod</code> = Calculates a LOD associated with p(single genotype is wrong).</p>
+<p><code>class(cross name)[1]&lt;-"dh"</code> = Change cross type.</p>
+<p><code>cleanGeno</code> = Delete probable errors. Only works for backcrosses.</p>
+<p><code>compareorder</code> = Compare the likelihood of two orderings of markers.</p>
+<p><code>droponemarker</code> = Drop one marker at a time and determine effect on genetic map I find the output hard to interpret.</p>
+<p><code>est.map</code> = Estimate map distances but keeps the same order.</p>
+<p><code>est.rf</code> = Estimate all pair-wise recombination fractions.</p>
+<p><code>formLinkageGroups</code> = Cluster markers into linkage groups.</p>
+<p><code>geno.image</code> = Plot grid of genotype data.</p>
+<p><code>geno.table</code> = Tabulate genotype classes and test for segregation distortion.</p>
+<p><code>locateXO</code> = Estimate locations of crossovers.</p>
+<p><code>movemarker</code>= Move a marker to a new chromosome.</p>
+<p><code>nchr</code> = Determine the number of chromosomes.</p>
+<p><code>nmar</code> = Determine the number of markers per chromosome.</p>
+<p><code>orderMarkers</code> = Order markers within linkage groups.</p>
+<p><code>plot(your cross)</code> = Plots a summary of the cross data.</p>
+<p><code>plotGeno</code> = Plot observed genotypes, flagging likely errors.</p>
+<p><code>plotErrorlod</code> = Plots possible genotype errors.</p>
+<p><code>plotMap</code> = Plot linkage groups.</p>
+<p><code>plotRF</code> = Produces a heat map of recombination fractions.</p>
+<p><code>pull.rf</code> = Extract the matrix of recombination fractions from a cross.</p>
+<p><code>pull.map</code> = Extract the current map from a cross.</p>
+<p><code>jittermap</code> = Gets rid of the problem of having markers at the same location.</p>
+<p><code>read.cross</code> = Read in genotype and phenotype data.</p>
+<p><code>summary</code> = Works on much R/qtl output. Recent name changes may cause confusion. For example <code>summary.cross</code> = used to summarise the genotype and phenotype data in you a cross. This command is no longer recognised. <code>summary</code> on its own now does this. Older names are still present in books, online resources and R help.</p>
+<p><code>ripple</code> = Search for improved marker order by permuting order within a small window.</p>
+<p><code>switch.order</code> = Replace the order of markers in a linkage group with a new order.</p>
+<p><code>write.cross</code> = Export your cross object</p>
 </div>
 <div id="final-comments" class="section level3" number="10.3.7">
 <h3><span class="header-section-number">10.3.7</span> Final comments</h3>
 <p>If you think mapping markers and QTL is more of an art than a science, you would be right. Remember all maps are approximations. Even when supplied with data and an existing map it is worth examining it for errors. Best, of course, is to produce high quality genotype data in the first place.</p>
-
 </div>
+</div>
+<div id="rqtl2" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> R/QTL2</h2>
+<p><a href="https://kbroman.org/qtl2/">R/QTL2</a> is an updated implementation of R/QTL. It has better ability to handle complex crosses, so we use it here to demonstrate analysis of an 8-founder MAGIC population. In addition, it can handle larger data sets and has the ability to link to genomic SNP databases, to allow smooth QTL mapping from phenotypic data through to candidate locus selection.</p>
+<p>The data we will analyse are flowering time data from two years (2012 and 2013) in 643 lines from NIAB’s “MAGIC Elite” population, founded by 8-diverse elite (at the time of population construction) wheat varieties, containing c. 80% of polymorphisms found in UK wheat germplasm, as a whole <span class="citation">(<a href="references.html#ref-Gardner_2016" role="doc-biblioref">Gardner, Wittern, and Mackay 2016b</a>)</span>.</p>
+<p>R/QTL2 has a completely novel data import system, based on creation of a .yaml file containing descriptive information on the population, and the names of the data files. The .yaml files and the data files all need to be in the same working directory. More details can be found on the R/QTL2 <a href="https://kbroman.org/qtl2/assets/vignettes/user_guide.html">website</a>.</p>
+<p>The yaml file contains the following information.</p>
+<pre><code>crosstype: riself8      
+geno:  finalfileskim.csv
+
+founder_geno:  founderfileskim.csv
+pheno:  phenofile.csv
+
+gmap:  gmapfileskim.csv
+alleles:
+  - ALC
+  - BRO
+  - CLA
+  - HER
+  - RIA
+  - ROB
+  - SOI
+  - XI9
+genotypes:
+
+  AA: 1
+  AB: 2
+  BB: 3
+cross_info: pedigree.csv
+
+na.strings:
+  - &#39;-&#39;
+  - NA</code></pre>
+<p>Filenames (included in your data folder) end with “.csv.” Note that we have 2 genotype files (founders and RILs), a genetic map file, a phenotype file and a pedigree file. The latter is necessary to analyse MAGIC populations as there were several rounds of crossing involved in the population construction. The 8 alleles are abbreviations of the names of the founder lines. Unlike in R/QTL, covariates need to be included in a separate covariates file in R/QTL2, although we are not going to use any in this analysis today. Finally, note that the map and genotype data here has been skimmed to remove 100% correlated markers, but not skimmed any further than that. We will investigate the effect of marker density on QTL mapping below.</p>
+
+<div class="rmdnote">
+There is a separate script for this section called: “MAGIC_QTL_mapping_script” in the Chapter 10 data folder.
+</div>
+<p>Install R/QTL and load your data:</p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="Mapping-Markers.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;qtl2&quot;</span>)</span>
+<span id="cb620-2"><a href="Mapping-Markers.html#cb620-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qtl2)</span>
+<span id="cb620-3"><a href="Mapping-Markers.html#cb620-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb620-4"><a href="Mapping-Markers.html#cb620-4" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the data</span></span>
+<span id="cb620-5"><a href="Mapping-Markers.html#cb620-5" aria-hidden="true" tabindex="-1"></a>NIAB_MAGIC<span class="ot">&lt;-</span><span class="fu">read_cross2</span>(<span class="st">&quot;MAGIC.yaml&quot;</span>)</span></code></pre></div>
+<p>Firstly, we create pseudomarkers – markers at 1cM intervals (<code>step=1</code>) throughout the genome. These will help with QTL mapping in low density regions but also with a new way of estimating kinship to avoid marker density bias.</p>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="Mapping-Markers.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="co">#insert pseudomarkers (to estimate parentage at 1cM intervals)</span></span>
+<span id="cb621-2"><a href="Mapping-Markers.html#cb621-2" aria-hidden="true" tabindex="-1"></a>map <span class="ot">&lt;-</span> <span class="fu">insert_pseudomarkers</span>(NIAB_MAGIC<span class="sc">$</span>gmap, <span class="at">step=</span><span class="dv">1</span>)</span></code></pre></div>
+<p>Next, we need to calculate the genotype probabilities along the chromosome at both marker and pseudomarker positions, and then convert these to allele probabilities. Unlike in bi-parental mapping, where there are only two probabilities (parent 1 and parent 2), here there are 8 possible alleles to estimate.</p>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="Mapping-Markers.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate genotype probabilities and convert to allele probabilties </span></span>
+<span id="cb622-2"><a href="Mapping-Markers.html#cb622-2" aria-hidden="true" tabindex="-1"></a>pr <span class="ot">&lt;-</span> <span class="fu">calc_genoprob</span>(NIAB_MAGIC, map, <span class="at">error_prob=</span><span class="fl">0.002</span>)</span>
+<span id="cb622-3"><a href="Mapping-Markers.html#cb622-3" aria-hidden="true" tabindex="-1"></a>apr <span class="ot">&lt;-</span> <span class="fu">genoprob_to_alleleprob</span>(pr)</span></code></pre></div>
+
+<div class="rmdquiz">
+<strong>9</strong>
+What might be the statistical consequences of QTL mapping with 8 alleles, compared to only 2?
+</div>
+<p>In R/QTL2, there are two main options for QTL analysis: Haley-Knott regression and a linear mixed model (LMM) approach requiring a kinship matrix in a similar fashion to association mapping. For multi-parental populations, achieving a perfectly balanced population is unfeasible, so the <code>LMM</code> approach is used. There are several options for estimating the kinship matrix:</p>
+<ol style="list-style-type: decimal">
+<li><p>Use all markers.</p></li>
+<li><p>Scan each chromosome using a kinship matrix that is calculated using data from all other chromosomes – the “leave one chromosome out” (LOCO) method.</p></li>
+<li><p>Using only the pseudomarkers so that we have an even density of markers across the recombination landscape (assuming our map is correct!). This approach is a novel way of estimating unbiased kinship, compared to our previous approach of strong marker thinning.</p></li>
+</ol>
+<p>Here we will compare approaches 2 and 3.</p>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="Mapping-Markers.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate kinship using only the evenly spread pseudomarkers</span></span>
+<span id="cb623-2"><a href="Mapping-Markers.html#cb623-2" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">calc_grid</span>(NIAB_MAGIC<span class="sc">$</span>gmap, <span class="at">step=</span><span class="dv">1</span>)</span>
+<span id="cb623-3"><a href="Mapping-Markers.html#cb623-3" aria-hidden="true" tabindex="-1"></a>pr_grid <span class="ot">&lt;-</span> <span class="fu">probs_to_grid</span>(pr, grid)</span>
+<span id="cb623-4"><a href="Mapping-Markers.html#cb623-4" aria-hidden="true" tabindex="-1"></a>kinship_grid <span class="ot">&lt;-</span> <span class="fu">calc_kinship</span>(pr_grid)</span>
+<span id="cb623-5"><a href="Mapping-Markers.html#cb623-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb623-6"><a href="Mapping-Markers.html#cb623-6" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative kinship calculation with loco</span></span>
+<span id="cb623-7"><a href="Mapping-Markers.html#cb623-7" aria-hidden="true" tabindex="-1"></a>kinship_loco <span class="ot">&lt;-</span> <span class="fu">calc_kinship</span>(apr, <span class="st">&quot;loco&quot;</span>)</span></code></pre></div>
+<p>Now we are ready to perform a genome scan using the R/QTL2 version of <code>scan1</code>.</p>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="Mapping-Markers.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="co"># carry out a genome scan </span></span>
+<span id="cb624-2"><a href="Mapping-Markers.html#cb624-2" aria-hidden="true" tabindex="-1"></a>out_grid <span class="ot">&lt;-</span> <span class="fu">scan1</span>(apr, NIAB_MAGIC<span class="sc">$</span>pheno, kinship_grid)</span>
+<span id="cb624-3"><a href="Mapping-Markers.html#cb624-3" aria-hidden="true" tabindex="-1"></a>out_loco <span class="ot">&lt;-</span> <span class="fu">scan1</span>(apr, NIAB_MAGIC<span class="sc">$</span>pheno, kinship_loco)</span></code></pre></div>
+<p>To obtain significance thresholds, we again run a permutation test (beware, this may take a few minutes).</p>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="Mapping-Markers.html#cb625-1" aria-hidden="true" tabindex="-1"></a><span class="co">#carry our permutation tests</span></span>
+<span id="cb625-2"><a href="Mapping-Markers.html#cb625-2" aria-hidden="true" tabindex="-1"></a>permtest<span class="ot">&lt;-</span><span class="fu">scan1perm</span>(pr,NIAB_MAGIC<span class="sc">$</span>pheno,<span class="at">n_perm=</span><span class="dv">1000</span>)</span>
+<span id="cb625-3"><a href="Mapping-Markers.html#cb625-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(permtest,<span class="at">alpha=</span><span class="fu">c</span>(<span class="fl">0.2</span>,<span class="fl">0.05</span>))</span></code></pre></div>
+<pre><code>## LOD thresholds (1000 permutations)
+##      GSJune11_2012 GS55T2013
+## 0.2           5.84      5.78
+## 0.05          6.67      6.53</code></pre>
+<p>We can now plot our results. Firstly, we will compare the results between 2012 and 2013 for the LOCO approach.</p>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="Mapping-Markers.html#cb627-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot QTL results for &quot;loco&quot; method</span></span>
+<span id="cb627-2"><a href="Mapping-Markers.html#cb627-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">0.6</span>, <span class="fl">0.6</span>))</span>
+<span id="cb627-3"><a href="Mapping-Markers.html#cb627-3" aria-hidden="true" tabindex="-1"></a>ymx <span class="ot">&lt;-</span> <span class="fu">maxlod</span>(out_loco)</span>
+<span id="cb627-4"><a href="Mapping-Markers.html#cb627-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb627-5"><a href="Mapping-Markers.html#cb627-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(out_loco, NIAB_MAGIC<span class="sc">$</span>gmap,<span class="at">lodcolumn=</span><span class="dv">1</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, ymx<span class="sc">*</span><span class="fl">1.02</span>))</span>
+<span id="cb627-6"><a href="Mapping-Markers.html#cb627-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fl">6.68</span>,<span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb627-7"><a href="Mapping-Markers.html#cb627-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="fu">c</span>(<span class="st">&quot;2012&quot;</span>),<span class="at">bg=</span><span class="st">&quot;gray90&quot;</span>)</span>
+<span id="cb627-8"><a href="Mapping-Markers.html#cb627-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(out_loco, NIAB_MAGIC<span class="sc">$</span>gmap, <span class="at">lodcolumn=</span><span class="dv">2</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, ymx<span class="sc">*</span><span class="fl">1.02</span>))</span>
+<span id="cb627-9"><a href="Mapping-Markers.html#cb627-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fl">6.69</span>,<span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb627-10"><a href="Mapping-Markers.html#cb627-10" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="fu">c</span>(<span class="st">&quot;2013&quot;</span>),<span class="at">bg=</span><span class="st">&quot;gray90&quot;</span>)</span></code></pre></div>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-472-1.png" width="672" />
+
+<div class="rmdquiz">
+<strong>10</strong>
+Are QTL consistent between years? Do you think this trait may have high or low heritability?
+</div>
+<p>You will notice that there is one very strong QTL on chromosome 6. This is the PpdD1 locus for daylength sensitivity, which is segregating in this population, and is known to have a major effect on flowering time in wheat. If we had more time, we would use this allele as a covariate and re-run the analysis, as we did in the R/QTL exercise. We can also plot the two years in the same graph. This may give a better idea of between years presence/absence differences.</p>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="Mapping-Markers.html#cb628-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot on same figure</span></span>
+<span id="cb628-2"><a href="Mapping-Markers.html#cb628-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb628-3"><a href="Mapping-Markers.html#cb628-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(out_loco, NIAB_MAGIC<span class="sc">$</span>gmap,<span class="at">lodcolumn=</span><span class="dv">1</span>,<span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, ymx<span class="sc">*</span><span class="fl">1.02</span>))</span>
+<span id="cb628-4"><a href="Mapping-Markers.html#cb628-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(out_loco, NIAB_MAGIC<span class="sc">$</span>gmap, <span class="at">lodcolumn=</span><span class="dv">2</span>,<span class="at">col=</span><span class="st">&quot;green&quot;</span>, <span class="at">add=</span><span class="cn">TRUE</span>)</span>
+<span id="cb628-5"><a href="Mapping-Markers.html#cb628-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fl">6.68</span>,<span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb628-6"><a href="Mapping-Markers.html#cb628-6" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;green&quot;</span>),<span class="fu">colnames</span>(out_loco),<span class="at">bg=</span><span class="st">&quot;gray90&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-474-1.png" width="672" /></p>
+<p>Now we can compare the LOCO and grid kinship approaches for the 2013 dataset.</p>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="Mapping-Markers.html#cb629-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb629-2"><a href="Mapping-Markers.html#cb629-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(out_loco, NIAB_MAGIC<span class="sc">$</span>gmap,<span class="at">lodcolumn=</span><span class="dv">2</span>,<span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, ymx<span class="sc">*</span><span class="fl">1.02</span>))</span>
+<span id="cb629-3"><a href="Mapping-Markers.html#cb629-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fl">6.69</span>,<span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb629-4"><a href="Mapping-Markers.html#cb629-4" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="fu">c</span>(<span class="st">&quot;2013_loco&quot;</span>),<span class="at">bg=</span><span class="st">&quot;gray90&quot;</span>)</span>
+<span id="cb629-5"><a href="Mapping-Markers.html#cb629-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(out_grid, NIAB_MAGIC<span class="sc">$</span>gmap,<span class="at">lodcolumn=</span><span class="dv">2</span>,<span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, ymx<span class="sc">*</span><span class="fl">1.02</span>))</span>
+<span id="cb629-6"><a href="Mapping-Markers.html#cb629-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fl">6.69</span>,<span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb629-7"><a href="Mapping-Markers.html#cb629-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="fu">c</span>(<span class="st">&quot;2013_grid&quot;</span>),<span class="at">bg=</span><span class="st">&quot;gray90&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-475-1.png" width="672" /></p>
+
+<div class="rmdquiz">
+<strong>11</strong>
+What do you conclude about using the two approaches?
+</div>
+<p>We can now find the peaks and their confidence intervals. Two approaches are available in R/QTL2: a Bayesian and a lod based method. To separate QTL peaks, you need to specify a lod drop interval and a peak lod drop interval. The latter is to cover the lowest of the two adjacent peaks. There is something of an artform to choosing the lod drop values. A lod drop of 1.8 is equivalent to about a 1:60 odds ratio.</p>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="Mapping-Markers.html#cb630-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find the peaks and their intervals, peakdrop indicates the amount that the </span></span>
+<span id="cb630-2"><a href="Mapping-Markers.html#cb630-2" aria-hidden="true" tabindex="-1"></a><span class="co">#LOD curve must drop below the lowest of two adjacent peaks.</span></span>
+<span id="cb630-3"><a href="Mapping-Markers.html#cb630-3" aria-hidden="true" tabindex="-1"></a><span class="fu">find_peaks</span>(out_loco, map, <span class="at">threshold=</span><span class="fl">6.69</span>, <span class="at">peakdrop=</span><span class="fl">1.8</span>, <span class="at">drop=</span><span class="fl">1.5</span>)</span></code></pre></div>
+<pre><code>##    lodindex     lodcolumn chr       pos       lod     ci_lo     ci_hi
+## 1         1 GSJune11_2012   2 349.59230  8.301127 343.90026 351.09987
+## 2         1 GSJune11_2012   6  61.00000 19.012676  55.40415  77.76853
+## 3         1 GSJune11_2012  10 158.74511  7.331446 137.78485 164.01313
+## 4         1 GSJune11_2012  10 172.00000  7.254170 164.01315 177.86805
+## 5         2     GS55T2013   2 349.59230  7.019046 345.42322 351.09987
+## 6         2     GS55T2013   6  60.67219 27.232911  55.40415  77.76853
+## 7         2     GS55T2013   7 108.23122  8.107504  90.11471 114.28704
+## 8         2     GS55T2013  10 139.00000  9.147522 131.22663 164.01313
+## 9         2     GS55T2013  10 175.00000 11.809972 170.63993 179.37562
+## 10        2     GS55T2013  11 119.35148 10.270608  95.42024 125.98272
+## 11        2     GS55T2013  11 170.65828  8.617282 158.50466 179.44603
+## 12        2     GS55T2013  11 183.54483  7.495636 179.44603 188.63207</code></pre>
+
+<div class="rmdquiz">
+<strong>12</strong>
+Examine the selected peaks, especially on chromosomnes 10 and 11. Do you think our lod drop thresholds were sufficient or should we be more conservative?
+</div>
+<p>Now we can examine the allelic effects of our detected QTL. We will focus here on the QTLs on chromosomes 6 and 10.</p>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="Mapping-Markers.html#cb632-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot allelic effects for chromosome 6 (2013 phenotype)</span></span>
+<span id="cb632-2"><a href="Mapping-Markers.html#cb632-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb632-3"><a href="Mapping-Markers.html#cb632-3" aria-hidden="true" tabindex="-1"></a>col <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#FFDC00&quot;</span>,<span class="st">&quot;#888888&quot;</span>,<span class="st">&quot;#F08080&quot;</span>,<span class="st">&quot;#0064C9&quot;</span>,<span class="st">&quot;#7FDBFF&quot;</span>,<span class="st">&quot;#2ECC40&quot;</span>,<span class="st">&quot;#FF4136&quot;</span>,<span class="st">&quot;#B10DC9&quot;</span>)</span>
+<span id="cb632-4"><a href="Mapping-Markers.html#cb632-4" aria-hidden="true" tabindex="-1"></a>legend<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;ALC&quot;</span>,<span class="st">&quot;BRO&quot;</span>,<span class="st">&quot;CLA&quot;</span>,<span class="st">&quot;HER&quot;</span>,<span class="st">&quot;RIA&quot;</span>,<span class="st">&quot;ROB&quot;</span>,<span class="st">&quot;SOI&quot;</span>,<span class="st">&quot;X19&quot;</span>)</span>
+<span id="cb632-5"><a href="Mapping-Markers.html#cb632-5" aria-hidden="true" tabindex="-1"></a>coef_c2 <span class="ot">&lt;-</span> <span class="fu">scan1coef</span>(apr[,<span class="st">&quot;6&quot;</span>], NIAB_MAGIC<span class="sc">$</span>pheno[,<span class="dv">2</span>])</span>
+<span id="cb632-6"><a href="Mapping-Markers.html#cb632-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">0.6</span>, <span class="fl">0.6</span>))</span>
+<span id="cb632-7"><a href="Mapping-Markers.html#cb632-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_coef</span>(coef_c2[,<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>], NIAB_MAGIC<span class="sc">$</span>gmap[<span class="st">&quot;6&quot;</span>], <span class="at">col=</span>col, <span class="at">scan1_output=</span>out_loco, <span class="at">bgcolor=</span><span class="st">&quot;gray95&quot;</span>, <span class="at">legend=</span><span class="st">&quot;bottomright&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-479-1.png" width="672" /></p>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="Mapping-Markers.html#cb633-1" aria-hidden="true" tabindex="-1"></a><span class="co">#and for chromosome 10</span></span>
+<span id="cb633-2"><a href="Mapping-Markers.html#cb633-2" aria-hidden="true" tabindex="-1"></a>coef_c2 <span class="ot">&lt;-</span> <span class="fu">scan1coef</span>(apr[,<span class="st">&quot;10&quot;</span>], NIAB_MAGIC<span class="sc">$</span>pheno[,<span class="dv">2</span>])</span>
+<span id="cb633-3"><a href="Mapping-Markers.html#cb633-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">0.6</span>, <span class="fl">0.6</span>))</span>
+<span id="cb633-4"><a href="Mapping-Markers.html#cb633-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_coef</span>(coef_c2[,<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>], NIAB_MAGIC<span class="sc">$</span>gmap[<span class="st">&quot;10&quot;</span>], <span class="at">col=</span>col, <span class="at">scan1_output=</span>out_loco, <span class="at">bgcolor=</span><span class="st">&quot;gray95&quot;</span>, <span class="at">legend=</span><span class="st">&quot;bottomleft&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-479-2.png" width="672" /></p>
+
+<div class="rmdquiz">
+<strong>13</strong>
+Which parental lines are carrying the biggest effects at these QTLs? How big are these effects?
+</div>
+<p>There is an artefact evident on chromosome 10, which adds complexity interpretation of our results. This is common in this population: we will discuss this as a class. Interpretation in MAGIC is not always easy!</p>
+<p>One of the big advantages of MAGIC populations compared to bi-parental mapping populations is that the several rounds of crossing involved in their construction result in more recombination and hence finer QTL resolution, i.e., there are fewer potential causative genes underlying each QTL in MAGIC populations. A powerful feature of R/QTL2 is the ability to connect directly to SNP and gene databases to go straight to this list of potential candidates. A nice MAGIC example is provided in the R/QTL User guide. We do have complete whole genome data for all our MAGIC founder lines so if we had time, the next step in this analysis would be to pull up all the SNP variants in the QTL intervals we have detected above. We can then use our genotype probabilities and founder SNP genotypes to assign a SNP allele to every RIL in the population based on founder haplotypes, and then scan every SNP in this interval for association with the QTL. The output is a list of SNPs ordered by lod score, including the identities of any genes in which the SNPs are found, i.e. a list of candidate genes. This is a very powerful tool for gene discovery.</p>
+
 </div>
 </div>
             </section>
@@ -1006,7 +1202,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-Mapping_Markers_and_Quantitative_Trait_Loci.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-Mapping_markers_and_qtl.Rmd",
 "text": "Edit"
 },
 "history": {

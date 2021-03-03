@@ -24,7 +24,7 @@
 <meta name="author" content="NIAB 2021" />
 
 
-<meta name="date" content="2021-03-02" />
+<meta name="date" content="2021-03-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -298,9 +298,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.3" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#genome-scan-scantwo"><i class="fa fa-check"></i><b>10.3.3</b> Genome Scan – scantwo</a></li>
 <li class="chapter" data-level="10.3.4" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#genome-scan-composite-interval-mapping"><i class="fa fa-check"></i><b>10.3.4</b> Genome Scan – Composite Interval Mapping</a></li>
 <li class="chapter" data-level="10.3.5" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#mqm-multiple-qtl-mapping"><i class="fa fa-check"></i><b>10.3.5</b> MQM: multiple QTL mapping</a></li>
-<li class="chapter" data-level="10.3.6" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#rqtl2"><i class="fa fa-check"></i><b>10.3.6</b> R/QTL2</a></li>
+<li class="chapter" data-level="10.3.6" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#some-commands-for-mapping-in-markers-in-rqtl"><i class="fa fa-check"></i><b>10.3.6</b> Some commands for mapping in markers in R/qtl</a></li>
 <li class="chapter" data-level="10.3.7" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#final-comments"><i class="fa fa-check"></i><b>10.3.7</b> Final comments</a></li>
 </ul></li>
+<li class="chapter" data-level="10.4" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#rqtl2"><i class="fa fa-check"></i><b>10.4</b> R/QTL2</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="Data-Visualization.html"><a href="Data-Visualization.html"><i class="fa fa-check"></i><b>11</b> Data Visualization.</a>
 <ul>
@@ -437,7 +438,7 @@ Remember to read in the specific data set you have been assigned rather than cop
 <span id="cb434-4"><a href="Imputation.html#cb434-4" aria-hidden="true" tabindex="-1"></a>na_count <span class="ot">&lt;-</span>(na_count<span class="sc">/</span><span class="dv">710</span>)<span class="sc">*</span><span class="dv">100</span></span>
 <span id="cb434-5"><a href="Imputation.html#cb434-5" aria-hidden="true" tabindex="-1"></a><span class="co">#pull mean</span></span>
 <span id="cb434-6"><a href="Imputation.html#cb434-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(na_count)</span></code></pre></div>
-<pre><code>## [1] 9.992113</code></pre>
+<pre><code>## [1] 9.956901</code></pre>
 <p>On average we have 10% missing data per marker, as we intended. You now have a data set ready to be imputed.</p>
 </div>
 <div id="svd-imputation" class="section level2" number="8.4">
@@ -489,16 +490,16 @@ Remember to read in the specific data set you have been assigned rather than cop
 <span id="cb446-2"><a href="Imputation.html#cb446-2" aria-hidden="true" tabindex="-1"></a>imp.test</span></code></pre></div>
 <pre><code>##        original
 ## imputed     0     1     2
-##       0  8229   225  1772
-##       1  5584   377  6460
-##       2  1940   239 10646</code></pre>
+##       0  8211   219  1759
+##       1  5526   408  6446
+##       2  1958   270 10550</code></pre>
 <p>A single number we can use summarise the accuracy of the imputation is the contingency chi-squared test statistic – high values are good in this context: we want the rows (imputed) and columns (observed) to be highly dependent on each other.</p>
 <div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="Imputation.html#cb448-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(imp.test) </span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  imp.test
-## X-squared = 10127, df = 4, p-value &lt; 2.2e-16</code></pre>
+## X-squared = 10040, df = 4, p-value &lt; 2.2e-16</code></pre>
 <p>Has the imputation done a good job? Record the chisq value on the board in the classroom for subsequent comparison with other runs.</p>
 <p>Aside from our methods comparison, there are a couple more things that can be investigated with softImpute:</p>
 <ol style="list-style-type: lower-alpha">
@@ -516,8 +517,8 @@ Remember to read in the specific data set you have been assigned rather than cop
 <div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="Imputation.html#cb451-1" aria-hidden="true" tabindex="-1"></a>imp.test<span class="fl">.2</span></span></code></pre></div>
 <pre><code>##        original
 ## imputed     0     1     2
-##       0 11629   404  4229
-##       2  4124   437 14649</code></pre>
+##       0 11522   421  4184
+##       2  4173   476 14571</code></pre>
 <p>In practice, the wisdom of this reclassification is unclear. Carrying out the same exercise using mean imputation amounts to substituting all missing values by the most common allele, which doesn’t seem very sensible.</p>
 <p>Why did we choose a value for <code>max.rank</code> of 100? This was initially by trial and error on my part. Too low a rank and the prediction is too poor. Too high a value and there is a risk of overfitting: additional eigenvalues give a better fit to the observed data but are adding noise to the predictions.</p>
 <p>One approach to determining an appropriate value which works on these data, at least, is as follows:</p>
@@ -561,15 +562,15 @@ Remember to read in the specific data set you have been assigned rather than cop
 <div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="Imputation.html#cb457-1" aria-hidden="true" tabindex="-1"></a>imp.test.av</span></code></pre></div>
 <pre><code>##               original
 ## imputed    0    1    2
-##       0 6367  141 1083
-##       1 7740  483 7984
-##       2 1646  217 9811</code></pre>
+##       0 6204  145 1019
+##       1 7644  524 7825
+##       2 1847  228 9911</code></pre>
 <div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="Imputation.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(imp.test.av)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  imp.test.av
-## X-squared = 9460.7, df = 4, p-value &lt; 2.2e-16</code></pre>
+## X-squared = 9173.4, df = 4, p-value &lt; 2.2e-16</code></pre>
 <p>What do you think? We’ll collate the results over repeat runs and different values of LD threshold and discuss.</p>
 </div>
 <div id="random-forest-imputation" class="section level2" number="8.6">
@@ -592,23 +593,23 @@ Remember to read in the specific data set you have been assigned rather than cop
 <p>We can also estimate imputation error using the function <code>mixError</code>:</p>
 <div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="Imputation.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mixError</span>(missing.imp.forest<span class="sc">$</span>ximp,missing,sample<span class="fl">.500</span>)</span></code></pre></div>
 <pre><code>##       PFC 
-## 0.2556101</code></pre>
+## 0.2572496</code></pre>
 <p>for mixError, values close to 0 are good, close to 1 are bad.</p>
 <p>We compare across methods using our earlier code, summarising the results:</p>
 <div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="Imputation.html#cb467-1" aria-hidden="true" tabindex="-1"></a>chi.forest<span class="ot">&lt;-</span><span class="fu">table</span>(missing.imp.forest<span class="sc">$</span>ximp[<span class="fu">is.na</span>(missing)],sample<span class="fl">.500</span>[<span class="fu">is.na</span>(missing)],<span class="at">dnn=</span><span class="fu">c</span>(<span class="st">&quot;imputed&quot;</span>,<span class="st">&quot;       original&quot;</span>))</span>
 <span id="cb467-2"><a href="Imputation.html#cb467-2" aria-hidden="true" tabindex="-1"></a>chi.forest</span></code></pre></div>
 <pre><code>##               original
 ## imputed     0     1     2
-##       0 11629   389  4100
-##       1    15    21    23
-##       2  4109   431 14755</code></pre>
+##       0 11460   427  3951
+##       1    19    11    21
+##       2  4216   459 14783</code></pre>
 <div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="Imputation.html#cb469-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(chi.forest) </span></code></pre></div>
 <pre><code>## Warning in chisq.test(chi.forest): Chi-squared approximation may be incorrect</code></pre>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  chi.forest
-## X-squared = 9694.9, df = 4, p-value &lt; 2.2e-16</code></pre>
+## X-squared = 9416, df = 4, p-value &lt; 2.2e-16</code></pre>
 <p>How does this compare with what we had before? Are there any differences in the pattern of assignment to different classes?</p>
 </div>
 <div id="summary-1" class="section level2" number="8.7">
