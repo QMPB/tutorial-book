@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 Quantitative genetics and breeding program design. | Quantitative Methods in Plant Breeding: The Digital Tutorials.</title>
+  <meta name="description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 Quantitative genetics and breeding program design. | Quantitative Methods in Plant Breeding: The Digital Tutorials." />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="github-repo" content="rstudio/bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 Quantitative genetics and breeding program design. | Quantitative Methods in Plant Breeding: The Digital Tutorials." />
+  
+  <meta name="twitter:description" content="This is the online tutorial booklet for the QMPB course run at NIAB. The online book was formed using R bookdown." />
+  <meta name="twitter:image" content="images/cover.jpg" />
+
+<meta name="author" content="NIAB 2021" />
+
+
+<meta name="date" content="2021-03-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Data-Visualization.html"/>
+<link rel="next" href="Genomic-prediction.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The QMPB digital tutorials</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="Acknow.html"><a href="Acknow.html"><i class="fa fa-check"></i><b>2</b> Acknowledgements and Contents</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="Acknow.html"><a href="Acknow.html#acknowledgements"><i class="fa fa-check"></i><b>2.1</b> Acknowledgements</a></li>
+<li class="chapter" data-level="2.2" data-path="Acknow.html"><a href="Acknow.html#digital-tutorial-chapters"><i class="fa fa-check"></i><b>2.2</b> Digital Tutorial Chapters:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="R-and-stats.html"><a href="R-and-stats.html"><i class="fa fa-check"></i><b>3</b> R and Rstudio: a general introduction with statistics.</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="R-and-stats.html"><a href="R-and-stats.html#introduction-section-on-r"><i class="fa fa-check"></i><b>3.1</b> Introduction section on R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="R-and-stats.html"><a href="R-and-stats.html#getting-the-data-ready"><i class="fa fa-check"></i><b>3.1.1</b> Getting the data ready</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="R-and-stats.html"><a href="R-and-stats.html#the-rstudio-layout-workspace-and-environment."><i class="fa fa-check"></i><b>3.2</b> The Rstudio layout, workspace and environment.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="R-and-stats.html"><a href="R-and-stats.html#working-directory"><i class="fa fa-check"></i><b>3.2.1</b> Working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="R-and-stats.html"><a href="R-and-stats.html#basic-r-syntx"><i class="fa fa-check"></i><b>3.3</b> Basic R Syntx</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="R-and-stats.html"><a href="R-and-stats.html#brackets"><i class="fa fa-check"></i><b>3.3.1</b> Brackets</a></li>
+<li class="chapter" data-level="3.3.2" data-path="R-and-stats.html"><a href="R-and-stats.html#equals-symbols"><i class="fa fa-check"></i><b>3.3.2</b> Equals symbols</a></li>
+<li class="chapter" data-level="3.3.3" data-path="R-and-stats.html"><a href="R-and-stats.html#continuation-character."><i class="fa fa-check"></i><b>3.3.3</b> Continuation character.</a></li>
+<li class="chapter" data-level="3.3.4" data-path="R-and-stats.html"><a href="R-and-stats.html#text-and-numbers"><i class="fa fa-check"></i><b>3.3.4</b> Text and numbers</a></li>
+<li class="chapter" data-level="3.3.5" data-path="R-and-stats.html"><a href="R-and-stats.html#summary-of-syntax"><i class="fa fa-check"></i><b>3.3.5</b> Summary of syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="R-and-stats.html"><a href="R-and-stats.html#reading-in-data"><i class="fa fa-check"></i><b>3.4</b> Reading in data</a></li>
+<li class="chapter" data-level="3.5" data-path="R-and-stats.html"><a href="R-and-stats.html#understanding-data-types-and-r-objects"><i class="fa fa-check"></i><b>3.5</b> Understanding data types and R objects</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="R-and-stats.html"><a href="R-and-stats.html#summary"><i class="fa fa-check"></i><b>3.5.1</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="R-and-stats.html"><a href="R-and-stats.html#summarising-and-displaying-data"><i class="fa fa-check"></i><b>3.6</b> Summarising and displaying data</a></li>
+<li class="chapter" data-level="3.7" data-path="R-and-stats.html"><a href="R-and-stats.html#calculations-and-data-manipulation"><i class="fa fa-check"></i><b>3.7</b> Calculations and data manipulation</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="R-and-stats.html"><a href="R-and-stats.html#sorting-data"><i class="fa fa-check"></i><b>3.7.1</b> Sorting data</a></li>
+<li class="chapter" data-level="3.7.2" data-path="R-and-stats.html"><a href="R-and-stats.html#relationships-between-variates"><i class="fa fa-check"></i><b>3.7.2</b> Relationships between variates</a></li>
+<li class="chapter" data-level="3.7.3" data-path="R-and-stats.html"><a href="R-and-stats.html#exporting-your-script-and-workspace"><i class="fa fa-check"></i><b>3.7.3</b> Exporting your script and workspace</a></li>
+<li class="chapter" data-level="3.7.4" data-path="R-and-stats.html"><a href="R-and-stats.html#saving-a-data-table"><i class="fa fa-check"></i><b>3.7.4</b> Saving a data table</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="R-and-stats.html"><a href="R-and-stats.html#basic-statistical-analysis"><i class="fa fa-check"></i><b>3.8</b> Basic statistical analysis</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="R-and-stats.html"><a href="R-and-stats.html#the-t-test"><i class="fa fa-check"></i><b>3.8.1</b> The t-test</a></li>
+<li class="chapter" data-level="3.8.2" data-path="R-and-stats.html"><a href="R-and-stats.html#linear-regression"><i class="fa fa-check"></i><b>3.8.2</b> Linear Regression</a></li>
+<li class="chapter" data-level="3.8.3" data-path="R-and-stats.html"><a href="R-and-stats.html#multiple-regression"><i class="fa fa-check"></i><b>3.8.3</b> Multiple regression</a></li>
+<li class="chapter" data-level="3.8.4" data-path="R-and-stats.html"><a href="R-and-stats.html#the-analysis-of-variance"><i class="fa fa-check"></i><b>3.8.4</b> The analysis of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="R-and-stats.html"><a href="R-and-stats.html#categorical-data---the-chi-squared-test"><i class="fa fa-check"></i><b>3.9</b> Categorical data - the <em>chi</em>-squared test</a></li>
+<li class="chapter" data-level="3.10" data-path="R-and-stats.html"><a href="R-and-stats.html#more-useful-information"><i class="fa fa-check"></i><b>3.10</b> More useful information</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="R-and-stats.html"><a href="R-and-stats.html#plotting-graphs"><i class="fa fa-check"></i><b>3.10.1</b> Plotting Graphs</a></li>
+<li class="chapter" data-level="3.10.2" data-path="R-and-stats.html"><a href="R-and-stats.html#probability-distributions"><i class="fa fa-check"></i><b>3.10.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="3.10.3" data-path="R-and-stats.html"><a href="R-and-stats.html#random-number-generation"><i class="fa fa-check"></i><b>3.10.3</b> Random number generation</a></li>
+<li class="chapter" data-level="3.10.4" data-path="R-and-stats.html"><a href="R-and-stats.html#loops-second-example"><i class="fa fa-check"></i><b>3.10.4</b> Loops: <em>second example</em></a></li>
+<li class="chapter" data-level="3.10.5" data-path="R-and-stats.html"><a href="R-and-stats.html#miscellany"><i class="fa fa-check"></i><b>3.10.5</b> Miscellany</a></li>
+<li class="chapter" data-level="3.10.6" data-path="R-and-stats.html"><a href="R-and-stats.html#my-number-one-piece-of-advice"><i class="fa fa-check"></i><b>3.10.6</b> My number one piece of advice</a></li>
+<li class="chapter" data-level="3.10.7" data-path="R-and-stats.html"><a href="R-and-stats.html#learn-more"><i class="fa fa-check"></i><b>3.10.7</b> Learn more</a></li>
+<li class="chapter" data-level="3.10.8" data-path="R-and-stats.html"><a href="R-and-stats.html#packages"><i class="fa fa-check"></i><b>3.10.8</b> Packages</a></li>
+<li class="chapter" data-level="3.10.9" data-path="R-and-stats.html"><a href="R-and-stats.html#the-tidyverse"><i class="fa fa-check"></i><b>3.10.9</b> The Tidyverse</a></li>
+<li class="chapter" data-level="3.10.10" data-path="R-and-stats.html"><a href="R-and-stats.html#other-resources"><i class="fa fa-check"></i><b>3.10.10</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="R-and-stats.html"><a href="R-and-stats.html#list-of-commands-mainly-described-in-this-guide."><i class="fa fa-check"></i><b>3.11</b> List of commands, mainly described in this guide.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Trial-design.html"><a href="Trial-design.html"><i class="fa fa-check"></i><b>4</b> Trial Design.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="Trial-design.html"><a href="Trial-design.html#randomised-complete-block-designs"><i class="fa fa-check"></i><b>4.1</b> Randomised complete block designs</a></li>
+<li class="chapter" data-level="4.2" data-path="Trial-design.html"><a href="Trial-design.html#trial-design-in-r"><i class="fa fa-check"></i><b>4.2</b> Trial design in R</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="Trial-design.html"><a href="Trial-design.html#partially-replicated-designs"><i class="fa fa-check"></i><b>4.2.1</b> Partially replicated designs</a></li>
+<li class="chapter" data-level="4.2.2" data-path="Trial-design.html"><a href="Trial-design.html#two-dimensional-designs"><i class="fa fa-check"></i><b>4.2.2</b> Two-dimensional designs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="Trial-design.html"><a href="Trial-design.html#farm-scale-experiments"><i class="fa fa-check"></i><b>4.3</b> Farm scale experiments</a></li>
+<li class="chapter" data-level="4.4" data-path="Trial-design.html"><a href="Trial-design.html#alpha-designs."><i class="fa fa-check"></i><b>4.4</b> Alpha designs.</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="Trial-design.html"><a href="Trial-design.html#creation-of-augmented-and-p-rep-designs-from-2-replicate-alpha-designs"><i class="fa fa-check"></i><b>4.4.1</b> Creation of augmented and p-rep designs from 2-replicate alpha designs</a></li>
+<li class="chapter" data-level="4.4.2" data-path="Trial-design.html"><a href="Trial-design.html#final-message"><i class="fa fa-check"></i><b>4.4.2</b> Final message</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Trial-analysis.html"><a href="Trial-analysis.html"><i class="fa fa-check"></i><b>5</b> Trial analysis (single-site).</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#the-layout-of-the-sugar-beet-trial"><i class="fa fa-check"></i><b>5.1</b> The layout of the sugar beet trial</a></li>
+<li class="chapter" data-level="5.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#fixed-effects-random-effects-and-reml"><i class="fa fa-check"></i><b>5.2</b> Fixed effects, random effects and REML</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="Trial-analysis.html"><a href="Trial-analysis.html#preparing-the-data"><i class="fa fa-check"></i><b>5.2.1</b> Preparing the data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="Trial-analysis.html"><a href="Trial-analysis.html#randomised-complete-block-design"><i class="fa fa-check"></i><b>5.2.2</b> Randomised complete block design</a></li>
+<li class="chapter" data-level="5.2.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#randomised-compelete-block-design---with-mixed-models"><i class="fa fa-check"></i><b>5.2.3</b> Randomised compelete block design - with mixed models</a></li>
+<li class="chapter" data-level="5.2.4" data-path="Trial-analysis.html"><a href="Trial-analysis.html#plotting-residuals-against-field-structure."><i class="fa fa-check"></i><b>5.2.4</b> Plotting residuals against field structure.</a></li>
+<li class="chapter" data-level="5.2.5" data-path="Trial-analysis.html"><a href="Trial-analysis.html#alpha-design-include-block-structure"><i class="fa fa-check"></i><b>5.2.5</b> Alpha design (include block structure)</a></li>
+<li class="chapter" data-level="5.2.6" data-path="Trial-analysis.html"><a href="Trial-analysis.html#rows-and-column-analysis"><i class="fa fa-check"></i><b>5.2.6</b> Rows and column analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="Trial-analysis.html"><a href="Trial-analysis.html#spatial-analysis"><i class="fa fa-check"></i><b>5.3</b> Spatial analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html"><i class="fa fa-check"></i><b>6</b> Trial analysis (cross-sites).</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#blues-blups-and-one-stage-analysis"><i class="fa fa-check"></i><b>6.1</b> BLUEs, BLUPs and one stage analysis</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#one-stage-analysis-with-weights"><i class="fa fa-check"></i><b>6.1.1</b> One stage analysis with weights</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#weighted-two-stage-analysis"><i class="fa fa-check"></i><b>6.2</b> Weighted two-stage analysis</a></li>
+<li class="chapter" data-level="6.3" data-path="Cross-site-analysis.html"><a href="Cross-site-analysis.html#ammi"><i class="fa fa-check"></i><b>6.3</b> AMMI</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="Population-genetics.html"><a href="Population-genetics.html"><i class="fa fa-check"></i><b>7</b> Population genetics.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="Population-genetics.html"><a href="Population-genetics.html#hardy-weinberg-equilibrium-and-population-structure"><i class="fa fa-check"></i><b>7.1</b> Hardy-Weinberg equilibrium and population structure</a></li>
+<li class="chapter" data-level="7.2" data-path="Population-genetics.html"><a href="Population-genetics.html#other-ways-of-analysing-population-structure"><i class="fa fa-check"></i><b>7.2</b> Other ways of analysing population structure</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="Population-genetics.html"><a href="Population-genetics.html#distance-trees"><i class="fa fa-check"></i><b>7.2.1</b> Distance Trees</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="Population-genetics.html"><a href="Population-genetics.html#structure"><i class="fa fa-check"></i><b>7.3</b> Structure</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="Population-genetics.html"><a href="Population-genetics.html#what-structure-does"><i class="fa fa-check"></i><b>7.3.1</b> What STRUCTURE does</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Population-genetics.html"><a href="Population-genetics.html#limitations-of-structure"><i class="fa fa-check"></i><b>7.3.2</b> Limitations of STRUCTURE</a></li>
+<li class="chapter" data-level="7.3.3" data-path="Population-genetics.html"><a href="Population-genetics.html#using-structure"><i class="fa fa-check"></i><b>7.3.3</b> Using Structure</a></li>
+<li class="chapter" data-level="7.3.4" data-path="Population-genetics.html"><a href="Population-genetics.html#the-exercise"><i class="fa fa-check"></i><b>7.3.4</b> The exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="Population-genetics.html"><a href="Population-genetics.html#linkage-disequilibrium-analysis"><i class="fa fa-check"></i><b>7.4</b> Linkage disequilibrium analysis</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="Population-genetics.html"><a href="Population-genetics.html#linkage-disequilibrium-in-the-teosinte-and-barley-data-sets"><i class="fa fa-check"></i><b>7.4.1</b> Linkage disequilibrium in the teosinte and barley data sets</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="Population-genetics.html"><a href="Population-genetics.html#recombination-and-linkage-disequilibrium-applications"><i class="fa fa-check"></i><b>7.5</b> Recombination and linkage disequilibrium: applications</a></li>
+<li class="chapter" data-level="7.6" data-path="Population-genetics.html"><a href="Population-genetics.html#pedigree-analysis"><i class="fa fa-check"></i><b>7.6</b> Pedigree analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Imputation.html"><a href="Imputation.html"><i class="fa fa-check"></i><b>8</b> Imputation.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="Imputation.html"><a href="Imputation.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="Imputation.html"><a href="Imputation.html#the-exercise-1"><i class="fa fa-check"></i><b>8.2</b> The exercise</a></li>
+<li class="chapter" data-level="8.3" data-path="Imputation.html"><a href="Imputation.html#data-preparation-for-all-methods"><i class="fa fa-check"></i><b>8.3</b> Data preparation (for all methods)</a></li>
+<li class="chapter" data-level="8.4" data-path="Imputation.html"><a href="Imputation.html#svd-imputation"><i class="fa fa-check"></i><b>8.4</b> SVD imputation</a></li>
+<li class="chapter" data-level="8.5" data-path="Imputation.html"><a href="Imputation.html#mean-imputation"><i class="fa fa-check"></i><b>8.5</b> Mean imputation</a></li>
+<li class="chapter" data-level="8.6" data-path="Imputation.html"><a href="Imputation.html#random-forest-imputation"><i class="fa fa-check"></i><b>8.6</b> Random Forest Imputation</a></li>
+<li class="chapter" data-level="8.7" data-path="Imputation.html"><a href="Imputation.html#summary-1"><i class="fa fa-check"></i><b>8.7</b> Summary</a></li>
+<li class="chapter" data-level="8.8" data-path="Imputation.html"><a href="Imputation.html#conclusions-and-comments"><i class="fa fa-check"></i><b>8.8</b> Conclusions and comments</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="Association-mapping.html"><a href="Association-mapping.html"><i class="fa fa-check"></i><b>9</b> Association Mapping.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="Association-mapping.html"><a href="Association-mapping.html#introduction-1"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="Association-mapping.html"><a href="Association-mapping.html#preparing-the-data-set"><i class="fa fa-check"></i><b>9.2</b> Preparing the data set</a></li>
+<li class="chapter" data-level="9.3" data-path="Association-mapping.html"><a href="Association-mapping.html#running-gwaspoly"><i class="fa fa-check"></i><b>9.3</b> Running GWASpoly</a></li>
+<li class="chapter" data-level="9.4" data-path="Association-mapping.html"><a href="Association-mapping.html#the-exercise-2"><i class="fa fa-check"></i><b>9.4</b> The exercise</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="Association-mapping.html"><a href="Association-mapping.html#calculation-and-comparison-of-kinship"><i class="fa fa-check"></i><b>9.4.1</b> Calculation and comparison of kinship</a></li>
+<li class="chapter" data-level="9.4.2" data-path="Association-mapping.html"><a href="Association-mapping.html#gwas"><i class="fa fa-check"></i><b>9.4.2</b> GWAS</a></li>
+<li class="chapter" data-level="9.4.3" data-path="Association-mapping.html"><a href="Association-mapping.html#analysis-with-covariates"><i class="fa fa-check"></i><b>9.4.3</b> Analysis with covariates</a></li>
+<li class="chapter" data-level="9.4.4" data-path="Association-mapping.html"><a href="Association-mapping.html#accounting-for-population-structure"><i class="fa fa-check"></i><b>9.4.4</b> Accounting for population structure</a></li>
+<li class="chapter" data-level="9.4.5" data-path="Association-mapping.html"><a href="Association-mapping.html#further-analysis"><i class="fa fa-check"></i><b>9.4.5</b> Further analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html"><i class="fa fa-check"></i><b>10</b> Mapping Markers and Quantitative Trait Loci.</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#introduction-2"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#constructing-a-genetic-map"><i class="fa fa-check"></i><b>10.2</b> Constructing a genetic map</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#formatting-and-reading-in-the-data"><i class="fa fa-check"></i><b>10.2.1</b> Formatting and reading in the data</a></li>
+<li class="chapter" data-level="10.2.2" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#a-quick-map"><i class="fa fa-check"></i><b>10.2.2</b> A quick map!</a></li>
+<li class="chapter" data-level="10.2.3" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#estimating-recombination-fractions"><i class="fa fa-check"></i><b>10.2.3</b> Estimating recombination fractions</a></li>
+<li class="chapter" data-level="10.2.4" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#forming-linkage-groups"><i class="fa fa-check"></i><b>10.2.4</b> Forming Linkage groups</a></li>
+<li class="chapter" data-level="10.2.5" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#marker-ordering"><i class="fa fa-check"></i><b>10.2.5</b> Marker ordering</a></li>
+<li class="chapter" data-level="10.2.6" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#improving-the-map"><i class="fa fa-check"></i><b>10.2.6</b> Improving the map</a></li>
+<li class="chapter" data-level="10.2.7" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#quality-control-commands-for-marker-qc-and-mapping"><i class="fa fa-check"></i><b>10.2.7</b> Quality Control commands for marker QC and mapping</a></li>
+<li class="chapter" data-level="10.2.8" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#asmap"><i class="fa fa-check"></i><b>10.2.8</b> ASMap</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#qtl-mapping-in-rqtl"><i class="fa fa-check"></i><b>10.3</b> QTL mapping in R/qtl</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#genome-scan-single-qtl"><i class="fa fa-check"></i><b>10.3.1</b> Genome Scan – single QTL</a></li>
+<li class="chapter" data-level="10.3.2" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#genome-scan-covariates"><i class="fa fa-check"></i><b>10.3.2</b> Genome Scan – covariates</a></li>
+<li class="chapter" data-level="10.3.3" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#genome-scan-scantwo"><i class="fa fa-check"></i><b>10.3.3</b> Genome Scan – scantwo</a></li>
+<li class="chapter" data-level="10.3.4" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#genome-scan-composite-interval-mapping"><i class="fa fa-check"></i><b>10.3.4</b> Genome Scan – Composite Interval Mapping</a></li>
+<li class="chapter" data-level="10.3.5" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#mqm-multiple-qtl-mapping"><i class="fa fa-check"></i><b>10.3.5</b> MQM: multiple QTL mapping</a></li>
+<li class="chapter" data-level="10.3.6" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#some-commands-for-mapping-in-markers-in-rqtl"><i class="fa fa-check"></i><b>10.3.6</b> Some commands for mapping in markers in R/qtl</a></li>
+<li class="chapter" data-level="10.3.7" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#final-comments"><i class="fa fa-check"></i><b>10.3.7</b> Final comments</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="Mapping-Markers.html"><a href="Mapping-Markers.html#rqtl2"><i class="fa fa-check"></i><b>10.4</b> R/QTL2</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="Data-Visualization.html"><a href="Data-Visualization.html"><i class="fa fa-check"></i><b>11</b> Data Visualization.</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="Data-Visualization.html"><a href="Data-Visualization.html#flapjack"><i class="fa fa-check"></i><b>11.1</b> Flapjack</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="Data-Visualization.html"><a href="Data-Visualization.html#genotype-data-.geno-file."><i class="fa fa-check"></i><b>11.1.1</b> Genotype data: “.geno” file.</a></li>
+<li class="chapter" data-level="11.1.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#map-data-.map-file."><i class="fa fa-check"></i><b>11.1.2</b> Map data : “.MAP” file.</a></li>
+<li class="chapter" data-level="11.1.3" data-path="Data-Visualization.html"><a href="Data-Visualization.html#trait-data"><i class="fa fa-check"></i><b>11.1.3</b> Trait data</a></li>
+<li class="chapter" data-level="11.1.4" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-3"><i class="fa fa-check"></i><b>11.1.4</b> The Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#helium-pedigree-visualization-software"><i class="fa fa-check"></i><b>11.2</b> Helium pedigree visualization software</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="Data-Visualization.html"><a href="Data-Visualization.html#introduction-3"><i class="fa fa-check"></i><b>11.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="11.2.2" data-path="Data-Visualization.html"><a href="Data-Visualization.html#the-exercise-4"><i class="fa fa-check"></i><b>11.2.2</b> The exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="Quantitative-genetics.html"><a href="Quantitative-genetics.html"><i class="fa fa-check"></i><b>12</b> Quantitative genetics and breeding program design.</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="Quantitative-genetics.html"><a href="Quantitative-genetics.html#means-and-variances-in-some-simple-models"><i class="fa fa-check"></i><b>12.1</b> Means and variances in some simple models</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="Quantitative-genetics.html"><a href="Quantitative-genetics.html#additive-dominance-model-of-means-in-a-tomato-cross"><i class="fa fa-check"></i><b>12.1.1</b> Additive-dominance model of means in a tomato cross</a></li>
+<li class="chapter" data-level="12.1.2" data-path="Quantitative-genetics.html"><a href="Quantitative-genetics.html#variances-in-a-barley-nam-population"><i class="fa fa-check"></i><b>12.1.2</b> Variances in a barley NAM population</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="Quantitative-genetics.html"><a href="Quantitative-genetics.html#selecting-in-backcrosses"><i class="fa fa-check"></i><b>12.2</b> Selecting in backcrosses</a></li>
+<li class="chapter" data-level="12.3" data-path="Quantitative-genetics.html"><a href="Quantitative-genetics.html#size-of-breeding-programme-cycle-time-and-recurrent-selection-schemes."><i class="fa fa-check"></i><b>12.3</b> Size of breeding programme, cycle time and recurrent selection schemes.</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="Quantitative-genetics.html"><a href="Quantitative-genetics.html#size-of-breeding-programme"><i class="fa fa-check"></i><b>12.3.1</b> Size of breeding programme</a></li>
+<li class="chapter" data-level="12.3.2" data-path="Quantitative-genetics.html"><a href="Quantitative-genetics.html#speed-of-selection"><i class="fa fa-check"></i><b>12.3.2</b> Speed of selection</a></li>
+<li class="chapter" data-level="12.3.3" data-path="Quantitative-genetics.html"><a href="Quantitative-genetics.html#heritability"><i class="fa fa-check"></i><b>12.3.3</b> Heritability</a></li>
+<li class="chapter" data-level="12.3.4" data-path="Quantitative-genetics.html"><a href="Quantitative-genetics.html#sequential-selection"><i class="fa fa-check"></i><b>12.3.4</b> Sequential Selection</a></li>
+<li class="chapter" data-level="12.3.5" data-path="Quantitative-genetics.html"><a href="Quantitative-genetics.html#optimal-contribution-theory"><i class="fa fa-check"></i><b>12.3.5</b> Optimal Contribution Theory</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="Quantitative-genetics.html"><a href="Quantitative-genetics.html#simulations-using-alphasim"><i class="fa fa-check"></i><b>12.4</b> Simulations using AlphaSim</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html"><i class="fa fa-check"></i><b>13</b> Genomic prediction.</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#ridge-regression-and-genomic-prediction-in-excel"><i class="fa fa-check"></i><b>13.1</b> Ridge regression and Genomic Prediction in Excel</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-4"><i class="fa fa-check"></i><b>13.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.1.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-exercise-5"><i class="fa fa-check"></i><b>13.1.2</b> The Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#genomic-prediction-with-rrblup"><i class="fa fa-check"></i><b>13.2</b> Genomic Prediction with rrBLUP</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#introduction-5"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2.2" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#the-dataset"><i class="fa fa-check"></i><b>13.2.2</b> The dataset</a></li>
+<li class="chapter" data-level="13.2.3" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#loading-and-preparing-the-data"><i class="fa fa-check"></i><b>13.2.3</b> Loading and preparing the data</a></li>
+<li class="chapter" data-level="13.2.4" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#examining-the-data-structure"><i class="fa fa-check"></i><b>13.2.4</b> Examining the data structure</a></li>
+<li class="chapter" data-level="13.2.5" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#ordinary-least-squares"><i class="fa fa-check"></i><b>13.2.5</b> Ordinary least squares</a></li>
+<li class="chapter" data-level="13.2.6" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#rrblup"><i class="fa fa-check"></i><b>13.2.6</b> rrBLUP</a></li>
+<li class="chapter" data-level="13.2.7" data-path="Genomic-prediction.html"><a href="Genomic-prediction.html#prediction-forward-in-time"><i class="fa fa-check"></i><b>13.2.7</b> Prediction forward in time</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="Breeding-simulations.html"><a href="Breeding-simulations.html"><i class="fa fa-check"></i><b>14</b> Breeding simulations.</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="Breeding-simulations.html"><a href="Breeding-simulations.html#introduction-6"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.2" data-path="Breeding-simulations.html"><a href="Breeding-simulations.html#exercise"><i class="fa fa-check"></i><b>14.2</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Methods in Plant Breeding: The Digital Tutorials.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Quantitative-genetics" class="section level1" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Quantitative genetics and breeding program design.</h1>
+<p>The purpose of this exercise is to give a flavour of the algebra underpinning quantitative genetics, the manipulations of means and variances that can be done, and the use to which these can be put. Many of you will find this hard, and you may not have done this sort of thing before. Don’t worry, we’ll guide you through it, and will step through it at the end too.</p>
+<div id="means-and-variances-in-some-simple-models" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> Means and variances in some simple models</h2>
+<div id="additive-dominance-model-of-means-in-a-tomato-cross" class="section level3" number="12.1.1">
+<h3><span class="header-section-number">12.1.1</span> Additive-dominance model of means in a tomato cross</h3>
+<p>Data are from Biometrical Genetics, the classic textbook by Mather and Jinks, with some modification <span class="citation">(<a href="references.html#ref-mather_biometrical_1971" role="doc-biblioref">Mather and Jinks 1971</a>)</span>.</p>
+<p>The mean weight per locule in a cross between two tomato varieties was:</p>
+<pre><code>per locule
+P1  10.36
+P2   0.45
+F1   2.33</code></pre>
+<p>(I assume the units of measurements are grams – M&amp;J don’t say!)</p>
+<p>Calculate:</p>
+<p><span class="math inline">\(m\)</span> =</p>
+<p><span class="math inline">\(a\)</span> =</p>
+<p><span class="math inline">\(d\)</span> =</p>
+<p>You can check that the calculations are correct by predicting the three cross means from m, a, and d. You should get a perfect fit.</p>
+<p>To test the model (informally), we can compare the observed and predicted means of the F2:</p>
+<p>Predicted mean as (<span class="math inline">\(m\)</span> + <span class="math inline">\(½d\)</span>) =</p>
+<p>Observed mean = 2.12.</p>
+<p>With more information, we could test the statistical significance of the difference between the observed and predicted F2 means. (It is significant.) Does this mean this is a good model or a bad model? This approach can be extended to include more generations and crosses – usually the F3 or mean of completely inbred lines, and the two back cross generations, which allows fitting more complex models to the means, including interaction terms.</p>
+
+<div class="rmdquiz">
+<strong>1</strong>
+In our example, what do you think the cause of the discrepancy between the observed and predicted values of the F2 might be?
+</div>
+<p>Here is another example:</p>
+<pre><code>P1   1.02
+P2  -0.35
+F1   0.37</code></pre>
+<p>As before, estimate <span class="math inline">\(m\)</span>, <span class="math inline">\(a\)</span> and <span class="math inline">\(d\)</span>.</p>
+<p><span class="math inline">\(m\)</span> =</p>
+<p><span class="math inline">\(a\)</span> =</p>
+<p><span class="math inline">\(d\)</span> =</p>
+<p>F2 predicted =</p>
+<p>F2 observed = 0.33</p>
+<p>In this case, the difference between observed and predicted F2 means is not statistically significant. There is a simple relationship between the data in these two examples. I will explain and we will discuss.</p>
+</div>
+<div id="variances-in-a-barley-nam-population" class="section level3" number="12.1.2">
+<h3><span class="header-section-number">12.1.2</span> Variances in a barley NAM population</h3>
+<p>Data are taken from <span class="citation"><a href="references.html#ref-Sharma2018" role="doc-biblioref">Sharma et al.</a> (<a href="references.html#ref-Sharma2018" role="doc-biblioref">2018</a>)</span>.</p>
+<p>To introgress new variation from wild to elite barley, backcrosses were made of <em>Hordeum spontaneum</em> accessions to an elite Barley variety, Barke. About 60 inbred lines were derived from each backcross and scored for traits of interest.</p>
+<p>Summary data on heading date for 22 crosses are in the spreadsheet ‘NAM phens exercise,’</p>
+<p>For each cross, calculate <span class="math inline">\(m\)</span> and <span class="math inline">\(&#39;a&#39;\)</span> from the mean of the two parents. N.B. convention is that <span class="math inline">\(&#39;a&#39;\)</span> is defined with reference to the higher scoring parent, so it is always positive. However, for ease of comparison and calculation here, define it with reference to the <em>spontaneum</em> parent: it will usually be positive but can sometimes be negative. <span class="math inline">\(&#39;a&#39;\)</span> is often written as <span class="math inline">\([a]\)</span> to make it clear that this is a net additive effect over multiple loci.</p>
+
+<div class="rmdquiz">
+<strong>2</strong>
+Correlate <span class="math inline">\(m\)</span> and <span class="math inline">\([a]\)</span> and explain their relationship.
+</div>
+
+<div class="rmdquiz">
+<strong>3</strong>
+Predict the mean of the backcross lines. Plot and correlate the predicted and observed means. Comment on the relationship.
+</div>
+
+<div class="rmdquiz">
+<strong>4</strong>
+What do you notice about the difference in means between the observed and predicted values? What might cause this effect?
+</div>
+
+<div class="rmdquiz">
+<strong>5</strong>
+Correlate and plot the absolute value of <span class="math inline">\(‘a’\)</span> with the variance among the RILs.
+Comment on the relationship.
+</div>
+
+<div class="rmdquiz">
+<strong>6</strong>
+Why did we use the absolute value of <span class="math inline">\(‘a’\)</span> here?
+</div>
+
+<div class="rmdquiz">
+<strong>7</strong>
+Why do plant breeders place so much emphasis on transgressive segregation?
+</div>
+
+<div class="rmdquiz">
+<strong>8</strong>
+We would expect to find more transgressive segregation in crosses with a small <span class="math inline">\([a]\)</span> and a large genetic variance. Is that true here? What might distort the pattern?
+</div>
+<p>Comment on the difference in numbers of late and early transgressive segregants. Is there any pattern?</p>
+<p>Multiple linear regression over crosses of the number of transgressive segregants on <span class="math inline">\([a]\)</span> and the square root of the variance (the standard deviation) gave the following results on these data:</p>
+<pre><code>                           Regression on
+Trait                       [a]           s.d.
+Total no. transgressive         -0.05       -5.26
+No. early transgressive          1.11       -4.93
+No. late transgressive          -1.17       -0.30</code></pre>
+<p>Does this help with the interpretation?</p>
+<p>NB I regressed on standard deviation rather than on the variance for ease of interpretation (same scale of measurement for mean and s.d.). However, using linear regression here, especially for the number of late transgressive lines is suspect.</p>
+
+<div class="rmdquiz">
+<strong>9</strong>
+We don’t know the heritability of heading data for these data. How might this help in the interpretation of the data.
+</div>
+<p>We ought to have spent time studying the raw data. These are available in the spreadsheet. A set of box plots in R will give an overview of the variability across crosses. Plot histograms of individual crosses for more detail. (Hint – use the R command “split” to chop the data into individual crosses).</p>
+</div>
+</div>
+<div id="selecting-in-backcrosses" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Selecting in backcrosses</h2>
+<p><em>Selecting among inbred lines derived from F2 and backcross generations.</em></p>
+<p><span class="citation"><a href="references.html#ref-Schnell_1975" role="doc-biblioref">Schnell and Utz</a> (<a href="references.html#ref-Schnell_1975" role="doc-biblioref">1975</a>)</span> introduced the usefulness criterion to compare the merit of different crosses. This is a simple application of the breeders’ equations:</p>
+<p><span class="math display">\[U  = m + ihσ_{g}\]</span></p>
+<p>For lines derived from any cross, provided one has estimates of genetic variation, heritability and intensity of selection (and two of those are under your control), then <span class="math inline">\(U\)</span>, the <em>usefulness</em>, can be used to select between crosses. Note we include the mean. The major problem, as with all cross prediction methods, is in estimation of the genetic variance of the cross. The cross mean can be approximated by the mean of the two parents. There is increased interest in <em>usefulness</em> with the advent of genomic selection, since this might estimate genetic variance within crosses in advance of making the cross (proved in simulation only so far, I believe). Recent discussions are <span class="citation"><a href="references.html#ref-bernardo_genomewide_2014" role="doc-biblioref">R. Bernardo</a> (<a href="references.html#ref-bernardo_genomewide_2014" role="doc-biblioref">2014b</a>)</span> and <span class="citation"><a href="references.html#ref-allier_usefulness_2019" role="doc-biblioref">Allier et al.</a> (<a href="references.html#ref-allier_usefulness_2019" role="doc-biblioref">2019</a>)</span>.</p>
+<p>When comparing the relative merits of backcross and F2 derived lines, <em>usefulness</em> is easier to apply, since we can derive the mean and genetic variance theoretically.</p>
+<p>In the lecture, we used the following example:</p>
+<p><em>Simple additive model so mean of cross = mean of parents</em>.</p>
+<pre><code>Cross 1:    P1 = P2 = 100,      Va =10  (between RILs)
+Cross 2:    P1 = 100, P2 = 50,  Va =100 (between RILs)</code></pre>
+
+<div class="rmdquiz">
+<strong>10</strong>
+In comparing F2 and backcross derived lines we shall treat the heritability as constant. This is wrong. Why?
+</div>
+
+<div class="rmdquiz">
+<strong>11</strong>
+Repeat the exercise in the lecture: which population is best when selecting the best line from 100 (i = 2.52)?
+</div>
+
+<div class="rmdquiz">
+<strong>12</strong>
+We asserted that the mean of the backcross to the best parent was ½ <span class="math inline">\(Σa\)</span> and the variance
+¾ <span class="math inline">\(Σa^2\)</span>. Prove it. (Tabulate the frequency of each of the two genotypes and the mean of each genotype. The cross mean is sum of the frequencies x the means. The variance is the means<sup>2</sup> x the frequencies minus the overall mean<sup>2</sup>.)
+</div>
+
+<div class="rmdquiz">
+<strong>13</strong>
+Work out the mean and variance of the 2nd backcross to the best parent. What responses to selection do you predict from selecting within this?
+</div>
+
+<div class="rmdquiz">
+<strong>14</strong>
+What would the mean and variance be for lines derived from a very large number of backcrosses (no need to calculate it, just think about it)? Comment on the best starting population, considering the means, variances, intensities of selection and desired genetic gain (or target yield).
+</div>
+
+<div class="rmdquiz">
+<strong>15</strong>
+How would you incorporate differing heritabilities into the predictions of usefulness. (I’ve not tried this yet. Feel free to have a go.)
+</div>
+
+<div class="rmdquiz">
+<strong>16</strong>
+What genetic effects would cause the mean of the cross to deviate from the mean of the two parents.
+</div>
+</div>
+<div id="size-of-breeding-programme-cycle-time-and-recurrent-selection-schemes." class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Size of breeding programme, cycle time and recurrent selection schemes.</h2>
+<p>It is not intuitively obvious whether resources are best allocated to increasing the scale of a breeding programme – by testing more varieties and/or by testing more extensively – or by running the breeding programme quicker. This can be studied in general terms by considering the breeders equation:</p>
+<p><span class="math display">\[R  = ihσ_{g}\]</span></p>
+<p>For this exercise will need to install Solver in Excel. Solver is a Microsoft add-in. Within excel, click on the Office button or ‘File,’ then select ‘Excel options’ or just ‘options’ at the base of the drop down menu, then click on ‘Addins’ on the left hand side of the next screen, select ‘Excel Add-ins’ at the bottom of the same screen, then click Go. Ensure that “Solver Add-in’ is selected then click OK. Sometimes, solver has been selected but doesn’t appear on the ‘Add-in’ tab. Deselecting it, then reselecting it usually works. Once installed, you should find Solver by clicking on the ‘Data’ tab, after which you should see “Solver” on the right hand side at the top of the screen.</p>
+<p>Solver maximises or minimises the contents of a single cell by altering the values in user specified cells. There must be a formula in the cell to be minimised which links to the contents of the cells to be changed. This maximising and minimising of functions is also available in statistical packages, but the implementation in Excel is easier to follow. If, say, the cell to be minimised contained the error sum of squares from a regression analysis and the cells to be changed were the parameters in that regression, solver would search for the least squares solution. Of course, there are easier ways of estimating regression coefficients in Excel and other statistical packages but there are occasions when the standard method does not work.</p>
+<div id="size-of-breeding-programme" class="section level3" number="12.3.1">
+<h3><span class="header-section-number">12.3.1</span> Size of breeding programme</h3>
+<p>Consider intensity of selection; <span class="math inline">\(i\)</span>. It is obvious from the breeders’ equation that doubling <span class="math inline">\(i\)</span> will also double the response to selection, but what does this require? For any proportion of the population which is selected (ranging from 0 to 1 obviously) <span class="math inline">\(i\)</span> can be calculated. It has been tabulated in many textbooks but can be more conveniently be calculated from approximate formulae available in the “intensity of selection” spreadsheet included in the data folder (these approximations are very accurate.)</p>
+<p>Suppose you must always select at least 10 lines or individuals to go forward to the next generation.</p>
+
+<div class="rmdquiz">
+<p><strong>17</strong></p>
+<p>a: What are the populations sizes required for 0.4, 0.2, 0.1, 0.05, 0.025 and 0.0125 selection? Look up the intensity of selection for these proportions.</p>
+<p>b: Plot the intensity of selection against the required population size.</p>
+c: What does this tell you about the merit of increasing the scale of a breeding programme as a strategy for increasing response?
+</div>
+</div>
+<div id="speed-of-selection" class="section level3" number="12.3.2">
+<h3><span class="header-section-number">12.3.2</span> Speed of selection</h3>
+<p>Next consider speed. If we can cycle through our material twice as fast, then we get twice the response to selection. Of course, there are cost implications for this. Suppose that to compensate for doubling the speed, you must halve the population size. Thus, the rapid scheme selecting 10% from a population of 100 is equivalent in cost to the slower scheme selecting 5% from a population of 200. Take the intensities of selection you calculated in the previous paragraph, and double them to get responses to selection from the rapid schemes. Then compare these to the original intensities from schemes with twice the population size.</p>
+
+<div class="rmdquiz">
+<strong>18</strong>
+What does this tell you about the merit of increasing the scale of a breeding programme compared to increasing its speed?
+</div>
+</div>
+<div id="heritability" class="section level3" number="12.3.3">
+<h3><span class="header-section-number">12.3.3</span> Heritability</h3>
+<p>Heritability also affects response to selection. As plant breeders, the heritability of the units on which we select (lines, hybrids, clones) is often under our control as we can grow more replicates of each. Ignoring subtleties about allocation of resource between sites / years / replicate plots, we can study the effect of testing more extensively by taking the heritability of a candidate for selection as:</p>
+<p><span class="math display">\[h^2   = Vg / (Vg + Ve/n)\]</span></p>
+<p><span class="math inline">\(Vg\)</span> and <span class="math inline">\(Ve\)</span> are genetic and environmental component of variations and <span class="math inline">\(n\)</span> is the number of replicates. Clearly as <span class="math inline">\(n\)</span> goes up, so will <span class="math inline">\(h^2\)</span> and therefore so will the response to selection.</p>
+<p>Set up a spreadsheet to calculate response to selection while varying <span class="math inline">\(i\)</span>, <span class="math inline">\(n\)</span>, and <span class="math inline">\(Ve\)</span>. I’ve set up a template to help you get started. There is a workbook “response to selection” in the spreadsheet “resource allocation.xls.” Change the size of the population before selection and the number of replicates tested while keeping the total number of plots per breeding cycle fixed at 1000 (we assume this represents a fixed cost for the different breeding programmes). Observe the consequence on response to selection.</p>
+
+<div class="rmdquiz">
+<p><strong>19</strong></p>
+<p>a: What is the best allocation of plots and intensity of selection? (You can do this by trial and error or use “solver.”)</p>
+<p>b: Reduce the cycle time from 2 years to 1 and repeat the optimising process, maintaining the plots per year at 500. What would you spend your money on?</p>
+c: What other information could we add to make the system more realistic? Are we assuming anything else?
+</div>
+</div>
+<div id="sequential-selection" class="section level3" number="12.3.4">
+<h3><span class="header-section-number">12.3.4</span> Sequential Selection</h3>
+<p>Remember that the genetic variance remaining among a set of lines, after selection, is</p>
+<p><span class="math display">\[Vg’ = [1-i(i-z)h^2 ]Vg\]</span></p>
+<p>We can use this formula to devise sequential selection programmes. The spreadsheet, “seq sel.xls” does this in the worksheet “deterministic.” I’ll talk you through it.</p>
+<p>We’ll use these variance components:</p>
+<pre><code>genotypes     2.513
+g x trials    3.477645338
+plot error    3.415354662</code></pre>
+<p>These are estimates from the analysis of a multi-centre Oil Seed Rape analysis, ignoring countries. We’re assuming there is no genotypes x years interaction (improbable). Because of the nature of the data (site means), we also have to assume that the plot error is fixed – there is no opportunity to change it by altering replicate numbers within trials. But as we have already seen, the optimum allocation would be just one replicate per site.</p>
+<p>The OSR trial series had 1023 plots, we’ll round it to 1000, allocated to candidate varieties; the rest were allocated controls. For simplicity, we’ll assume there are up to 1000 varieties to test. What is the maximum response the breeder can get by testing in a single year? He can discard varieties: no need to test them all. To calculate this, optimise the response over 1 year for 1000 plots: since we have assumed no varieties by years interaction we can do this just be optimising the response in a single year, selecting one variety with 1000 plots (I get a maximum response of 3.56)</p>
+<p>Now consider two-stage selection. How much better can we do now, with the same total plot number? I’ll talk you through the spreadsheet to explain how it works.</p>
+
+<div class="rmdquiz">
+<p><strong>20</strong></p>
+<p>a: What advantages would computer simulation have for this sort of exercise? Any disadvantages?</p>
+<p>b: Assume that the second stage adds 1 year to a 6 year breeding programme? Is the extra response worth the additional time?</p>
+<p>c: Consider a constant cost per trial site on top of a standard cost per plot. We’ll invent some figures in the class. What allocation gives you the best value for money? Measure value for money as response to selection per year per dollar.</p>
+d: Suppose that the varieties x years component was equal to the varieties x sites (within years) component. What effect does this have?
+</div>
+</div>
+<div id="optimal-contribution-theory" class="section level3" number="12.3.5">
+<h3><span class="header-section-number">12.3.5</span> Optimal Contribution Theory</h3>
+<p>If the best 10% of individuals are selected and contribute equally to the next generation, the predicted response to selection can be looked up in tables or calculated. Associated with this response will be some loss of genetic variation which can be quantified by the increase in inbreeding within the population or equivalently by the effective population size. These in turn are functions of the number of selected individuals. However, truncation selection is not optimal. Other selection schemes can be found which give a greater response to selection for the same rate of loss of variation. The optimum contribution can be found by putting a restraint on inbreeding and then searching for the proportional contribution of every individual to the next generation which maximises response. This is optimal contribution theory. I learnt it from tree breeders: <span class="citation"><a href="references.html#ref-lindgren_deployment_1989" role="doc-biblioref">D. Lindgren, Libby, and Bondesson</a> (<a href="references.html#ref-lindgren_deployment_1989" role="doc-biblioref">1989</a>)</span> and <span class="citation"><a href="references.html#ref-lindgren_optimal_1993" role="doc-biblioref">D. Lindgren, Wei, and Bondesson</a> (<a href="references.html#ref-lindgren_optimal_1993" role="doc-biblioref">1993</a>)</span> and also from <span class="citation"><a href="references.html#ref-toro_simple_1984" role="doc-biblioref">Toro and Nieto</a> (<a href="references.html#ref-toro_simple_1984" role="doc-biblioref">1984</a>)</span>, but it is now generally associated with John Woolliams from the Roslin institute and colleagues (e.g. <span class="citation"><a href="references.html#ref-woolliams_genetic_2015" role="doc-biblioref">Woolliams et al.</a> (<a href="references.html#ref-woolliams_genetic_2015" role="doc-biblioref">2015</a>)</span>), with more complexity introduced to consider long term contribution over greater than one generation. The theory is becoming more important as genomic selection is taken up; a risk from this is that rates of inbreeding and loss of genetic variation will increase unless controlled. The basic principle is easy to demonstrate however.</p>
+<p><strong><em>Column B</em></strong> of the spreadsheet “optimal contribution theory” shows expected breeding values of 100 individuals where these are perfectly normally distributed.</p>
+<p><strong><em>Column C</em></strong> is the proportional contribution of each individual to the next generation. These can be altered but must add up to one and cannot be negative. They are currently set to 0.02 for the first 50 individuals and to zero for the others.</p>
+<p><strong><em>Column D</em></strong> is the product of B and C and is the contribution to the mean of the selected group of each individual. The sum of column D is the mean of the selected group, taking into account that individuals contribute unequally.</p>
+<p><strong><em>Columns F and G</em></strong> report some summary statistics. The total contribution must equal 1. The minimum contribution of any individual must be ≥ 0.</p>
+<p>The sum of squares of the contributions across all individuals is a direct measure of loss of diversity and can be converted into a rate of increase in inbreeding and to effective population size <span class="citation">(<a href="references.html#ref-mackay_accelerated_1999" role="doc-biblioref">I. J. Mackay et al. 1999</a>)</span>. The mean of the selected group is the sum of column D and is the intensity of selection if the breeding values have a mean of zero and variance of one (which they do here).</p>
+
+<div class="rmdquiz">
+<strong>21</strong>
+Calculate the intensity of selection and Ne if the top ten individuals are selected and contribute equally. By trial and error, or using solver, see if you can find proportional contributions which increase the response to selection while keeping the same effective population size at least as large as for truncation selection of the top ten individuals.
+</div>
+
+<div class="rmdnote">
+Note – solver has a lot of work to do here, and you will have to put some restraints on the calculation too, to keep Ne constant and too stop contributions going negative. You may also need to try different starting proportions to get it to find the maximum. There are methods of calculating the optimal contributions directly rather than numerically, as were using here, but we shall not go into them.
+</div>
+</div>
+</div>
+<div id="simulations-using-alphasim" class="section level2" number="12.4">
+<h2><span class="header-section-number">12.4</span> Simulations using AlphaSim</h2>
+<p>Recently, some excellent breeding programme simulation packages have started to become available. Notable among these is <a href="https://alphagenes.roslin.ed.ac.uk/wp/software-2/alphasimr/">AlphaSim</a> from the Roslin Institute. An R version has recently been released on CRAN, with associated publication <span class="citation">(<a href="references.html#ref-Gaynor2020" role="doc-biblioref">R. Chris Gaynor, Gorjanc, and Hickey 2020</a>)</span>. Download and load the package:</p>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="Quantitative-genetics.html#cb644-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;AlphaSimR&quot;</span>)</span>
+<span id="cb644-2"><a href="Quantitative-genetics.html#cb644-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;AlphaSimR&quot;</span>)</span></code></pre></div>
+<p>The R package is still in development but it brings together powerful tools developed by the group in breeding program simulations (see. e.g. <span class="citation"><a href="references.html#ref-Faux2016" role="doc-biblioref">Faux et al.</a> (<a href="references.html#ref-Faux2016" role="doc-biblioref">2016</a>)</span> and <span class="citation"><a href="references.html#ref-Gaynor2017" role="doc-biblioref">R. Chris Gaynor et al.</a> (<a href="references.html#ref-Gaynor2017" role="doc-biblioref">2017</a>)</span>). AlphaSim takes as a starting point a population of lines in a breeding programme. Following the script for a basic wheat simulation documented in <span class="citation"><a href="references.html#ref-Gaynor2020" role="doc-biblioref">R. Chris Gaynor, Gorjanc, and Hickey</a> (<a href="references.html#ref-Gaynor2020" role="doc-biblioref">2020</a>)</span>, the founder haplotypes in this population are generated from a coalescent simulation using either a predefined parameter set for a species (e.g. chromosome number, ploidy level, etc) or with a user defined set of parameters. Real breeding population data can also be used directly as input. In this example, a standard wheat breeding population is generated by the coalescent approach. SegSites refers to the number of segregating sites modelled per chromosome:</p>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="Quantitative-genetics.html#cb645-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate Founder haplotypes</span></span>
+<span id="cb645-2"><a href="Quantitative-genetics.html#cb645-2" aria-hidden="true" tabindex="-1"></a>founderPop <span class="ot">=</span> <span class="fu">runMacs</span>(<span class="at">nInd =</span> <span class="dv">50</span>, <span class="at">nChr =</span> <span class="dv">21</span>, <span class="at">segSites =</span> <span class="dv">1000</span>, <span class="at">inbred =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Single or multiple traits can be modelled. Setting parameters for a single trait:</p>
+<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="Quantitative-genetics.html#cb646-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set Global parameters</span></span>
+<span id="cb646-2"><a href="Quantitative-genetics.html#cb646-2" aria-hidden="true" tabindex="-1"></a>SP <span class="ot">=</span> SimParam<span class="sc">$</span><span class="fu">new</span>(founderPop)<span class="sc">$</span><span class="fu">addTraitA</span>(<span class="dv">1000</span>)<span class="sc">$</span><span class="fu">setVarE</span>(<span class="at">H2 =</span> <span class="fl">0.4</span>)</span></code></pre></div>
+<p>Traits can be modelled with additive variances plus any combination of dominance, epistatic and GxE variances Here the A stands for only additive. The final line sets the trait heritability (here = 0.4).</p>
+<p>The next steps are to set up the stage of the breeding programme beginning with the parental crosses and F1s (see Figure 1 in <span class="citation"><a href="references.html#ref-Gaynor2020" role="doc-biblioref">R. Chris Gaynor, Gorjanc, and Hickey</a> (<a href="references.html#ref-Gaynor2020" role="doc-biblioref">2020</a>)</span>) for an overview of the scheme:</p>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="Quantitative-genetics.html#cb647-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate first year of programme</span></span>
+<span id="cb647-2"><a href="Quantitative-genetics.html#cb647-2" aria-hidden="true" tabindex="-1"></a>Parents <span class="ot">=</span> <span class="fu">newPop</span>(founderPop)</span>
+<span id="cb647-3"><a href="Quantitative-genetics.html#cb647-3" aria-hidden="true" tabindex="-1"></a>F1 <span class="ot">=</span> <span class="fu">randCross</span>(Parents, <span class="dv">200</span>)</span></code></pre></div>
+<p>Followed by production and evaluation of double haploids in headrows (with reduced heirtability at this stage:</p>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="Quantitative-genetics.html#cb648-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2nd and 3rd years</span></span>
+<span id="cb648-2"><a href="Quantitative-genetics.html#cb648-2" aria-hidden="true" tabindex="-1"></a>HDRW <span class="ot">=</span> <span class="fu">makeDH</span>(F1, <span class="dv">100</span>)</span>
+<span id="cb648-3"><a href="Quantitative-genetics.html#cb648-3" aria-hidden="true" tabindex="-1"></a>HDRW <span class="ot">=</span> <span class="fu">setPheno</span>(HDRW, <span class="at">varE =</span> <span class="dv">9</span>)  <span class="co">#H2=0.1</span></span></code></pre></div>
+<p>And the start of a selection series, firstly within each DH family in a preliminary yield trial (5 is the number of lines selected per family)</p>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="Quantitative-genetics.html#cb649-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation in preliminary yield trial</span></span>
+<span id="cb649-2"><a href="Quantitative-genetics.html#cb649-2" aria-hidden="true" tabindex="-1"></a>PYT <span class="ot">=</span> <span class="fu">selectWithinFam</span>(HDRW, <span class="dv">5</span>)</span>
+<span id="cb649-3"><a href="Quantitative-genetics.html#cb649-3" aria-hidden="true" tabindex="-1"></a>PYT <span class="ot">=</span> <span class="fu">setPheno</span>(PYT)</span></code></pre></div>
+<p>And then in Advanced and elite yield trials across all lines with 100,10 and 1 selections being made in 3 stages, in increasing numbers of locations, ending up with a single variety.</p>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="Quantitative-genetics.html#cb650-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation in advanced yield trial</span></span>
+<span id="cb650-2"><a href="Quantitative-genetics.html#cb650-2" aria-hidden="true" tabindex="-1"></a>AYT <span class="ot">=</span> <span class="fu">selectInd</span>(PYT, <span class="dv">100</span>)</span>
+<span id="cb650-3"><a href="Quantitative-genetics.html#cb650-3" aria-hidden="true" tabindex="-1"></a>AYT <span class="ot">=</span> <span class="fu">setPheno</span>(AYT, <span class="at">reps =</span> <span class="dv">4</span>)</span>
+<span id="cb650-4"><a href="Quantitative-genetics.html#cb650-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-5"><a href="Quantitative-genetics.html#cb650-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Elite yield trial</span></span>
+<span id="cb650-6"><a href="Quantitative-genetics.html#cb650-6" aria-hidden="true" tabindex="-1"></a>EYT <span class="ot">=</span> <span class="fu">selectInd</span>(AYT, <span class="dv">10</span>)</span>
+<span id="cb650-7"><a href="Quantitative-genetics.html#cb650-7" aria-hidden="true" tabindex="-1"></a>EYT <span class="ot">=</span> <span class="fu">setPheno</span>(EYT, <span class="at">reps =</span> <span class="dv">16</span>)</span>
+<span id="cb650-8"><a href="Quantitative-genetics.html#cb650-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-9"><a href="Quantitative-genetics.html#cb650-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Variety release!</span></span>
+<span id="cb650-10"><a href="Quantitative-genetics.html#cb650-10" aria-hidden="true" tabindex="-1"></a>Variety <span class="ot">=</span> <span class="fu">selectInd</span>(EYT, <span class="dv">1</span>)</span></code></pre></div>
+<p>Finally the results can be visualised and quantified:</p>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="Quantitative-genetics.html#cb651-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation</span></span>
+<span id="cb651-2"><a href="Quantitative-genetics.html#cb651-2" aria-hidden="true" tabindex="-1"></a>yield <span class="ot">=</span> <span class="fu">list</span>(<span class="at">Parents =</span> <span class="fu">gv</span>(Parents), <span class="at">F1 =</span> <span class="fu">gv</span>(F1), <span class="at">HDRW =</span> <span class="fu">gv</span>(HDRW), </span>
+<span id="cb651-3"><a href="Quantitative-genetics.html#cb651-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">PYT =</span> <span class="fu">gv</span>(PYT), <span class="at">AYT =</span> <span class="fu">gv</span>(AYT), <span class="at">EYT =</span> <span class="fu">gv</span>(EYT), <span class="at">Variety =</span> <span class="fu">gv</span>(Variety))</span>
+<span id="cb651-4"><a href="Quantitative-genetics.html#cb651-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(yield, <span class="at">ylab =</span> <span class="st">&quot;Genetic Value&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-520-1.png" width="672" /></p>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="Quantitative-genetics.html#cb652-1" aria-hidden="true" tabindex="-1"></a>yield<span class="sc">$</span>Variety</span></code></pre></div>
+<pre><code>##          [,1]
+## [1,] 3.588101</code></pre>
+<p>The above script is an illustration of a single breeding cycle in a “typical” commercial wheat breeding programme. The software offers an almost limitless flexibility for designing breeding programmes with different combinations of crossing, propagation and selection phases and approaches over multiple breeding cycles, including options for adding genomic prediction at various stages (as can be seen in <span class="citation"><a href="references.html#ref-Gaynor2017" role="doc-biblioref">R. Chris Gaynor et al.</a> (<a href="references.html#ref-Gaynor2017" role="doc-biblioref">2017</a>)</span>) A wide range of parameters can also be modified, including different trait models, as well as selection on multiple traits. Some of this functionality has been made available in a GUI form at <a href="https://alphagenes.shinyapps.io/alphasimrshiny/" class="uri">https://alphagenes.shinyapps.io/alphasimrshiny/</a> and some examples of the different analyses possible, including helpful teaching tools, are presented at <a href="https://bitbucket.org/hickeyjohnteam/alphasimr_examples/src/master/" class="uri">https://bitbucket.org/hickeyjohnteam/alphasimr_examples/src/master/</a>.</p>
+<p>Explore the options available in the package window and think how you might simulate a breeding programme in your own crop species for a trait of interest. Think about which parameters are most important and how you might model them.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Data-Visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Genomic-prediction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/12-Quantitative_genetics.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
